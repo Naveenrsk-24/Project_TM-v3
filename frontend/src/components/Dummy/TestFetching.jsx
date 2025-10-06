@@ -1,13 +1,15 @@
+'use client'
+
 import { useState, useEffect } from 'react'
 
-function App() {
+export default function TestFetching() {
   const [data, setData] = useState([]);
 
-  useEffect(()=>{
+  useEffect(() => {
     async function fetchData() {
-      console.log(import.meta.env.VITE_API_URL)
+      console.log(process.env.NEXT_PUBLIC_API_URL)
       try {
-        const response = await fetch(`${import.meta.env.VITE_API_URL}posts`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}products`);
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
@@ -24,7 +26,7 @@ function App() {
 
   return (
     <>
-     <h1>Hello</h1>
+      <h1>Hello</h1>
       <div>
         {data.length > 0 ? (
           data.map((item, index) => (
@@ -39,5 +41,3 @@ function App() {
     </>
   )
 }
-
-export default App
