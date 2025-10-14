@@ -14,7 +14,7 @@ export default function HeroSection() {
         alt="Groom putting ring on bride's finger"
         fill
         priority
-        className="object-cover object-center -z-10"
+        className="object-cover object-center -z-10 rounded-tr-lg rounded-bl-lg"
       />
 
       {/* Overlay */}
@@ -37,12 +37,12 @@ export default function HeroSection() {
       </div>
 
       {/* Portrait Photo Frame (Right Side) */}
-      <div className="relative z-10 mb-8 md:mb-0 md:flex items-center justify-center w-full sm:w-[350px] md:w-[500px] h-[400px] sm:h-[450px] md:h-[580px] border-4 border-white shadow-2xl overflow-hidden rounded-2xl md:rounded-none">
+      <div className="relative z-10 mb-8 md:mb-0 md:flex items-center justify-center w-full sm:w-[350px] md:w-[500px] h-[400px] sm:h-[450px] md:h-[580px] border-[6px] border-white shadow-2xl overflow-hidden rounded-tr-[50px] rounded-bl-[50px]">
         <Image
           src="/Weddings/beautiful-husband-wife-posing-beach.jpg"
           alt="Bride holding bouquet"
           fill
-          className="object-cover object-center"
+          className="object-cover object-center "
         />
       </div>
     </section>

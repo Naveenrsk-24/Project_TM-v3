@@ -1,3 +1,4 @@
+import WeddingHero from "@/components/Dummy/Dummy1";
 import TestFetching from "@/components/Dummy/TestFetching";
 import { ParallaxScrollDemo } from "@/components/Gallery/ParallaxScrollDemo";
 import FaqSection from "@/components/Home/FaqSection";
@@ -13,6 +14,7 @@ export default function Home() {
    <NumbersSection/>
    {/* <ParallaxScrollDemo/> */}
    <FaqSection/>
+   {/* <WeddingHero/> */}
    </>
 
   );
