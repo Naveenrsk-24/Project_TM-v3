@@ -1,3 +1,4 @@
+import AdminDashboard from "@/components/Dashboard/AdminDashboard";
 import WeddingHero from "@/components/Dummy/Dummy1";
 import TestFetching from "@/components/Dummy/TestFetching";
 import { ParallaxScrollDemo } from "@/components/Gallery/ParallaxScrollDemo";
@@ -15,6 +16,7 @@ export default function Home() {
    {/* <ParallaxScrollDemo/> */}
    <FaqSection/>
    {/* <WeddingHero/> */}
+   {/* <AdminDashboard/> */}
    </>
 
   );
