@@ -112,7 +112,7 @@ const NavBarMain = () => {
           <div className="w-full bg-white px-4">
             <nav className="flex justify-between items-center py-2">
               <a href="/" className="text-3xl font-semibold ml-2.5">
-                <Image src={LogoImage} width={70} height={50} />
+                <Image src={LogoImage} alt="LOGO" width={70} height={50} />
               </a>
               <div className="lg:hidden">
                 <button

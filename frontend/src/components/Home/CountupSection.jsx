@@ -69,8 +69,8 @@ const NewCountUp = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1.5 }}
         >
-          <img
-            src="https://images.unsplash.com/photo-1519183071298-a2962eadcdb2?auto=format&fit=crop&w=1600&q=80"
+          <Image
+            src="/Weddings/beautiful-husband-wife-posing-beach.jpg"
             alt="Photographer capturing moments"
             fill
             style={{ objectFit: "cover" }}
