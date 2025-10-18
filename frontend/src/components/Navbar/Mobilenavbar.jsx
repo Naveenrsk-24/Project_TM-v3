@@ -3,15 +3,12 @@ import React, { useState } from 'react';
 import LogoImage from '../../../public/Logo/dummylogo.png';
 import Image from 'next/image';
 
-
 const Mobilenavbar = ({ toggleNavbar }) => {
   const [sidenavbardropdown, setSidenavbardropdown] = useState(false);
-
 
   const sideNavdropdownshow = () => {
     setSidenavbardropdown(!sidenavbardropdown);
   };
-
 
   return (
     <div className="fixed top-0 w-11/12 h-full sm:w-6/12 bg-white z-50 overflow-hidden">
@@ -37,26 +34,26 @@ const Mobilenavbar = ({ toggleNavbar }) => {
         <div className="flex-grow overflow-y-auto">
           <ul className="flex flex-col items-start gap-8">
             <NavItem href="/" label="Home" />
-            <NavItem href="/About" label="About Us" />
             <NavDropdown
               label="Services"
               isOpen={sidenavbardropdown}
               toggleDropdown={sideNavdropdownshow}
               dropdownItems={[
-                { href: '/Section/Digitalmarket/1', label: 'Digital Market', Icon: { LogoImage } },
-                { href: '/Section/Digitalmarket/2', label: 'Web Development' },
-                { href: '/Section/Digitalmarket/3', label: 'E-commerce Website Development' },
-                { href: '/Section/Digitalmarket/4', label: 'Social Media Marketing' },
-                { href: '/Section/Digitalmarket/5', label: 'Lead Generation Service' },
-                { href: '/Section/Digitalmarket/6', label: 'Mobile App Development' },
-                { href: '/Section/Digitalmarket/7', label: 'Mobile App Promotion' },
-                { href: '/Section/Digitalmarket/8', label: 'Content Management Systems' },
-                { href: '/Section/Digitalmarket/9', label: 'SEO' }
+                { href: "/Section/WeddingPhotography", label: "Wedding Photography", Icon: "/NavIcons/wedding-photography.png" },
+                { href: "/Section/Portraits", label: "Portrait Sessions", Icon: "/NavIcons/portrait-sessions.png" },
+                { href: "/Section/EventPhotography", label: "Event Photography", Icon: "/NavIcons/event-photography.png" },
+                { href: "/Section/ProductPhotography", label: "Product Photography", Icon: "/NavIcons/product-photography.png" },
+                { href: "/Section/FashionPhotography", label: "Fashion Photography", Icon: "/NavIcons/fashion-photography.png" },
+                { href: "/Section/RealEstate", label: "Real Estate Photography", Icon: "/NavIcons/real-estate-photography.png" },
+                { href: "/Section/Drone", label: "Drone Photography & Videography", Icon: "/NavIcons/drone-photography.png" },
+                { href: "/Section/PhotoEditing", label: "Photo Retouching & Editing", Icon: "/NavIcons/photo-editing.png" },
+                { href: "/Section/CorporateHeadshots", label: "Corporate Headshots", Icon: "/NavIcons/corporate-headshots.png" },
               ]}
             />
-            <NavItem href="/Portfolio" label="Portfolio" />
-            <NavItem href="/Blog" label="Blog" />
-            <NavItem href="/Contacts" label="Contact us" />
+            <NavItem href="/gallery" label="Gallery" />
+            <NavItem href="/aboutus" label="About Us" />
+            <NavItem href="/blogs" label="Blogs" />
+            <NavItem href="/contactus" label="Contact us" />
             <NavItem href="/Careers" label="Careers" />
           </ul>
         </div>
@@ -64,7 +61,6 @@ const Mobilenavbar = ({ toggleNavbar }) => {
     </div>
   );
 };
-
 
 const NavItem = ({ href, label, Icon }) => (
   <li className="flex items-center">
@@ -119,10 +115,4 @@ const NavDropdown = ({ label, isOpen, toggleDropdown, dropdownItems }) => (
   </li>
 );
 
-
-
-
 export default Mobilenavbar;
-
-
-

@@ -71,8 +71,8 @@ const FAQ2 = () => {
                 <div
                   className={` mb-6 w-full overflow-hidden p-5 rounded-md transition-colors duration-300 ${
                     openFAQ === faq.id
-                      ? "bg-gradient-to-br from-amber-300 to-yellow-500"
-                      : "bg-gradient-to-br from-amber-300 to-yellow-500"
+                      ? "bg-gradient-to-br from-pink-300 to-pink-500"
+                      : "bg-gradient-to-br from-pink-300 to-pink-500"
                   }`}
                 >
                   <div
@@ -124,8 +124,8 @@ const FAQ2 = () => {
               <div
                 className={` mb-6 w-full overflow-hidden p-5 rounded-md transition-colors duration-300 ${
                   openFAQ === faq.id
-                    ? "bg-gradient-to-br from-amber-300 to-yellow-500"
-                    : "bg-gradient-to-br from-amber-300 to-yellow-500"
+                    ? "bg-gradient-to-br from-pink-300 to-pink-500"
+                      : "bg-gradient-to-br from-pink-300 to-pink-500"
                 }`}
               >
                 <div
@@ -142,7 +142,7 @@ const FAQ2 = () => {
                   <div className="relative ml-10 mt-1 flex h-5 w-5 items-center justify-center">
                     <div
                       className={`absolute h-5 w-0.5 transition-transform duration-300 ${
-                        openFAQ === faq.id ? "rotate-90 bg-red-600" : "bg-black"
+                        openFAQ === faq.id ? "rotate-90 bg-white" : "bg-black"
                       }`}
                     ></div>
                     <div

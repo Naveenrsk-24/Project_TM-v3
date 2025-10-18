@@ -137,19 +137,10 @@ const NavBarMain = () => {
                     className="relative after:absolute after:bottom-0  after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0
       after:bg-sky-700 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
                   >
-                    Weddings
+                    Home
                   </a>
                 </li>
 
-                <li>
-                  <a
-                    href="/About"
-                    className="relative after:absolute after:bottom-0  after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0
-      after:bg-sky-700 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
-                  >
-                    Toddlers
-                  </a>
-                </li>
                 <li>
                   <div className="relative ">
                     <button
@@ -173,15 +164,27 @@ const NavBarMain = () => {
                     </button>
                   </div>
                 </li>
+
                 <li>
                   <a
-                    href="/portfolio"
+                    href="/gallery"
                     className="relative after:absolute after:bottom-0  after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0
       after:bg-sky-700 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
                   >
-                    Portfolio
+                    Gallery
                   </a>
                 </li>
+
+                <li>
+                  <a
+                    href="/aboutus"
+                    className="relative after:absolute after:bottom-0  after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0
+      after:bg-sky-700 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
+                  >
+                    About Us
+                  </a>
+                </li>
+                
                 <li>
                   <a
                     href="/blogs"

@@ -14,15 +14,16 @@ import { mockTestimonials } from '../data/Testimonials';
 // import VerticalSlider from "@/components/Home/VerticalSlider";
 import NavBarMain from "@/components/Navbar/NavbarMain";
 import Image from "next/image";
+import BlogSection from "@/components/Blog/BlogSection";
+import { DUMMY_BLOGS } from '../data/blog-data';
 
 export default function Home() {
   return (
    <>
    <HeroSection/>
    <Parallax/>
-   <NewCountUp/>
    {/* <NumbersSection/> */}
-   <FAQ2/>
+   <NewCountUp/>
    <SliderWithProgress
   slides={[
     { content: <img src="https://images.pexels.com/photos/2253842/pexels-photo-2253842.jpeg" alt="Slide 1" className="w-full h-full object-cover rounded-lg" /> },
@@ -36,11 +37,13 @@ export default function Home() {
     { content: <img src="https://images.pexels.com/photos/1456613/pexels-photo-1456613.jpeg" alt="Slide 3" className="w-full h-full object-cover rounded-lg" /> },
   ]}
 />
+  <FAQ2/>
 
 <VideoTestimonialCarousel
  testimonials={mockTestimonials}
   autoplayOnHover={true}
 />
+ <BlogSection blogs={DUMMY_BLOGS} />
 
    {/* <FaqSection/> */}
    {/* <ParallaxScrollDemo/> */}

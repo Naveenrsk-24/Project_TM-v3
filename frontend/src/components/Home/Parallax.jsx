@@ -76,7 +76,7 @@ const Parallax = () => {
             backgroundPosition: "center",
           }}
         >
-          <div className="title h-full sm:w-full md:w-1/2 bg-black/70 backdrop-blur-sm shadow-lg p-4 sm:p-6 md:p-8">
+          {/* <div className="title h-full sm:w-full md:w-1/2 bg-black/70 backdrop-blur-sm shadow-lg p-4 sm:p-6 md:p-8">
             <h1 className="text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 md:mb-8 text-yellow-400 font-bold">
               {service.title}
             </h1>
@@ -92,7 +92,7 @@ const Parallax = () => {
                 </button>
               </Link>
             )}
-          </div>
+          </div> */}
         </div>
       ))}
     </div>

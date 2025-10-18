@@ -39,6 +39,22 @@ export function ChemicalContactForm({
     setStatus("");
 
     try {
+      // Sanitize and convert form data
+      const sanitizedData = {
+        name: formData.name || "",
+        email: formData.email || "",
+        phone: formData.phone || "",
+        city: formData.city || "",
+        selectevent: formData.selectevent || "",
+        date: formData.date || null, // send null if empty
+        location: formData.location || "",
+        venue: formData.venue || "",
+        time: formData.time || null, // send null if empty
+        crowdstrength: formData.crowdstrength
+          ? Number(formData.crowdstrength)
+          : null, // convert to number or null
+      };
+
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_STRAPI_URL || "https://outgoing-flowers-4088a64df8.strapiapp.com"}/api/enquiries`,
         {
@@ -46,7 +62,7 @@ export function ChemicalContactForm({
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ data: formData }),
+          body: JSON.stringify({ data: sanitizedData }),
         }
       );
 
@@ -117,7 +133,7 @@ export function ChemicalContactForm({
           <div className="bg-white rounded-2xl shadow-lg p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {/* Name - Now in grid */}
+                {/* Name */}
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                     Bride/Groom Name
@@ -133,7 +149,7 @@ export function ChemicalContactForm({
                   />
                 </div>
 
-                {/* Email - Now in grid */}
+                {/* Email */}
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                     Email
@@ -149,7 +165,7 @@ export function ChemicalContactForm({
                   />
                 </div>
 
-                {/* Phone - Now in grid */}
+                {/* Phone */}
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
                     Phone
@@ -165,7 +181,7 @@ export function ChemicalContactForm({
                   />
                 </div>
 
-                {/* City - Now in grid */}
+                {/* City */}
                 <div>
                   <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-2">
                     City
@@ -180,7 +196,7 @@ export function ChemicalContactForm({
                   />
                 </div>
 
-                {/* Event Type - Now in grid */}
+                {/* Event Type */}
                 <div>
                   <label htmlFor="selectevent" className="block text-sm font-medium text-gray-700 mb-2">
                     Select Event
@@ -202,7 +218,7 @@ export function ChemicalContactForm({
                   </select>
                 </div>
 
-                {/* Date - Now in grid */}
+                {/* Date */}
                 <div>
                   <label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-2">
                     Date
@@ -216,7 +232,7 @@ export function ChemicalContactForm({
                   />
                 </div>
 
-                {/* Location - Now in grid */}
+                {/* Location */}
                 <div>
                   <label htmlFor="location" className="block text-sm font-medium text-gray-700 mb-2">
                     Location
@@ -231,7 +247,7 @@ export function ChemicalContactForm({
                   />
                 </div>
 
-                {/* Venue - Now in grid */}
+                {/* Venue */}
                 <div>
                   <label htmlFor="venue" className="block text-sm font-medium text-gray-700 mb-2">
                     Venue
@@ -246,7 +262,7 @@ export function ChemicalContactForm({
                   />
                 </div>
 
-                {/* Time - Now in grid */}
+                {/* Time */}
                 <div>
                   <label htmlFor="time" className="block text-sm font-medium text-gray-700 mb-2">
                     Time
@@ -260,7 +276,7 @@ export function ChemicalContactForm({
                   />
                 </div>
 
-                {/* Crowd Strength - Now in grid */}
+                {/* Crowd Strength */}
                 <div>
                   <label htmlFor="crowdstrength" className="block text-sm font-medium text-gray-700 mb-2">
                     Crowd Strength
@@ -275,8 +291,8 @@ export function ChemicalContactForm({
                   />
                 </div>
               </div>
-              
-              {/* Submit Button (outside the grid for full width alignment) */}
+
+              {/* Submit Button */}
               <button
                 type="submit"
                 disabled={loading}

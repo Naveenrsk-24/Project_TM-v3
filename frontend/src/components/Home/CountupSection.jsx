@@ -29,7 +29,7 @@ const NewCountUp = () => {
       className="relative bg-gradient-to-r from-black via-gray-900 to-black rounded-lg p-8 lg:px-8 lg:py-20 flex flex-col-reverse lg:flex-row items-center lg:items-start lg:gap-8"
     >
       {/* Top Accent Strip */}
-      <div className="absolute top-0 left-0 w-full h-16 py-8 bg-[#f5c518] pt-5 rounded-t-lg"></div>
+      <div className="absolute top-0 left-0 w-full h-16 py-8 bg-[#ffff] pt-5 rounded-t-lg"></div>
 
       {/* Text Section */}
       <div className="flex-1 z-10 py-8 ml-0 lg:ml-10">
