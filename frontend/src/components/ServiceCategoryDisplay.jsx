@@ -4,13 +4,11 @@
 
 import React, { useState } from 'react';
 import { ChevronRight, ArrowRight, Camera } from 'lucide-react';
-// NOTE: For a production Next.js app, always replace the standard <img> tag
-// with the optimized Next.js <Image> component for better performance (import 'next/image').
+// NOTE: For a production Next.js app, consider using 'next/image' for optimization.
 
-// --- 1. Data Structure with Albums (omitted for brevity, assume it is correct) ---
+// --- Data Structure (UNCHANGED) ---
 const CATEGORY_CONTENT = [
-  // ... (Your CATEGORY_CONTENT array is correct and remains here) ...
-  // Keeping the full data structure for completeness, but hiding for focus on the fix:
+  // ... (Your CATEGORY_CONTENT array remains here) ...
   {
     key: 'engagement',
     label: 'Engagement',
@@ -67,13 +65,12 @@ const CATEGORY_CONTENT = [
   return 0;
 });
 
-
-// --- 2. Album Card Component (remains the same) ---
+// --- Enhanced Album Card Component ---
 const AlbumCard = ({ album }) => {
   return (
     <a 
       href={`/gallery/album/${album.id}`}
-      className="group relative block rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-[1.03] hover:shadow-2xl"
+      className="group relative block h-full rounded-2xl overflow-hidden shadow-xl hover:shadow-indigo-500/50 transition-all duration-500 ease-in-out hover:scale-[1.03] before:absolute before:inset-0 before:bg-transparent before:transition-opacity before:duration-500 before:pointer-events-none"
       aria-label={`View ${album.title} album with ${album.count} photos`}
     >
       <img
@@ -81,24 +78,28 @@ const AlbumCard = ({ album }) => {
         alt={`Cover image for the ${album.title} album`}
         width={400}
         height={300}
-        className="w-full h-72 object-cover object-center transition-opacity duration-500 group-hover:opacity-85"
+        className="w-full h-72 object-cover object-center transition-opacity duration-700 group-hover:scale-[1.05] group-hover:opacity-90"
         loading="lazy"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 flex flex-col justify-end">
-        <h3 className="text-xl font-semibold text-white mb-1 transition-all group-hover:text-indigo-300">
+      <div 
+        className="absolute inset-0 p-5 flex flex-col justify-end 
+                   bg-gradient-to-t from-black/80 to-transparent 
+                   group-hover:from-indigo-900/80 group-hover:to-transparent transition-colors duration-500"
+      >
+        <h3 className="text-2xl font-bold text-white mb-1 transition-all group-hover:text-indigo-200">
           {album.title}
         </h3>
-        <p className="flex items-center text-sm font-medium text-gray-200">
+        <p className="flex items-center text-sm font-medium text-gray-300 transition-colors group-hover:text-white">
           <Camera className="w-4 h-4 mr-1 text-indigo-400" aria-hidden="true" />
           {album.count} Photos
         </p>
       </div>
-      <div className="absolute inset-0 border-4 border-transparent transition-all duration-300 group-hover:border-indigo-400/50 rounded-xl pointer-events-none"></div>
+      <div className="absolute inset-0 rounded-2xl border-4 border-transparent transition-all duration-500 group-hover:border-indigo-400/70 pointer-events-none"></div>
     </a>
   );
 };
 
-// --- 3. Albums Section Integration (remains the same) ---
+// --- Albums Section (minor styling updates) ---
 const AlbumsSection = ({ albums, categoryLabel }) => {
   if (!albums || albums.length === 0) {
     return (
@@ -109,18 +110,21 @@ const AlbumsSection = ({ albums, categoryLabel }) => {
   }
 
   return (
-    <div className="mt-16 pt-10 border-t border-gray-200">
-      <h3 className="text-3xl font-bold text-gray-800 mb-8 tracking-tight">
-        Featured {categoryLabel} Albums
+    <div className="mt-20 pt-10 border-t border-gray-100">
+      <h3 className="text-4xl font-extrabold text-gray-800 mb-10 tracking-tight text-center">
+        Explore {categoryLabel} Portfolios
       </h3>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {albums.map((album) => (
           <AlbumCard key={album.id} album={album} />
         ))}
       </div>
-      <div className="mt-10 text-center">
-        <a href="/gallery" className="inline-flex items-center text-lg font-semibold text-indigo-700 hover:text-indigo-900 transition-colors group">
-          View All Galleries
+      <div className="mt-12 text-center">
+        <a href="/gallery" className="inline-flex items-center text-lg font-bold px-6 py-3 rounded-full 
+        text-white bg-indigo-600 shadow-lg hover:bg-indigo-700 
+        transition-all duration-300 transform hover:scale-[1.02] group"
+        >
+          View All 40+ Galleries
           <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
         </a>
       </div>
@@ -128,88 +132,92 @@ const AlbumsSection = ({ albums, categoryLabel }) => {
   );
 };
 
-// --- Sub Components ---
-
-// FIX: Ensure the prop name setActiveCategoryKey is used correctly
+// --- Enhanced Category Filter Component (Sticky + Pill Design) ---
 const CategoryFilter = ({ categories, activeKey, setActiveCategoryKey }) => { 
   return (
-    <nav className="flex overflow-x-auto py-4 sm:py-6 lg:py-8 border-b border-gray-100/50 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden" aria-label="Service Categories">
-      <div className="flex space-x-6 whitespace-nowrap px-4 sm:px-6 lg:px-8 mx-auto">
-        {categories.map(({ key, label }) => {
-          const isActive = key === activeKey;
-          return (
-            <button
-              key={key}
-              // FIX: Call the correct prop function
-              onClick={() => setActiveCategoryKey(key)} 
-              className={`
-                text-lg font-medium tracking-wide pb-2
-                transition-colors duration-300 ease-in-out
-                ${isActive
-                  ? 'text-indigo-600 border-b-2 border-indigo-600'
-                  : 'text-gray-600 hover:text-indigo-500 hover:border-b-2 hover:border-indigo-500/50'
-                }
-                focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500
-              `}
-              aria-current={isActive ? 'page' : undefined}
-            >
-              {label}
-            </button>
-          );
-        })}
-      </div>
-    </nav>
+    // Added sticky top-0 and shadow/background for separation from hero
+    <div className="sticky top-0 z-10 bg-white/95 backdrop-blur-sm shadow-md border-b border-gray-200">
+      <nav className="flex overflow-x-auto py-4 sm:py-6 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden" aria-label="Service Categories">
+        <div className="flex space-x-4 whitespace-nowrap px-4 sm:px-6 lg:px-8 mx-auto">
+          {categories.map(({ key, label }) => {
+            const isActive = key === activeKey;
+            return (
+              <button
+                key={key}
+                onClick={() => setActiveCategoryKey(key)} 
+                className={`
+                  text-base font-semibold px-4 py-2 rounded-full 
+                  transition-all duration-300 ease-in-out
+                  ${isActive
+                    ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/30' // Active: Solid Pill
+                    : 'text-gray-700 hover:text-indigo-600 hover:bg-indigo-50' // Default & Hover: Light
+                  }
+                  focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-300
+                `}
+                aria-current={isActive ? 'page' : undefined}
+              >
+                {label}
+              </button>
+            );
+          })}
+        </div>
+      </nav>
+    </div>
   );
 };
 
-// ContentSection remains the same
+// --- Enhanced Content Section ---
 const ContentSection = ({ content }) => {
   return (
     <section 
       key={content.key} 
-      className="p-4 sm:p-6 lg:p-8 bg-white/50 animate-fadeIn"
+      // Changed base background to light gray gradient for depth
+      className="p-4 sm:p-6 lg:p-8 bg-gradient-to-br from-white to-gray-50 animate-fadeIn"
       aria-labelledby="category-title"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
-          {/* Left Column: Textual Content */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+          {/* Left Column: Textual Content - Enhanced Typography */}
           <div className="lg:col-span-6 xl:col-span-7">
-            <h2 id="category-title" className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-6 font-serif leading-tight">
+            <p className="text-sm font-semibold uppercase text-indigo-500 mb-2 tracking-widest">
+                Our Dedicated Service
+            </p>
+            <h2 id="category-title" className="text-4xl sm:text-6xl font-serif font-bold text-gray-900 mb-8 leading-snug">
               {content.title}
             </h2>
 
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed font-light">
+            <p className="text-xl text-gray-700 mb-8 leading-relaxed font-light">
               {content.body}
             </p>
 
-            {/* Optional Subsection */}
+            {/* Optional Subsection - Elevated Design */}
             {content.subsectionTitle && content.subsectionBody && (
-              <div className="mt-8 p-6 bg-indigo-50 border-l-4 border-indigo-500 rounded-lg shadow-inner">
-                <h3 className="text-xl font-bold text-indigo-700 mb-2 flex items-center">
-                  <ChevronRight className="w-5 h-5 mr-2" aria-hidden="true" />
+              <div className="mt-10 p-6 bg-white border-l-4 border-indigo-500 rounded-xl shadow-xl transition-shadow duration-300 hover:shadow-2xl hover:shadow-indigo-200/50">
+                <h3 className="text-2xl font-bold text-indigo-700 mb-3 flex items-center">
+                  <ChevronRight className="w-6 h-6 mr-2 text-indigo-500" aria-hidden="true" />
                   {content.subsectionTitle}
                 </h3>
-                <p className="text-gray-700 text-base italic">
+                <p className="text-gray-600 text-lg italic">
                   {content.subsectionBody}
                 </p>
               </div>
             )}
             
-            <a href="#" className="mt-8 inline-flex items-center text-lg font-semibold text-indigo-600 hover:text-indigo-800 transition-colors duration-200 group">
+            <a href="#" className="mt-10 inline-flex items-center text-xl font-bold px-6 py-3 rounded-lg bg-indigo-50 text-indigo-700 border-2 border-indigo-200 hover:bg-indigo-100 transition-all duration-300 group">
               Get A Custom Quote
-              <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+              <ArrowRight className="ml-3 w-6 h-6 transition-transform group-hover:translate-x-1" aria-hidden="true" />
             </a>
           </div>
 
-          {/* Right Column: Image */}
+          {/* Right Column: Image - Enhanced Shadow and Cornering */}
           <div className="lg:col-span-6 xl:col-span-5 flex justify-center lg:justify-end">
-            <div className="w-full max-w-lg lg:max-w-none">
+            <div className="w-full max-w-xl lg:max-w-none">
               <img
                 src={content.imageSrc}
                 alt={content.imageAlt}
-                width={600}
-                height={400}
-                className="w-full h-auto object-cover rounded-xl shadow-2xl transition-all duration-500 ease-out hover:shadow-indigo-500/40"
+                width={700}
+                height={500}
+                className="w-full h-auto object-cover rounded-3xl shadow-2xl shadow-gray-400/50 transition-all duration-700 ease-out hover:shadow-indigo-600/50"
                 loading="lazy"
               />
             </div>
@@ -226,7 +234,7 @@ const ContentSection = ({ content }) => {
 };
 
 
-// --- Main Component (remains the same) ---
+// --- Main Component ---
 const ServiceCategoryDisplay = () => {
   const [activeCategoryKey, setActiveCategoryKey] = useState('engagement');
 
@@ -239,7 +247,6 @@ const ServiceCategoryDisplay = () => {
       <CategoryFilter
         categories={CATEGORY_CONTENT}
         activeKey={activeCategoryKey}
-        // This is the prop name passed to the CategoryFilter component
         setActiveCategoryKey={setActiveCategoryKey} 
       />
       <ContentSection content={activeContent} />
