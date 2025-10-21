@@ -8,22 +8,23 @@ export default function HeroSection() {
       className="relative w-full min-h-screen flex flex-col-reverse md:flex-row items-center justify-between overflow-hidden px-4 sm:px-8 md:px-16 py-12 md:py-0"
       aria-label="Wedding photography hero section"
     >
-      {/* Background Image */}
+      {/* ✅ Optimized Background Image */}
       <Image
         src="/Weddings/groom-putting-ring-bride-s-finger.jpg"
         alt="Groom putting ring on bride's finger"
         fill
         priority
+        quality={85}
         className="object-cover object-center -z-10 rounded-tr-lg rounded-bl-lg"
       />
 
-      {/* Overlay */}
+      {/* ✅ Optimized Overlay */}
       <div
         className="absolute inset-0 bg-black/50 -z-10"
         aria-hidden="true"
       />
 
-      {/* Left Content */}
+      {/* ✅ Left Content */}
       <div className="relative z-10 text-white text-center md:text-left max-w-xl space-y-4">
         <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight">
           Capturing <span className="text-pink-300">Timeless</span> Moments
@@ -31,18 +32,23 @@ export default function HeroSection() {
         <p className="text-base sm:text-lg md:text-xl text-gray-200">
           Wedding photography that tells your story — naturally, beautifully, and forever.
         </p>
-        <button className="mt-4 px-6 py-3 bg-pink-500 hover:bg-pink-600 text-white font-semibold rounded-full transition">
+        <button
+          className="mt-4 px-6 py-3 bg-pink-500 hover:bg-pink-600 text-white font-semibold rounded-full transition-transform hover:scale-105 duration-200"
+          aria-label="Book a wedding photography session"
+        >
           Book a Session
         </button>
       </div>
 
-      {/* Portrait Photo Frame (Right Side) */}
+      {/* ✅ Optimized Portrait Photo Frame */}
       <div className="relative z-10 mb-8 md:mb-0 md:flex items-center justify-center w-full sm:w-[350px] md:w-[500px] h-[400px] sm:h-[450px] md:h-[580px] border-[6px] border-white shadow-2xl overflow-hidden rounded-tr-[50px] rounded-bl-[50px]">
         <Image
           src="/Weddings/beautiful-husband-wife-posing-beach.jpg"
           alt="Bride holding bouquet"
           fill
-          className="object-cover object-center "
+          priority
+          quality={85}
+          className="object-cover object-center"
         />
       </div>
     </section>
