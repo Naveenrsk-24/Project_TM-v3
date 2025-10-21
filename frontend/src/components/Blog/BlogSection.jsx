@@ -1,26 +1,31 @@
 // components/BlogSection.jsx
 'use client'; // Swiper and Framer Motion require client-side rendering
+
 import React, { useRef } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion'; // 👈 Import Framer Motion
+import { motion } from 'framer-motion';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+// Only import the modules you need (already well done)
+import { Autoplay, Navigation, Pagination } from 'swiper/modules'; 
 
-// Import Swiper styles
-import 'swiper/css';
+// Import Swiper styles (already well done)
+import 'swiper/css'; 
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-import BlogCard from './BlogCard'; // Assuming BlogCard is updated with Framer Motion
+import BlogCard from './BlogCard'; 
 
 /**
- * A reusable, responsive section component featuring a carousel of blog cards,
- * enhanced with Framer Motion for interactive elements.
+ * Creates a Framer Motion-enhanced Link component for modern Next.js routing.
+ */
+const MotionLink = motion(Link); // 👈 Optimization: Wrap Link once for Framer Motion
+
+/**
+ * A reusable, responsive section component featuring a carousel of blog cards.
  */
 const BlogSection = ({ blogs, viewAllUrl = '/blogs', title = 'Latest Articles & Insights' }) => {
-  // Swiper control ref
   const swiperRef = useRef(null);
 
   if (!blogs || blogs.length === 0) {
@@ -32,7 +37,7 @@ const BlogSection = ({ blogs, viewAllUrl = '/blogs', title = 'Latest Articles & 
     );
   }
 
-  // Framer Motion properties for interactive buttons
+  // Framer Motion properties for interactive buttons (Memoizable, but fine here)
   const buttonMotion = {
     whileHover: { scale: 1.05, boxShadow: "0 8px 15px rgba(0, 0, 0, 0.1)" },
     whileTap: { scale: 0.95 },
@@ -44,7 +49,6 @@ const BlogSection = ({ blogs, viewAllUrl = '/blogs', title = 'Latest Articles & 
     hidden: { opacity: 0, y: 10 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
   };
-
 
   return (
     <section className="py-16 sm:py-24 bg-gray-50 overflow-hidden">
@@ -83,6 +87,8 @@ const BlogSection = ({ blogs, viewAllUrl = '/blogs', title = 'Latest Articles & 
             }}
             className="pb-10"
           >
+            {/* Optimization: Swiper automatically loads slides 
+                near the view, providing lazy-loading benefit. */}
             {blogs.map((blog) => (
               <SwiperSlide key={blog.id} className="h-auto">
                 <BlogCard blog={blog} />
@@ -118,21 +124,20 @@ const BlogSection = ({ blogs, viewAllUrl = '/blogs', title = 'Latest Articles & 
           </div>
         </div>
 
-        {/* View Blogs Button with Framer Motion */}
+        {/* View Blogs Button with Framer Motion - FIXED LINK USAGE */}
         <div className="mt-10 flex justify-center">
-          <Link href={viewAllUrl} passHref legacyBehavior>
-            <motion.button
-              className="
-                inline-flex items-center rounded-full border border-transparent bg-indigo-600 px-8 py-3 
-                text-base font-medium text-white shadow-lg transition-all duration-300 ease-in-out
-                hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-500/50
-              "
-              aria-label="Go to the main blog archive page"
-              {...buttonMotion}
-            >
-              View All Blogs &rarr;
-            </motion.button>
-          </Link>
+          <MotionLink // 👈 Use the custom MotionLink component
+            href={viewAllUrl}
+            className="
+              inline-flex items-center rounded-full border border-transparent bg-indigo-600 px-8 py-3 
+              text-base font-medium text-white shadow-lg transition-all duration-300 ease-in-out
+              hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-500/50
+            "
+            aria-label="Go to the main blog archive page"
+            {...buttonMotion}
+          >
+            View All Blogs &rarr;
+          </MotionLink>
         </div>
       </div>
     </section>

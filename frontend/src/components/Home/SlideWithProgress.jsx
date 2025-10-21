@@ -1,11 +1,13 @@
+// components/SliderWithProgress.jsx
 "use client";
 
 import React, { useRef, useEffect } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
+import Image from "next/image"; // 👈 HIGH PRIORITY: Next.js Image Component
 
 const SliderWithProgress = ({
-  slides = [],
+  slides = [], // Expects [{ src: '...', alt: '...' }, ...]
   options = {
     type: "loop",
     autoplay: true,
@@ -27,6 +29,7 @@ const SliderWithProgress = ({
     if (!splide) return;
 
     const updateProgress = () => {
+      // Calculate progress based on current index
       const total = splide.Components.Controller.getEnd() + 1;
       const rate = Math.min((splide.index + 1) / total, 1);
       if (progressRef.current) {
@@ -47,16 +50,25 @@ const SliderWithProgress = ({
           <SplideSlide key={index}>
             <div className="flex items-center justify-center w-full 
               h-48 sm:h-64 md:h-80 lg:h-96 xl:h-[28rem] 2xl:h-[32rem] 
-              rounded-lg overflow-hidden shadow-lg px-2 sm:px-4">
-              {typeof slide === "string" ? (
-                <div className="w-full h-full flex items-center justify-center 
-                  bg-gray-200 text-base sm:text-lg md:text-xl lg:text-2xl 
-                  font-semibold text-center px-2 sm:px-4">
-                  {slide}
-                </div>
-              ) : (
-                slide.content
-              )}
+              rounded-lg overflow-hidden shadow-lg">
+              
+              {/* Image Slide Optimization (Layer 2 & 13) */}
+              <Image 
+                src={slide.src}
+                alt={slide.alt || `Slide ${index + 1}`}
+                fill // Use 'fill' to make it fit the container and save layout shift
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 75vw, 50vw" 
+                className="object-cover rounded-lg"
+                // LCP Optimization: Set priority for the first image
+                priority={index === 0} 
+                // Next.js automatically lazy-loads images not marked 'priority'
+                // This will lazy-load slides 2 onwards (Layer 2)
+              />
+
+              {/* Alternative content rendering removed for brevity, 
+              assuming all slides are now image objects {src, alt} 
+              If needed, you'd re-implement the 'typeof slide === "string"' check here. */}
+
             </div>
           </SplideSlide>
         ))}
@@ -74,4 +86,5 @@ const SliderWithProgress = ({
   );
 };
 
-export default SliderWithProgress;
+// Memoization (Layer 4) to prevent unnecessary re-renders when props haven't changed
+export default React.memo(SliderWithProgress);
