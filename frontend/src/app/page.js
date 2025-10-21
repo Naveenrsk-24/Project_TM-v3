@@ -1,8 +1,12 @@
+import dynamic from 'next/dynamic';
+
 import AdminDashboard from "@/components/Dashboard/AdminDashboard";
 import WeddingHero from "@/components/Dummy/Dummy1";
 import TestFetching from "@/components/Dummy/TestFetching";
 import { ParallaxScrollDemo } from "@/components/Gallery/ParallaxScrollDemo";
-import NewCountUp from "@/components/Home/CountupSection";
+import CountupLoader from "@/components/Home/LazyLoaders/CountupLoader";
+
+
 import FAQ2 from "@/components/Home/Faq2";
 import FaqSection from "@/components/Home/FaqSection";
 import HeroSection from "@/components/Home/HeroSection";
@@ -23,7 +27,7 @@ export default function Home() {
    <HeroSection/>
    <Parallax/>
    {/* <NumbersSection/> */}
-   <NewCountUp/>
+    <CountupLoader/>
    <SliderWithProgress
   slides={[
     { content: <img src="https://images.pexels.com/photos/2253842/pexels-photo-2253842.jpeg" alt="Slide 1" className="w-full h-full object-cover rounded-lg" /> },

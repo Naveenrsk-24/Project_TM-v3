@@ -1,10 +1,15 @@
+// src/components/Home/CountupSection.js
+
 "use client";
+
 import Image from "next/image";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
+import React from "react"; 
 
-const NewCountUp = () => {
+// Optimization 4: Use a named function for memoization
+function CountupSection() { // Renamed from NewCountUp to match filename
   const jsonData = {
     title: "Our Creative Milestones",
     description:
@@ -19,7 +24,7 @@ const NewCountUp = () => {
   const { title, description, items } = jsonData;
 
   const { ref, inView } = useInView({
-    triggerOnce: false,
+    triggerOnce: false, 
     threshold: 0.3,
   });
 
@@ -69,17 +74,19 @@ const NewCountUp = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1.5 }}
         >
+          {/* Optimization 2: Added quality and sizes, used object-cover class */}
           <Image
             src="/Weddings/beautiful-husband-wife-posing-beach.jpg"
             alt="Photographer capturing moments"
             fill
-            style={{ objectFit: "cover" }}
-            className="rounded-xl"
+            quality={85} 
+            sizes="(max-width: 1024px) 75vw, 400px" 
+            className="rounded-xl object-cover" 
           />
         </motion.div>
       </div>
     </section>
   );
-};
+}
 
-export default NewCountUp;
+export default React.memo(CountupSection); // Optimization 4: Memoize the component

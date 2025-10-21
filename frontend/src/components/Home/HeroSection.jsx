@@ -1,20 +1,26 @@
 "use client";
 
 import Image from "next/image";
+import React from "react"; // 👈 Optimization 4: Import React for memoization
 
-export default function HeroSection() {
+// Optimization 4: Use React.memo to prevent unnecessary re-renders
+function HeroSection() {
   return (
     <section
       className="relative w-full min-h-screen flex flex-col-reverse md:flex-row items-center justify-between overflow-hidden px-4 sm:px-8 md:px-16 py-12 md:py-0"
       aria-label="Wedding photography hero section"
     >
-      {/* ✅ Optimized Background Image */}
+      {/* ✅ LCP Image Optimization (Steps 1 & 2): 
+        - priority: Kept on the background image (likely LCP).
+        - sizes: CRITICAL addition to tell Next.js/browser the image will span 100% of the viewport width. 
+      */}
       <Image
         src="/Weddings/groom-putting-ring-bride-s-finger.jpg"
         alt="Groom putting ring on bride's finger"
         fill
         priority
         quality={85}
+        sizes="100vw" // 👈 HIGH PRIORITY: Speeds up image loading for LCP
         className="object-cover object-center -z-10 rounded-tr-lg rounded-bl-lg"
       />
 
@@ -24,8 +30,9 @@ export default function HeroSection() {
         aria-hidden="true"
       />
 
-      {/* ✅ Left Content */}
+      {/* ✅ Left Content (LCP text block) */}
       <div className="relative z-10 text-white text-center md:text-left max-w-xl space-y-4">
+        {/* LCP Text */}
         <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight">
           Capturing <span className="text-pink-300">Timeless</span> Moments
         </h1>
@@ -40,17 +47,23 @@ export default function HeroSection() {
         </button>
       </div>
 
-      {/* ✅ Optimized Portrait Photo Frame */}
+      {/* ✅ Portrait Photo Frame Optimization (Step 2): 
+        - priority: REMOVED. This image is not the LCP, so it should not be eagerly loaded, freeing up bandwidth for the background image and LCP text.
+        - sizes: Added a simple size set to help the browser load the right resolution.
+      */}
       <div className="relative z-10 mb-8 md:mb-0 md:flex items-center justify-center w-full sm:w-[350px] md:w-[500px] h-[400px] sm:h-[450px] md:h-[580px] border-[6px] border-white shadow-2xl overflow-hidden rounded-tr-[50px] rounded-bl-[50px]">
         <Image
           src="/Weddings/beautiful-husband-wife-posing-beach.jpg"
           alt="Bride holding bouquet"
           fill
-          priority
+          // priority REMOVED 👈 HIGH PRIORITY: Reduces competing requests for LCP
           quality={85}
+          sizes="(max-width: 768px) 100vw, 500px" // 👈 Added size optimization
           className="object-cover object-center"
         />
       </div>
     </section>
   );
 }
+
+export default React.memo(HeroSection); // 👈 Optimization 4: Export with memo
