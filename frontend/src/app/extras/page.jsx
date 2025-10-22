@@ -9,6 +9,7 @@ import PhotographyCategories from "@/components/ExtraDesigns/PortfolioCategoryDe
 import CategoryGallery from "@/components/ExtraDesigns/PortfolioCategoryGalleryA";
 import PortfolioGallery from "@/components/ExtraDesigns/PortfolioDesignA";
 import PortfolioGalleryB from "@/components/ExtraDesigns/PortfolioGalleryB";
+import PremiumNavbar from "@/components/ExtraDesigns/PremiumNavbar";
 import SubHeroSection from "@/components/ExtraDesigns/SubHeroSection";
 import ThreeDCarousel from "@/components/ExtraDesigns/ThreeDCarousel";
 import ServiceParallaxGrid, {
@@ -18,6 +19,7 @@ import ServiceParallaxGrid, {
 export default function Extras() {
   return (
     <>
+      {/* <PremiumNavbar/> */}
       <ParallaxCarousel />
       <ThreeDCarousel />
       <AnimatedServicesSection />
