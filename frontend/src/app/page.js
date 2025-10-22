@@ -25,19 +25,24 @@ import { serviceData } from "@/data/Home/ServiceData";
 import StorytellerQuoteRotator from "@/components/Home/StorytellerQuoteBlock";
 import { seoQuotes } from "../data/Home/quoteData";
 import TestimonialCarousel from "@/components/Home/TestimonialCarousel";
-
+import PortfolioGallery from "./portfolio/page";
+import ClassicFAQSection from "@/components/ExtraDesigns/ClassicFAQSection";
+import SubHeroSection from "@/components/ExtraDesigns/SubHeroSection";
 
 export default function Home() {
   return (
     <>
       <HeroSection />
+      <SubHeroSection/>
       <Parallax />
       <StorytellerQuoteRotator quotes={seoQuotes} rotationInterval={5000} />
-      <CountupLoader />
-      
-      <FAQ2 />
-
+      {/* <CountupLoader /> */}
+      <PortfolioGallery/>
+      <ClassicFAQSection/>
       <TestimonialCarousel />
+      <BlogSection blogs={DUMMY_BLOGS} />
+
+      {/* <FAQ2 /> */}
       {/* <ServiceKeywordGrid
         headline="Our Expertise: SEO Services and Locations"
         items={serviceData}
@@ -48,7 +53,6 @@ export default function Home() {
         autoplayOnHover={true}
       /> */}
 
-      <BlogSection blogs={DUMMY_BLOGS} />
 
       {/* <NumbersSection/> */}
       {/* 
