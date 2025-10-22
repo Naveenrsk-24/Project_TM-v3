@@ -9,6 +9,8 @@ import CategoryGallery from "@/components/ExtraDesigns/PortfolioCategoryGalleryA
 import PortfolioGallery from "@/components/ExtraDesigns/PortfolioDesignA";
 import PortfolioGalleryB from "@/components/ExtraDesigns/PortfolioGalleryB";
 import ThreeDCarousel from "@/components/ExtraDesigns/ThreeDCarousel";
+import ServiceParallaxGrid,{servicesData} from "@/components/Home/ServiceParallaxGrid";
+
 
 export default function Extras() {
   return (
@@ -20,6 +22,8 @@ export default function Extras() {
    <PortfolioGallery/>
    <PhotographyCategories/>
    <CategoryGallery/>
+  <ServiceParallaxGrid services={servicesData}/>
+   
    {/* <GalleryDemo/> */}
 
    {/* ************************************ */}

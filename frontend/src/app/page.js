@@ -26,21 +26,22 @@ import StorytellerQuoteRotator from "@/components/Home/StorytellerQuoteBlock";
 import { seoQuotes } from "../data/Home/quoteData";
 import TestimonialCarousel from "@/components/Home/TestimonialCarousel";
 
+
 export default function Home() {
   return (
     <>
       <HeroSection />
       <Parallax />
       <StorytellerQuoteRotator quotes={seoQuotes} rotationInterval={5000} />
-      <ServiceKeywordGrid
-        headline="Our Expertise: SEO Services and Locations"
-        items={serviceData}
-      />
       <CountupLoader />
       
       <FAQ2 />
 
       <TestimonialCarousel />
+      {/* <ServiceKeywordGrid
+        headline="Our Expertise: SEO Services and Locations"
+        items={serviceData}
+      /> */}
       {/* <DynamicSliderWrapper/> */}
       {/* <VideoTestimonialCarousel
         testimonials={mockTestimonials}

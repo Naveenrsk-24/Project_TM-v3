@@ -76,23 +76,6 @@ const Parallax = () => {
             backgroundPosition: "center",
           }}
         >
-          {/* <div className="title h-full sm:w-full md:w-1/2 bg-black/70 backdrop-blur-sm shadow-lg p-4 sm:p-6 md:p-8">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 md:mb-8 text-yellow-400 font-bold">
-              {service.title}
-            </h1>
-            <ul className="text-lg sm:text-xl md:text-2xl text-white space-y-2">
-              {service.description.map((desc, index) => (
-                <li key={index}>• {desc}</li>
-              ))}
-            </ul>
-            {service.buttonText && (
-              <Link href={service.href} passHref>
-                <button className="md:text-lg mt-6 shadow-md text-sm text-black bg-yellow-400 px-5 py-2 hover:bg-yellow-500 transition-all duration-300 rounded-md">
-                  {service.buttonText}
-                </button>
-              </Link>
-            )}
-          </div> */}
         </div>
       ))}
     </div>
