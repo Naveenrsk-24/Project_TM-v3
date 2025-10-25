@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'TM_photography',
     'AdminPanel',
     'rest_framework_simplejwt',
+    'rest_framework_simplejwt.token_blacklist',
 ]
 
 CORS_ALLOWED_ORIGINS = ['http://localhost:3000']

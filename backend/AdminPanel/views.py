@@ -5,7 +5,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework_simplejwt.tokens import RefreshToken, TokenError
 from django.contrib.auth import get_user_model
 from TM_photography.models import Photo
 from TM_photography.serializers import PhotoSerializer
@@ -25,6 +25,19 @@ def admin_login(request):
             "email": user.email,
         })
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def admin_logout(request):
+    try:
+        refresh_token = request.data["refresh"]
+        token = RefreshToken(refresh_token)
+        token.blacklist()
+        return Response({"detail": "Logout successful."}, status=status.HTTP_205_RESET_CONTENT)
+    except KeyError:
+        return Response({"detail": "Refresh token required."}, status=status.HTTP_400_BAD_REQUEST)
+    except TokenError:
+        return Response({"detail": "Invalid token or already blacklisted."}, status=status.HTTP_400_BAD_REQUEST)
 
 
 @api_view(['GET'])
