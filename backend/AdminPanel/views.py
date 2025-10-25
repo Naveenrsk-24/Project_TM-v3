@@ -7,8 +7,8 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework_simplejwt.tokens import RefreshToken, TokenError
 from django.contrib.auth import get_user_model
-from TM_photography.models import Photo
-from TM_photography.serializers import PhotoSerializer
+from TM_photography.models import EventBooking
+from TM_photography.serializers import EventBookingSerializer
 from .serializers import AdminLoginSerializer
 
 AdminUser = get_user_model()
@@ -43,6 +43,6 @@ def admin_logout(request):
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def admin_dashboard(request):
-    photos = Photo.objects.all()
-    serializer = PhotoSerializer(photos, many=True)
+    bookings = EventBooking.objects.all()
+    serializer = EventBookingSerializer(bookings, many=True)
     return Response(serializer.data)

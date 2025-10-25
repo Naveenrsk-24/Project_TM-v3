@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function AdminDashboardPage() {
-  const [photos, setPhotos] = useState([]);
+  const [bookings, setBookings] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -16,7 +16,7 @@ export default function AdminDashboardPage() {
       return;
     }
 
-    const fetchPhotos = async () => {
+    const fetchBookings = async () => {
       try {
         const res = await fetch("http://localhost:8000/api/admin/dashboard/", {
           headers: {
@@ -31,13 +31,14 @@ export default function AdminDashboardPage() {
         }
 
         const data = await res.json();
-        setPhotos(data);
+        setBookings(data);
       } catch (err) {
-        setError("Failed to load photos.");
+        console.error(err);
+        setError("Failed to load bookings.");
       }
     };
 
-    fetchPhotos();
+    fetchBookings();
   }, [router]);
 
   const handleLogout = async () => {
@@ -45,7 +46,6 @@ export default function AdminDashboardPage() {
     const access = localStorage.getItem("access");
 
     if (!refresh) {
-      // Just clear and redirect if no refresh found
       localStorage.clear();
       router.push("/admin/login");
       return;
@@ -72,10 +72,9 @@ export default function AdminDashboardPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
-      {/* Header Section */}
+    <div className="min-h-screen bg-gray-900 p-8 text-black">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold">Admin Dashboard</h1>
+        <h1 className="text-3xl font-bold text-white">Admin Dashboard</h1>
         <button
           onClick={handleLogout}
           disabled={loading}
@@ -85,30 +84,54 @@ export default function AdminDashboardPage() {
         </button>
       </div>
 
-      {/* Error Message */}
-      {error && <p className="text-red-500 text-center mb-4">{error}</p>}
+      {error && <p className="text-red-400 text-center mb-4">{error}</p>}
 
-      {/* Photo Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {photos.map((photo) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {bookings.map((booking) => (
           <div
-            key={photo.id}
-            className="bg-white shadow-lg rounded-xl p-4 border hover:shadow-xl transition"
+            key={booking.id}
+            className="bg-white text-black shadow-lg rounded-xl p-4 border hover:shadow-xl transition"
           >
-            <h3 className="font-semibold text-lg">{photo.title}</h3>
-            <p className="text-gray-600 text-sm mb-2">
-              {photo.description || "No description"}
+            <h3 className="font-semibold text-lg mb-1">{booking.name}</h3>
+            <p className="text-sm mb-1">
+              <strong>Email:</strong> {booking.email}
             </p>
-            <p className="text-gray-400 text-xs">
-              Uploaded: {new Date(photo.uploaded_at).toLocaleString()}
+            <p className="text-sm mb-1">
+              <strong>Phone:</strong> {booking.phone}
+            </p>
+            <p className="text-sm mb-1">
+              <strong>City:</strong> {booking.city}
+            </p>
+            <p className="text-sm mb-1">
+              <strong>Event:</strong> {booking.event}
+            </p>
+            <p className="text-sm mb-1">
+              <strong>Date:</strong>{" "}
+              {new Date(booking.date).toLocaleDateString()}
+            </p>
+            <p className="text-sm mb-1">
+              <strong>Venue:</strong> {booking.venue}
+            </p>
+            <p className="text-sm mb-1">
+              <strong>Time:</strong> {booking.time}
+            </p>
+            <p className="text-sm mb-1">
+              <strong>Crowd:</strong> {booking.crowd_strength}
+            </p>
+            <p className="text-sm mb-1">
+              <strong>About Couple:</strong> {booking.about_couple}
+            </p>
+            <p className="text-xs text-gray-600 mt-2">
+              Created: {new Date(booking.created_at).toLocaleString()}
             </p>
           </div>
         ))}
       </div>
 
-      {/* Empty State */}
-      {photos.length === 0 && !error && (
-        <p className="text-center text-gray-500 mt-10">No photos uploaded yet.</p>
+      {bookings.length === 0 && !error && (
+        <p className="text-center text-gray-300 mt-10">
+          No event bookings available yet.
+        </p>
       )}
     </div>
   );
