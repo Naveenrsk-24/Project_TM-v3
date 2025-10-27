@@ -26,8 +26,8 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning={true}
       >
-        {/* <NavBarMain/> */}
-        <PremiumNavbar/>
+        <NavBarMain/>
+        {/* <PremiumNavbar/> */}
         {children}
         <Footer/>
       </body>

@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Plus, Minus, HelpCircle, Lightbulb, Shield, Clock, Headphones, CreditCard, Award } from 'lucide-react';
 
-export default function ClassicFAQSection() {
+export default function ClassicFAQSection2() {
   const [activeIndex, setActiveIndex] = useState(null);
 
   const faqs = [
@@ -40,19 +40,19 @@ export default function ClassicFAQSection() {
   ];
 
   return (
-    <div className="bg-white py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+    <div className="bg-gradient-to-br from-neutral-50 via-white to-neutral-100 py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-600 mb-6">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-amber-600 to-amber-500 mb-6">
             <HelpCircle className="w-8 h-8 text-white" />
           </div>
           
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-800 mb-4">
             Frequently Asked Questions
           </h2>
           
-          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-neutral-600 max-w-2xl mx-auto">
             Find answers to common questions about our platform and services.
           </p>
         </div>
@@ -68,8 +68,8 @@ export default function ClassicFAQSection() {
                 key={index}
                 className={`border-2 rounded-lg transition-all duration-300 ${
                   isActive
-                    ? 'border-blue-600 shadow-lg bg-blue-50'
-                    : 'border-gray-200 bg-white hover:border-blue-300 hover:shadow-md'
+                    ? 'border-amber-500 shadow-lg bg-amber-50'
+                    : 'border-neutral-200 bg-white hover:border-amber-300 hover:shadow-md'
                 }`}
               >
                 {/* Question Section */}
@@ -81,15 +81,15 @@ export default function ClassicFAQSection() {
                 >
                   {/* Icon */}
                   <div className={`flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center transition-colors duration-300 ${
-                    isActive ? 'bg-blue-600' : 'bg-gray-100'
+                    isActive ? 'bg-gradient-to-br from-amber-600 to-amber-500' : 'bg-neutral-100'
                   }`}>
-                    <Icon className={`w-5 h-5 sm:w-6 sm:h-6 ${isActive ? 'text-white' : 'text-gray-600'}`} />
+                    <Icon className={`w-5 h-5 sm:w-6 sm:h-6 ${isActive ? 'text-white' : 'text-neutral-600'}`} />
                   </div>
 
                   {/* Question Text */}
                   <div className="flex-1 min-w-0 pt-1">
                     <h3 className={`text-base sm:text-lg font-semibold transition-colors duration-300 ${
-                      isActive ? 'text-blue-900' : 'text-gray-900'
+                      isActive ? 'text-neutral-800' : 'text-neutral-800'
                     }`}>
                       {faq.question}
                     </h3>
@@ -98,13 +98,13 @@ export default function ClassicFAQSection() {
                   {/* Toggle Button */}
                   <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
                     isActive
-                      ? 'bg-blue-600 rotate-180'
-                      : 'bg-gray-200'
+                      ? 'bg-gradient-to-br from-amber-600 to-amber-500 rotate-180'
+                      : 'bg-neutral-200'
                   }`}>
                     {isActive ? (
                       <Minus className="w-4 h-4 text-white" />
                     ) : (
-                      <Plus className="w-4 h-4 text-gray-600" />
+                      <Plus className="w-4 h-4 text-neutral-600" />
                     )}
                   </div>
                 </button>
@@ -119,8 +119,8 @@ export default function ClassicFAQSection() {
                   aria-labelledby={`faq-question-${index}`}
                 >
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6">
-                    <div className="pl-14 sm:pl-16 border-l-4 border-blue-200">
-                      <p className="text-gray-700 leading-relaxed text-sm sm:text-base pl-4">
+                    <div className="pl-14 sm:pl-16 border-l-4 border-amber-200">
+                      <p className="text-neutral-700 leading-relaxed text-sm sm:text-base pl-4">
                         {faq.answer}
                       </p>
                     </div>

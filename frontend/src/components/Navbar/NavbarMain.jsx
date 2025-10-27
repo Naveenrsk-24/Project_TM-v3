@@ -18,7 +18,7 @@ const NavBarMain = () => {
     setMobileNavbarVisible(!mobileNavbarVisible);
   };
 
-  const data = [
+  const Rcdata = [
     {
       id: 1,
       title: "Wedding Photography",
@@ -101,6 +101,39 @@ const NavBarMain = () => {
       dataLabel: "most-popular-corporate",
     },
   ];
+  const Lcdata = [
+  {
+    id: 1,
+    slug: "WeddingPhotography",
+    title: "Wedding Photography",
+    subtitle: "Capture your special day with timeless photos",
+    imageSrc: "/Weddings/beautiful-husband-wife-posing-beach.jpg",
+    dataCategory: "",
+    dataAction: "click-navigation",
+    dataLabel: "wedding-photography",
+  },
+  {
+    id: 2,
+    slug: "PreWeddingShoot",
+    title: "Pre-Wedding Shoot",
+    subtitle: "Beautiful couple portraits before the big day",
+    imageSrc: "/Weddings/beautiful-husband-wife-posing-beach.jpg",
+    dataCategory: "",
+    dataAction: "click-navigation",
+    dataLabel: "pre-wedding-shoot",
+  },
+  {
+    id: 3,
+    slug: "PortraitPhotography",
+    title: "Portrait Photography",
+    subtitle: "Studio and outdoor portrait sessions for individuals",
+    imageSrc: "/Weddings/beautiful-husband-wife-posing-beach.jpg",
+    dataCategory: "",
+    dataAction: "click-navigation",
+    dataLabel: "portrait-photography",
+  },
+];
+
 
   return (
     <div>
@@ -237,93 +270,40 @@ const NavBarMain = () => {
                   {/* Left Column */}
                   <div className="w-5/12 pt-4 pr-3 pb-6">
                     <h4 className="mb-2 text-alternatives-gray text-xs uppercase font-semibold">
-                      Photography Services
+                      Popular Packages
                     </h4>
+
                     <div className="flex flex-wrap -m-1">
-                      <div className="w-full p-1">
-                        <a
-                          className="p-3 flex items-center hover:bg-brand-section-light rounded shuffle-click"
-                          href="/Section/WeddingPhotography"
-                          data-category=""
-                          data-action="click-navigation"
-                          data-label="wedding-photography"
-                          previewlistener="true"
-                        >
-                          <div className="flex items-center justify-center w-10 h-10 mr-2 rounded bg-menu-icon-item bg-opacity-10">
-                            <img
-                              width="48"
-                              height="48"
-                              src="https://img.icons8.com/color/48/wedding.png"
-                              alt="wedding-photography"
-                            />
-                          </div>
-                          <div className="inline-block">
-                            <p className="mb-1 text-sm font-semibold leading-menu">
-                              Wedding Photography
-                            </p>
-                            <p className="text-xs font-medium text-alternatives-gray">
-                              Capture your special day with timeless photos
-                            </p>
-                          </div>
-                        </a>
-                      </div>
-
-                      <div className="w-full p-1">
-                        <a
-                          className="p-3 flex items-center hover:bg-brand-section-light rounded shuffle-click"
-                          href="/Section/PreWeddingShoot"
-                          data-category=""
-                          data-action="click-navigation"
-                          data-label="pre-wedding-shoot"
-                          previewlistener="true"
-                        >
-                          <div className="flex items-center justify-center w-10 h-10 mr-2 rounded bg-menu-icon-item bg-opacity-10">
-                            <img
-                              width="48"
-                              height="48"
-                              src="https://img.icons8.com/color/48/camera.png"
-                              alt="pre-wedding-shoot"
-                            />
-                          </div>
-                          <div className="inline-block">
-                            <p className="mb-1 text-sm font-semibold leading-menu">
-                              Pre-Wedding Shoot
-                            </p>
-                            <p className="text-xs font-medium text-alternatives-gray">
-                              Beautiful couple portraits before the big day
-                            </p>
-                          </div>
-                        </a>
-                      </div>
-
-                      <div className="w-full p-1">
-                        <a
-                          className="p-3 flex items-center hover:bg-brand-section-light rounded shuffle-click"
-                          href="/Section/PortraitPhotography"
-                          data-category=""
-                          data-action="click-navigation"
-                          data-label="portrait-photography"
-                          previewlistener="true"
-                        >
-                          <div className="flex items-center justify-center w-10 h-10 mr-2 rounded bg-menu-icon-item bg-opacity-10">
-                            <img
-                              width="48"
-                              height="48"
-                              src="https://img.icons8.com/color/48/portrait.png"
-                              alt="portrait-photography"
-                            />
-                          </div>
-                          <div className="inline-block">
-                            <p className="mb-1 text-sm font-semibold leading-menu">
-                              Portrait Photography
-                            </p>
-                            <p className="text-xs font-medium text-alternatives-gray">
-                              Studio and outdoor portrait sessions for
-                              individuals
-                            </p>
-                          </div>
-                        </a>
-                      </div>
+                      {Lcdata.map((item) => (
+                        <div key={item.id} className="w-full p-1">
+                          <Link
+                            href={`/Section/${item.slug}`}
+                            className="p-3 flex items-center hover:bg-brand-section-light rounded-lg border border-transparent hover:border-gray-200 transition-all duration-300 group"
+                            data-category={item.dataCategory}
+                            data-action={item.dataAction}
+                            data-label={item.dataLabel}
+                            previewlistener="true"
+                          >
+                            <div className="flex items-center justify-center mr-3 flex-shrink-0">
+                              <img
+                                src={item.imageSrc}
+                                alt={item.title
+                                  .replace(/\s+/g, "-")
+                                  .toLowerCase()}
+                                className="w-14 h-14 rounded-full object-cover border-2 border-gray-200 group-hover:border-black transition-all duration-300 transform group-hover:scale-105 shadow-sm"
+                              />
+                            </div>
+                            <div className="inline-block">
+                              <p className="mb-1 text-sm font-semibold leading-menu group-hover:text-black transition-colors duration-300">
+                                {item.title}
+                              </p>
+                              <p className="text-xs font-medium text-alternatives-gray">
+                                {item.subtitle}
+                              </p>
+                            </div>
+                          </Link>
+                        </div>
+                      ))}
                     </div>
                   </div>
 
@@ -331,11 +311,11 @@ const NavBarMain = () => {
                   <div className="relative w-7/12 pt-4 pl-3 pb-6 bg-brand-section-light bg-opacity-60 border-l border-brand-section-dashboard">
                     <div className="absolute top-0 h-full w-full bg-brand-section-light bg-opacity-60 -right-full"></div>
                     <h4 className="mb-2 text-alternatives-gray text-xs uppercase font-semibold">
-                      Popular Packages
+                      Photography Services
                     </h4>
 
                     <div className="flex flex-wrap -m-1">
-                      {data.map((item) => (
+                      {Rcdata.map((item) => (
                         <div key={item.id} className="w-1/3 p-1">
                           <Link
                             onClick={toggleDropdown}

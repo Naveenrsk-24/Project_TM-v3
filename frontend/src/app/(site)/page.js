@@ -28,6 +28,9 @@ import TestimonialCarousel from "@/components/Home/TestimonialCarousel";
 import PortfolioGallery from "../portfolio/page";
 import ClassicFAQSection from "@/components/ExtraDesigns/ClassicFAQSection";
 import SubHeroSection from "@/components/ExtraDesigns/SubHeroSection";
+import ClassicFAQSection2 from "@/components/ExtraDesigns/ClassicFAQSection2";
+import TestimonialCarousel2 from "@/components/ExtraDesigns/TestimonialCarousel2";
+import BlogSection2 from "@/components/ExtraDesigns/BlogSection2";
 
 export default function Home() {
   return (
@@ -36,12 +39,16 @@ export default function Home() {
       <SubHeroSection/>
       <Parallax />
       <StorytellerQuoteRotator quotes={seoQuotes} rotationInterval={5000} />
-      {/* <CountupLoader /> */}
       <PortfolioGallery/>
-      <ClassicFAQSection/>
-      <TestimonialCarousel />
-      <BlogSection blogs={DUMMY_BLOGS} />
+      <ClassicFAQSection2/>
+      <TestimonialCarousel2/>
+      <BlogSection2 blogs={DUMMY_BLOGS} />
 
+{/* ******************************************************* */}
+      {/* <BlogSection blogs={DUMMY_BLOGS} /> */}
+      {/* <TestimonialCarousel /> */}
+      {/* <CountupLoader /> */}
+      {/* <ClassicFAQSection/> */}
       {/* <FAQ2 /> */}
       {/* <ServiceKeywordGrid
         headline="Our Expertise: SEO Services and Locations"
@@ -55,8 +62,8 @@ export default function Home() {
 
 
       {/* <NumbersSection/> */}
-      {/*
-     <SliderWithProgress
+      
+     {/* <SliderWithProgress
   slides={[
     { content: <img src="https://images.pexels.com/photos/2253842/pexels-photo-2253842.jpeg" alt="Slide 1" className="w-full h-full object-cover rounded-lg" /> },
     { content: <img src="https://images.pexels.com/photos/752842/pexels-photo-752842.jpeg" alt="Slide 2" className="w-full h-full object-cover rounded-lg" /> },
