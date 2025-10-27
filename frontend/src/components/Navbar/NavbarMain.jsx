@@ -229,13 +229,13 @@ const NavBarMain = () => {
                 </li>
               </ul>
               <div className="hidden lg:block">
-                <a
+                {/* <a
                   href="/careers"
                   className="mr-3 relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0
                   after:bg-pink-500 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
                 >
                   Careers
-                </a>
+                </a> */}
                 <a href="/Contacts">
                   <button
                     className={`relative px-4 py-3 bg-gradient-to-r from-pink-600 to-rose-500 inline-block text-white hover:text-black border-2 rounded-full font-semibold text-sm overflow-hidden transition-transform duration-200 ease-in-out transform ${
