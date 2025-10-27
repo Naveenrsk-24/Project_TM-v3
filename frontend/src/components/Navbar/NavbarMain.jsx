@@ -238,7 +238,7 @@ const NavBarMain = () => {
                 </a>
                 <a href="/Contacts">
                   <button
-                    className={`relative px-4 py-3 bg-pink-500 inline-block text-white hover:text-black border-2 rounded-full font-semibold text-sm overflow-hidden transition-transform duration-200 ease-in-out transform ${
+                    className={`relative px-4 py-3 bg-gradient-to-r from-pink-600 to-rose-500 inline-block text-white hover:text-black border-2 rounded-full font-semibold text-sm overflow-hidden transition-transform duration-200 ease-in-out transform ${
                       isHovered
                         ? "scale-105 border-transparent text-black"
                         : "border-transparent"

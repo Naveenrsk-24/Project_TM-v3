@@ -84,11 +84,11 @@ const TestimonialCarousel2 = () => {
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-block mb-4 px-4 py-2 bg-gradient-to-r from-amber-600 to-amber-500 rounded-full">
+          <div className="inline-block mb-4 px-4 py-2 bg-gradient-to-r from-pink-600 to-rose-500 rounded-full">
             <span className="text-white text-sm font-semibold tracking-wider">CLIENT TESTIMONIALS</span>
           </div>
           <h2 className="text-5xl md:text-6xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-pink-600 to-rose-500 bg-clip-text text-transparent">
               What Our Clients Say
             </span>
           </h2>
@@ -116,7 +116,7 @@ const TestimonialCarousel2 = () => {
 
                 {/* Floating Quote Icon */}
                 <div className="absolute top-6 left-6 w-16 h-16 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg">
-                  <Quote className="w-8 h-8 text-amber-600" />
+                  <Quote className="w-8 h-8 text-rose-600" />
                 </div>
               </div>
 
@@ -132,7 +132,7 @@ const TestimonialCarousel2 = () => {
                     {[...Array(currentTestimonial.rating)].map((_, i) => (
                       <Star
                         key={i}
-                        className="w-5 h-5 fill-amber-500 text-amber-500"
+                        className="w-5 h-5 fill-pink-500 text-rose-500"
                         style={{ 
                           animation: `starPop 0.5s ease-out ${i * 0.1}s both`
                         }}
@@ -150,7 +150,7 @@ const TestimonialCarousel2 = () => {
                     <h3 className="text-2xl font-bold text-neutral-800 mb-1">
                       {currentTestimonial.name}
                     </h3>
-                    <p className="text-amber-600 font-medium mb-2">
+                    <p className="text-rose-600 font-medium mb-2">
                       {currentTestimonial.role}
                     </p>
                     <div className="flex flex-wrap gap-2 text-sm text-neutral-600">
@@ -175,7 +175,7 @@ const TestimonialCarousel2 = () => {
                         }}
                         className={`h-2 rounded-full transition-all duration-300 ${
                           activeIndex === index 
-                            ? 'w-8 bg-gradient-to-r from-amber-600 to-amber-500' 
+                            ? 'w-8 bg-gradient-to-r from-pink-600 to-rose-500' 
                             : 'w-2 bg-neutral-300 hover:bg-neutral-400'
                         }`}
                       ></button>

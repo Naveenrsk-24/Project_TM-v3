@@ -135,9 +135,9 @@ const PortfolioGallery = () => {
         {/* View Portfolio Button */}
         <div className="flex justify-center mt-16">
           <Link href="/portfolio/categories">
-            <button className="group relative px-10 py-5 bg-gradient-to-r from-amber-600 to-amber-500 text-white rounded-full font-medium text-lg shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 overflow-hidden">
+            <button className="group relative px-10 py-5 bg-gradient-to-r from-pink-600 to-rose-500 text-white rounded-full font-medium text-lg shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 overflow-hidden">
               {/* Animated Background */}
-              <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-amber-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-rose-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
               {/* Button Content */}
               <span className="relative flex items-center gap-3">

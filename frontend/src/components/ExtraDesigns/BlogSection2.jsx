@@ -129,7 +129,7 @@ const BlogSection2 = ({ blogs, viewAllUrl = '/blogs', title = 'Latest Articles &
           <MotionLink // 👈 Use the custom MotionLink component
             href={viewAllUrl}
             className="
-              inline-flex items-center rounded-full border border-transparent bg-gradient-to-r from-amber-600 to-amber-500 px-8 py-3 
+              inline-flex items-center rounded-full border border-transparent bg-gradient-to-r from-pink-600 to-rose-500 px-8 py-3 
               text-base font-medium text-white shadow-lg transition-all duration-300 ease-in-out
               hover:from-amber-700 hover:to-amber-600 focus:outline-none focus:ring-4 focus:ring-amber-500/50
             "

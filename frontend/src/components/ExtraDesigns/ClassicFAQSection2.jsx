@@ -44,7 +44,7 @@ export default function ClassicFAQSection2() {
       <div className="max-w-4xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-amber-600 to-amber-500 mb-6">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-pink-600 to-rose-500 mb-6">
             <HelpCircle className="w-8 h-8 text-white" />
           </div>
           
@@ -68,8 +68,8 @@ export default function ClassicFAQSection2() {
                 key={index}
                 className={`border-2 rounded-lg transition-all duration-300 ${
                   isActive
-                    ? 'border-amber-500 shadow-lg bg-amber-50'
-                    : 'border-neutral-200 bg-white hover:border-amber-300 hover:shadow-md'
+                    ? 'border-pink-500 shadow-lg bg-rose-50'
+                    : 'border-neutral-200 bg-white hover:border-pink-300 hover:shadow-md'
                 }`}
               >
                 {/* Question Section */}
@@ -81,7 +81,7 @@ export default function ClassicFAQSection2() {
                 >
                   {/* Icon */}
                   <div className={`flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center transition-colors duration-300 ${
-                    isActive ? 'bg-gradient-to-br from-amber-600 to-amber-500' : 'bg-neutral-100'
+                    isActive ? 'bg-gradient-to-r from-pink-600 to-rose-500' : 'bg-neutral-100'
                   }`}>
                     <Icon className={`w-5 h-5 sm:w-6 sm:h-6 ${isActive ? 'text-white' : 'text-neutral-600'}`} />
                   </div>
@@ -98,7 +98,7 @@ export default function ClassicFAQSection2() {
                   {/* Toggle Button */}
                   <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
                     isActive
-                      ? 'bg-gradient-to-br from-amber-600 to-amber-500 rotate-180'
+                      ? 'bg-gradient-to-br from-pink-600 to-rose-500 rotate-180'
                       : 'bg-neutral-200'
                   }`}>
                     {isActive ? (

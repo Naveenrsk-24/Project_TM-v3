@@ -40,7 +40,7 @@ function HeroSection() {
           Wedding photography that tells your story — naturally, beautifully, and forever.
         </p>
         <button
-          className="mt-4 px-6 py-3 bg-pink-500 hover:bg-pink-600 text-white font-semibold rounded-full transition-transform hover:scale-105 duration-200"
+          className="mt-4 px-6 py-3 bg-gradient-to-r from-pink-600 to-rose-500 hover:bg-pink-600 text-white font-semibold rounded-full transition-transform hover:scale-105 duration-200"
           aria-label="Book a wedding photography session"
         >
           Book a Session

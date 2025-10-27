@@ -159,7 +159,7 @@ export default function Footer() {
 
               <button
                 type="submit"
-                className={`relative px-6 py-4 mt-3 bg-pink-500 inline-block text-white hover:text-black border-2 rounded-full font-semibold text-sm overflow-hidden transition-transform duration-200 ease-in-out transform ${
+                className={`relative px-6 py-4 mt-3 bg-gradient-to-r from-pink-600 to-rose-500 inline-block text-white hover:text-black border-2 rounded-full font-semibold text-sm overflow-hidden transition-transform duration-200 ease-in-out transform ${
                   isHovered
                     ? "scale-105 border-transparent text-black"
                     : "border-transparent"

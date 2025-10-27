@@ -43,7 +43,7 @@ const BlogCard2 = ({ blog }) => {
 
           {/* Category Badge */}
           {blog.category && (
-            <span className="absolute bottom-2 left-2 rounded-full bg-gradient-to-r from-amber-600 to-amber-500 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-white shadow-md">
+            <span className="absolute bottom-2 left-2 rounded-full bg-gradient-to-r from-pink-600 to-rose-500 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-white shadow-md">
               {blog.category}
             </span>
           )}
@@ -52,7 +52,7 @@ const BlogCard2 = ({ blog }) => {
         {/* ─── Content ───────────────────────────── */}
         <div className="flex flex-col justify-between p-3 sm:p-4 flex-1">
           <div>
-            <h3 className="mb-2 text-base sm:text-lg font-semibold leading-snug text-neutral-800 transition-colors duration-300 group-hover:text-amber-600 line-clamp-2">
+            <h3 className="mb-2 text-base sm:text-lg font-semibold leading-snug text-neutral-800 transition-colors duration-300 group-hover:text-rose-600 line-clamp-2">
               {blog.title}
             </h3>
 
@@ -67,7 +67,7 @@ const BlogCard2 = ({ blog }) => {
               <span className="flex items-center gap-1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-3.5 w-3.5 text-amber-600"
+                  className="h-3.5 w-3.5 text-rose-600"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -85,7 +85,7 @@ const BlogCard2 = ({ blog }) => {
               <span className="flex items-center gap-1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-3.5 w-3.5 text-amber-600"
+                  className="h-3.5 w-3.5 text-rose-600"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -101,7 +101,7 @@ const BlogCard2 = ({ blog }) => {
               </span>
             </div>
 
-            <span className="text-amber-600 font-medium hover:text-amber-700 transition-colors flex items-center gap-1">
+            <span className="text-rose-600 font-medium hover:text-rose-700 transition-colors flex items-center gap-1">
               Read More
               <svg
                 xmlns="http://www.w3.org/2000/svg"

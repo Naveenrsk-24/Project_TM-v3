@@ -109,10 +109,10 @@ export default function SubHeroSection() {
                 <div className="absolute inset-0 bg-gradient-to-r from-white via-rose-50 to-white rounded-full blur-sm animate-pulse-gentle"></div>
                 
                 {/* Main Heading */}
-                <h2 className="relative px-8 py-4 text-3xl sm:text-4xl lg:text-5xl font-serif font-semibold text-gray-900 bg-white rounded-full shadow-lg border border-gray-100">
+                <h2 className="relative px-8 py-4 text-3xl sm:text-4xl lg:text-5xl font-serif font-semibold text-gray-900 bg-transparent shadow-lg border border-gray-100">
                   We take our craft{' '}
                   <span className="relative inline-block">
-                    <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-amber-600">
+                    <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-rose-500">
                       seriously.
                     </span>
                     <span className="absolute bottom-1 left-0 w-full h-3 bg-gradient-to-r from-rose-200 to-amber-200 opacity-50 -z-10"></span>
