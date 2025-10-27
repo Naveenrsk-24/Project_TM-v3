@@ -76,3 +76,7 @@ export default function Home() {
     </>
   );
 }
+
+
+
+// /Weddings/beautiful-husband-wife-posing-beach.jpg

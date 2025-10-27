@@ -22,7 +22,7 @@ const NavBarMain = () => {
     {
       id: 1,
       title: "Wedding Photography",
-      imageSrc: "/NavIcons/wedding-photography.png",
+      imageSrc: "/Weddings/beautiful-husband-wife-posing-beach.jpg",
       link: "/Section/WeddingPhotography",
       dataCategory: "photography",
       dataAction: "click-navigation",
@@ -31,7 +31,7 @@ const NavBarMain = () => {
     {
       id: 2,
       title: "Portrait Sessions",
-      imageSrc: "/NavIcons/portrait-sessions.png",
+      imageSrc: "/Weddings/beautiful-husband-wife-posing-beach.jpg",
       link: "/Section/Portraits",
       dataCategory: "photography",
       dataAction: "click-navigation",
@@ -40,7 +40,7 @@ const NavBarMain = () => {
     {
       id: 3,
       title: "Event Photography",
-      imageSrc: "/NavIcons/event-photography.png",
+      imageSrc: "/Weddings/beautiful-husband-wife-posing-beach.jpg",
       link: "/Section/EventPhotography",
       dataCategory: "photography",
       dataAction: "click-navigation",
@@ -49,7 +49,7 @@ const NavBarMain = () => {
     {
       id: 4,
       title: "Product Photography",
-      imageSrc: "/NavIcons/product-photography.png",
+      imageSrc: "/Weddings/beautiful-husband-wife-posing-beach.jpg",
       link: "/Section/ProductPhotography",
       dataCategory: "photography",
       dataAction: "click-navigation",
@@ -58,7 +58,7 @@ const NavBarMain = () => {
     {
       id: 5,
       title: "Fashion Photography",
-      imageSrc: "/NavIcons/fashion-photography.png",
+      imageSrc: "/Weddings/beautiful-husband-wife-posing-beach.jpg",
       link: "/Section/FashionPhotography",
       dataCategory: "photography",
       dataAction: "click-navigation",
@@ -67,7 +67,7 @@ const NavBarMain = () => {
     {
       id: 6,
       title: "Real Estate Photography",
-      imageSrc: "/NavIcons/real-estate-photography.png",
+      imageSrc: "/Weddings/beautiful-husband-wife-posing-beach.jpg",
       link: "/Section/RealEstate",
       dataCategory: "photography",
       dataAction: "click-navigation",
@@ -76,7 +76,7 @@ const NavBarMain = () => {
     {
       id: 7,
       title: "Drone Photography & Videography",
-      imageSrc: "/NavIcons/drone-photography.png",
+      imageSrc: "/Weddings/beautiful-husband-wife-posing-beach.jpg",
       link: "/Section/Drone",
       dataCategory: "photography",
       dataAction: "click-navigation",
@@ -85,7 +85,7 @@ const NavBarMain = () => {
     {
       id: 8,
       title: "Photo Retouching & Editing",
-      imageSrc: "/NavIcons/photo-editing.png",
+      imageSrc: "/Weddings/beautiful-husband-wife-posing-beach.jpg",
       link: "/Section/PhotoEditing",
       dataCategory: "photography",
       dataAction: "click-navigation",
@@ -94,7 +94,7 @@ const NavBarMain = () => {
     {
       id: 9,
       title: "Corporate Headshots",
-      imageSrc: "/NavIcons/corporate-headshots.png",
+      imageSrc: "/Weddings/beautiful-husband-wife-posing-beach.jpg",
       link: "/Section/CorporateHeadshots",
       dataCategory: "photography",
       dataAction: "click-navigation",
@@ -184,7 +184,7 @@ const NavBarMain = () => {
                     About Us
                   </a>
                 </li>
-                
+
                 <li>
                   <a
                     href="/blogs"
@@ -339,21 +339,20 @@ const NavBarMain = () => {
                         <div key={item.id} className="w-1/3 p-1">
                           <Link
                             onClick={toggleDropdown}
-                            className="flex items-center group p-3 hover:bg-white border border-transparent hover:border-menu-dropdown rounded-lg"
+                            className="flex items-center group p-3 hover:bg-white border border-transparent hover:border-menu-dropdown rounded-lg transition-all duration-300"
                             href={`/Section/PhotographyServices/${item.id}`}
                             data-category={item.dataCategory}
                             data-action={item.dataAction}
                             data-label={item.dataLabel}
                             previewlistener="true"
                           >
-                            <div className="mr-2">
+                            <div className="mr-3 flex-shrink-0">
                               <img
-                                width="68"
-                                height="68"
                                 src={item.imageSrc}
                                 alt={item.title
                                   .replace(/\s+/g, "-")
                                   .toLowerCase()}
+                                className="w-16 h-16 rounded-full object-cover border-2 border-gray-200 group-hover:border-black transition-all duration-300 transform group-hover:scale-105 shadow-sm"
                               />
                             </div>
                             <div>
