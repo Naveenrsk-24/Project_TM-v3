@@ -68,14 +68,19 @@ const BlogPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-rose-50 via-white to-amber-50 relative overflow-hidden">
+      {/* Decorative Blobs */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-rose-200/20 rounded-full blur-3xl" />
+      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-amber-200/20 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-1/3 w-[600px] h-[600px] bg-pink-200/10 rounded-full blur-3xl" />
+
       {/* Header */}
-      <header className="py-16 bg-white shadow-sm border-b border-gray-100">
+      <header className="relative py-16 bg-white/60 backdrop-blur-sm shadow-sm border-b border-rose-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl font-extrabold tracking-tight text-gray-900">
             Photography Blog
           </h1>
-          <p className="mt-3 text-xl text-gray-500">
+          <p className="mt-3 text-xl text-gray-600">
             Tips, techniques, and inspiration for photography enthusiasts.
           </p>
         </div>
@@ -91,7 +96,7 @@ const BlogPage = () => {
       />
 
       {/* Blog Grid */}
-      <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+      <main className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         {filteredAndSortedBlogs.length > 0 ? (
           <AnimatePresence mode="wait">
             <motion.div
@@ -99,13 +104,13 @@ const BlogPage = () => {
               variants={containerVariants}
               initial="hidden"
               animate="show"
-              key={activeCategory + sortBy} // Animate on filter or sort change
+              key={activeCategory + sortBy}
             >
               {filteredAndSortedBlogs.map((blog) => (
                 <BlogListingCard
                   key={blog.id}
                   blog={blog}
-                  variants={itemVariants} // motion props
+                  variants={itemVariants}
                   initial="hidden"
                   animate="show"
                   exit="exit"
@@ -114,13 +119,13 @@ const BlogPage = () => {
             </motion.div>
           </AnimatePresence>
         ) : (
-          <div className="text-center py-20 bg-white rounded-xl shadow-lg border border-gray-100">
-            <p className="text-xl font-medium text-gray-600">
+          <div className="text-center py-20 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-rose-100">
+            <p className="text-xl font-medium text-gray-700">
               No articles found in the category "{activeCategory}".
             </p>
             <button
               onClick={() => setActiveCategory('All')}
-              className="mt-4 text-indigo-600 font-medium hover:underline"
+              className="mt-4 text-rose-600 font-medium hover:text-rose-700 hover:underline transition-colors"
             >
               View All Articles
             </button>
