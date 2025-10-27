@@ -23,7 +23,7 @@ const NavBarMain = () => {
       id: 1,
       title: "Wedding Photography",
       imageSrc: "/Weddings/beautiful-husband-wife-posing-beach.jpg",
-      link: "/Section/WeddingPhotography",
+      link: "/tamil-weddings",
       dataCategory: "photography",
       dataAction: "click-navigation",
       dataLabel: "most-popular-wedding",
@@ -32,7 +32,7 @@ const NavBarMain = () => {
       id: 2,
       title: "Portrait Sessions",
       imageSrc: "/Weddings/beautiful-husband-wife-posing-beach.jpg",
-      link: "/Section/Portraits",
+      link: "/portraits",
       dataCategory: "photography",
       dataAction: "click-navigation",
       dataLabel: "most-popular-portraits",
@@ -200,11 +200,11 @@ const NavBarMain = () => {
 
                 <li>
                   <a
-                    href="/gallery"
+                    href="/portfolio2"
                     className="relative after:absolute after:bottom-0  after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0
       after:bg-sky-700 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
                   >
-                    Gallery
+                    Portfolio
                   </a>
                 </li>
 
@@ -320,7 +320,7 @@ const NavBarMain = () => {
                           <Link
                             onClick={toggleDropdown}
                             className="flex items-center group p-3 hover:bg-white border border-transparent hover:border-menu-dropdown rounded-lg transition-all duration-300"
-                            href={`/Section/PhotographyServices/${item.id}`}
+                            href={`/portfolio2/${item.link}`}
                             data-category={item.dataCategory}
                             data-action={item.dataAction}
                             data-label={item.dataLabel}
