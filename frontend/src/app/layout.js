@@ -1,4 +1,15 @@
 import "./globals.css";
+import { Geist, Geist_Mono } from "next/font/google";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
 
 export const metadata = {
   title: "TM Photography",
@@ -12,9 +23,6 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning={true}
       >
-        <NavBarMain/>
-        {/* <PremiumNavbar/> */}
-
         {children}
       </body>
     </html>
