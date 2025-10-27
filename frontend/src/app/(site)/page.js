@@ -13,19 +13,19 @@ import NumbersSection from "@/components/Home/NumberSection";
 import Parallax from "@/components/Home/Parallax";
 import SliderWithProgress from "@/components/Home/SlideWithProgress";
 import VideoTestimonialCarousel from "@/components/Home/VideoTestimonialCarousel";
-import { mockTestimonials } from "../data/Testimonials";
+import { mockTestimonials } from "../../data/Testimonials";
 // import VerticalSlider from "@/components/Home/VerticalSlider";
 import NavBarMain from "@/components/Navbar/NavbarMain";
 import Image from "next/image";
 import BlogSection from "@/components/Blog/BlogSection";
-import { DUMMY_BLOGS } from "../data/blog-data";
+import { DUMMY_BLOGS } from "../../data/blog-data";
 import DynamicSliderWrapper from "@/components/Home/LazyLoaders/DynamicSlider";
 import ServiceKeywordGrid from "@/components/Home/ServiceKeywordGrid";
 import { serviceData } from "@/data/Home/ServiceData";
 import StorytellerQuoteRotator from "@/components/Home/StorytellerQuoteBlock";
-import { seoQuotes } from "../data/Home/quoteData";
+import { seoQuotes } from "../../data/Home/quoteData";
 import TestimonialCarousel from "@/components/Home/TestimonialCarousel";
-import PortfolioGallery from "./portfolio/page";
+import PortfolioGallery from "../portfolio/page";
 import ClassicFAQSection from "@/components/ExtraDesigns/ClassicFAQSection";
 import SubHeroSection from "@/components/ExtraDesigns/SubHeroSection";
 
@@ -55,7 +55,7 @@ export default function Home() {
 
 
       {/* <NumbersSection/> */}
-      {/* 
+      {/*
      <SliderWithProgress
   slides={[
     { content: <img src="https://images.pexels.com/photos/2253842/pexels-photo-2253842.jpeg" alt="Slide 1" className="w-full h-full object-cover rounded-lg" /> },
