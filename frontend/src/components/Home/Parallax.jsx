@@ -14,7 +14,7 @@ const servicesData = [
       "Personalized wedding albums and films",
     ],
     image:
-      "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=1600&q=80",
+      "/Home/Parallax1.avif",
     buttonText: "View More",
     href: "/services/wedding-photography",
   },
@@ -28,7 +28,7 @@ const servicesData = [
       "Model, actor & influencer portfolio shoots",
     ],
     image:
-      "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1600&q=80",
+      "/Home/Parallax2.avif",
     buttonText: "View More",
     href: "/services/portrait-photography",
   },
@@ -42,7 +42,7 @@ const servicesData = [
       "Perfect for online stores, restaurants, and agencies",
     ],
     image:
-      "https://images.unsplash.com/photo-1602524812239-1f84a3c74c49?auto=format&fit=crop&w=1600&q=80",
+      "/Home/Parallax3.avif",
     buttonText: "View More",
     href: "/services/product-photography",
   },
@@ -56,7 +56,7 @@ const servicesData = [
       "On-site editing and quick delivery options",
     ],
     image:
-      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80",
+      "/Home/Parallax1.avif",
     buttonText: "View More",
     href: "/services/event-photography",
   },
