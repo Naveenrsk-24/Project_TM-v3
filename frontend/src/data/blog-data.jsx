@@ -7,7 +7,7 @@ export const DUMMY_BLOGS = [
     category: "Wedding Photography",
     excerpt:
       "Planning your wedding in Chennai? Discover the top 10 photographers for candid, traditional, and fusion wedding photography, plus tips on packages and locations.",
-    imageUrl: "/Weddings/beautiful-husband-wife-posing-beach.jpg",
+    imageUrl: "/Weddings/beautiful-husband-wife-posing-beach.webp",
     date: "2025-10-19",
     content: `
 <h1>The 10 Best Wedding Photographers in Chennai for an Unforgettable Day</h1>
