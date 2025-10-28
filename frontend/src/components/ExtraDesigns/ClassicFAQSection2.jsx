@@ -119,7 +119,7 @@ export default function ClassicFAQSection2() {
                   aria-labelledby={`faq-question-${index}`}
                 >
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6">
-                    <div className="pl-14 sm:pl-16 border-l-4 border-amber-200">
+                    <div className="pl-14 sm:pl-16 border-l-4 border-rose-200">
                       <p className="text-neutral-700 leading-relaxed text-sm sm:text-base pl-4">
                         {faq.answer}
                       </p>

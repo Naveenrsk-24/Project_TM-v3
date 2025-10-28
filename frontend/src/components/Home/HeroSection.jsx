@@ -15,7 +15,7 @@ function HeroSection() {
         - sizes: CRITICAL addition to tell Next.js/browser the image will span 100% of the viewport width. 
       */}
       <Image
-        src="/Weddings/groom-putting-ring-bride-s-finger.jpg"
+        src="/Weddings/groom-putting-ring-bride-s-finger.webp"
         alt="Groom putting ring on bride's finger"
         fill
         priority
@@ -53,7 +53,7 @@ function HeroSection() {
       */}
       <div className="relative z-10 mb-8 md:mb-0 md:flex items-center justify-center w-full sm:w-[350px] md:w-[500px] h-[400px] sm:h-[450px] md:h-[580px] border-[6px] border-white shadow-2xl overflow-hidden rounded-tr-[50px] rounded-bl-[50px]">
         <Image
-          src="/Weddings/beautiful-husband-wife-posing-beach.jpg"
+          src="/Weddings/beautiful-husband-wife-posing-beach.webp"
           alt="Bride holding bouquet"
           fill
           // priority REMOVED 👈 HIGH PRIORITY: Reduces competing requests for LCP
