@@ -200,7 +200,7 @@ const NavBarMain = () => {
 
                 <li>
                   <a
-                    href="/portfolio2"
+                    href="/portfolio"
                     className="relative after:absolute after:bottom-0  after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0
       after:bg-sky-700 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
                   >
@@ -320,7 +320,7 @@ const NavBarMain = () => {
                           <Link
                             onClick={toggleDropdown}
                             className="flex items-center group p-3 hover:bg-white border border-transparent hover:border-menu-dropdown rounded-lg transition-all duration-300"
-                            href={`/portfolio2/${item.link}`}
+                            href={`/portfolio/${item.link}`}
                             data-category={item.dataCategory}
                             data-action={item.dataAction}
                             data-label={item.dataLabel}

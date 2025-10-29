@@ -168,7 +168,7 @@ const AlbumGallery = ({ albumData = {} }) => {
 
               {/* Gradient Border Effect */}
               <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-rose-500 via-purple-500 to-amber-500 blur-xl -z-10 opacity-50"></div>
+                <div className="absolute inset-0 rounded-2xl-z-10 opacity-50"></div>
               </div>
             </div>
           ))}
