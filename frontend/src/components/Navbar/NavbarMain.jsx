@@ -236,9 +236,9 @@ const NavBarMain = () => {
                 >
                   Careers
                 </a> */}
-                <a href="/Contacts">
+                <Link href="/booking" aria-label="Book a wedding photography session">
                   <button
-                    className={`relative px-4 py-3 bg-gradient-to-r from-pink-600 to-rose-500 inline-block text-white hover:text-black border-2 rounded-full font-semibold text-sm overflow-hidden transition-transform duration-200 ease-in-out transform ${
+                    className={`relative px-4 py-3 bg-gradient-to-r cursor-pointer from-pink-600 to-rose-500 inline-block text-white hover:text-black border-2 rounded-full font-semibold text-sm overflow-hidden transition-transform duration-200 ease-in-out transform ${
                       isHovered
                         ? "scale-105 border-transparent text-black"
                         : "border-transparent"
@@ -255,7 +255,7 @@ const NavBarMain = () => {
                     ></span>
                     Contact Us
                   </button>
-                </a>
+                  </Link>
               </div>
             </nav>
           </div>
