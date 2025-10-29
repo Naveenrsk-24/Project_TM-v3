@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import React from "react"; 
+import React from "react";
+import Link from "next/link";
 
 // Optimization 4: Use React.memo to prevent unnecessary re-renders
 function HeroSection() {
@@ -11,7 +12,7 @@ function HeroSection() {
       className="relative w-full min-h-screen flex flex-col-reverse md:flex-row items-center justify-between overflow-hidden px-4 sm:px-8 md:px-16 py-12 md:py-0"
       aria-label="Wedding photography hero section"
     >
-      {/* 1. LCP Image (Optimization 1 & 2): 
+      {/* 1. LCP Image (Optimization 1 & 2):
           - priority: CRITICAL for LCP discovery.
           - sizes: "100vw" is correct for a full-screen background.
           - NOTE: A manual <link rel="preload"> in the document head is still highly recommended to bypass the 7.2s LCP.
@@ -22,7 +23,7 @@ function HeroSection() {
         fill
         priority
         quality={85} // Optimization 2: Compression
-        sizes="100vw" 
+        sizes="100vw"
         className="object-cover object-center -z-10 rounded-tr-lg rounded-bl-lg"
       />
 
@@ -42,13 +43,15 @@ function HeroSection() {
         <p className="text-base sm:text-lg md:text-xl text-white">
           Wedding photography that tells your story — naturally, beautifully, and forever.
         </p>
+        <Link href="/booking" aria-label="Book a wedding photography session">
         <button
           // Mobile-First & Accessibility (Guideline 1 & 3): Min-size for touch target + focus ring
-          className="mt-4 px-6 py-3 bg-gradient-to-r from-pink-600 to-rose-500 hover:bg-pink-600 text-white font-semibold rounded-full transition-transform hover:scale-105 duration-200 min-w-[44px] min-h-[44px] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-pink-pink-300 focus-visible:ring-offset-2"
+          className="mt-4 px-6 py-3 bg-gradient-to-r from-pink-600 to-rose-500 hover:bg-pink-600 text-white font-semibold rounded-full transition-transform hover:scale-105 duration-200 min-w-[44px] min-h-[44px] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-pink-pink-300 focus-visible:ring-offset-2 cursor-pointer"
           aria-label="Book a wedding photography session"
         >
           Book a Session
         </button>
+        </Link>
       </div>
 
       {/* Portrait Photo Frame (Not LCP) */}
