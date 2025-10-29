@@ -77,11 +77,11 @@ const AlbumGallery = ({ albumData = {} }) => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16 sm:pt-16 sm:pb-24">
           {/* Breadcrumb */}
           <nav className="flex items-center space-x-2 text-sm mb-8 opacity-0 animate-[fadeIn_0.6s_ease-out_forwards]">
-            <a href="/portfolio2" className="text-gray-600 hover:text-rose-600 transition-colors">
+            <a href="/portfolio" className="text-gray-600 hover:text-rose-600 transition-colors">
               Portfolio
             </a>
             <span className="text-gray-400">/</span>
-            <a href={`/portfolio2/${category.toLowerCase().replace(/\s+/g, '-')}`} className="text-gray-600 hover:text-rose-600 transition-colors">
+            <a href={`/portfolio/${category.toLowerCase().replace(/\s+/g, '-')}`} className="text-gray-600 hover:text-rose-600 transition-colors">
               {category}
             </a>
             <span className="text-gray-400">/</span>
