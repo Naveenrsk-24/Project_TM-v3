@@ -10,4 +10,6 @@ def event_booking_create(request):
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    else:
+        print("❌ Validation errors:", serializer.errors)  # 👈 add this line
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
