@@ -39,8 +39,7 @@ INSTALLED_APPS = [
 # Allow localhost for local dev and any production frontend URL
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "https://tmstudios.vercel.app",  # your Vercel site
-    "https://project-tm-v3.onrender.com",  # your Render backend (optional, for API testing)
+    "https://tmstudios.vercel.app",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
