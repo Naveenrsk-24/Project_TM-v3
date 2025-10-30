@@ -33,7 +33,7 @@ export default function AdminDashboardPage() {
 
     const fetchBookings = async () => {
       try {
-        const res = await fetch("http://localhost:8000/api/admin/dashboard/", {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/admin/dashboard/`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -68,7 +68,7 @@ export default function AdminDashboardPage() {
 
     try {
       setLoadingLogout(true);
-      await fetch("http://localhost:8000/api/admin/logout/", {
+      await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/admin/logout/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
