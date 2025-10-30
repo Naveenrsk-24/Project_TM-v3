@@ -70,7 +70,10 @@ export default function BookingPage() {
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/event-booking/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          crowd_strength: Number(formData.crowd_strength),
+        }),
       });
 
       const data = await res.json();
