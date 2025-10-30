@@ -13,7 +13,7 @@ class EventBooking(models.Model):
         max_length=15,
         validators=[RegexValidator(
             regex=r'^\d{10,15}$',
-            message="Phone number must contain only digits (10–15 digits)."
+            message="Phone number must contain only digits (10-15 digits)."
         )]
     )
     city = models.CharField(max_length=100)
