@@ -53,7 +53,7 @@ const CategoryGallery = ({ category, slug, albums = [] }) => {
           {albums.map((album, index) => (
             <Link
               key={album.id}
-              href={`/portfolio2/${slug}/${album.slug}`}
+              href={`/portfolio/${slug}/${album.slug}`}
               className={`group relative aspect-[4/5] overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-700 transform block 
                 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
               style={{ transitionDelay: `${index * 50}ms` }}
@@ -102,7 +102,7 @@ const CategoryGallery = ({ category, slug, albums = [] }) => {
 
         {/* View All Categories Button */}
         <div className="flex justify-center mt-16">
-          <Link href="/portfolio2">
+          <Link href="/portfolio">
             <button className="group relative px-10 py-5 bg-white border-2 border-neutral-300 text-neutral-800 rounded-full font-medium text-lg shadow-lg hover:shadow-xl transition-all duration-500 transform hover:scale-[1.02] overflow-hidden hover:border-amber-500 hover:text-amber-600 focus:outline-none focus:ring-4 focus:ring-amber-500/50">
               <span className="relative flex items-center gap-3">
                 <ArrowRight className="w-5 h-5 transition-transform duration-500 group-hover:-translate-x-1" />

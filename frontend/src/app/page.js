@@ -25,7 +25,7 @@ import { serviceData } from "@/data/Home/ServiceData";
 import StorytellerQuoteRotator from "@/components/Home/StorytellerQuoteBlock";
 import { seoQuotes } from "../data/Home/quoteData";
 import TestimonialCarousel from "@/components/Home/TestimonialCarousel";
-import PortfolioGallery from "./portfolio/page";
+import PortfolioGallery from "@/components/ExtraDesigns/PortfolioDesignA";
 import ClassicFAQSection from "@/components/ExtraDesigns/ClassicFAQSection";
 import SubHeroSection from "@/components/ExtraDesigns/SubHeroSection";
 import ClassicFAQSection2 from "@/components/ExtraDesigns/ClassicFAQSection2";

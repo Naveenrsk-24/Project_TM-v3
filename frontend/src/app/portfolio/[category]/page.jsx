@@ -1,38 +1,56 @@
 // src/app/portfolio/[category]/page.jsx
 
-import CategoryGallery from '../../../components/ExtraDesigns/PortfolioCategoryGalleryA'; // example path, adjust as needed
+import CategoryGallery from "../../../components/Portfolio/CategoryGallery";
+import { categoryMap } from "@/data/Portfolio-Data/CategoryData";
+import { albumsData } from "@/data/Portfolio-Data/albumData";
+// Note: Adjusted import path to be safer, assuming CategoryGallery is in components/Portfolio
 
-// ✅ Make your main page async and await params
+
+/**
+ * Helper function to simulate fetching a list of albums for a category.
+ * This is refactored to use more descriptive, hardcoded album data.
+ * @param {string} categorySlug - The slug of the category.
+ */
+const getSampleAlbums = (categorySlug) => {
+  const USER_IMAGE_URL = "/Weddings/beautiful-husband-wife-posing-beach.jpg";
+
+  // Define hardcoded albums for a specific category slug
+ 
+
+  const selectedAlbums = albumsData[categorySlug] || albumsData['tamil-weddings']; // Default to a category if not found
+
+  return selectedAlbums.map(album => ({
+    ...album,
+    coverImage: USER_IMAGE_URL,
+    alt: `Cover image for ${album.title} in the ${categoryMap[categorySlug]?.name || 'Photography'} collection`,
+  }));
+};
+
+// Next.js App Router convention: page component receives params
 export default async function CategoryPage({ params }) {
-  const { category } = await params; // 👈 await params here
-  return <CategoryGallery category={category} />;
+  const { category } = params; 
+  const categoryData = categoryMap[category] || { name: 'Photography', description: 'A collection of our finest work.', slug: category };
+
+  // Fetch albums using the hardcoded sample function
+  const albums = getSampleAlbums(category);
+
+  return <CategoryGallery category={categoryData.name} slug={category} albums={albums} />;
 }
 
-// ✅ Also fix generateMetadata (if you have it)
+// Static generation of paths for better performance (SSG)
+export async function generateStaticParams() {
+  return Object.keys(categoryMap).map((category) => ({
+    category: category,
+  }));
+}
+
+// Dynamic Metadata
 export async function generateMetadata({ params }) {
-  const { category } = await params; // 👈 await params here
-
-  const categoryNames = {
-    'portraits': 'Portraits',
-    'pre-weddings': 'Pre Weddings',
-    'tamil-weddings': 'Tamil Weddings',
-    'telugu-weddings': 'Telugu Weddings',
-  };
-
-  const categoryName = categoryNames[category] || 'Photography';
+  const { category } = params;
+  const categoryName = categoryMap[category]?.name || 'Photography';
 
   return {
-    title: `${categoryName} | Your Photography Studio`,
-    description: `Explore the best ${categoryName.toLowerCase()} galleries captured by our photographers.`,
+    title: `${categoryName} Gallery | Your Photography Studio`,
+    description: categoryMap[category]?.description || `Explore the best ${categoryName.toLowerCase()} galleries captured by our photographers.`,
   };
-}
-
-// ✅ Optional: generate static paths (for SSG)
-export async function generateStaticParams() {
-  return [
-    { category: 'portraits' },
-    { category: 'pre-weddings' },
-    { category: 'tamil-weddings' },
-    { category: 'telugu-weddings' },
-  ];
 }
