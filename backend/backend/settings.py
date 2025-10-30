@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # If DATABASE_URL exists (production/Supabase), use it. Otherwise, use local Postgres.
 DATABASES = {
     'default': dj_database_url.config(
-        default=f"postgresql://postgres:password@localhost:5432/TM_photography",
+        default=os.environ.get('DATABASE_URL'),
         conn_max_age=600
     )
 }
