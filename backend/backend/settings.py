@@ -37,10 +37,16 @@ INSTALLED_APPS = [
 
 # CORS
 # Allow localhost for local dev and any production frontend URL
-CORS_ALLOWED_ORIGINS = config(
-    'CORS_ALLOWED_ORIGINS',
-    default='http://localhost:3000'
-).split(',')
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "https://tmstudios.vercel.app",  # your Vercel site
+    "https://project-tm-v3.onrender.com",  # your Render backend (optional, for API testing)
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://tmstudios.vercel.app",
+    "https://project-tm-v3.onrender.com",
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
