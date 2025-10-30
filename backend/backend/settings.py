@@ -12,7 +12,7 @@ from decouple import config
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY
-SECRET_KEY = config('SECRET_KEY', default='django-insecure-bsy6vqda@ozvrx7t#%s(wvx%bla8_a-xu!(%b#un0-^7#0$#-*')
+SECRET_KEY = os.environ.get("SECRET_KEY", "fallback-secret-key")
 DEBUG = config('DEBUG', default=True, cast=bool)
 
 # Hosts
