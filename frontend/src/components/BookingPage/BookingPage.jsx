@@ -67,7 +67,7 @@ export default function BookingPage() {
 
     setLoading(true);
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/event-booking/`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/event-booking/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
