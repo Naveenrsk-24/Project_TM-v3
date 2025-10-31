@@ -72,7 +72,7 @@ export default function SubHeroSection() {
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 z-20"></div>
                 
                 <img
-                  src="/Home/wedding-rings.avif"
+                  src="/HBD/suit-2.avif"
                   alt="Beautiful Indian wedding ceremony with bride and groom in traditional attire"
                   className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                 />
