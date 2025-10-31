@@ -37,7 +37,7 @@ function HeroSection() {
       <div className="relative z-10 text-white text-center md:text-left max-w-xl space-y-4">
         {/* LCP Text */}
         <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight">
-          Happiest <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-rose-500">Birthday</span> Subalesh📸
+          Cheers to your <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-rose-500">Next Shot!</span>📸
         </h1>
         {/* Accessibility (Guideline 3): Changed to text-white for assured 4.5:1 contrast */}
         <p className="text-base sm:text-lg md:text-xl text-white">

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import LogoImage from "../../../public/Logo/dummylogo.png";
+import LogoImage from "../../../public/Logo/tmslogo2.png";
 import Image from "next/image";
 import Mobilenavbar from "../Navbar/Mobilenavbar";
 import Link from "next/link";
@@ -145,7 +145,7 @@ const NavBarMain = () => {
           <div className="w-full bg-white px-4">
             <nav className="flex justify-between items-center py-2">
               <a href="/" className="text-3xl font-semibold ml-2.5">
-                <Image src={LogoImage} alt="LOGO" width={70} height={50} />
+                <Image src={LogoImage} alt="LOGO" width={150} height={100} />
               </a>
               <div className="lg:hidden">
                 <button

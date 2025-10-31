@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import LogoImage from "../../../public/Logo/dummylogo.png";
+import LogoImage from "../../../public/Logo/tmslogo2.png";
 
 export default function Footer() {
   const [isHovered, setIsHovered] = useState(false);
@@ -13,11 +13,11 @@ export default function Footer() {
           {/* Logo & Description */}
           <div className="col-span-2 md:col-span-3 lg:col-span-2 lg:pr-8">
             <Image
-              src="/Logo/dummylogo.png" // internal image
+              src={LogoImage} // internal image
               alt="Logo"
               width={180}
               height={180}
-              className="w-28 h-28"
+              className="w-36 h-28"
             />
 
             <p className="text-base leading-relaxed text-gray-600 mt-7">
