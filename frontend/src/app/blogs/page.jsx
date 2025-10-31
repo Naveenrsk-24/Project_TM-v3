@@ -68,7 +68,7 @@ const BlogPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-rose-50 via-white to-amber-50 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-white to-neutral-100 relative overflow-hidden">
       {/* Decorative Blobs */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-rose-200/20 rounded-full blur-3xl" />
       <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-amber-200/20 rounded-full blur-3xl" />
@@ -78,10 +78,10 @@ const BlogPage = () => {
       <header className="relative py-16 bg-white/60 backdrop-blur-sm shadow-sm border-b border-rose-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl font-extrabold tracking-tight text-gray-900">
-            Photography Blog
+            The Art of Seeing: Our Insights
           </h1>
           <p className="mt-3 text-xl text-gray-600">
-            Tips, techniques, and inspiration for photography enthusiasts.
+            Go beyond the basics. Explore expert techniques, in-depth tutorials, and the philosophy behind stunning visual storytelling from our award-winning team.
           </p>
         </div>
       </header>

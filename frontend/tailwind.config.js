@@ -1,8 +1,13 @@
-export const content = [
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
     "./app/**/*.{js,jsx,ts,tsx}",
     "./components/**/*.{js,jsx,ts,tsx}",
-];
-export const theme = {
+  ],
+  theme: {
     extend: {},
+  },
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 };
-export const plugins = [require('@tailwindcss/typography')];

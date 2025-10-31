@@ -4,14 +4,14 @@ import { ArrowRight } from "lucide-react";
 
 // Sample experts data
 const experts = [
-  { id: 1, name: "Ethan Hughes", title: "Green Building Advisor", image: "/Images/Person1.jpg" },
-  { id: 2, name: "Olivia Bennett", title: "Sustainable Housing Consultant", image: "/Images/Person2.jpg" },
-  { id: 3, name: "Sophia Rivera", title: "Sustainable Housing Consultant", image: "/Images/Person3.jpg" },
-  { id: 4, name: "Liam Carter", title: "Commercial Real Estate Agent", image: "/Images/Person4.jpg" },
-  { id: 5, name: "James Callahan", title: "Luxury Property Specialist", image: "/Images/Person1.jpg" },
-  { id: 6, name: "Sarah Mitchell", title: "Investment Property Advisor", image: "/Images/Person2.jpg" },
-  { id: 7, name: "Michael Chen", title: "Residential Property Expert", image: "/Images/Person3.jpg" },
-  { id: 8, name: "Emma Thompson", title: "Property Development Consultant", image: "/Images/Person4.jpg" },
+  { id: 1, name: "Ethan Hughes", title: "Green Building Advisor", image: "/Home/Parallax1.avif" },
+  { id: 2, name: "Olivia Bennett", title: "Sustainable Housing Consultant", image: "/Home/Parallax1.avif" },
+  { id: 3, name: "Sophia Rivera", title: "Sustainable Housing Consultant", image: "/Home/Parallax1.avif" },
+  { id: 4, name: "Liam Carter", title: "Commercial Real Estate Agent", image: "/Home/Parallax1.avif" },
+  { id: 5, name: "James Callahan", title: "Luxury Property Specialist", image: "/Home/Parallax1.avif" },
+  { id: 6, name: "Sarah Mitchell", title: "Investment Property Advisor", image: "/Home/Parallax1.avif" },
+  { id: 7, name: "Michael Chen", title: "Residential Property Expert", image: "/Home/Parallax1.avif" },
+  { id: 8, name: "Emma Thompson", title: "Property Development Consultant", image: "/Home/Parallax1.avif" },
 ];
 
 // Glass-morphism button

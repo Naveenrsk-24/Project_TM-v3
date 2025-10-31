@@ -69,27 +69,30 @@ const BlogPostPage = ({ params }) => {
         {/* Blog Content */}
         <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           {/* Blog excerpt */}
-          <motion.p
+          {/* <motion.p
             className="lead text-xl italic font-serif text-gray-700 mb-8 text-center"
             variants={contentVariants}
           >
             — {blog.excerpt}
-          </motion.p>
+          </motion.p> */}
 
           {/* Actual Blog HTML Content */}
-          <motion.div
-            className="prose prose-lg sm:prose-xl mx-auto dark:prose-invert"
-            variants={contentVariants}
-            dangerouslySetInnerHTML={{
-              __html: he.decode(blog.content), // ✅ Decodes & renders clean HTML
-            }}
-          />
+       <motion.div
+  className="prose prose-lg sm:prose-xl max-w-full mx-auto dark:prose-invert"
+  variants={contentVariants}
+  dangerouslySetInnerHTML={{
+    __html: he.decode(blog.content),
+  }}
+/>
+
+
+
 
           {/* Back Button */}
           <div className="mt-12 text-center">
             <a
               href="/blogs"
-              className="inline-block px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow hover:bg-indigo-500 transition"
+              className="inline-block px-6 py-3  bg-gradient-to-r from-pink-600 to-rose-500 hover:bg-pink-600 text-white font-semibold rounded-lg shadow transition"
             >
               ← Back to Blogs
             </a>
