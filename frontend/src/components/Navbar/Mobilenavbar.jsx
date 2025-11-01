@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import LogoImage from '../../../public/Logo/dummylogo.png';
+import LogoImage from '../../../public/Logo/tmslogo2.png';
 import Image from 'next/image';
 
 const Mobilenavbar = ({ toggleNavbar }) => {
@@ -39,15 +39,15 @@ const Mobilenavbar = ({ toggleNavbar }) => {
               isOpen={sidenavbardropdown}
               toggleDropdown={sideNavdropdownshow}
               dropdownItems={[
-                { href: "/Section/WeddingPhotography", label: "Wedding Photography", Icon: "/NavIcons/wedding-photography.png" },
-                { href: "/Section/Portraits", label: "Portrait Sessions", Icon: "/NavIcons/portrait-sessions.png" },
-                { href: "/Section/EventPhotography", label: "Event Photography", Icon: "/NavIcons/event-photography.png" },
-                { href: "/Section/ProductPhotography", label: "Product Photography", Icon: "/NavIcons/product-photography.png" },
-                { href: "/Section/FashionPhotography", label: "Fashion Photography", Icon: "/NavIcons/fashion-photography.png" },
-                { href: "/Section/RealEstate", label: "Real Estate Photography", Icon: "/NavIcons/real-estate-photography.png" },
-                { href: "/Section/Drone", label: "Drone Photography & Videography", Icon: "/NavIcons/drone-photography.png" },
-                { href: "/Section/PhotoEditing", label: "Photo Retouching & Editing", Icon: "/NavIcons/photo-editing.png" },
-                { href: "/Section/CorporateHeadshots", label: "Corporate Headshots", Icon: "/NavIcons/corporate-headshots.png" },
+                { href: "/portfolio/tamil-weddings", label: "Wedding Photography", Icon: "/Weddings/beautiful-husband-wife-posing-beach.jpg" },
+                { href: "/portfolio/portraits", label: "Portrait Sessions", Icon: "/Weddings/beautiful-husband-wife-posing-beach.jpg" },
+                { href: "/portfolio/pre-weddings", label: "Event Photography", Icon: "/Weddings/beautiful-husband-wife-posing-beach.jpg" },
+                { href: "/portfolio/telugu-weddings", label: "Product Photography", Icon: "/Weddings/beautiful-husband-wife-posing-beach.jpg" },
+                { href: "/Section/FashionPhotography", label: "Fashion Photography", Icon: "/Weddings/beautiful-husband-wife-posing-beach.jpg" },
+                { href: "/Section/RealEstate", label: "Real Estate Photography", Icon: "/Weddings/beautiful-husband-wife-posing-beach.jpg" },
+                { href: "/Section/Drone", label: "Drone Photography & Videography", Icon: "/Weddings/beautiful-husband-wife-posing-beach.jpg" },
+                { href: "/Section/PhotoEditing", label: "Photo Retouching & Editing", Icon: "/Weddings/beautiful-husband-wife-posing-beach.jpg" },
+                { href: "/Section/CorporateHeadshots", label: "Corporate Headshots", Icon: "/Weddings/beautiful-husband-wife-posing-beach.jpg" },
               ]}
             />
             <NavItem href="/gallery" label="Gallery" />
