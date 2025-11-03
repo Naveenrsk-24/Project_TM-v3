@@ -1,6 +1,7 @@
 import AnimatedServicesSection from "@/components/ExtraDesigns/AnimatedServiceSection";
 import CategoryGalleryB from "@/components/ExtraDesigns/CategoryGalleryB";
 import ClassicFAQSection from "@/components/ExtraDesigns/ClassicFAQSection";
+import DraggableCardDemo from "@/components/ExtraDesigns/DraggableCardsDemo";
 import GalleryDemo from "@/components/ExtraDesigns/ImageBentoGallery";
 import KeywordRichAbout from "@/components/ExtraDesigns/KeywordRichAbout";
 import ParallaxCarousel from "@/components/ExtraDesigns/ParallaxCarousel";
@@ -30,6 +31,7 @@ export default function Extras() {
       <ServiceParallaxGrid services={servicesData} />
       <ClassicFAQSection />
       <SubHeroSection/>
+      <DraggableCardDemo/>
 
       {/* <GalleryDemo/> */}
 
