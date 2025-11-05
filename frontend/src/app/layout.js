@@ -1,7 +1,9 @@
+// app/layout.js
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import LayoutClientWrapper from "@/components/LayoutClientWrapper";
 
+// Font setup
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -12,14 +14,42 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
-  title: "TM Studios - Wedding Photography",
-  description:
-    "Wedding photography that tells your story — naturally, beautifully, and forever.",
-};
+// Your base site URL (update to your actual domain)
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://tmstudios.in";
 
+// LCP preload image (for Core Web Vitals)
 const LCP_IMAGE_URL =
   "/_next/image?url=%2FWeddings%2Fgroom-putting-ring-bride-s-finger.webp&w=1080&q=85";
+
+// ✅ GLOBAL SITE METADATA
+export const metadata = {
+  title: {
+    default: "TM Studios | Professional Photography in Chennai",
+    template: "%s | TM Studios",
+  },
+  description:
+    "TM Studios — Chennai’s leading professional photographers for weddings, baby shoots, maternity, and more. Capture timeless memories beautifully.",
+  metadataBase: new URL(SITE_URL),
+  openGraph: {
+    title: "TM Studios | Wedding & Lifestyle Photography",
+    description:
+      "Capture your most cherished moments with TM Studios — expert photographers in Chennai and across India.",
+    url: SITE_URL,
+    siteName: "TM Studios",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "TM Studios | Wedding & Lifestyle Photography",
+    description:
+      "Capture life’s best moments with TM Studios. Trusted photographers in Chennai.",
+  },
+  robots: { index: true, follow: true },
+  alternates: {
+    canonical: SITE_URL,
+  },
+};
 
 export default function RootLayout({ children }) {
   return (
@@ -27,16 +57,12 @@ export default function RootLayout({ children }) {
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="preload" as="image" href={LCP_IMAGE_URL} />
-        
-        {/* <link rel="preload" href="/_next/static/media/Geist.woff2" as="font" type="font/woff2" crossorigin="anonymous" /> */}
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning={true}
       >
-        <LayoutClientWrapper>
-          {children}
-        </LayoutClientWrapper>
+        <LayoutClientWrapper>{children}</LayoutClientWrapper>
       </body>
     </html>
   );

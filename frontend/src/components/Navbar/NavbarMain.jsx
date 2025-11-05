@@ -174,7 +174,7 @@ const NavBarMain = () => {
                   </a>
                 </li>
 
-                <li>
+                {/* <li>
                   <div className="relative ">
                     <button
                       onClick={toggleDropdown}
@@ -196,7 +196,7 @@ const NavBarMain = () => {
                       </svg>
                     </button>
                   </div>
-                </li>
+                </li> */}
 
                 <li>
                   <a
