@@ -38,20 +38,23 @@ export default function WeddingsClusterPage({ params }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      <nav className="text-sm breadcrumbs px-6 py-3">
+      {/* <nav className="text-sm breadcrumbs px-6 py-3">
         {breadcrumbs.map((b, i) => (
           <span key={i}>
             <a href={b.href}>{b.label}</a>
             {i < breadcrumbs.length - 1 && " › "}
           </span>
         ))}
-      </nav>
+      </nav> */}
 
       <ServiceHero
         title={h1}
         subtitle={h2}
         icon={resolution.service.icon}
         location={resolution.location?.name}
+        bg={resolution.service?.bgImage}
+        ctaLabel={resolution.service?.ctaLabel}
+        ctaLink={resolution.service?.ctaLink}
       />
 
       <Gallery

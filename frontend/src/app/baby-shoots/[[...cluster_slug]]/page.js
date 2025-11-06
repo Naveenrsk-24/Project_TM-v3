@@ -52,6 +52,9 @@ export default function BabyShootsClusterPage({ params }) {
         subtitle={h2}
         icon={resolution.service.icon}
         location={resolution.location?.name}
+        bg={resolution.service?.bgImage}
+        ctaLabel={resolution.service?.ctaLabel}
+        ctaLink={resolution.service?.ctaLink}
       />
 
       <Gallery

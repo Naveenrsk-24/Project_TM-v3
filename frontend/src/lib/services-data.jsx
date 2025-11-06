@@ -5,6 +5,9 @@ export const SERVICES = {
   weddings: {
     id: 'weddings',
     title: 'Wedding Photography',
+    bgImage: "/Weddings/beautiful-husband-wife-posing-beach.jpg",
+    ctaLabel: "Book Your Shoot",
+    ctaLink:"/contactus",
     slug: 'weddings',
     description: 'Capture your special day with stunning wedding photography that tells your unique love story.',
     icon: '💍',
@@ -24,6 +27,9 @@ export const SERVICES = {
   'baby-shoots': {
     id: 'baby-shoots',
     title: 'Baby Photography',
+    bgImage: "/Weddings/groom-putting-ring-bride-s-finger.jpg",
+    ctaLabel: "Book Your Shoot",
+    ctaLink:"/contactus",
     slug: 'baby-shoots',
     description: 'Precious moments with your newborn and growing baby captured beautifully.',
     icon: '👶',
