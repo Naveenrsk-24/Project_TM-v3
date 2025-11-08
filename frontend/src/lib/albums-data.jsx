@@ -29,7 +29,7 @@ export const ALBUMS = {
       serviceSlug: "weddings",
       locationSlug: "coimbatore",
       localitySlug: "guindy",
-      nicheSlug: "luxury",
+      nicheSlug: "christian",
       coverImage: "/Weddings/groom-putting-ring-bride-s-finger.webp",
       albumUrl: "/weddings/chennai/luxury/aarav-meera-itc",
     },
