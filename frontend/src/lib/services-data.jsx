@@ -1,5 +1,3 @@
-// lib/services-data.js
-// Central data source for all photography services
 
 export const SERVICES = {
   weddings: {
