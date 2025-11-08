@@ -14,7 +14,7 @@ export const ALBUMS = {
     {
       id: "akash-akshaya",
       coupleName: "Akash & Akshaya",
-      shootLocation: "ECR Beach, Chennai",
+      shootLocation: "Anna Nagar, Chennai",
       serviceSlug: "weddings",
       locationSlug: "chennai",
       localitySlug: "anna-nagar",
