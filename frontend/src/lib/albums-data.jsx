@@ -18,7 +18,7 @@ export const ALBUMS = {
       serviceSlug: "weddings",
       locationSlug: "chennai",
       localitySlug: "anna-nagar",
-      nicheSlug: "beach",
+      nicheSlug: "hindu",
       coverImage: "/Weddings/beautiful-husband-wife-posing-beach.webp",
       albumUrl: "/portfolio/tamil-weddings/akash-akshaya-wedding",
     },
