@@ -29,16 +29,16 @@ export default function ServiceHero({ title, subtitle, icon, location,bg,ctaLabe
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-transparent"></div>
 
       {/* Floating abstract orbs */}
-      <motion.div
+      {/* <motion.div
         animate={{ y: [0, 25, 0] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute w-[500px] h-[500px] rounded-full bg-purple-500/30 blur-3xl top-[-150px] left-[-150px]"
-      />
-      <motion.div
+        className="absolute w-[500px] h-[500px] rounded-full bg-amber-500/30 blur-2xl top-[-150px] left-[-150px]"
+      /> */}
+      {/* <motion.div
         animate={{ y: [0, -20, 0] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
         className="absolute w-[450px] h-[450px] rounded-full bg-blue-500/25 blur-3xl bottom-[-100px] right-[-100px]"
-      />
+      /> */}
 
       {/* Content */}
       <motion.div

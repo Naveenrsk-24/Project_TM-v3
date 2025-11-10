@@ -14,6 +14,8 @@ import ServiceHero from "@/components/Dummy/ServiceHero";
 import Gallery from "@/components/Dummy/Gallery";
 import PricingCard from "@/components/Dummy/PricingCard";
 import ContactForm from "@/components/Dummy/ContactForm";
+import TestimonialCarousel2 from "@/components/ExtraDesigns/TestimonialCarousel2";
+import ClassicFAQSection2 from "@/components/ExtraDesigns/ClassicFAQSection2";
 
 export async function generateMetadata({ params }) {
   const resolution = resolveClusterPage("weddings", params.cluster_slug);
@@ -62,6 +64,9 @@ export default function WeddingsClusterPage({ params }) {
       />
 
       <PricingCard service={resolution.service} />
+      <TestimonialCarousel2/>
+      <ClassicFAQSection2/>
+
       <ContactForm service={resolution.service} location={resolution.location} />
     </>
   );
