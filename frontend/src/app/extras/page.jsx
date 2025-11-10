@@ -16,10 +16,12 @@ import ThreeDCarousel from "@/components/ExtraDesigns/ThreeDCarousel";
 import ServiceParallaxGrid, {
   servicesData,
 } from "@/components/Home/ServiceParallaxGrid";
+import { Navbar2 } from "@/components/Navbar/Navbar2";
 
 export default function Extras() {
   return (
     <>
+      {/* <Navbar2/> */}
       {/* <PremiumNavbar/> */}
       <ParallaxCarousel />
       <ThreeDCarousel />
