@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React, { useState, useEffect } from 'react';
 import { Check, Sparkles, ArrowRight } from 'lucide-react';
@@ -8,17 +8,19 @@ export default function PricingCard({ service }) {
   const [hoveredFeature, setHoveredFeature] = useState(null);
 
   useEffect(() => {
-    setIsVisible(true);
+    const timer = setTimeout(() => setIsVisible(true), 100);
+    return () => clearTimeout(timer);
   }, []);
 
   if (!service) return null;
 
   return (
     <section
-      className="bg-gradient-to-br from-neutral-50 via-white to-neutral-100 py-12 px-4 sm:py-16 sm:px-6"
+      className="bg-gradient-to-br from-neutral-50 via-white to-neutral-100 py-12 px-4 sm:py-16 sm:px-6 lg:py-20"
       id="pricing"
+      aria-label={`${service.title} pricing section`}
     >
-      <div className="max-w-lg mx-auto sm:max-w-2xl">
+      <div className="max-w-lg mx-auto sm:max-w-2xl lg:max-w-3xl">
         {/* Header */}
         <div
           className={`text-center mb-8 sm:mb-12 transition-all duration-700 ${
@@ -26,18 +28,18 @@ export default function PricingCard({ service }) {
           }`}
         >
           <div className="inline-flex items-center gap-2 bg-pink-100 text-rose-700 px-4 py-2 rounded-full text-sm font-semibold mb-4 animate-pulse">
-            <Sparkles className="w-4 h-4" />
+            <Sparkles className="w-4 h-4" aria-hidden="true" />
             <span>Premium Service</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-bold mb-3 bg-gradient-to-r from-pink-600 to-rose-500 bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-pink-600 to-rose-500 bg-clip-text text-transparent leading-tight">
             {service.title} Pricing
           </h2>
 
-          <p className="text-neutral-600 text-base sm:text-lg">
+          <p className="text-neutral-600 text-sm sm:text-base md:text-lg">
             Investment starting from
           </p>
-          <div className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-pink-600 to-rose-500 bg-clip-text text-transparent mt-2">
+          <div className="text-4xl sm:text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-pink-600 to-rose-500 bg-clip-text text-transparent mt-2">
             {service.basePrice}
           </div>
         </div>
@@ -48,16 +50,16 @@ export default function PricingCard({ service }) {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          {/* Glowing border effect */}
+          {/* Animated gradient glow */}
           <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-rose-500 rounded-3xl opacity-70 blur-lg animate-pulse"></div>
 
           <div className="relative bg-white rounded-3xl shadow-xl overflow-hidden">
-            {/* Decorative blur glow */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-amber-200/20 to-rose-200/20 rounded-bl-full"></div>
+            {/* Decorative soft light */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-amber-200/20 to-rose-200/20 rounded-bl-full pointer-events-none"></div>
 
-            <div className="relative p-6 sm:p-8">
+            <div className="relative p-6 sm:p-8 lg:p-10">
               {/* Feature List */}
-              <ul className="space-y-3 sm:space-y-4">
+              <ul className="space-y-3 sm:space-y-4 md:space-y-5">
                 {service.features.map((feature, i) => (
                   <li
                     key={i}
@@ -65,7 +67,11 @@ export default function PricingCard({ service }) {
                       hoveredFeature === i
                         ? 'bg-gradient-to-r from-amber-50 to-rose-50 scale-105 shadow-md'
                         : 'hover:bg-neutral-50'
-                    } ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}
+                    } ${
+                      isVisible
+                        ? 'opacity-100 translate-x-0'
+                        : 'opacity-0 -translate-x-8'
+                    }`}
                     style={{ transitionDelay: `${300 + i * 100}ms` }}
                     onMouseEnter={() => setHoveredFeature(i)}
                     onMouseLeave={() => setHoveredFeature(null)}
@@ -82,19 +88,23 @@ export default function PricingCard({ service }) {
                       <Check
                         className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white font-bold"
                         strokeWidth={3}
+                        aria-hidden="true"
                       />
                     </div>
-                    <span className="text-neutral-700 text-sm sm:text-base font-medium leading-relaxed flex-1">
+                    <span className="text-neutral-700 text-sm sm:text-base md:text-lg font-medium leading-relaxed flex-1">
                       {feature}
                     </span>
                   </li>
                 ))}
               </ul>
 
-              {/* CTA */}
+              {/* CTA Button */}
               <div className="mt-8 sm:mt-10">
-                <button className="w-full bg-gradient-to-r from-pink-600 to-rose-500 hover:from-pink-700 hover:to-rose-600 text-white font-semibold py-4 sm:py-5 px-6 rounded-2xl shadow-lg hover:shadow-amber-300/50 transform hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group">
-                  <span className="text-base sm:text-lg">
+                <button
+                  className="w-full bg-gradient-to-r from-pink-600 to-rose-500 hover:from-pink-700 hover:to-rose-600 text-white font-semibold py-4 sm:py-5 md:py-6 px-6 rounded-2xl shadow-lg hover:shadow-amber-300/50 transform hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group focus:outline-none focus:ring-4 focus:ring-pink-300"
+                  aria-label={`Get started with ${service.title}`}
+                >
+                  <span className="text-base sm:text-lg md:text-xl">
                     Get Started Today
                   </span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />

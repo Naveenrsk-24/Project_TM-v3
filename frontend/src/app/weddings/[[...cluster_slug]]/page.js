@@ -16,6 +16,7 @@ import PricingCard from "@/components/Dummy/PricingCard";
 import ContactForm from "@/components/Dummy/ContactForm";
 import TestimonialCarousel2 from "@/components/ExtraDesigns/TestimonialCarousel2";
 import ClassicFAQSection2 from "@/components/ExtraDesigns/ClassicFAQSection2";
+import Breadcrumbs from "@/components/Breadcrumbs/BreadCrumbs";
 
 export async function generateMetadata({ params }) {
   const resolution = resolveClusterPage("weddings", params.cluster_slug);
@@ -39,6 +40,7 @@ export default function WeddingsClusterPage({ params }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
+      <Breadcrumbs breadcrumbs={breadcrumbs}/>
 
       {/* <nav className="text-sm breadcrumbs px-6 py-3">
         {breadcrumbs.map((b, i) => (

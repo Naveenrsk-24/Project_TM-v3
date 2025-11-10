@@ -223,8 +223,8 @@ export const LOCATIONS = {
     tier: 1,
     description: 'Professional photography services across Chennai',
     localities: [
-      { slug: 'ecr', name: 'ECR (East Coast Road)', description: 'Beach-side photography locations' },
-      { slug: 'omr', name: 'OMR (Old Mahabalipuram Road)', description: 'IT corridor photography' },
+      { slug: 'ecr', name: 'ECR', description: 'Beach-side photography locations' },
+      { slug: 'omr', name: 'OMR', description: 'IT corridor photography' },
       { slug: 't-nagar', name: 'T. Nagar', description: 'Central Chennai photography' },
       { slug: 'adyar', name: 'Adyar', description: 'Premium photography services' },
       { slug: 'velachery', name: 'Velachery', description: 'South Chennai photography' },
