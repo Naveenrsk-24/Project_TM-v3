@@ -25,19 +25,19 @@ export default function PricingCard({ service }) {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
           }`}
         >
-          <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 px-4 py-2 rounded-full text-sm font-semibold mb-4 animate-pulse">
+          <div className="inline-flex items-center gap-2 bg-pink-100 text-rose-700 px-4 py-2 rounded-full text-sm font-semibold mb-4 animate-pulse">
             <Sparkles className="w-4 h-4" />
             <span>Premium Service</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-bold mb-3 bg-gradient-to-r from-amber-600 to-amber-500 bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-3 bg-gradient-to-r from-pink-600 to-rose-500 bg-clip-text text-transparent">
             {service.title} Pricing
           </h2>
 
           <p className="text-neutral-600 text-base sm:text-lg">
             Investment starting from
           </p>
-          <div className="text-4xl sm:text-5xl font-bold text-amber-600 mt-2">
+          <div className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-pink-600 to-rose-500 bg-clip-text text-transparent mt-2">
             {service.basePrice}
           </div>
         </div>
@@ -49,7 +49,7 @@ export default function PricingCard({ service }) {
           }`}
         >
           {/* Glowing border effect */}
-          <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-600 via-amber-500 to-rose-300 rounded-3xl opacity-70 blur-lg animate-pulse"></div>
+          <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-rose-500 rounded-3xl opacity-70 blur-lg animate-pulse"></div>
 
           <div className="relative bg-white rounded-3xl shadow-xl overflow-hidden">
             {/* Decorative blur glow */}
@@ -75,7 +75,7 @@ export default function PricingCard({ service }) {
                     }
                   >
                     <div
-                      className={`flex-shrink-0 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center transition-transform duration-300 ${
+                      className={`flex-shrink-0 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gradient-to-r from-pink-600 to-rose-500 flex items-center justify-center transition-transform duration-300 ${
                         hoveredFeature === i ? 'scale-110 rotate-12' : ''
                       }`}
                     >
@@ -93,7 +93,7 @@ export default function PricingCard({ service }) {
 
               {/* CTA */}
               <div className="mt-8 sm:mt-10">
-                <button className="w-full bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-700 hover:to-amber-600 text-white font-semibold py-4 sm:py-5 px-6 rounded-2xl shadow-lg hover:shadow-amber-300/50 transform hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group">
+                <button className="w-full bg-gradient-to-r from-pink-600 to-rose-500 hover:from-pink-700 hover:to-rose-600 text-white font-semibold py-4 sm:py-5 px-6 rounded-2xl shadow-lg hover:shadow-amber-300/50 transform hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group">
                   <span className="text-base sm:text-lg">
                     Get Started Today
                   </span>

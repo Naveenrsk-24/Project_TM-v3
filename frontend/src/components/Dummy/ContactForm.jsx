@@ -70,13 +70,13 @@ export default function ContactForm({ service, location }) {
           }`}
         >
           <div className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm mb-4">
-            <div className="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></div>
+            <div className="w-2 h-2 bg-pink-500 rounded-full animate-pulse"></div>
             <span className="text-sm font-medium text-neutral-700">
               Available 24/7
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-bold mb-3 bg-gradient-to-r from-amber-600 to-amber-500 bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-3 bg-gradient-to-r from-pink-600 to-rose-500 bg-clip-text text-transparent">
             Let's Start a Conversation
           </h2>
           <p className="text-neutral-600 text-sm sm:text-base max-w-xl mx-auto">
@@ -92,11 +92,11 @@ export default function ContactForm({ service, location }) {
         >
           {/* Service & Location Info */}
           {(service || location) && (
-            <div className="bg-white/80 backdrop-blur-sm p-4 rounded-2xl shadow-md mb-6 border border-amber-100">
+            <div className="bg-white/80 backdrop-blur-sm p-4 rounded-2xl shadow-md mb-6 border border-rose-100">
               <div className="flex flex-wrap items-center gap-3 text-sm">
                 {service && (
-                  <div className="flex items-center gap-2 bg-amber-50 px-3 py-1.5 rounded-full">
-                    <span className="text-amber-700 font-semibold">
+                  <div className="flex items-center gap-2 bg-rose-50 px-3 py-1.5 rounded-full">
+                    <span className="text-pink-700 font-semibold">
                       Service:
                     </span>
                     <span className="text-neutral-700">{service.title}</span>
@@ -126,7 +126,7 @@ export default function ContactForm({ service, location }) {
                       <div
                         className={`absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 transition-all duration-300 ${
                           isFocused || hasValue
-                            ? "text-amber-600 scale-110"
+                            ? "text-pink-600 scale-110"
                             : "text-neutral-400"
                         }`}
                       >
@@ -143,7 +143,7 @@ export default function ContactForm({ service, location }) {
                         required
                         className={`w-full pl-11 sm:pl-12 pr-4 py-3 sm:py-4 border-2 rounded-xl sm:rounded-2xl transition-all duration-300 outline-none text-sm sm:text-base ${
                           isFocused
-                            ? "border-amber-400 bg-amber-50/50 shadow-lg scale-[1.02]"
+                            ? "border-pink-400 bg-amber-50/50 shadow-lg scale-[1.02]"
                             : "border-neutral-200 hover:border-neutral-300 bg-neutral-50"
                         }`}
                       />
@@ -158,7 +158,7 @@ export default function ContactForm({ service, location }) {
               <div
                 className={`absolute left-3 sm:left-4 top-4 transition-all duration-300 ${
                   focusedField === "message" || form.message
-                    ? "text-amber-600 scale-110"
+                    ? "text-pink-600 scale-110"
                     : "text-neutral-400"
                 }`}
               >
@@ -175,7 +175,7 @@ export default function ContactForm({ service, location }) {
                 required
                 className={`w-full pl-11 sm:pl-12 pr-4 py-3 sm:py-4 border-2 rounded-xl sm:rounded-2xl transition-all duration-300 outline-none resize-none text-sm sm:text-base ${
                   focusedField === "message"
-                    ? "border-amber-400 bg-amber-50/50 shadow-lg"
+                    ? "border-rose-400 bg-amber-50/50 shadow-lg"
                     : "border-neutral-200 hover:border-neutral-300 bg-neutral-50"
                 }`}
               ></textarea>
@@ -185,7 +185,7 @@ export default function ContactForm({ service, location }) {
             <button
               onClick={handleSubmit}
               disabled={isSubmitting}
-              className={`w-full bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-700 hover:to-amber-600 text-white font-semibold py-4 sm:py-5 px-6 rounded-xl sm:rounded-2xl shadow-lg hover:shadow-amber-300/50 transform hover:scale-[1.02] active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group relative overflow-hidden ${
+              className={`w-full bg-gradient-to-r from-pink-600 to-rose-500 hover:from-rose-700 hover:to-rose-600 text-white font-semibold py-4 sm:py-5 px-6 rounded-xl sm:rounded-2xl shadow-lg hover:shadow-rose-300/50 transform hover:scale-[1.02] active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group relative overflow-hidden ${
                 isSubmitting ? "opacity-70 cursor-not-allowed" : ""
               }`}
             >
@@ -240,14 +240,14 @@ export default function ContactForm({ service, location }) {
             <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
               <a
                 href="mailto:hello@example.com"
-                className="flex items-center gap-2 text-sm sm:text-base text-amber-700 hover:text-amber-800 font-medium transition-colors duration-300"
+                className="flex items-center gap-2 text-sm sm:text-base text-rose-700 hover:text-rose-800 font-medium transition-colors duration-300"
               >
                 <Mail className="w-4 h-4" />
                 <span>hello@example.com</span>
               </a>
               <a
                 href="tel:+1234567890"
-                className="flex items-center gap-2 text-sm sm:text-base text-amber-700 hover:text-amber-800 font-medium transition-colors duration-300"
+                className="flex items-center gap-2 text-sm sm:text-base text-rose-700 hover:text-rose-800 font-medium transition-colors duration-300"
               >
                 <Phone className="w-4 h-4" />
                 <span>+1 (234) 567-890</span>
