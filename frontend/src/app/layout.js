@@ -57,6 +57,7 @@ export default function RootLayout({ children }) {
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="preload" as="image" href={LCP_IMAGE_URL} />
+        <meta name="google-site-verification" content="1_UHjnxtjcaHe2Da5qfDvI35zGmPIrsu-Mc7U53lCq4" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
