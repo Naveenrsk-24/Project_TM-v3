@@ -12,14 +12,6 @@ import {
   ResponsiveContainer,
   CartesianGrid,
 } from "recharts";
-import { pageMeta } from "@/lib/meta-data";
-
-
-export const metadata = pageMeta({
-title: "Admin Dashboard",
-description: "Manage TM Studios content.",
-path: "/admin/dashboard",
-});
 
 export default function AdminDashboardPage() {
   const [bookings, setBookings] = useState([]);

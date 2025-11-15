@@ -5,17 +5,15 @@ import { categoryMap } from "@/data/Portfolio-Data/CategoryData";
 import { albumsData } from "@/data/Portfolio-Data/albumData";
 // Note: Adjusted import path to be safer, assuming CategoryGallery is in components/Portfolio
 
-import { pageMeta } from "@/lib/meta-data";
+// import { pageMeta } from "@/lib/meta-data";
 
-
-
-export async function generateMetadata({ params }) {
-return pageMeta({
-title: `${params.category} Photography`,
-description: `Explore ${params.category} photography portfolio by TM Studios`,
-path: `/portfolio/${params.category}`,
-});
-}
+// export async function generateMetadata({ params }) {
+// return pageMeta({
+// title: `${params.category} Photography`,
+// description: `Explore ${params.category} photography portfolio by TM Studios`,
+// path: `/portfolio/${params.category}`,
+// });
+// }
 
 
 /**
