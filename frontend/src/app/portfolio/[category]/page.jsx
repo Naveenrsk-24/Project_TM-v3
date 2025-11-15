@@ -5,6 +5,9 @@ import { categoryMap } from "@/data/Portfolio-Data/CategoryData";
 import { albumsData } from "@/data/Portfolio-Data/albumData";
 // Note: Adjusted import path to be safer, assuming CategoryGallery is in components/Portfolio
 
+import { pageMeta } from "@/lib/meta-data";
+
+
 
 export async function generateMetadata({ params }) {
 return pageMeta({

@@ -12,6 +12,8 @@ import {
   ResponsiveContainer,
   CartesianGrid,
 } from "recharts";
+import { pageMeta } from "@/lib/meta-data";
+
 
 export const metadata = pageMeta({
 title: "Admin Dashboard",

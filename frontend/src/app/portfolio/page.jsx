@@ -1,6 +1,8 @@
 // src/app/portfolio/page.jsx
 
 import PortfolioCategoryCards from "../../components/Portfolio/PortfolioCategoryCards";
+import { pageMeta } from "@/lib/meta-data";
+
 
 export const metadata = pageMeta({
 title: "Portfolio",

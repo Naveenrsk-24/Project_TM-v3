@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import BlogListingCard from '../../components/Blog/BlogListingCard';
 import FilterBar from '../../components/Blog/FilterBar';
 import { DUMMY_BLOGS } from '../../data/blog-data';
+import { pageMeta } from "@/lib/meta-data";
+
 
 export const metadata = pageMeta({
 title: "Blogs",

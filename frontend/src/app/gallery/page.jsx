@@ -1,4 +1,6 @@
 import { ParallaxScrollDemo } from "@/components/Gallery/ParallaxScrollDemo";
+import { pageMeta } from "@/lib/meta-data";
+
 
 export const metadata = pageMeta({
 title: "Gallery",

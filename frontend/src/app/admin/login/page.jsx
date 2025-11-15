@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { pageMeta } from "@/lib/meta-data";
+
 
 export const metadata = pageMeta({
 title: "Admin Login",

@@ -1,4 +1,6 @@
 import AdminDashboard from "@/components/Dashboard/AdminDashboard";
+import { pageMeta } from "@/lib/meta-data";
+
 
 export const metadata = pageMeta({
 title: "User Dashboard",

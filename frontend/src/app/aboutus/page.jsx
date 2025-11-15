@@ -1,4 +1,6 @@
 import { ExpertsSection } from "@/components/About/ExpertSection";
+import { pageMeta } from "@/lib/meta-data";
+
 
 export const metadata = pageMeta({
 title: "About TM Studios",
