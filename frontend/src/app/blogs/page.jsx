@@ -6,6 +6,12 @@ import BlogListingCard from '../../components/Blog/BlogListingCard';
 import FilterBar from '../../components/Blog/FilterBar';
 import { DUMMY_BLOGS } from '../../data/blog-data';
 
+export const metadata = pageMeta({
+title: "Blogs",
+description: "Photography tips, guides, and inspiration from TM Studios.",
+path: "/blogs",
+});
+
 // Simulate fetching blogs (with a fake date for sorting)
 const fetchBlogs = () =>
   DUMMY_BLOGS.map((blog, index) => ({

@@ -4,6 +4,13 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
+export const metadata = pageMeta({
+title: "Admin Login",
+description: "TM Studios admin access.",
+path: "/admin/login",
+image: "/og-admin-login.jpg",
+});
+
 export default function AdminLoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

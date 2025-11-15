@@ -32,6 +32,15 @@ import ClassicFAQSection2 from "@/components/ExtraDesigns/ClassicFAQSection2";
 import TestimonialCarousel2 from "@/components/ExtraDesigns/TestimonialCarousel2";
 import BlogSection2 from "@/components/ExtraDesigns/BlogSection2";
 
+
+export const metadata = pageMeta({
+title: "TM Studios - Professional Photography in Chennai",
+description:
+"TM Studios — Chennai’s leading professional photographers for weddings, baby shoots, maternity, and more.",
+path: "/",
+image: "/og-home.jpg",
+});
+
 export default function Home() {
   return (
     <>

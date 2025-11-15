@@ -4,6 +4,15 @@ import AlbumGallery from "../../../../components/Portfolio/AlbumGallery";
 
 const USER_IMAGE_URL = "/Weddings/beautiful-husband-wife-posing-beach.jpg";
 
+export async function generateMetadata({ params }) {
+const { category, albums } = params;
+return pageMeta({
+title: `${albums.replace(/-/g, " ")} Album`,
+description: `View the ${albums.replace(/-/g, " ")} album in ${category}`,
+path: `/portfolio/${category}/${albums}`,
+});
+}
+
 /**
  * Helper function to simulate fetching album details and images.
  * Renamed parameters internally for clarity, but accepts 'albums' as the slug parameter.

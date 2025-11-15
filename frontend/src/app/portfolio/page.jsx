@@ -2,12 +2,11 @@
 
 import PortfolioCategoryCards from "../../components/Portfolio/PortfolioCategoryCards";
 
-// Set metadata for the page
-export const metadata = {
-  title: 'Photography Collections | Your Photography Studio',
-  description: 'Explore our specialized photography services, including Portraits, Pre-Weddings, and Traditional Weddings.',
-};
-
+export const metadata = pageMeta({
+title: "Portfolio",
+description: "Browse TM Studios wedding, lifestyle, and portrait photography.",
+path: "/portfolio",
+});
 /**
  * Renders the main Portfolio Categories page.
  * The categories component handles all the visual layout and navigation.

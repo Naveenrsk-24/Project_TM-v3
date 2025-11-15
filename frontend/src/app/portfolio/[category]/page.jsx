@@ -6,6 +6,15 @@ import { albumsData } from "@/data/Portfolio-Data/albumData";
 // Note: Adjusted import path to be safer, assuming CategoryGallery is in components/Portfolio
 
 
+export async function generateMetadata({ params }) {
+return pageMeta({
+title: `${params.category} Photography`,
+description: `Explore ${params.category} photography portfolio by TM Studios`,
+path: `/portfolio/${params.category}`,
+});
+}
+
+
 /**
  * Helper function to simulate fetching a list of albums for a category.
  * This is refactored to use more descriptive, hardcoded album data.

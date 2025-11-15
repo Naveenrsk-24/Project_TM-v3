@@ -18,6 +18,12 @@ import ServiceParallaxGrid, {
 } from "@/components/Home/ServiceParallaxGrid";
 import { Navbar2 } from "@/components/Navbar/Navbar2";
 
+export const metadata = pageMeta({
+title: "Extras & Add-ons",
+description: "Explore additional photography services and upgrades.",
+path: "/extras",
+});
+
 export default function Extras() {
   return (
     <>

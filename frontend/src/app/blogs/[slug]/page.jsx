@@ -7,6 +7,15 @@ import { motion } from 'framer-motion';
 import Head from 'next/head';
 import he from 'he'; // 👈 npm install he
 
+export async function generateMetadata({ params }) {
+const slug = params.slug;
+return pageMeta({
+title: `${slug.replace(/-/g, " ")}`,
+description: `Read: ${slug.replace(/-/g, " ")}`,
+path: `/blogs/${slug}`,
+});
+}
+
 const BlogPostPage = ({ params }) => {
   const { slug } = params;
 

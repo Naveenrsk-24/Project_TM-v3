@@ -15,13 +15,40 @@ const geistMono = Geist_Mono({
 });
 
 // Your base site URL (update to your actual domain)
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://tmstudios.vercel.app/";
+// const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://tmstudios.vercel.app/";
 
-// LCP preload image (for Core Web Vitals)
-const LCP_IMAGE_URL =
-  "/_next/image?url=%2FWeddings%2Fgroom-putting-ring-bride-s-finger.webp&w=1080&q=85";
+// export const metadata = {
+//   title: {
+//     default: "TM Studios - Professional Photography in Chennai",
+//     template: "%s - TM Studios",
+//   },
+//   description:
+//     "TM Studios — Chennai’s leading professional photographers for weddings, baby shoots, maternity, and more. Capture timeless memories beautifully.",
+//  metadataBase: new URL(`${SITE_URL}/`),
+//   openGraph: {
+//     title: "TM Studios | Wedding & Lifestyle Photography",
+//     description:
+//       "Capture your most cherished moments with TM Studios — expert photographers in Chennai and across India.",
+//     url: SITE_URL,
+//     siteName: "TM Studios",
+//     locale: "en-IN",
+//     type: "website",
+//     images: [`${SITE_URL}/og-image.jpg`],
+//   },
+//   twitter: {
+//     card: "summary_large_image",
+//     title: "TM Studios | Wedding & Lifestyle Photography",
+//     description:
+//       "Capture life’s best moments with TM Studios. Trusted photographers in Chennai.",
+//     images: [`${SITE_URL}/og-image.jpg`],
+//   },
+//   robots: { index: true, follow: true },
+//   // alternates: {
+//   //   canonical: SITE_URL,
+//   // },
+// };
+// *******************************************************************************
 
-// ✅ GLOBAL SITE METADATA
 export const metadata = {
   title: {
     default: "TM Studios - Professional Photography in Chennai",
@@ -29,29 +56,29 @@ export const metadata = {
   },
   description:
     "TM Studios — Chennai’s leading professional photographers for weddings, baby shoots, maternity, and more. Capture timeless memories beautifully.",
- metadataBase: new URL(`${SITE_URL}/`),
+
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://tmstudios.vercel.app"
+  ),
+
   openGraph: {
-    title: "TM Studios | Wedding & Lifestyle Photography",
-    description:
-      "Capture your most cherished moments with TM Studios — expert photographers in Chennai and across India.",
-    url: SITE_URL,
+    type: "website",
     siteName: "TM Studios",
     locale: "en-IN",
-    type: "website",
-    images: [`${SITE_URL}/og-image.jpg`],
+    images: ["/og-image.jpg"],
   },
+
   twitter: {
     card: "summary_large_image",
-    title: "TM Studios | Wedding & Lifestyle Photography",
-    description:
-      "Capture life’s best moments with TM Studios. Trusted photographers in Chennai.",
-    images: [`${SITE_URL}/og-image.jpg`],
+    images: ["/og-image.jpg"],
   },
+
   robots: { index: true, follow: true },
-  // alternates: {
-  //   canonical: SITE_URL,
-  // },
 };
+
+// LCP preload image (for Core Web Vitals)
+const LCP_IMAGE_URL =
+  "/_next/image?url=%2FWeddings%2Fgroom-putting-ring-bride-s-finger.webp&w=1080&q=85";
 
 export default function RootLayout({ children }) {
   return (
@@ -59,7 +86,10 @@ export default function RootLayout({ children }) {
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="preload" as="image" href={LCP_IMAGE_URL} />
-        <meta name="google-site-verification" content="1_UHjnxtjcaHe2Da5qfDvI35zGmPIrsu-Mc7U53lCq4" />
+        <meta
+          name="google-site-verification"
+          content="1_UHjnxtjcaHe2Da5qfDvI35zGmPIrsu-Mc7U53lCq4"
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

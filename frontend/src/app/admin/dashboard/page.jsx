@@ -13,6 +13,12 @@ import {
   CartesianGrid,
 } from "recharts";
 
+export const metadata = pageMeta({
+title: "Admin Dashboard",
+description: "Manage TM Studios content.",
+path: "/admin/dashboard",
+});
+
 export default function AdminDashboardPage() {
   const [bookings, setBookings] = useState([]);
   const [error, setError] = useState("");
