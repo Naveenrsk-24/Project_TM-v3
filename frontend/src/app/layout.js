@@ -48,9 +48,9 @@ export const metadata = {
     images: [`${SITE_URL}/og-image.jpg`],
   },
   robots: { index: true, follow: true },
-  alternates: {
-    canonical: SITE_URL,
-  },
+  // alternates: {
+  //   canonical: SITE_URL,
+  // },
 };
 
 export default function RootLayout({ children }) {
