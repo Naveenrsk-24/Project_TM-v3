@@ -76,9 +76,9 @@ const PortfolioGallery = () => {
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-serif text-neutral-800 mb-4 tracking-tight">
+          <h2 className="text-5xl md:text-7xl font-serif text-neutral-800 mb-4 tracking-tight">
             Selected Works
-          </h1>
+          </h2>
 
           <p className="text-lg text-neutral-600 max-w-2xl mx-auto leading-relaxed">
             A curated collection of our finest moments captured through the lens

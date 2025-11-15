@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 // Your base site URL (update to your actual domain)
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://tmstudios.in";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://tmstudios.vercel.app/";
 
 // LCP preload image (for Core Web Vitals)
 const LCP_IMAGE_URL =
