@@ -24,26 +24,28 @@ const LCP_IMAGE_URL =
 // ✅ GLOBAL SITE METADATA
 export const metadata = {
   title: {
-    default: "TM Studios | Professional Photography in Chennai",
-    template: "%s | TM Studios",
+    default: "TM Studios - Professional Photography in Chennai",
+    template: "%s - TM Studios",
   },
   description:
     "TM Studios — Chennai’s leading professional photographers for weddings, baby shoots, maternity, and more. Capture timeless memories beautifully.",
-  metadataBase: new URL(SITE_URL),
+ metadataBase: new URL(`${SITE_URL}/`),
   openGraph: {
     title: "TM Studios | Wedding & Lifestyle Photography",
     description:
       "Capture your most cherished moments with TM Studios — expert photographers in Chennai and across India.",
     url: SITE_URL,
     siteName: "TM Studios",
-    locale: "en_IN",
+    locale: "en-IN",
     type: "website",
+    images: [`${SITE_URL}/og-image.jpg`],
   },
   twitter: {
     card: "summary_large_image",
     title: "TM Studios | Wedding & Lifestyle Photography",
     description:
       "Capture life’s best moments with TM Studios. Trusted photographers in Chennai.",
+    images: [`${SITE_URL}/og-image.jpg`],
   },
   robots: { index: true, follow: true },
   alternates: {
@@ -53,7 +55,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en-IN" className="dark">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="preload" as="image" href={LCP_IMAGE_URL} />
