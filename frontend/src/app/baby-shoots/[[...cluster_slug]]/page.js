@@ -1,4 +1,3 @@
-
 import {
   resolveClusterPage,
   PAGE_TYPES,
@@ -16,6 +15,7 @@ import PricingCard from "@/components/Dummy/PricingCard";
 import ContactForm from "@/components/Dummy/ContactForm";
 import Breadcrumbs from "@/components/Breadcrumbs/BreadCrumbs";
 import ServicesLocationsHub from "@/components/Dummy/ServicesLocationsHub";
+import FilteredGallery from "@/components/Dummy/Filteredgallery";
 
 export async function generateMetadata({ params }) {
   const resolution = resolveClusterPage("baby-shoots", params.cluster_slug);
@@ -39,7 +39,7 @@ export default function BabyShootsClusterPage({ params }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-       <Breadcrumbs breadcrumbs={breadcrumbs}/>
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
 
       <ServiceHero
         title={h1}
@@ -50,13 +50,26 @@ export default function BabyShootsClusterPage({ params }) {
         ctaLabel={resolution.service?.ctaLabel}
         ctaLink={resolution.service?.ctaLink}
       />
+      <FilteredGallery
+        service={resolution.service}
+        location={resolution.location}
+        niche={resolution.niche}
+        locality={resolution.locality}
+      />
 
-      <Gallery
-            service={resolution.service} location={resolution.location} niche={resolution.niche} locality={resolution.locality} />
+      {/* <Gallery
+        service={resolution.service}
+        location={resolution.location}
+        niche={resolution.niche}
+        locality={resolution.locality}
+      /> */}
 
       <PricingCard service={resolution.service} />
-      <ServicesLocationsHub serviceId="baby-shoots"/>
-      <ContactForm service={resolution.service} location={resolution.location} />
+      <ServicesLocationsHub serviceId="baby-shoots" />
+      <ContactForm
+        service={resolution.service}
+        location={resolution.location}
+      />
     </>
   );
 }

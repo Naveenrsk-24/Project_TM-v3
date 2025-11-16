@@ -17,6 +17,7 @@ import ContactForm from "@/components/Dummy/ContactForm";
 import TestimonialCarousel2 from "@/components/ExtraDesigns/TestimonialCarousel2";
 import ClassicFAQSection2 from "@/components/ExtraDesigns/ClassicFAQSection2";
 import Breadcrumbs from "@/components/Breadcrumbs/BreadCrumbs";
+import FilteredGallery from "@/components/Dummy/Filteredgallery";
 
 export async function generateMetadata({ params }) {
   const resolution = resolveClusterPage("maternity-shoots", params.cluster_slug);
@@ -51,10 +52,16 @@ export default function WeddingsClusterPage({ params }) {
         ctaLabel={resolution.service?.ctaLabel}
         ctaLink={resolution.service?.ctaLink}
       />
+      <FilteredGallery
+              service={resolution.service}
+              location={resolution.location}
+              niche={resolution.niche}
+              locality={resolution.locality}
+            />
 
-      <Gallery
+      {/* <Gallery
         service={resolution.service} location={resolution.location} niche={resolution.niche} locality={resolution.locality}
-      />
+      /> */}
 
       <PricingCard service={resolution.service} />
       <TestimonialCarousel2/>
