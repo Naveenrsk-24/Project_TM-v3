@@ -65,7 +65,6 @@ export default function BabyShootsClusterPage({ params }) {
       /> */}
 
       <PricingCard service={resolution.service} />
-      <ServicesLocationsHub serviceId="baby-shoots" />
       <ContactForm
         service={resolution.service}
         location={resolution.location}
