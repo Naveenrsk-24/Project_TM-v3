@@ -51,10 +51,7 @@ export default function BabyShootsClusterPage({ params }) {
       />
 
       <Gallery
-        serviceSlug={resolution.service.slug}
-        location={resolution.location}
-        niche={resolution.niche}
-      />
+            service={resolution.service} location={resolution.location} niche={resolution.niche} locality={resolution.locality} />
 
       <PricingCard service={resolution.service} />
       <ContactForm service={resolution.service} location={resolution.location} />
