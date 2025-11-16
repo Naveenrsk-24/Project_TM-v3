@@ -38,7 +38,6 @@ export const ALBUMS = {
 // Add more services ...........................
   "baby-shoots": [],
   "maternity-shoots": [],
-  "pre-wedding": [],
 };
 
 // Helper functions
