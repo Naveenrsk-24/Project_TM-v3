@@ -31,7 +31,7 @@ export const ALBUMS = {
       localitySlug: "guindy",
       nicheSlug: "christian",
       coverImage: "/Weddings/groom-putting-ring-bride-s-finger.webp",
-      albumUrl: "/weddings/chennai/luxury/aarav-meera-itc",
+      albumUrl: "/portfolio/tamil-weddings/akash-akshaya-wedding",
     },
   ],
 
