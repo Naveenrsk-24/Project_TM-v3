@@ -17,7 +17,7 @@ export default function generateSitemap() {
   });
 
   // Static pages
-  const staticPages = ['about', 'portfolio', 'contact', 'pricing'];
+  const staticPages = ['about', 'portfolio', 'contact'];
   staticPages.forEach(page => {
     routes.push({
       url: `${baseUrl}/${page}`,

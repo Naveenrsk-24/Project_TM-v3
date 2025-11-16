@@ -287,7 +287,7 @@ export const DUMMY_BLOGS = [
           for a quote today and make your wedding day truly unforgettable!
         </p>
         <a
-          href="/contact"
+          href="/booking"
           class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition"
           >Get a Quote</a
         >
