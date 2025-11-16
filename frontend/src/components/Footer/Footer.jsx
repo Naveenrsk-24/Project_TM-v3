@@ -58,6 +58,14 @@ export default function Footer() {
               {/* NEW LINKS ADDED AT THE TOP */}
               <li>
                 <Link
+                  href="/all-pages"
+                  className="flex text-base text-black transition-all duration-200 hover:text-blue-600"
+                >
+                  All Pages
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/weddings/all-locations"
                   className="flex text-base text-black transition-all duration-200 hover:text-blue-600"
                 >
