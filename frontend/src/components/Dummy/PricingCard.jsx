@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Check, Sparkles, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function PricingCard({ service }) {
   const [isVisible, setIsVisible] = useState(false);
