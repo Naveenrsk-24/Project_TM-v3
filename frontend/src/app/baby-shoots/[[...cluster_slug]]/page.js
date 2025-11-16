@@ -15,6 +15,7 @@ import Gallery from "@/components/Dummy/Gallery";
 import PricingCard from "@/components/Dummy/PricingCard";
 import ContactForm from "@/components/Dummy/ContactForm";
 import Breadcrumbs from "@/components/Breadcrumbs/BreadCrumbs";
+import ServicesLocationsHub from "@/components/Dummy/ServicesLocationsHub";
 
 export async function generateMetadata({ params }) {
   const resolution = resolveClusterPage("baby-shoots", params.cluster_slug);
@@ -54,6 +55,7 @@ export default function BabyShootsClusterPage({ params }) {
             service={resolution.service} location={resolution.location} niche={resolution.niche} locality={resolution.locality} />
 
       <PricingCard service={resolution.service} />
+      <ServicesLocationsHub serviceId="baby-shoots"/>
       <ContactForm service={resolution.service} location={resolution.location} />
     </>
   );
