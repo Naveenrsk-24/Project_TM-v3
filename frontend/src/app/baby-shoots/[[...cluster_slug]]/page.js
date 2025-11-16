@@ -14,6 +14,7 @@ import ServiceHero from "@/components/Dummy/ServiceHero";
 import Gallery from "@/components/Dummy/Gallery";
 import PricingCard from "@/components/Dummy/PricingCard";
 import ContactForm from "@/components/Dummy/ContactForm";
+import Breadcrumbs from "@/components/Breadcrumbs/BreadCrumbs";
 
 export async function generateMetadata({ params }) {
   const resolution = resolveClusterPage("baby-shoots", params.cluster_slug);
@@ -37,15 +38,7 @@ export default function BabyShootsClusterPage({ params }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-
-      <nav className="text-sm breadcrumbs px-6 py-3">
-        {breadcrumbs.map((b, i) => (
-          <span key={i}>
-            <a href={b.href}>{b.label}</a>
-            {i < breadcrumbs.length - 1 && " › "}
-          </span>
-        ))}
-      </nav>
+       <Breadcrumbs breadcrumbs={breadcrumbs}/>
 
       <ServiceHero
         title={h1}

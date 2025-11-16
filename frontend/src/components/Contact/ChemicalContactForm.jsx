@@ -101,7 +101,7 @@ export function ChemicalContactForm({
           <div className="space-y-8">
             <div className="space-y-4">
               <p className="text-sm text-gray-500 uppercase tracking-wide font-medium">{title}</p>
-              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">{subtitle}</h2>
+              <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">{subtitle}</h1>
               <p className="text-gray-600 text-lg leading-relaxed">{description}</p>
             </div>
 

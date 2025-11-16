@@ -43,7 +43,7 @@ export function ExpertsSection() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <GlassButton className="mb-6">Meet Our Experts</GlassButton>
+         <h1> <GlassButton className="mb-6">Meet Our Experts</GlassButton> </h1>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">
             <span className="text-foreground">PERSONALIZED GUIDANCE,</span>
             <br />
