@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect } from 'react';
-import { Check, Sparkles, ArrowRight } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { Check, Sparkles, ArrowRight } from "lucide-react";
 
 export default function PricingCard({ service }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -24,7 +24,7 @@ export default function PricingCard({ service }) {
         {/* Header */}
         <div
           className={`text-center mb-8 sm:mb-12 transition-all duration-700 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8"
           }`}
         >
           <div className="inline-flex items-center gap-2 bg-pink-100 text-rose-700 px-4 py-2 rounded-full text-sm font-semibold mb-4 animate-pulse">
@@ -47,7 +47,7 @@ export default function PricingCard({ service }) {
         {/* Main Card */}
         <div
           className={`relative transition-all duration-700 delay-200 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
           {/* Animated gradient glow */}
@@ -65,12 +65,12 @@ export default function PricingCard({ service }) {
                     key={i}
                     className={`flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl transition-all duration-300 cursor-pointer ${
                       hoveredFeature === i
-                        ? 'bg-gradient-to-r from-amber-50 to-rose-50 scale-105 shadow-md'
-                        : 'hover:bg-neutral-50'
+                        ? "bg-gradient-to-r from-amber-50 to-rose-50 scale-105 shadow-md"
+                        : "hover:bg-neutral-50"
                     } ${
                       isVisible
-                        ? 'opacity-100 translate-x-0'
-                        : 'opacity-0 -translate-x-8'
+                        ? "opacity-100 translate-x-0"
+                        : "opacity-0 -translate-x-8"
                     }`}
                     style={{ transitionDelay: `${300 + i * 100}ms` }}
                     onMouseEnter={() => setHoveredFeature(i)}
@@ -82,7 +82,7 @@ export default function PricingCard({ service }) {
                   >
                     <div
                       className={`flex-shrink-0 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gradient-to-r from-pink-600 to-rose-500 flex items-center justify-center transition-transform duration-300 ${
-                        hoveredFeature === i ? 'scale-110 rotate-12' : ''
+                        hoveredFeature === i ? "scale-110 rotate-12" : ""
                       }`}
                     >
                       <Check
@@ -100,19 +100,17 @@ export default function PricingCard({ service }) {
 
               {/* CTA Button */}
               <div className="mt-8 sm:mt-10">
-                <button
-                  className="w-full bg-gradient-to-r from-pink-600 to-rose-500 hover:from-pink-700 hover:to-rose-600 text-white font-semibold py-4 sm:py-5 md:py-6 px-6 rounded-2xl shadow-lg hover:shadow-amber-300/50 transform hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group focus:outline-none focus:ring-4 focus:ring-pink-300"
+                <Link
+                  href="/booking"
                   aria-label={`Get started with ${service.title}`}
                 >
-                  <span className="text-base sm:text-lg md:text-xl">
-                    Get Started Today
-                  </span>
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                </button>
-
-                <p className="text-center text-xs sm:text-sm text-neutral-500 mt-4">
-                  💳 Secure payment • 🔒 100% satisfaction guaranteed
-                </p>
+                  <button className="w-full bg-gradient-to-r from-pink-600 to-rose-500 hover:from-pink-700 hover:to-rose-600 text-white font-semibold py-4 sm:py-5 md:py-6 px-6 rounded-2xl shadow-lg hover:shadow-amber-300/50 transform hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group focus:outline-none focus:ring-4 focus:ring-pink-300">
+                    <span className="text-base sm:text-lg md:text-xl">
+                      Get Started Today
+                    </span>
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -121,10 +119,10 @@ export default function PricingCard({ service }) {
         {/* Trust Badges */}
         <div
           className={`flex flex-wrap justify-center gap-4 sm:gap-6 mt-8 sm:mt-12 transition-all duration-700 delay-500 ${
-            isVisible ? 'opacity-100' : 'opacity-0'
+            isVisible ? "opacity-100" : "opacity-0"
           }`}
         >
-          {['Fast Delivery', 'Expert Team', '24/7 Support'].map((badge, i) => (
+          {["Fast Delivery", "Expert Team", "24/7 Support"].map((badge, i) => (
             <div
               key={i}
               className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm text-xs sm:text-sm text-neutral-600 font-medium hover:shadow-md transition-shadow duration-300"
