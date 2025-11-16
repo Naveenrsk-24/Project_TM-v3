@@ -35,9 +35,83 @@ export const ALBUMS = {
     },
   ],
 
-// Add more services ...........................
-  "baby-shoots": [],
-  "maternity-shoots": [],
+  // ----------------------------------------------------------
+  // BABY SHOOTS
+  // ----------------------------------------------------------
+  "baby-shoots": [
+    {
+      id: "little-arya-studio",
+      coupleName: "Baby Arya",
+      shootLocation: "TM Studios, Chennai",
+      serviceSlug: "baby-shoots",
+      locationSlug: "chennai",
+      localitySlug: "adyar",
+      nicheSlug: "newborn",
+      coverImage: "/Weddings/beautiful-husband-wife-posing-beach.webp",
+      albumUrl: "/portfolio/tamil-weddings/akash-akshaya-wedding",
+    },
+    {
+      id: "twins-veer-vir",
+      coupleName: "Baby Veer & Baby Vir",
+      shootLocation: "Client Home, Velachery",
+      serviceSlug: "baby-shoots",
+      locationSlug: "chennai",
+      localitySlug: "velachery",
+      nicheSlug: "twins",
+     coverImage: "/Weddings/beautiful-husband-wife-posing-beach.webp",
+      albumUrl: "/portfolio/tamil-weddings/akash-akshaya-wedding",
+    },
+    {
+      id: "baby-rithika-outdoor",
+      coupleName: "Baby Rithika",
+      shootLocation: "Nageswara Rao Park, Mylapore",
+      serviceSlug: "baby-shoots",
+      locationSlug: "chennai",
+      localitySlug: "mylapore",
+      nicheSlug: "outdoor",
+     coverImage: "/Weddings/beautiful-husband-wife-posing-beach.webp",
+      albumUrl: "/portfolio/tamil-weddings/akash-akshaya-wedding",
+    },
+  ],
+
+  // ----------------------------------------------------------
+  // MATERNITY SHOOTS
+  // ----------------------------------------------------------
+  "maternity-shoots": [
+    {
+      id: "krishna-sudha-beach",
+      coupleName: "Krishna & Sudha",
+      shootLocation: "ECR Beach, Chennai",
+      serviceSlug: "maternity-shoots",
+      locationSlug: "chennai",
+      localitySlug: "ecr",
+      nicheSlug: "beach",
+      coverImage: "/Weddings/beautiful-husband-wife-posing-beach.webp",
+      albumUrl: "/portfolio/tamil-weddings/akash-akshaya-wedding",
+    },
+    {
+      id: "manoj-divya-studio",
+      coupleName: "Manoj & Divya",
+      shootLocation: "TM Studios, Chennai",
+      serviceSlug: "maternity-shoots",
+      locationSlug: "chennai",
+      localitySlug: "tnagar",
+      nicheSlug: "studio",
+       coverImage: "/Weddings/beautiful-husband-wife-posing-beach.webp",
+      albumUrl: "/portfolio/tamil-weddings/akash-akshaya-wedding",
+    },
+    {
+      id: "arun-shalini-garden",
+      coupleName: "Arun & Shalini",
+      shootLocation: "Semmozhi Poonga, Chennai",
+      serviceSlug: "maternity-shoots",
+      locationSlug: "chennai",
+      localitySlug: "cathedral-road",
+      nicheSlug: "outdoor-garden",
+       coverImage: "/Weddings/beautiful-husband-wife-posing-beach.webp",
+      albumUrl: "/portfolio/tamil-weddings/akash-akshaya-wedding",
+    },
+  ],
 };
 
 // Helper functions
