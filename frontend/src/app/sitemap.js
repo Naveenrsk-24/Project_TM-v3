@@ -16,16 +16,16 @@ export default function generateSitemap() {
     priority: 1.0,
   });
 
-  // Static pages
-  const staticPages = ['about', 'portfolio'];
-  staticPages.forEach(page => {
-    routes.push({
-      url: `${baseUrl}/${page}`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    });
-  });
+  // // Static pages
+  // const staticPages = ['about', 'portfolio'];
+  // staticPages.forEach(page => {
+  //   routes.push({
+  //     url: `${baseUrl}/${page}`,
+  //     lastModified: new Date(),
+  //     changeFrequency: 'monthly',
+  //     priority: 0.8,
+  //   });
+  // });
 
   // Generate URLs for all services
   Object.values(SERVICES).forEach(service => {
