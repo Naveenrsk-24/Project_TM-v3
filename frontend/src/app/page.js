@@ -8,7 +8,7 @@ export default function ComingSoon() {
   return (
     <div
       className="
-        min-h-screen w-full bg-no-repeat bg-contain bg-black bg-center
+        min-h-screen w-full bg-no-repeat bg-cover bg-black bg-center
         bg-[url('/comingsoon/phone.avif')]
         sm:bg-[url('/comingsoon/laptop.avif')]
       "
