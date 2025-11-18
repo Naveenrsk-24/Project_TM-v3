@@ -57,7 +57,7 @@ function HeroSection() {
       {/* Portrait Photo Frame (Not LCP) */}
       <div className="relative z-10 mb-8 md:mb-0 md:flex items-center justify-center w-full sm:w-[350px] md:w-[500px] h-[400px] sm:h-[450px] md:h-[580px] border-[6px] border-white shadow-2xl overflow-hidden rounded-tr-[50px] rounded-bl-[50px]">
         <Image
-          src="/HBD/bottomsup.avif"
+          src="/Weddings/beautiful-husband-wife-posing-beach.webp"
           alt="Bride holding bouquet"
           fill
           loading="lazy" // Optimization 2: Default for next/image, but good to remember
