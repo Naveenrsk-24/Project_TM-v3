@@ -9,14 +9,15 @@ export default function LayoutClientWrapper({ children }) {
 
   const isAdminRoute = pathname.startsWith("/admin");
 
-  // NEW: Hide layout on Coming Soon homepage (/)
-  const isComingSoonPage = pathname === "/";
+  // // NEW: Hide layout on Coming Soon homepage (/)
+  // const isComingSoonPage = pathname === "/";
 
-  const hideLayout = isAdminRoute || isComingSoonPage;
+  // const hideLayout = isAdminRoute || isComingSoonPage;
 
   return (
     <>
-      {!hideLayout && <NavBarMain />}
+      {!isAdminRoute && <NavBarMain />}
+      {/* <PremiumNavbar/> */}
 
       {isAdminRoute ? (
         <div className="bg-gray-100 min-h-screen">{children}</div>
@@ -24,7 +25,7 @@ export default function LayoutClientWrapper({ children }) {
         children
       )}
 
-      {!hideLayout && <Footer />}
+      {!isAdminRoute && <Footer />}
     </>
   );
 }
