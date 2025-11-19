@@ -84,24 +84,6 @@ export const LOCATIONS = {
     ]
   },
   
-  coimbatore: {
-    slug: 'coimbatore',
-    name: 'Coimbatore',
-    type: 'city',
-    tier: 1,
-    description: 'Wedding and event photography in Coimbatore',
-    localities: []
-  },
-
-  madurai: {
-    slug: 'madurai',
-    name: 'Madurai',
-    type: 'city',
-    tier: 1,
-    description: 'Traditional photography services in Madurai',
-    localities: []
-  },
-
   // Tier 2 - Tourist/Wedding Destinations
   mahabalipuram: {
     slug: 'mahabalipuram',
@@ -111,21 +93,6 @@ export const LOCATIONS = {
     description: 'Heritage site photography in Mahabalipuram'
   },
 
-  ooty: {
-    slug: 'ooty',
-    name: 'Ooty',
-    type: 'destination',
-    tier: 2,
-    description: 'Hill station photography in Ooty'
-  },
-
-  kodaikanal: {
-    slug: 'kodaikanal',
-    name: 'Kodaikanal',
-    type: 'destination',
-    tier: 2,
-    description: 'Mountain photography in Kodaikanal'
-  }
 };
 
 // Helper function to get service by slug

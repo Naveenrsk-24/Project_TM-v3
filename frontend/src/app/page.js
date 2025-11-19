@@ -36,9 +36,9 @@ import BlogSection2 from "@/components/ExtraDesigns/BlogSection2";
 
 import { pageMeta } from "@/lib/meta-data";
 export const metadata = pageMeta({
-title: "TM Studios - Professional Photography in Chennai",
+title: "Best Wedding Photographers | Candid Photography in Chennai",
 description:
-"TM Studios — Chennai’s leading professional photographers for weddings, baby shoots, maternity, and more.",
+"Looking for the Best Wedding Photographers in Chennai? Get candid, creative wedding photos that tell your love story — check availability now.",
 path: "/",
 image: "/og-home.jpg",
 });
