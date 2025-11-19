@@ -42,6 +42,7 @@ export default function Extras() {
       <SubHeroSection/>
       <DraggableCardDemo/>
 
+
       {/* <GalleryDemo/> */}
 
       {/* ************************************ */}

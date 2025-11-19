@@ -35,6 +35,8 @@ import BlogSection2 from "@/components/ExtraDesigns/BlogSection2";
 
 
 import { pageMeta } from "@/lib/meta-data";
+import Hero3DScroll from "@/components/ExtraDesigns/ThreeHero";
+import ZFoldCardPureJS from "@/components/ExtraDesigns/ThreeHero";
 export const metadata = pageMeta({
 title: "Best Wedding Photographers | Candid Photography in Chennai",
 description:
@@ -54,6 +56,8 @@ export default function Home() {
       <ClassicFAQSection2/>
       <TestimonialCarousel2/>
       <BlogSection2 blogs={DUMMY_BLOGS} />
+      {/* <ZFoldCardPureJS/> */}
+
 
 {/* ******************************************************* */}
       {/* <BlogSection blogs={DUMMY_BLOGS} /> */}
