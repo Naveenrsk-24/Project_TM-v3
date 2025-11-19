@@ -1,18 +1,34 @@
-// app/weddings/layout.js
-import { getServiceBySlug } from "@/lib/services-data";
-import { generateMetadata as generateSEO } from "@/lib/seo-utils";
-import { PAGE_TYPES } from "@/lib/cluster-resolver";
+// app/maternity-shoots/layout.js
 
 export async function generateMetadata() {
-  const service = getServiceBySlug("maternity-shoots");
-  const resolution = { type: PAGE_TYPES.PILLAR, service };
-  return generateSEO(resolution);
+  const manualMeta = {
+    title:
+      "Maternity Photoshoot | Elegant Outdoor & Studio Pregnancy Photography - TM Studios",
+    description:
+      "Elegant maternity photoshoots with premium gowns, indoor studio lighting, outdoor concepts, and artistic poses. Book Chennai’s most trusted maternity photography team.",
+    openGraph: {
+      title: "Maternity Photoshoot — TM Studios",
+      description:
+        "Elegant outdoor & studio maternity photography with premium gowns and creative concepts. View portfolio & packages.",
+      images: [
+        {
+          url: "/og/maternity-og.jpg",
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Maternity Photoshoot — TM Studios",
+      description:
+        "Premium maternity photoshoots with elegant styling & artistic poses. View portfolio & pricing.",
+    },
+  };
+
+  return manualMeta;
 }
 
-export default function WeddingsLayout({ children }) {
-  return (
-    <section className="min-h-screen bg-white text-gray-900">
-      {children}
-    </section>
-  );
+export default function MaternityLayout({ children }) {
+  return <section>{children}</section>;
 }
