@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import LogoImage from "../../../public/Logo/tmslogo2.png";
+import LogoImage from "../../../public/Logo/TMlogo.png";
 import Image from "next/image";
 import Mobilenavbar from "../Navbar/Mobilenavbar";
 import Link from "next/link";
