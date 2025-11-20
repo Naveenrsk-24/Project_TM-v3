@@ -1,29 +1,59 @@
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://tmstudios.photography").replace(/\/$/, "");
+export const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL || "https://tmstudios.photography"
+).replace(/\/$/, "");
 
+// Canonical generator
 export function canonical(path = "") {
-  // Homepage canonical — must end with slash
+  // Always ensure trailing slash on homepage
   if (!path || path === "/") return `${SITE_URL}/`;
 
-  // Inner pages canonical
+  // Internal pages
   return `${SITE_URL}${path.startsWith("/") ? path : "/" + path}`;
 }
 
+// Main metadata generator
 export function pageMeta({ title, description, path, image = "/og-image.jpg" }) {
+  const canonicalUrl = canonical(path);
+
   return {
     title,
     description,
-    alternates: { canonical: canonical(path) },
+
+    // Canonical URL output
+    alternates: {
+      canonical: canonicalUrl,
+    },
+
+    // OpenGraph for social previews
     openGraph: {
       title,
       description,
-      url: canonical(path),
-      images: [image],
+      url: canonicalUrl,
+      siteName: "TM Studios Photography",
+      type: "website",
+      locale: "en_IN",
+      images: [
+        {
+          url: image,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
     },
+
+    // Twitter Card
     twitter: {
+      card: "summary_large_image",
       title,
       description,
       images: [image],
     },
-    robots: { index: true, follow: true },
+
+    // Robots tags
+    robots: {
+      index: true,
+      follow: true,
+    },
   };
 }

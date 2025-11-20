@@ -35,15 +35,15 @@ import BlogSection2 from "@/components/ExtraDesigns/BlogSection2";
 
 
 import { pageMeta } from "@/lib/meta-data";
-import Hero3DScroll from "@/components/ExtraDesigns/ThreeHero";
-import ZFoldCardPureJS from "@/components/ExtraDesigns/ThreeHero";
+
 export const metadata = pageMeta({
-title: "Best Wedding Photographers | Candid Photography in Chennai",
-description:
-"Looking for the Best Wedding Photographers in Chennai? Get candid, creative wedding photos that tell your love story — check availability now.",
-path: "/",
-image: "/og-home.jpg",
+  title: "Best Wedding Photographers in Chennai | Candid & Cinematic – TM Studios",
+  description:
+    "Searching for the best wedding photographers in Chennai? TM Studios captures candid, cinematic, and heartfelt wedding moments you'll treasure forever — check availability today.",
+  path: "/",
+  image: "/og-home.jpg",
 });
+
 
 export default function Home() {
   return (
