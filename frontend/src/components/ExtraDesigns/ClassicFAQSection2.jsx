@@ -1,42 +1,36 @@
 'use client'
 
 import { useState } from 'react';
-import { Plus, Minus, HelpCircle, Lightbulb, Shield, Clock, Headphones, CreditCard, Award } from 'lucide-react';
-
+import { Plus, Minus, HelpCircle, Clock,Camera,Package,LocateIcon, Video } from 'lucide-react';
 export default function ClassicFAQSection2() {
   const [activeIndex, setActiveIndex] = useState(null);
 
   const faqs = [
     {
-      question: "What makes your service different from competitors?",
-      answer: "We combine cutting-edge AI technology with human expertise to deliver results that are 10x faster and more accurate. Our platform is built on enterprise-grade infrastructure with 99.9% uptime, featuring real-time collaboration tools and advanced analytics that give you actionable insights instantly.",
-      icon: Lightbulb
+      question: "How much does wedding photography cost in Chennai?",
+      answer: "Wedding photography in Chennai typically starts from ₹30,000 for basic coverage and can go up to ₹2,00,000+ depending on hours, number of events, and deliverables.",
+      icon: Camera
     },
     {
-      question: "How quickly can I get started?",
-      answer: "You can be up and running in under 60 seconds! Our streamlined onboarding process requires no credit card, no complex setup, and no technical knowledge. Simply sign up, choose your plan, and start creating immediately with our intuitive drag-and-drop interface.",
+      question: "What do you cover in a wedding photography package?",
+      answer: "Our packages usually include candid photography, traditional photography, full-event coverage, couple portraits, edited images, and an online gallery. Albums, cinematic films, and drone coverage can be added on request.",
+      icon: Package
+    },
+    {
+      question: "Do you provide candid wedding photography in Chennai?",
+      answer: "Absolutely. We specialize in candid wedding photography and cover all Chennai areas including ECR, OMR, Velachery, Tambaram, Anna Nagar, and more.",
+      icon: LocateIcon
+    },
+    {
+      question: "How early should we book our wedding photographer?",
+      answer: "We recommend booking 2–4 months in advance, especially during peak wedding seasons (November–February and June–July) to ensure availability.",
       icon: Clock
     },
     {
-      question: "Is my data secure and private?",
-      answer: "Absolutely. We use bank-level AES-256 encryption for all data at rest and in transit. Our infrastructure is SOC 2 Type II certified, GDPR compliant, and regularly audited by third-party security firms. We never sell your data, and you maintain complete ownership of all content.",
-      icon: Shield
+      question: "Do you provide wedding cinematography or videography?",
+      answer: "Yes, we offer cinematic wedding films, traditional videography, teaser edits, drone coverage, and multi-camera setups based on the event’s requirement.",
+      icon: Video
     },
-    {
-      question: "What kind of support do you offer?",
-      answer: "We provide 24/7 premium support via live chat, email, and phone. All plans include access to our comprehensive knowledge base, video tutorials, and community forum. Enterprise customers get dedicated account managers and priority support with response times under 1 hour.",
-      icon: Headphones
-    },
-    {
-      question: "Can I cancel or change my plan anytime?",
-      answer: "Yes! We offer complete flexibility with no long-term contracts. Upgrade, downgrade, or cancel anytime with just one click. If you cancel, you'll have access until the end of your billing period, and we'll even help you export all your data in multiple formats.",
-      icon: CreditCard
-    },
-    {
-      question: "Do you offer refunds or free trials?",
-      answer: "We offer a risk-free 14-day trial with full access to all premium features—no credit card required. If you're not completely satisfied within 30 days of purchase, we'll provide a full refund, no questions asked. Plus, we offer a 60-day money-back guarantee for annual plans.",
-      icon: Award
-    }
   ];
 
   return (
