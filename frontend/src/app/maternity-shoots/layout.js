@@ -3,7 +3,7 @@
 export async function generateMetadata() {
   const manualMeta = {
     title:
-      "Maternity Photoshoot | Elegant Outdoor & Studio Pregnancy Photography - TM Studios",
+      "Maternity Photoshoot | Elegant Outdoor & Studio Pregnancy Photography ",
     description:
       "Elegant maternity photoshoots with premium gowns, indoor studio lighting, outdoor concepts, and artistic poses. Book Chennai’s most trusted maternity photography team.",
     openGraph: {

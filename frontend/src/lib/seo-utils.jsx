@@ -1,7 +1,7 @@
 // lib/seo-utils.jsx
 import { PAGE_TYPES } from './cluster-resolver';
 
-const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://yourdomain.com').replace(/\/$/, '');
+const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://tmstudios.photography/').replace(/\/$/, '');
 
 function canonical(path = '') {
   if (!path || path === '/') return SITE_URL;

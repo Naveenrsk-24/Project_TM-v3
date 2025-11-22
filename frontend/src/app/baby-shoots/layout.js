@@ -3,7 +3,7 @@
 export async function generateMetadata() {
   const manualMeta = {
     title:
-      "Baby Photoshoot | Newborn, Infant & Toddler Photography - TM Studios",
+      "Baby Photoshoot | Newborn, Infant & Toddler Photography",
     description:
       "Beautiful baby photoshoots with curated props, indoor studio setups, themed concepts and newborn-safe posing. Book Chennai’s most trusted baby photography team.",
     openGraph: {

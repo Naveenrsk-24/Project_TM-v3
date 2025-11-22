@@ -3,7 +3,7 @@
 export async function generateMetadata() {
   const manualMeta = {
     title:
-      "Wedding Photography | Cinematic & Candid Wedding Photographers - TM Studios",
+      "Wedding Photography | Cinematic & Candid Wedding Photographers",
     description:
       "Award-winning cinematic wedding photography. Full-day coverage, custom albums, and online gallery. Book a consultation today.",
     openGraph: {

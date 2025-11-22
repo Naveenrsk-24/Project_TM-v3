@@ -37,7 +37,7 @@ import BlogSection2 from "@/components/ExtraDesigns/BlogSection2";
 import { pageMeta } from "@/lib/meta-data";
 
 export const metadata = pageMeta({
-  title: "Best Wedding Photographers in Chennai | Candid & Cinematic – TM Studios",
+  title: "Best Wedding Photographers in Chennai | Candid & Cinematic",
   description:
     "Searching for the best wedding photographers in Chennai? TM Studios captures candid, cinematic, and heartfelt wedding moments you'll treasure forever — check availability today.",
   path: "/",
