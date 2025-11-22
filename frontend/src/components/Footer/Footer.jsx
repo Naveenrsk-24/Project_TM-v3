@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import LogoImage from "../../../public/Logo/tmslogo2.png";
+import LogoImage from "../../../public/Logo/TMlogo.png";
 
 export default function Footer() {
   const [isHovered, setIsHovered] = useState(false);
@@ -21,8 +21,7 @@ export default function Footer() {
             />
 
             <p className="text-base leading-relaxed text-gray-600 mt-7">
-              Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-              amet sint. Velit officia consequat duis enim velit mollit.
+             TM Studios is a Chennai-based premium studio capturing Wedding, Baby, and Maternity moments with soulful, cinematic artistry.
             </p>
 
             <ul className="flex items-center space-x-3 mt-9">
@@ -36,16 +35,42 @@ export default function Footer() {
               Company
             </p>
             <ul className="mt-6 space-y-4">
-              {["About", "Features", "Works", "Career"].map((item) => (
-                <li key={item}>
-                  <Link
-                    href="#"
-                    className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
-                  >
-                    {item}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <a
+                  href="/aboutus"
+                  className="relative after:absolute after:bottom-0  after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0
+      after:bg-pink-600 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
+                >
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/portfolio"
+                  className="relative after:absolute after:bottom-0  after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0
+      after:bg-pink-600 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
+                >
+                  Portfolio
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/blogs"
+                  className="relative after:absolute after:bottom-0  after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0
+      after:bg-pink-600 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
+                >
+                  Blogs
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="relative after:absolute after:bottom-0  after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0
+      after:bg-pink-600 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
+                >
+                  Careers
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -59,7 +84,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/all-pages"
-                  className="flex text-base text-black transition-all duration-200 hover:text-blue-600"
+                  className="flex text-base text-black transition-all duration-200 hover:text-pink-600"
                 >
                   All Pages
                 </Link>
@@ -67,7 +92,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/weddings/all-locations"
-                  className="flex text-base text-black transition-all duration-200 hover:text-blue-600"
+                  className="flex text-base text-black transition-all duration-200 hover:text-pink-600"
                 >
                   Weddings
                 </Link>
@@ -75,31 +100,20 @@ export default function Footer() {
               <li>
                 <Link
                   href="/baby-shoots/all-locations"
-                  className="flex text-base text-black transition-all duration-200 hover:text-blue-600"
+                  className="flex text-base text-black transition-all duration-200 hover:text-pink-600"
                 >
-                  Baby Shoots 
+                  Baby Shoots
                 </Link>
               </li>
               <li>
                 <Link
                   href="/maternity-shoots/all-locations"
-                  className="flex text-base text-black transition-all duration-200 hover:text-blue-600"
+                  className="flex text-base text-black transition-all duration-200 hover:text-pink-600"
                 >
                   Maternity Shoots
                 </Link>
               </li>
 
-              {/* ORIGINAL LINKS */}
-              {["Customer Support", "Delivery Details", "Terms & Conditions", "Privacy Policy"].map((item) => (
-                <li key={item}>
-                  <Link
-                    href="#"
-                    className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
-                  >
-                    {item}
-                  </Link>
-                </li>
-              ))}
             </ul>
           </div>
 
@@ -125,7 +139,9 @@ export default function Footer() {
               <button
                 type="submit"
                 className={`relative px-6 py-4 mt-3 bg-gradient-to-r from-pink-600 to-rose-500 inline-block text-white hover:text-black border-2 rounded-full font-semibold text-sm overflow-hidden transition-transform duration-200 ease-in-out transform ${
-                  isHovered ? "scale-105 border-transparent text-black" : "border-transparent"
+                  isHovered
+                    ? "scale-105 border-transparent text-black"
+                    : "border-transparent"
                 }`}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
@@ -145,7 +161,7 @@ export default function Footer() {
 
         <hr className="mt-16 mb-10 border-gray-200" />
         <p className="text-sm text-center text-gray-600">
-          © Copyright 2021, All Rights Reserved by TM
+          © Copyright 2025, All Rights Reserved by TM Studios
         </p>
       </div>
     </section>

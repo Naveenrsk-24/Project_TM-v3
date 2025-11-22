@@ -102,38 +102,37 @@ const NavBarMain = () => {
     },
   ];
   const Lcdata = [
-  {
-    id: 1,
-    slug: "WeddingPhotography",
-    title: "Wedding Photography",
-    subtitle: "Capture your special day with timeless photos",
-    imageSrc: "/Weddings/beautiful-husband-wife-posing-beach.jpg",
-    dataCategory: "",
-    dataAction: "click-navigation",
-    dataLabel: "wedding-photography",
-  },
-  {
-    id: 2,
-    slug: "PreWeddingShoot",
-    title: "Pre-Wedding Shoot",
-    subtitle: "Beautiful couple portraits before the big day",
-    imageSrc: "/Weddings/beautiful-husband-wife-posing-beach.jpg",
-    dataCategory: "",
-    dataAction: "click-navigation",
-    dataLabel: "pre-wedding-shoot",
-  },
-  {
-    id: 3,
-    slug: "PortraitPhotography",
-    title: "Portrait Photography",
-    subtitle: "Studio and outdoor portrait sessions for individuals",
-    imageSrc: "/Weddings/beautiful-husband-wife-posing-beach.jpg",
-    dataCategory: "",
-    dataAction: "click-navigation",
-    dataLabel: "portrait-photography",
-  },
-];
-
+    {
+      id: 1,
+      slug: "WeddingPhotography",
+      title: "Wedding Photography",
+      subtitle: "Capture your special day with timeless photos",
+      imageSrc: "/Weddings/beautiful-husband-wife-posing-beach.jpg",
+      dataCategory: "",
+      dataAction: "click-navigation",
+      dataLabel: "wedding-photography",
+    },
+    {
+      id: 2,
+      slug: "PreWeddingShoot",
+      title: "Pre-Wedding Shoot",
+      subtitle: "Beautiful couple portraits before the big day",
+      imageSrc: "/Weddings/beautiful-husband-wife-posing-beach.jpg",
+      dataCategory: "",
+      dataAction: "click-navigation",
+      dataLabel: "pre-wedding-shoot",
+    },
+    {
+      id: 3,
+      slug: "PortraitPhotography",
+      title: "Portrait Photography",
+      subtitle: "Studio and outdoor portrait sessions for individuals",
+      imageSrc: "/Weddings/beautiful-husband-wife-posing-beach.jpg",
+      dataCategory: "",
+      dataAction: "click-navigation",
+      dataLabel: "portrait-photography",
+    },
+  ];
 
   return (
     <div>
@@ -166,13 +165,33 @@ const NavBarMain = () => {
               <ul className="hidden lg:flex lg:items-center lg:space-x-12">
                 <li>
                   <a
-                    href="/"
+                    href="/weddings"
                     className="relative after:absolute after:bottom-0  after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0
-      after:bg-sky-700 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
+      after:bg-pink-600 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
                   >
-                    Home
+                    Weddings
                   </a>
                 </li>
+                <li>
+                  <a
+                    href="/baby-shoots"
+                    className="relative after:absolute after:bottom-0  after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0
+      after:bg-pink-600 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
+                  >
+                    Baby Shoots
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/maternity-shoots"
+                    className="relative after:absolute after:bottom-0  after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0
+      after:bg-pink-600 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
+                  >
+                    Maternity Shoots
+                  </a>
+                </li>
+
+                {/* Services Dropdown */}
 
                 {/* <li>
                   <div className="relative ">
@@ -202,7 +221,7 @@ const NavBarMain = () => {
                   <a
                     href="/portfolio"
                     className="relative after:absolute after:bottom-0  after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0
-      after:bg-sky-700 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
+      after:bg-pink-600 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
                   >
                     Portfolio
                   </a>
@@ -212,13 +231,15 @@ const NavBarMain = () => {
                   <a
                     href="/aboutus"
                     className="relative after:absolute after:bottom-0  after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0
-      after:bg-sky-700 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
+      after:bg-pink-600 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
                   >
                     About Us
                   </a>
                 </li>
 
-                <li>
+                {/* Blogs In Menu Bae */}
+
+                {/* <li>
                   <a
                     href="/blogs"
                     className="relative after:absolute after:bottom-0  after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0
@@ -226,9 +247,13 @@ const NavBarMain = () => {
                   >
                     Blogs
                   </a>
-                </li>
+                </li> */}
+
               </ul>
               <div className="hidden lg:block">
+
+                {/* Careers in Menu Bar */}
+                
                 {/* <a
                   href="/careers"
                   className="mr-3 relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0
@@ -236,7 +261,10 @@ const NavBarMain = () => {
                 >
                   Careers
                 </a> */}
-                <Link href="/booking" aria-label="Book a wedding photography session">
+                <Link
+                  href="/booking"
+                  aria-label="Book a wedding photography session"
+                >
                   <button
                     className={`relative px-4 py-3 bg-gradient-to-r cursor-pointer from-pink-600 to-rose-500 inline-block text-white hover:text-black border-2 rounded-full font-semibold text-sm overflow-hidden transition-transform duration-200 ease-in-out transform ${
                       isHovered
@@ -255,7 +283,7 @@ const NavBarMain = () => {
                     ></span>
                     Contact Us
                   </button>
-                  </Link>
+                </Link>
               </div>
             </nav>
           </div>
