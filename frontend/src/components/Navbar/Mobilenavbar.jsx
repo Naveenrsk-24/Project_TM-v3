@@ -33,8 +33,8 @@ const Mobilenavbar = ({ toggleNavbar }) => {
         </nav>
         <div className="flex-grow overflow-y-auto">
           <ul className="flex flex-col items-start gap-8">
-            <NavItem href="/" label="Home" />
-            <NavDropdown
+            <NavItem href="/weddings" label="Weddings" />
+            {/* <NavDropdown
               label="Services"
               isOpen={sidenavbardropdown}
               toggleDropdown={sideNavdropdownshow}
@@ -49,12 +49,12 @@ const Mobilenavbar = ({ toggleNavbar }) => {
                 { href: "/Section/PhotoEditing", label: "Photo Retouching & Editing", Icon: "/Weddings/beautiful-husband-wife-posing-beach.jpg" },
                 { href: "/Section/CorporateHeadshots", label: "Corporate Headshots", Icon: "/Weddings/beautiful-husband-wife-posing-beach.jpg" },
               ]}
-            />
-            <NavItem href="/gallery" label="Gallery" />
-            <NavItem href="/aboutus" label="About Us" />
-            <NavItem href="/blogs" label="Blogs" />
-            <NavItem href="/contactus" label="Contact us" />
-            <NavItem href="/Careers" label="Careers" />
+            /> */}
+            <NavItem href="/baby-shoots" label="Baby Shoots" />
+            <NavItem href="/maternity-shoots" label="Maternity Shoots" />
+            <NavItem href="/portfolio" label="Portfolio" />
+            <NavItem href="/aboutus" label="About us" />
+            <NavItem href="/contactus" label="Contact Us" />
           </ul>
         </div>
       </div>
