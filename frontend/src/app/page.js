@@ -1,40 +1,18 @@
-import dynamic from "next/dynamic";
+import {
+  generateStructuredData,
+  generateFAQSchema,
+} from "@/lib/seo-utils";
 
-import AdminDashboard from "@/components/Dashboard/AdminDashboard";
-import WeddingHero from "@/components/Dummy/Dummy1";
-import TestFetching from "@/components/Dummy/TestFetching";
-import { ParallaxScrollDemo } from "@/components/Gallery/ParallaxScrollDemo";
-import CountupLoader from "@/components/Home/LazyLoaders/CountupLoader";
-
-import FAQ2 from "@/components/Home/Faq2";
-import FaqSection from "@/components/Home/FaqSection";
 import HeroSection from "@/components/Home/HeroSection";
-import NumbersSection from "@/components/Home/NumberSection";
+import SubHeroSection from "@/components/ExtraDesigns/SubHeroSection";
 import Parallax from "@/components/Home/Parallax";
-import SliderWithProgress from "@/components/Home/SlideWithProgress";
-import VideoTestimonialCarousel from "@/components/Home/VideoTestimonialCarousel";
-import { mockTestimonials } from "../data/Testimonials";
-// import VerticalSlider from "@/components/Home/VerticalSlider";
-import NavBarMain from "@/components/Navbar/NavbarMain";
-import Image from "next/image";
-import BlogSection from "@/components/Blog/BlogSection";
-import { DUMMY_BLOGS } from "../data/blog-data";
-import DynamicSliderWrapper from "@/components/Home/LazyLoaders/DynamicSlider";
-import ServiceKeywordGrid from "@/components/Home/ServiceKeywordGrid";
-import { serviceData } from "@/data/Home/ServiceData";
 import StorytellerQuoteRotator from "@/components/Home/StorytellerQuoteBlock";
 import { seoQuotes } from "../data/Home/quoteData";
-import TestimonialCarousel from "@/components/Home/TestimonialCarousel";
 import PortfolioGallery from "@/components/ExtraDesigns/PortfolioDesignA";
-import ClassicFAQSection from "@/components/ExtraDesigns/ClassicFAQSection";
-import SubHeroSection from "@/components/ExtraDesigns/SubHeroSection";
 import ClassicFAQSection2 from "@/components/ExtraDesigns/ClassicFAQSection2";
 import TestimonialCarousel2 from "@/components/ExtraDesigns/TestimonialCarousel2";
 import BlogSection2 from "@/components/ExtraDesigns/BlogSection2";
-
-
-
-
+import { DUMMY_BLOGS } from "../data/blog-data";
 
 import { pageMeta } from "@/lib/meta-data";
 
@@ -46,82 +24,87 @@ export const metadata = pageMeta({
   image: "/og-home.jpg",
 });
 
-
 export default function Home() {
+  /**
+   * --------------------------------------------
+   * HOME PAGE — FAQ DATA (shared UI + Schema)
+   * --------------------------------------------
+   */
+  const faqList = [
+    {
+      question: "Do you offer wedding photography in Chennai?",
+      answer:
+        "Yes, TM Studios provides premium wedding photography across all areas of Chennai."
+    },
+    {
+      question: "How early should I book?",
+      answer:
+        "Most clients book 1–6 months in advance. Peak-season dates fill up fast."
+    },
+  ];
+
+  /**
+   * --------------------------------------------
+   * HOME PAGE — STRUCTURED DATA (ORG + FAQ)
+   * --------------------------------------------
+   */
+
+  // Organization Schema for homepage
+  const homepageStructuredData = generateStructuredData(
+    { service: null },     // correctly tells system this is NOT a service page
+    [],                    // no auto-generated service FAQs
+    {
+      name: "TM Studios Photography",
+      description:
+        "Award-winning wedding, maternity, and baby photography serving Chennai & Tamil Nadu.",
+      telephone: "+91-9876543210",
+      email: "contact@tmstudios.com",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "123 Photography Lane",
+        addressLocality: "Chennai",
+        addressRegion: "Tamil Nadu",
+        postalCode: "600001",
+        addressCountry: "IN",
+      },
+      sameAs: [
+        "https://www.instagram.com/yourprofile",
+        "https://www.facebook.com/yourprofile",
+        "https://www.youtube.com/@yourchannel",
+      ],
+    }
+  );
+
+  // Homepage FAQ Schema
+  const homepageFAQSchema = generateFAQSchema(
+    { title: "TM Studios" }, 
+    null,
+    faqList
+  );
+
+  const combinedSchema = [...homepageStructuredData, homepageFAQSchema];
+
   return (
     <>
+      {/* JSON-LD injected for homepage */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(combinedSchema),
+        }}
+      />
+
       <HeroSection />
-      <SubHeroSection/>
+      <SubHeroSection />
       <Parallax />
       <StorytellerQuoteRotator quotes={seoQuotes} rotationInterval={5000} />
-      <PortfolioGallery/>
-      <ClassicFAQSection2/>
-      <TestimonialCarousel2/>
+      <PortfolioGallery />
+
+      {/* FAQ component receives same FAQ list */}
+      <ClassicFAQSection2 faqs={faqList} />
+
+      <TestimonialCarousel2 />
       <BlogSection2 blogs={DUMMY_BLOGS} />
-      {/* <ZFoldCardPureJS/> */}
-
-
-{/* ******************************************************* */}
-      {/* <BlogSection blogs={DUMMY_BLOGS} /> */}
-      {/* <TestimonialCarousel /> */}
-      {/* <CountupLoader /> */}
-      {/* <ClassicFAQSection/> */}
-      {/* <FAQ2 /> */}
-      {/* <ServiceKeywordGrid
-        headline="Our Expertise: SEO Services and Locations"
-        items={serviceData}
-      /> */}
-      {/* <DynamicSliderWrapper/> */}
-      {/* <VideoTestimonialCarousel
-        testimonials={mockTestimonials}
-        autoplayOnHover={true}
-      /> */}
-
-
-      {/* <NumbersSection/> */}
-
-     {/* <SliderWithProgress
-  slides={[
-    { content: <img src="https://images.pexels.com/photos/2253842/pexels-photo-2253842.jpeg" alt="Slide 1" className="w-full h-full object-cover rounded-lg" /> },
-    { content: <img src="https://images.pexels.com/photos/752842/pexels-photo-752842.jpeg" alt="Slide 2" className="w-full h-full object-cover rounded-lg" /> },
-    { content: <img src="https://images.pexels.com/photos/1456613/pexels-photo-1456613.jpeg" alt="Slide 3" className="w-full h-full object-cover rounded-lg" /> },
-    { content: <img src="https://images.pexels.com/photos/2253842/pexels-photo-2253842.jpeg" alt="Slide 1" className="w-full h-full object-cover rounded-lg" /> },
-    { content: <img src="https://images.pexels.com/photos/752842/pexels-photo-752842.jpeg" alt="Slide 2" className="w-full h-full object-cover rounded-lg" /> },
-    { content: <img src="https://images.pexels.com/photos/1456613/pexels-photo-1456613.jpeg" alt="Slide 3" className="w-full h-full object-cover rounded-lg" /> },
-    { content: <img src="https://images.pexels.com/photos/2253842/pexels-photo-2253842.jpeg" alt="Slide 1" className="w-full h-full object-cover rounded-lg" /> },
-    { content: <img src="https://images.pexels.com/photos/752842/pexels-photo-752842.jpeg" alt="Slide 2" className="w-full h-full object-cover rounded-lg" /> },
-    { content: <img src="https://images.pexels.com/photos/1456613/pexels-photo-1456613.jpeg" alt="Slide 3" className="w-full h-full object-cover rounded-lg" /> },
-  ]}
-/> */}
-      {/* <FaqSection/> */}
-      {/* <ParallaxScrollDemo/> */}
-      {/* <WeddingHero/> */}
-      {/* <AdminDashboard/> */}
     </>
   );
 }
-
-
-
-// /Weddings/beautiful-husband-wife-posing-beach.jpg
-
-// **************************** Coming Soon Page
-
-// export const metadata = {
-//   title: "Website Under Construction | TM Studios",
-//   description: "TM Studios Photography — New website launching soon.",
-//   robots: "noindex, nofollow",
-// };
-
-// export default function ComingSoon() {
-//   return (
-//     <div
-//       className="
-//         min-h-screen w-full bg-no-repeat bg-cover bg-black bg-center
-//         bg-[url('/comingsoon/phone.avif')]
-//         sm:bg-[url('/comingsoon/laptop.avif')]
-//       "
-//     />
-//   );
-// }
-

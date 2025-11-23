@@ -1,5 +1,5 @@
 // app/weddings/[[...cluster_slug]]/page.js
-// Updated version with support for manual root-cluster SEO + dynamic sub-cluster SEO
+// Final corrected version with proper dynamic SEO + correct structured data usage
 
 import {
   resolveClusterPage,
@@ -31,13 +31,11 @@ import Breadcrumbs from "@/components/Breadcrumbs/BreadCrumbs";
 export async function generateMetadata({ params }) {
   const resolution = resolveClusterPage("weddings", params.cluster_slug);
 
-  // If this is the ROOT CLUSTER (no cluster_slug) → we do NOT use dynamic SEO here.
-  // We rely on /app/weddings/layout.js manual SEO metadata.
+  // Root-level SEO should come from /app/weddings/layout.js
   if (!params.cluster_slug || params.cluster_slug.length === 0) {
-    return {}; // let layout.js metadata override
+    return {};
   }
 
-  // Sub-cluster pages → use dynamic metadata
   if (resolution.type === PAGE_TYPES.NOT_FOUND) {
     return { title: "Not Found" };
   }
@@ -54,22 +52,26 @@ export default function WeddingsClusterPage({ params }) {
 
   if (resolution.type === PAGE_TYPES.NOT_FOUND) return notFound();
 
-  // Identify whether this is root cluster
-  const isRootCluster = !params.cluster_slug || params.cluster_slug.length === 0;
+  const isRootCluster =
+    !params.cluster_slug || params.cluster_slug.length === 0;
 
   // -------------------------------------------
-  // ROOT CLUSTER PAGE HANDLING (Manual H1/H2 + Manual JSON-LD + Manual FAQ)
+  // ROOT CLUSTER PAGE (Manual SEO + manual schema)
   // -------------------------------------------
   if (isRootCluster) {
     const h1 = "Wedding Photography";
-    const h2 = "Cinematic & Candid Wedding Photography – Premium Packages, Portfolio & Pricing";
+    const h2 =
+      "Cinematic & Candid Wedding Photography – Premium Packages, Portfolio & Pricing";
 
-    // Manual JSON-LD structured data
+    // ---- FIXED ARGUMENT ORDER FOR generateStructuredData ----
     const structuredData = generateStructuredData(
-      { service },
+      { type: PAGE_TYPES.PILLAR, service }, // resolution
+      [],                                   // no custom FAQs (handled separately)
       {
+        // manual overrides go **here**
         name: "TM Studios Photography",
-        description: "Premium wedding, maternity & baby photography across Tamil Nadu.",
+        description:
+          "Premium wedding, maternity & baby photography across Tamil Nadu.",
         telephone: "+91-9876543210",
         email: "contact@tmstudios.com",
         address: {
@@ -83,10 +85,12 @@ export default function WeddingsClusterPage({ params }) {
       }
     );
 
+    // FAQ must be separate for root page
     const faqSchema = generateFAQSchema(service, null, [
       {
         question: "Do you travel for destination weddings?",
-        answer: "Yes! We shoot weddings across India and globally. Travel & stay applicable.",
+        answer:
+          "Yes! We shoot weddings across India and globally. Travel & stay applicable.",
       },
       {
         question: "How many edited photos will I receive?",
@@ -94,26 +98,27 @@ export default function WeddingsClusterPage({ params }) {
       },
     ]);
 
+    // ---- Combine schemas into ONE JSON-LD block (Google best practice) ----
+    const combinedSchema = [...structuredData, faqSchema];
+
     return (
       <>
-        {/* Root: Inject manual structured data */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(combinedSchema) }}
         />
 
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        <Breadcrumbs
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Weddings", href: "/weddings" },
+          ]}
         />
-
-        <Breadcrumbs breadcrumbs={[{ label: "Home", href: "/" }, { label: "Weddings", href: "/weddings" }]} />
 
         <ServiceHero
           title={h1}
           subtitle={h2}
           icon={service.icon}
-          location={null}
           bg={service.bgImage}
           ctaLabel={service.ctaLabel}
           ctaLink={service.ctaLink}
@@ -131,17 +136,20 @@ export default function WeddingsClusterPage({ params }) {
   }
 
   // -------------------------------------------
-  // SUB-CLUSTER PAGE HANDLING (Dynamic SEO)
+  // SUB-CLUSTER PAGES (Dynamic SEO + auto schema)
   // -------------------------------------------
   const { h1, h2 } = generateHeadings(resolution);
   const breadcrumbs = generateBreadcrumbs(resolution);
+
   const structuredData = generateStructuredData(resolution);
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
       />
 
       <Breadcrumbs breadcrumbs={breadcrumbs} />
@@ -167,7 +175,10 @@ export default function WeddingsClusterPage({ params }) {
       <TestimonialCarousel2 />
       <ClassicFAQSection2 />
 
-      <ContactForm service={resolution.service} location={resolution.location} />
+      <ContactForm
+        service={resolution.service}
+        location={resolution.location}
+      />
     </>
   );
 }

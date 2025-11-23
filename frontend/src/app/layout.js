@@ -14,41 +14,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// Your base site URL (update to your actual domain)
-// const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://tmstudios.vercel.app/";
-
-// export const metadata = {
-//   title: {
-//     default: "TM Studios - Professional Photography in Chennai",
-//     template: "%s - TM Studios",
-//   },
-//   description:
-//     "TM Studios — Chennai’s leading professional photographers for weddings, baby shoots, maternity, and more. Capture timeless memories beautifully.",
-//  metadataBase: new URL(`${SITE_URL}/`),
-//   openGraph: {
-//     title: "TM Studios | Wedding & Lifestyle Photography",
-//     description:
-//       "Capture your most cherished moments with TM Studios — expert photographers in Chennai and across India.",
-//     url: SITE_URL,
-//     siteName: "TM Studios",
-//     locale: "en-IN",
-//     type: "website",
-//     images: [`${SITE_URL}/og-image.jpg`],
-//   },
-//   twitter: {
-//     card: "summary_large_image",
-//     title: "TM Studios | Wedding & Lifestyle Photography",
-//     description:
-//       "Capture life’s best moments with TM Studios. Trusted photographers in Chennai.",
-//     images: [`${SITE_URL}/og-image.jpg`],
-//   },
-//   robots: { index: true, follow: true },
-//   // alternates: {
-//   //   canonical: SITE_URL,
-//   // },
-// };
-// *******************************************************************************
-
+/* --------------------------------------------------
+   GLOBAL SITE METADATA (applies to all pages)
+-------------------------------------------------- */
 export const metadata = {
   title: {
     default: "TM Studios - Professional Photography in Chennai",
@@ -58,14 +26,26 @@ export const metadata = {
     "TM Studios — Chennai’s leading professional photographers for weddings, baby shoots, maternity, and more. Capture timeless memories beautifully.",
 
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://tmstudios.vercel.app"
+    process.env.NEXT_PUBLIC_SITE_URL || "https://tmstudios.photography"
   ),
+
+  alternates: {
+    canonical: "/",
+  },
 
   openGraph: {
     type: "website",
     siteName: "TM Studios",
     locale: "en-IN",
-    images: ["/og-image.jpg"],
+    url: "/",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "TM Studios Photography",
+      },
+    ],
   },
 
   twitter: {
@@ -73,17 +53,24 @@ export const metadata = {
     images: ["/og-image.jpg"],
   },
 
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
-// LCP preload image (for Core Web Vitals)
+// LCP preload image (Core Web Vitals)
 const LCP_IMAGE_URL =
   "/_next/image?url=%2FWeddings%2Fgroom-putting-ring-bride-s-finger.webp&w=1080&q=85";
 
+/* --------------------------------------------------
+   ROOT LAYOUT WRAPPER
+-------------------------------------------------- */
 export default function RootLayout({ children }) {
   return (
     <html lang="en-IN" className="dark">
       <head>
+        {/* Performance & verification */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="preload" as="image" href={LCP_IMAGE_URL} />
         <meta
@@ -91,6 +78,7 @@ export default function RootLayout({ children }) {
           content="1_UHjnxtjcaHe2Da5qfDvI35zGmPIrsu-Mc7U53lCq4"
         />
       </head>
+
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning={true}
