@@ -158,21 +158,26 @@ export function generateHeadings(resolution = {}) {
 
 /* ------------------------ FAQ Schema generator ------------------------ */
 export function generateFAQSchema(service, location = null, customFaqs = []) {
+  const safePrice = service?.basePrice || "our standard rates";
+  const safeFeatures = Array.isArray(service?.features) && service.features.length > 0
+    ? service.features.join(', ')
+    : "multiple package options";
+
   const baseFaqs = [
     {
-      question: `How much does ${service.title.toLowerCase()} cost?`,
-      answer: `Our ${service.title.toLowerCase()} packages start from ${service.basePrice}. Final pricing depends on your specific requirements.`
+      question: `How much does ${service?.title?.toLowerCase() || 'this service'} cost?`,
+      answer: `Our ${service?.title?.toLowerCase() || 'photography'} packages start from ${safePrice}. Final pricing depends on your specific requirements.`
     },
     {
-      question: `What is included in your ${service.title.toLowerCase()} package?`,
-      answer: `Our packages include: ${service.features?.join(', ')}. We customize each package to meet your needs.`
+      question: `What is included in your ${service?.title?.toLowerCase() || 'photography'} package?`,
+      answer: `Our packages include: ${safeFeatures}. We customize each package to meet your needs.`
     }
   ];
 
-  if (location) {
+  if (location?.name) {
     baseFaqs.push({
-      question: `Do you provide ${service.title.toLowerCase()} in ${location.name}?`,
-      answer: `Yes, we provide ${service.title.toLowerCase()} services in ${location.name} and surrounding areas.`
+      question: `Do you provide ${service?.title?.toLowerCase() || 'photography'} in ${location.name}?`,
+      answer: `Yes, we provide ${service?.title?.toLowerCase() || 'photography'} services in ${location.name} and nearby areas.`
     });
   }
 
@@ -188,6 +193,7 @@ export function generateFAQSchema(service, location = null, customFaqs = []) {
     }))
   };
 }
+
 
 /* ------------------------ Structured Data (combined) ------------------------ */
 // Signature: generateStructuredData(resolution, customFaqs = [], manual = {})
