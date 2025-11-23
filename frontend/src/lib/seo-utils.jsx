@@ -158,7 +158,7 @@ export function generateHeadings(resolution = {}) {
 
 /* ------------------------ FAQ Schema generator ------------------------ */
 export function generateFAQSchema(service, location = null, customFaqs = []) {
-  const safePrice = service?.basePrice || "our standard rates";
+  const safePrice = service?.basePrice || "50,000";
   const safeFeatures = Array.isArray(service?.features) && service.features.length > 0
     ? service.features.join(', ')
     : "multiple package options";
