@@ -64,26 +64,26 @@ export default function WeddingsClusterPage({ params }) {
       "Cinematic & Candid Wedding Photography – Premium Packages, Portfolio & Pricing";
 
     // ---- FIXED ARGUMENT ORDER FOR generateStructuredData ----
-    const structuredData = generateStructuredData(
-      { type: PAGE_TYPES.PILLAR, service }, // resolution
-      [],                                   // no custom FAQs (handled separately)
-      {
-        // manual overrides go **here**
-        name: "TM Studios Photography",
-        description:
-          "Premium wedding, maternity & baby photography across Tamil Nadu.",
-        telephone: "+91-9876543210",
-        email: "contact@tmstudios.com",
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "123 Photography Lane",
-          addressLocality: "Chennai",
-          addressRegion: "Tamil Nadu",
-          postalCode: "600001",
-          addressCountry: "IN",
-        },
-      }
-    );
+    // const structuredData = generateStructuredData(
+    //   { type: PAGE_TYPES.PILLAR, service }, // resolution
+    //   [],                                   // no custom FAQs (handled separately)
+    //   {
+    //     // manual overrides go **here**
+    //     name: "TM Studios Photography",
+    //     description:
+    //       "Premium wedding, maternity & baby photography across Tamil Nadu.",
+    //     telephone: "+91-9876543210",
+    //     email: "contact@tmstudios.com",
+    //     address: {
+    //       "@type": "PostalAddress",
+    //       streetAddress: "123 Photography Lane",
+    //       addressLocality: "Chennai",
+    //       addressRegion: "Tamil Nadu",
+    //       postalCode: "600001",
+    //       addressCountry: "IN",
+    //     },
+    //   }
+    // );
 
     // FAQ must be separate for root page
     const faqSchema = generateFAQSchema(service, null, [
