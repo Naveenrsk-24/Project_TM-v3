@@ -1,11 +1,8 @@
-// seo-utils.jsx (Enterprise Version)
-// Comprehensive SEO + Schema utilities for all services (weddings, baby-shoots, maternity, etc.)
-// - Canonical helpers
-// - Metadata merging
-// - Dynamic metadata for cluster pages (Pillar, Location, Locality, Niche, Niche+Location)
-// - Headings generator
-// - FAQ generator
-// - Combined JSON-LD generator (Organization, Service, Breadcrumb, FAQ, Reviews)
+// lib/seo-utils.jsx (Modern API, production-ready)
+// - Modern signature: generateStructuredData({ resolution, manual, faqs, options })
+// - No duplicate Organization objects: Service.provider uses @id reference
+// - uniqueSchemas to dedupe by @type + @id/name
+// - All helpers exported individually and as default export
 
 import { PAGE_TYPES } from './cluster-resolver';
 import { SERVICES, LOCATIONS } from './services-data';
@@ -13,12 +10,12 @@ import { SERVICES, LOCATIONS } from './services-data';
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://tmstudios.photography').replace(/\/$/, '');
 
 /* ------------------------ Helpers ------------------------ */
-function canonical(path = '') {
+export function canonical(path = '') {
   if (!path || path === '/') return `${SITE_URL}/`;
   return `${SITE_URL}${path.startsWith('/') ? path : '/' + path}`;
 }
 
-function smartTruncate(text = '', max = 160) {
+export function smartTruncate(text = '', max = 160) {
   if (!text) return '';
   if (text.length <= max) return text;
   const truncated = text.slice(0, max - 1);
@@ -27,10 +24,30 @@ function smartTruncate(text = '', max = 160) {
   return truncated.slice(0, lastSpace) + '…';
 }
 
-function normalizePrice(priceString = '') {
+export function normalizePrice(priceString = '') {
   if (!priceString) return '';
   const digits = priceString.replace(/[^0-9.]/g, '');
   return digits || '';
+}
+
+/* ------------------------ Utility: uniqueSchemas ------------------------ */
+// Remove duplicates by (@type + @id) or fallback to (@type + name)
+export function uniqueSchemas(schemas = []) {
+  const out = [];
+  const seen = new Set();
+
+  for (const s of schemas) {
+    if (!s || typeof s !== 'object') continue;
+    const type = s['@type'] || s.type || '';
+    const id = s['@id'] || s.id || '';
+    const name = s.name || (s.provider && s.provider.name) || '';
+    const key = `${type}|${id || name}`;
+    if (!seen.has(key)) {
+      seen.add(key);
+      out.push(s);
+    }
+  }
+  return out;
 }
 
 /* ------------------------ Metadata merging ------------------------ */
@@ -158,10 +175,10 @@ export function generateHeadings(resolution = {}) {
 
 /* ------------------------ FAQ Schema generator ------------------------ */
 export function generateFAQSchema(service, location = null, customFaqs = []) {
-  const safePrice = service?.basePrice || "50,000";
+  const safePrice = service?.basePrice || '50,000';
   const safeFeatures = Array.isArray(service?.features) && service.features.length > 0
     ? service.features.join(', ')
-    : "multiple package options";
+    : 'multiple package options';
 
   const baseFaqs = [
     {
@@ -194,14 +211,22 @@ export function generateFAQSchema(service, location = null, customFaqs = []) {
   };
 }
 
-
-/* ------------------------ Structured Data (combined) ------------------------ */
-// Signature: generateStructuredData(resolution, customFaqs = [], manual = {})
-export function generateStructuredData(resolution = {}, customFaqs = [], manual = {}) {
+/* ------------------------ Structured Data (Modern API) ------------------------ */
+/**
+ * generateStructuredData({ resolution, manual = {}, faqs = [], options = {} })
+ *
+ * options:
+ *  - includeOrganization (boolean) default true
+ *  - includeBreadcrumbs (boolean) default true
+ */
+export function generateStructuredData({ resolution = {}, manual = {}, faqs = [], options = {} } = {}) {
   const { service, location, locality, niche } = resolution || {};
+  const includeOrganization = options.includeOrganization ?? true;
+  const includeBreadcrumbs = options.includeBreadcrumbs ?? true;
 
-  // If no service provided, return a minimal organization object
+  // If no service provided, return minimal organization (if allowed)
   if (!service) {
+    if (!includeOrganization) return [];
     return [
       {
         '@context': 'https://schema.org',
@@ -213,8 +238,8 @@ export function generateStructuredData(resolution = {}, customFaqs = [], manual 
     ];
   }
 
-  // 1) Organization
-  const organization = {
+  // 1) Organization (optional)
+  const organization = includeOrganization ? {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
     '@id': `${SITE_URL}/#organization`,
@@ -240,9 +265,9 @@ export function generateStructuredData(resolution = {}, customFaqs = [], manual 
       addressCountry: 'IN'
     },
     geo: manual.geo || { '@type': 'GeoCoordinates', latitude: '13.0827', longitude: '80.2707' }
-  };
+  } : null;
 
-  // 2) Service schema
+  // 2) Service schema (provider references organization by @id)
   const priceValue = normalizePrice(service.basePrice || '');
   const serviceUrl = `${SITE_URL}/${service.slug}`;
 
@@ -253,7 +278,7 @@ export function generateStructuredData(resolution = {}, customFaqs = [], manual 
     name: service.title,
     serviceType: service.title,
     category: 'Photography Services',
-    provider: { '@type': 'ProfessionalService', name: organization.name, url: SITE_URL },
+    provider: { '@id': `${SITE_URL}/#organization` },
     description: service.description,
     image: [
       `${SITE_URL}${service.bgImage || ''}`,
@@ -273,51 +298,42 @@ export function generateStructuredData(resolution = {}, customFaqs = [], manual 
     serviceSchema.areaServed = { '@type': 'City', name: location.name };
   }
 
-  // 3) BreadcrumbList (cluster-aware)
-  const breadcrumbList = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: []
-  };
+  // 3) BreadcrumbList (optional)
+  const breadcrumbList = includeBreadcrumbs ? (() => {
+    const breadcrumbList = {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: []
+    };
 
-  const items = [];
-  items.push({ name: 'Home', item: SITE_URL });
-  items.push({ name: service.title, item: serviceUrl });
+    const items = [];
+    items.push({ name: 'Home', item: SITE_URL });
+    items.push({ name: service.title, item: serviceUrl });
 
-  // for niche pages, niche should come before location (if both present)
-  if (niche) {
-    items.push({ name: niche.title, item: `${serviceUrl}/${niche.slug}` });
-  }
+    if (niche) items.push({ name: niche.title, item: `${serviceUrl}/${niche.slug}` });
+    if (location) items.push({ name: location.name, item: `${serviceUrl}/${location.slug}` });
+    if (locality) items.push({ name: locality.name, item: `${serviceUrl}/${location.slug}/${locality.slug}` });
 
-  if (location) {
-    items.push({ name: location.name, item: `${serviceUrl}/${location.slug}` });
-  }
-
-  if (locality) {
-    items.push({ name: locality.name, item: `${serviceUrl}/${location.slug}/${locality.slug}` });
-  }
-
-  breadcrumbList.itemListElement = items.map((it, idx) => ({
-    '@type': 'ListItem',
-    position: idx + 1,
-    name: it.name,
-    item: it.item
-  }));
+    breadcrumbList.itemListElement = items.map((it, idx) => ({ '@type': 'ListItem', position: idx + 1, name: it.name, item: it.item }));
+    return breadcrumbList;
+  })() : null;
 
   // 4) FAQ schema (optional)
-  const faqSchema = (customFaqs && customFaqs.length)
-    ? generateFAQSchema(service, location, customFaqs)
-    : null;
+  const faqSchema = (Array.isArray(faqs) && faqs.length) ? generateFAQSchema(service, location, faqs) : null;
 
-  // 5) Optional reviews (manual can pass an array or a single review object)
+  // 5) Reviews (optional)
   const reviewSchema = manual.reviews || null;
 
-  // Assemble combined array (organization always first)
-  const combined = [organization, serviceSchema, breadcrumbList];
+  // Assemble combined array (organization first if present)
+  const combined = [];
+  if (organization) combined.push(organization);
+  combined.push(serviceSchema);
+  if (breadcrumbList) combined.push(breadcrumbList);
   if (faqSchema) combined.push(faqSchema);
   if (reviewSchema) combined.push(reviewSchema);
 
-  return combined;
+  // Final safety: dedupe by type+id/name
+  return uniqueSchemas(combined);
 }
 
 /* ------------------------ Utility: generateAllServiceUrls ------------------------ */
@@ -363,5 +379,6 @@ export default {
   generateHeadings,
   generateFAQSchema,
   generateStructuredData,
-  generateAllServiceUrls
+  generateAllServiceUrls,
+  uniqueSchemas
 };

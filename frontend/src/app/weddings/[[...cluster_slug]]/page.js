@@ -1,5 +1,5 @@
-// app/weddings/[[...cluster_slug]]/page.js
-// Fixed version: corrected structured data usage and argument order
+// app/weddings/[[...cluster_slug]]/page.js (Modern API Version)
+// Production Ready — Fixed Structured Data + No Duplication
 
 import {
   resolveClusterPage,
@@ -12,6 +12,7 @@ import {
   generateHeadings,
   generateStructuredData,
   generateFAQSchema,
+  uniqueSchemas,
 } from "@/lib/seo-utils";
 
 import { getServiceBySlug } from "@/lib/services-data";
@@ -31,7 +32,7 @@ import Breadcrumbs from "@/components/Breadcrumbs/BreadCrumbs";
 export async function generateMetadata({ params }) {
   const resolution = resolveClusterPage("weddings", params.cluster_slug);
 
-  // Root-level SEO should come from /app/weddings/layout.js
+  // Root-level SEO handled by /app/weddings/layout.js
   if (!params.cluster_slug || params.cluster_slug.length === 0) {
     return {};
   }
@@ -44,7 +45,7 @@ export async function generateMetadata({ params }) {
 }
 
 // --------------------------------------------------------
-// 2) PAGE COMPONENT (manual SEO for root + dynamic for sub-clusters)
+// 2) PAGE COMPONENT (Manual SEO for root + Dynamic SEO for sub-clusters)
 // --------------------------------------------------------
 export default function WeddingsClusterPage({ params }) {
   const resolution = resolveClusterPage("weddings", params.cluster_slug);
@@ -52,25 +53,21 @@ export default function WeddingsClusterPage({ params }) {
 
   if (resolution.type === PAGE_TYPES.NOT_FOUND) return notFound();
 
-  const isRootCluster =
-    !params.cluster_slug || params.cluster_slug.length === 0;
+  const isRootCluster = !params.cluster_slug || params.cluster_slug.length === 0;
 
   // -------------------------------------------
-  // ROOT CLUSTER PAGE (Manual SEO + manual schema)
+  // ROOT CLUSTER PAGE (manual + enhanced schema)
   // -------------------------------------------
   if (isRootCluster) {
     const h1 = "Wedding Photography";
-    const h2 =
-      "Cinematic & Candid Wedding Photography – Premium Packages, Portfolio & Pricing";
+    const h2 = "Cinematic & Candid Wedding Photography – Premium Packages, Portfolio & Pricing";
 
-    // ---- CORRECTED ARGUMENT ORDER FOR generateStructuredData ----
-    const structuredData = generateStructuredData(
-      { type: PAGE_TYPES.PILLAR, service }, // resolution
-      {
-        // manual overrides
+    // Build Schema with FULL manual organization block
+    const structuredData = generateStructuredData({
+      resolution: { type: PAGE_TYPES.PILLAR, service },
+      manual: {
         name: "TM Studios Photography",
-        description:
-          "Premium wedding, maternity & baby photography across Tamil Nadu.",
+        description: "Premium wedding, maternity & baby photography across Tamil Nadu.",
         telephone: "+91-9876543210",
         email: "contact@tmstudios.com",
         address: {
@@ -81,31 +78,32 @@ export default function WeddingsClusterPage({ params }) {
           postalCode: "600001",
           addressCountry: "IN",
         },
-      }
-    );
-
-    // FAQ must be separate for root page
-    const faqSchema = generateFAQSchema(service, null, [
-      {
-        question: "Do you travel for destination weddings?",
-        answer:
-          "Yes! We shoot weddings across India and globally. Travel & stay applicable.",
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: "13.0827",
+          longitude: "80.2707",
+        },
       },
-      {
-        question: "How many edited photos will I receive?",
-        answer: "Typically 300–800 edited photos depending on package.",
-      },
-    ]);
+      faqs: [
+        {
+          question: "Do you travel for destination weddings?",
+          answer: "Yes! We shoot weddings across India and globally. Travel & stay applicable.",
+        },
+        {
+          question: "How many edited photos will I receive?",
+          answer: "Typically 300–800 edited photos depending on package.",
+        },
+      ],
+    });
 
-    // ---- Combine schemas into ONE JSON-LD block ----
-    // structuredData is an array [organization, serviceSchema, breadcrumbList]
-    const combinedSchema = [...structuredData, faqSchema];
+    // Ensure NO duplicates (organization/service/breadcrumbs)
+    const finalSchema = uniqueSchemas(structuredData);
 
     return (
       <>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(combinedSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(finalSchema) }}
         />
 
         <Breadcrumbs
@@ -129,27 +127,25 @@ export default function WeddingsClusterPage({ params }) {
         <PricingCard service={service} />
         <TestimonialCarousel2 />
         <ClassicFAQSection2 />
-
         <ContactForm service={service} />
       </>
     );
   }
 
   // -------------------------------------------
-  // SUB-CLUSTER PAGES (Dynamic SEO + auto schema)
+  // SUB-CLUSTER PAGES (Dynamic + auto schema)
   // -------------------------------------------
   const { h1, h2 } = generateHeadings(resolution);
   const breadcrumbs = generateBreadcrumbs(resolution);
 
-  const structuredData = generateStructuredData(resolution);
+  const structuredData = generateStructuredData({ resolution });
+  const finalSchema = uniqueSchemas(structuredData);
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(structuredData),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(finalSchema) }}
       />
 
       <Breadcrumbs breadcrumbs={breadcrumbs} />
