@@ -250,6 +250,7 @@ export function generateStructuredData({ resolution = {}, manual = {}, faqs = []
     image: manual.image || `${SITE_URL}/og-image.jpg`,
     telephone: manual.telephone || '+91-9876543210',
     email: manual.email || 'hello@tmstudios.com',
+    priceRange: manual.priceRange || "₹50,000 - ₹2,00,000",
     sameAs: manual.sameAs || [
       'https://www.instagram.com/yourprofile',
       'https://www.facebook.com/yourprofile',
