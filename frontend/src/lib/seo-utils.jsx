@@ -239,34 +239,75 @@ export function generateStructuredData({ resolution = {}, manual = {}, faqs = []
   }
 
   // 1) Organization (optional)
-  const organization = includeOrganization ? {
-    '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
-    '@id': `${SITE_URL}/#organization`,
-    name: manual.name || 'TM Studios Photography',
-    description: manual.description || 'Professional wedding, baby, and maternity photography in Chennai.',
-    url: SITE_URL,
-    logo: manual.logo || `${SITE_URL}/logo.png`,
-    image: manual.image || `${SITE_URL}/og-image.jpg`,
-    telephone: manual.telephone || '+91-9876543210',
-    email: manual.email || 'hello@tmstudios.com',
-    priceRange: manual.priceRange || "₹50,000 - ₹2,00,000",
-    sameAs: manual.sameAs || [
-      'https://www.instagram.com/yourprofile',
-      'https://www.facebook.com/yourprofile',
-      'https://www.youtube.com/yourchannel',
-      'https://www.linkedin.com/company/yourcompany'
-    ],
-    address: manual.address || {
-      '@type': 'PostalAddress',
-      streetAddress: '123 Photography Lane',
-      addressLocality: 'Chennai',
-      addressRegion: 'Tamil Nadu',
-      postalCode: '600001',
-      addressCountry: 'IN'
-    },
-    geo: manual.geo || { '@type': 'GeoCoordinates', latitude: '13.0827', longitude: '80.2707' }
-  } : null;
+ const organization = includeOrganization
+  ? {
+      "@context": "https://schema.org",
+      "@type": ["LocalBusiness", "PhotoStudio", "ProfessionalService"],
+      "@id": `${SITE_URL}/#organization`,
+      name: manual.name || "TM Studios Photography",
+      description:
+        manual.description ||
+        "Professional wedding, baby, and maternity photography in Chennai.",
+      url: SITE_URL,
+
+      logo: manual.logo || `${SITE_URL}/logo.png`,
+
+      image:
+        manual.image || [
+          `${SITE_URL}/og-image.jpg`,
+          `${SITE_URL}/gallery-image1.jpg`,
+          `${SITE_URL}/gallery-image2.jpg`
+        ],
+
+      telephone: manual.telephone || "+91-9876543210",
+      email: manual.email || "hello@tmstudios.com",
+
+      priceRange: manual.priceRange || "₹50000 - ₹200000",
+
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          opens: "09:00",
+          closes: "19:00"
+        }
+      ],
+
+      hasMap: manual.hasMap || "https://www.google.com/maps?cid=REPLACE_WITH_REAL",
+
+      areaServed: [
+        { "@type": "City", name: "Chennai" },
+        { "@type": "State", name: "Tamil Nadu" }
+      ],
+
+      sameAs: manual.sameAs || [],
+
+      address:
+        manual.address || {
+          "@type": "PostalAddress",
+          streetAddress: "REPLACE_WITH_REAL_ADDRESS",
+          addressLocality: "Chennai",
+          addressRegion: "Tamil Nadu",
+          postalCode: "600001",
+          addressCountry: "IN"
+        },
+
+      geo:
+        manual.geo || {
+          "@type": "GeoCoordinates",
+          latitude: "13.0827",
+          longitude: "80.2707"
+        }
+    }
+  : null;
+
 
   // 2) Service schema (provider references organization by @id)
   const priceValue = normalizePrice(service.basePrice || '');
