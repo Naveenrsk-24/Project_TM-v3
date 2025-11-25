@@ -254,15 +254,15 @@ export function generateStructuredData({ resolution = {}, manual = {}, faqs = []
 
       image:
         manual.image || [
-          `${SITE_URL}/og-image.jpg`,
-          `${SITE_URL}/gallery-image1.jpg`,
-          `${SITE_URL}/gallery-image2.jpg`
+          `${SITE_URL}/og-image.avif`,
+          `${SITE_URL}/img1.avif`,
+          `${SITE_URL}/img2.avif`
         ],
 
-      telephone: manual.telephone || "+91-9876543210",
+      telephone: manual.telephone || "+91-7358279252",
       email: manual.email || "hello@tmstudios.com",
 
-      priceRange: manual.priceRange || "₹50000 - ₹200000",
+      priceRange: manual.priceRange || "₹35000 - ₹200000",
 
       openingHoursSpecification: [
         {
