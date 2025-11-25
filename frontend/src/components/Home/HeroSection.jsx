@@ -31,10 +31,7 @@ function HeroSection() {
         </h1>
 
         <p className="text-base sm:text-lg md:text-[18px] text-white  font-serif">
-          At TM Studios Photography, we turn your once-in-a-lifetime memories into timeless stories. 
-          From vibrant South Indian weddings to intimate celebrations, we capture your emotions in 
-          their purest form — with a blend of cinematic, candid, traditional, and colorful photography 
-          styles.
+         To capture the emotion, joy, and beauty of your special day, we at TM Studios Photography employ traditional, candid, and cinematic techniques to document your love story. Our skilled team guarantees that every moment is captured with artistry and authenticity, making us the best wedding photographers in Chennai.
         </p>
 
         <Link href="/booking" aria-label="Book a wedding photography session">
