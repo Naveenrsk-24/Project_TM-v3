@@ -51,11 +51,11 @@ INSTALLED_APPS = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "https://tmstudios.vercel.app",
+    "https://tmstudios.photography",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://tmstudios.vercel.app",
+    "https://tmstudios.photography/",
     "https://project-tm-v3.onrender.com",
 ]
 MIDDLEWARE = [

@@ -4,7 +4,7 @@
 import { SERVICES, LOCATIONS } from '@/lib/services-data';
 
 export default function generateSitemap() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://tmstudios.vercel.app';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://tmstudios.photography';
   
   const routes = [];
 

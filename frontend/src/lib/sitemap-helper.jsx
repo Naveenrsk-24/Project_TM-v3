@@ -10,7 +10,7 @@ export function generateServiceUrls(serviceSlug) {
   const service = SERVICES[serviceSlug];
   if (!service) return [];
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://tmstudios.vercel.app';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://tmstudios.photography';
   const urls = [];
 
   // Pillar page
