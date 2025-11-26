@@ -24,14 +24,17 @@ function HeroSection() {
 
       <div className="relative z-10 text-white text-center md:text-left max-w-xl space-y-4">
         <h1 className="text-3xl sm:text-4xl md:text-[2.35rem] font-serif font-bold leading-tight">
-          Best Wedding Photographers <br />
+          Wedding Photographers <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-rose-500">
             in Chennai
           </span>
         </h1>
 
-        <p className="text-base sm:text-lg md:text-[18px] text-white  font-serif">
-         To capture the emotion, joy, and beauty of your special day, we at TM Studios Photography employ traditional, candid, and cinematic techniques to document your love story. Our skilled team guarantees that every moment is captured with artistry and authenticity, making us the best wedding photographers in Chennai.
+        <p className="text-base sm:text-lg md:text-[18px] text-white font-serif">
+          TM Studios specializes in candid and cinematic wedding photography
+          that captures every emotion with authenticity. Our team blends
+          artistry with storytelling to create timeless images of your big day —
+          trusted by couples across Chennai for premium wedding photography.
         </p>
 
         <Link href="/booking" aria-label="Book a wedding photography session">
