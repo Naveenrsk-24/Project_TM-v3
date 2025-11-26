@@ -1,21 +1,21 @@
 // components/BlogSection.jsx
-'use client'; // Swiper and Framer Motion require client-side rendering
+"use client"; // Swiper and Framer Motion require client-side rendering
 
-import React, { useRef } from 'react';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
+import React, { useRef } from "react";
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 // Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from "swiper/react";
 // Only import the modules you need (already well done)
-import { Autoplay, Navigation, Pagination } from 'swiper/modules'; 
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
 // Import Swiper styles (already well done)
-import 'swiper/css'; 
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
-import BlogCard from '@/components/ExtraDesigns/BlogCard2'; 
+import BlogCard from "@/components/ExtraDesigns/BlogCard2";
 
 /**
  * Creates a Framer Motion-enhanced Link component for modern Next.js routing.
@@ -25,14 +25,20 @@ const MotionLink = motion(Link); // 👈 Optimization: Wrap Link once for Framer
 /**
  * A reusable, responsive section component featuring a carousel of blog cards.
  */
-const BlogSection2 = ({ blogs, viewAllUrl = '/blogs', title = 'Latest Articles & Insights' }) => {
+const BlogSection2 = ({
+  blogs,
+  viewAllUrl = "/blogs",
+  title = "Stories, Tips, and Wedding Guides",
+}) => {
   const swiperRef = useRef(null);
 
   if (!blogs || blogs.length === 0) {
     return (
       <section className="py-16 text-center text-neutral-600">
         <h2 className="text-2xl font-semibold">{title}</h2>
-        <p className="mt-4">No blog posts available at the moment.</p>
+        <p className="mt-4">
+          No articles available right now — new stories are coming soon.
+        </p>
       </section>
     );
   }
@@ -43,19 +49,22 @@ const BlogSection2 = ({ blogs, viewAllUrl = '/blogs', title = 'Latest Articles &
     whileTap: { scale: 0.95 },
     transition: { type: "spring", stiffness: 300, damping: 20 },
   };
-  
+
   // Framer Motion variants for the header text fade-in
   const headerVariants = {
     hidden: { opacity: 0, y: 10 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
   };
 
   return (
     <section className="py-16 sm:py-24 bg-gradient-to-br from-neutral-50 via-white to-neutral-100 overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        
         {/* Header with Framer Motion Fade-in */}
-        <motion.h2 
+        <motion.h2
           className="text-4xl font-extrabold tracking-tight text-neutral-800 mb-8 sm:mb-12"
           initial="hidden"
           animate="visible"
@@ -77,8 +86,8 @@ const BlogSection2 = ({ blogs, viewAllUrl = '/blogs', title = 'Latest Articles &
             }}
             pagination={{
               clickable: true,
-              bulletClass: 'swiper-pagination-bullet bg-neutral-400',
-              bulletActiveClass: 'swiper-pagination-bullet-active bg-amber-600',
+              bulletClass: "swiper-pagination-bullet bg-neutral-400",
+              bulletActiveClass: "swiper-pagination-bullet-active bg-amber-600",
             }}
             breakpoints={{
               640: { slidesPerView: 1.5, spaceBetween: 20 },
@@ -105,11 +114,21 @@ const BlogSection2 = ({ blogs, viewAllUrl = '/blogs', title = 'Latest Articles &
               className="absolute left-0 top-1/2 z-10 -translate-x-full -translate-y-1/2 rounded-full bg-white p-3 shadow-lg transition-colors text-amber-600 border border-neutral-200"
               {...buttonMotion}
             >
-              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
               </svg>
             </motion.button>
-            
+
             {/* Next Button */}
             <motion.button
               onClick={() => swiperRef.current?.slideNext()}
@@ -117,8 +136,18 @@ const BlogSection2 = ({ blogs, viewAllUrl = '/blogs', title = 'Latest Articles &
               className="absolute right-0 top-1/2 z-10 translate-x-full -translate-y-1/2 rounded-full bg-white p-3 shadow-lg transition-colors text-amber-600 border border-neutral-200"
               {...buttonMotion}
             >
-              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
             </motion.button>
           </div>
@@ -136,7 +165,7 @@ const BlogSection2 = ({ blogs, viewAllUrl = '/blogs', title = 'Latest Articles &
             aria-label="Go to the main blog archive page"
             {...buttonMotion}
           >
-            View All Blogs &rarr;
+            View All Articles &rarr;
           </MotionLink>
         </div>
       </div>

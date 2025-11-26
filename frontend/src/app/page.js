@@ -16,6 +16,7 @@ import BlogSection2 from "@/components/ExtraDesigns/BlogSection2";
 import { DUMMY_BLOGS } from "../data/blog-data";
 
 import { pageMeta } from "@/lib/meta-data";
+import WhyChooseUs from "@/components/ExtraDesigns/WhyChooseUs";
 
 export const metadata = pageMeta({
   title: "Wedding Photographers in Chennai | Candid & Cinematic Photography",
@@ -25,8 +26,21 @@ export const metadata = pageMeta({
   image: "/og-home.jpg",
 });
 
-
 export default function Home() {
+  const stats = [
+    { number: "10+", label: "Years of Expertise", icon: "medal" },
+    { number: "500+", label: "Satisfied Clients", icon: "thumbs-up" },
+    { number: "97+", label: "Success Rate", icon: "chart" },
+    { number: "40+", label: "Industry Experts", icon: "briefcase" },
+  ];
+
+  const features = [
+    "Data-Driven Decision Making",
+    "Tailored Business Solutions",
+    "Global Consulting Services",
+    "Client-Centric Approach",
+  ];
+
   /**
    * --------------------------------------------
    * HOME PAGE — FAQ data
@@ -34,14 +48,24 @@ export default function Home() {
    */
   const faqList = [
     {
-      question: "Do you offer wedding photography in Chennai?",
+      question: "How much does wedding photography cost?",
       answer:
-        "Yes, TM Studios provides premium wedding photography across all areas of Chennai.",
+        "Our wedding photography packages start at ₹35,000 and vary based on coverage, events, and the deliverables you choose. We'll help you pick a plan that fits your day perfectly.",
     },
     {
-      question: "How early should I book?",
+      question: "Do you offer candid and traditional photography?",
       answer:
-        "Most clients book 1–6 months in advance. Peak-season dates fill up fast.",
+        "Yes, we cover both candid and traditional styles. This ensures you get natural emotional moments along with well-framed family and ritual photos.",
+    },
+    {
+      question: "How early should we book for our wedding?",
+      answer:
+        "We recommend booking 2–4 months in advance, especially during peak seasons. This helps us reserve your dates and plan your sessions smoothly.",
+    },
+    {
+      question: "Do you travel for weddings outside Chennai?",
+      answer:
+        "Absolutely. We cover weddings across Chennai, Kanchipuram & Thiruvallur. We're also available for destination weddings as well. Travel details can be discussed during your consultation.",
     },
   ];
 
@@ -122,6 +146,26 @@ export default function Home() {
 
       <TestimonialCarousel2 />
       <BlogSection2 blogs={DUMMY_BLOGS} />
+
+      {/* <WhyChooseUs
+        tagline="About BizFusionX"
+        heading={
+          <>
+            Empowering Businesses <br className="hidden sm:block" /> with Proven
+            Strategies
+          </>
+        }
+        body="With over a decade of experience, we specialize in business growth, strategic planning, and financial consulting. Our expert team helps companies achieve their goals with data-driven strategies and industry-leading insights."
+        stats={stats}
+        features={features}
+        carouselItems={[
+          { type: "image", src: "/Weddings/beautiful-husband-wife-posing-beach.jpg", alt: "Description" },
+          { type: "video", src: "/Weddings/beautiful-husband-wife-posing-beach.jpg", alt: "Video description" },
+          { type: "image", src: "/Weddings/beautiful-husband-wife-posing-beach.jpg", alt: "Description" },
+        ]}
+        contactNumber="+91 0605 5050"
+        autoPlayInterval={5000}
+      /> */}
     </>
   );
 }

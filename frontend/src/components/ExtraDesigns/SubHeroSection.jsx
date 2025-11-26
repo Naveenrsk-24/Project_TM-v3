@@ -137,24 +137,22 @@ export default function SubHeroSection() {
             {/* Features List */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 font-serif">
               {[
-                [
-                  {
-                    text: "Cinematic Wedding Photography",
-                    desc: "Film-inspired visuals with dramatic lighting and premium color grading.",
-                  },
-                  {
-                    text: "Candid Wedding Photography",
-                    desc: "Pure, unscripted emotions — captured without posing or interruption.",
-                  },
-                  {
-                    text: "Traditional Wedding Photography",
-                    desc: "Perfectly framed rituals, family portraits, and cultural ceremonies.",
-                  },
-                  {
-                    text: "Vibrant & Colorful Photography",
-                    desc: "Bright, lively Indian wedding aesthetics with rich tones and clarity.",
-                  },
-                ],
+                {
+                  text: "Cinematic Wedding Photography",
+                  desc: "Film-inspired visuals with dramatic lighting and premium color grading.",
+                },
+                {
+                  text: "Candid Wedding Photography",
+                  desc: "Pure, unscripted emotions — captured without posing or interruption.",
+                },
+                {
+                  text: "Traditional Wedding Photography",
+                  desc: "Perfectly framed rituals, family portraits, and cultural ceremonies.",
+                },
+                {
+                  text: "Vibrant & Colorful Photography",
+                  desc: "Bright, lively Indian wedding aesthetics with rich tones and clarity.",
+                },
               ].map((item, index) => (
                 <div
                   key={index}

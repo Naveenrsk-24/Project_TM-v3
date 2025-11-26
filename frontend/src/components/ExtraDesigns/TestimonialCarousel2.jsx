@@ -1,11 +1,11 @@
-"use client"
-import React, { useState, useEffect } from 'react';
-import { Star, Quote, ArrowLeft, ArrowRight } from 'lucide-react';
+"use client";
+import React, { useState, useEffect } from "react";
+import { Star, Quote, ArrowLeft, ArrowRight } from "lucide-react";
 
 const TestimonialCarousel2 = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAutoPlay, setIsAutoPlay] = useState(true);
-  const [direction, setDirection] = useState('right');
+  const [direction, setDirection] = useState("right");
 
   const testimonials = [
     {
@@ -14,9 +14,9 @@ const TestimonialCarousel2 = () => {
       role: "Wedding Couple",
       image: "/Home/Testimonial1.avif",
       rating: 5,
-      text: "Absolutely phenomenal! They captured every emotion beautifully. Our wedding album is a masterpiece that we'll treasure forever. The candid moments they caught were simply magical.",
+      text: "Absolutely phenomenal! They captured every emotion beautifully. Our album feels timeless, and the candid moments are something we’ll treasure forever.",
       event: "Traditional Wedding, Chennai",
-      date: "December 2024"
+      date: "December 2024",
     },
     {
       id: 2,
@@ -24,9 +24,9 @@ const TestimonialCarousel2 = () => {
       role: "Pre-Wedding Shoot",
       image: "/Home/Testimonial2.avif",
       rating: 5,
-      text: "The creativity and professionalism exceeded all our expectations. Every frame tells a story. They made us feel comfortable and the results are absolutely stunning!",
+      text: "Their creativity and warmth made our shoot so easy. Every frame tells a story, and the final results were beyond what we imagined.",
       event: "Beach Pre-Wedding, Mahabalipuram",
-      date: "October 2024"
+      date: "October 2024",
     },
     {
       id: 3,
@@ -34,9 +34,9 @@ const TestimonialCarousel2 = () => {
       role: "Destination Wedding",
       image: "/Home/Testimonial3.avif",
       rating: 5,
-      text: "From the first consultation to the final delivery, everything was perfect. They understood our vision and brought it to life. The attention to detail is remarkable!",
+      text: "From the first call to the final delivery, everything was perfect. They understood our vision and brought it to life with incredible attention to detail.",
       event: "Resort Wedding, Goa",
-      date: "January 2025"
+      date: "January 2025",
     },
     {
       id: 4,
@@ -44,31 +44,33 @@ const TestimonialCarousel2 = () => {
       role: "Engagement Ceremony",
       image: "/Home/Testimonial1.avif",
       rating: 5,
-      text: "Their team is incredibly talented and professional. They captured the essence of our celebration perfectly. We couldn't be happier with the results!",
+      text: "Such a talented and professional team. They captured the essence of our celebration beautifully. We couldn’t be happier with the photos.",
       event: "Garden Engagement, Bangalore",
-      date: "September 2024"
-    }
+      date: "September 2024",
+    },
   ];
 
   useEffect(() => {
     if (!isAutoPlay) return;
-    
+
     const timer = setInterval(() => {
-      setDirection('right');
+      setDirection("right");
       setActiveIndex((prev) => (prev + 1) % testimonials.length);
     }, 5000);
-    
+
     return () => clearInterval(timer);
   }, [isAutoPlay, testimonials.length]);
 
   const handlePrev = () => {
-    setDirection('left');
-    setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setDirection("left");
+    setActiveIndex(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+    );
     setIsAutoPlay(false);
   };
 
   const handleNext = () => {
-    setDirection('right');
+    setDirection("right");
     setActiveIndex((prev) => (prev + 1) % testimonials.length);
     setIsAutoPlay(false);
   };
@@ -79,20 +81,27 @@ const TestimonialCarousel2 = () => {
     <div className="relative min-h-screen bg-gradient-to-br from-neutral-50 via-white to-neutral-100 py-20 px-4 overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-rose-200/20 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-amber-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+      <div
+        className="absolute bottom-20 right-10 w-96 h-96 bg-amber-200/20 rounded-full blur-3xl animate-pulse"
+        style={{ animationDelay: "1s" }}
+      ></div>
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-block mb-4 px-4 py-2 bg-gradient-to-r from-pink-600 to-rose-500 rounded-full">
-            <span className="text-white text-sm font-semibold tracking-wider">CLIENT TESTIMONIALS</span>
+            <span className="text-white text-sm font-semibold tracking-wider">
+              Client Testimonials
+            </span>
           </div>
           <h2 className="text-5xl md:text-6xl font-bold mb-4">
             <span className="bg-gradient-to-r from-pink-600 to-rose-500 bg-clip-text text-transparent">
               What Our Clients Say
             </span>
           </h2>
-          <p className="text-neutral-600 text-lg">Real stories from real couples</p>
+          <p className="text-neutral-600 text-lg">
+            Real stories from couples we've had the joy of working with.
+          </p>
         </div>
 
         {/* Main Testimonial Card */}
@@ -101,9 +110,11 @@ const TestimonialCarousel2 = () => {
             <div className="grid md:grid-cols-5 gap-0">
               {/* Image Section */}
               <div className="md:col-span-2 relative h-64 md:h-auto">
-                <div 
+                <div
                   className={`absolute inset-0 transition-all duration-700 ${
-                    direction === 'right' ? 'animate-[slideInRight_0.7s_ease-out]' : 'animate-[slideInLeft_0.7s_ease-out]'
+                    direction === "right"
+                      ? "animate-[slideInRight_0.7s_ease-out]"
+                      : "animate-[slideInLeft_0.7s_ease-out]"
                   }`}
                 >
                   <img
@@ -122,9 +133,11 @@ const TestimonialCarousel2 = () => {
 
               {/* Content Section */}
               <div className="md:col-span-3 p-8 md:p-12 flex flex-col justify-center">
-                <div 
+                <div
                   className={`transition-all duration-700 ${
-                    direction === 'right' ? 'animate-[fadeInUp_0.7s_ease-out]' : 'animate-[fadeInDown_0.7s_ease-out]'
+                    direction === "right"
+                      ? "animate-[fadeInUp_0.7s_ease-out]"
+                      : "animate-[fadeInDown_0.7s_ease-out]"
                   }`}
                 >
                   {/* Stars */}
@@ -133,8 +146,8 @@ const TestimonialCarousel2 = () => {
                       <Star
                         key={i}
                         className="w-5 h-5 fill-pink-500 text-rose-500"
-                        style={{ 
-                          animation: `starPop 0.5s ease-out ${i * 0.1}s both`
+                        style={{
+                          animation: `starPop 0.5s ease-out ${i * 0.1}s both`,
                         }}
                       />
                     ))}
@@ -169,14 +182,14 @@ const TestimonialCarousel2 = () => {
                       <button
                         key={index}
                         onClick={() => {
-                          setDirection(index > activeIndex ? 'right' : 'left');
+                          setDirection(index > activeIndex ? "right" : "left");
                           setActiveIndex(index);
                           setIsAutoPlay(false);
                         }}
                         className={`h-2 rounded-full transition-all duration-300 ${
-                          activeIndex === index 
-                            ? 'w-8 bg-gradient-to-r from-pink-600 to-rose-500' 
-                            : 'w-2 bg-neutral-300 hover:bg-neutral-400'
+                          activeIndex === index
+                            ? "w-8 bg-gradient-to-r from-pink-600 to-rose-500"
+                            : "w-2 bg-neutral-300 hover:bg-neutral-400"
                         }`}
                       ></button>
                     ))}
@@ -194,7 +207,7 @@ const TestimonialCarousel2 = () => {
           >
             <ArrowLeft className="w-5 h-5 group-hover:scale-110 transition-transform" />
           </button>
-          
+
           <button
             onClick={handleNext}
             className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-6 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gradient-to-r hover:from-amber-600 hover:to-amber-500 hover:text-white transition-all duration-300 group"
@@ -210,14 +223,14 @@ const TestimonialCarousel2 = () => {
             <button
               key={testimonial.id}
               onClick={() => {
-                setDirection(index > activeIndex ? 'right' : 'left');
+                setDirection(index > activeIndex ? "right" : "left");
                 setActiveIndex(index);
                 setIsAutoPlay(false);
               }}
               className={`flex-shrink-0 transition-all duration-300 ${
                 activeIndex === index
-                  ? 'scale-110 opacity-100'
-                  : 'scale-90 opacity-50 hover:opacity-75'
+                  ? "scale-110 opacity-100"
+                  : "scale-90 opacity-50 hover:opacity-75"
               }`}
             >
               <div className="relative w-20 h-20 rounded-full overflow-hidden ring-4 ring-white shadow-lg">
