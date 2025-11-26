@@ -18,12 +18,13 @@ import { DUMMY_BLOGS } from "../data/blog-data";
 import { pageMeta } from "@/lib/meta-data";
 
 export const metadata = pageMeta({
-  title: "Best Wedding Photographers in Chennai | Candid & Cinematic",
+  title: "Wedding Photographers in Chennai | Candid & Cinematic Photography",
   description:
-    "Searching for the best wedding photographers in Chennai? TM Studios captures candid, cinematic, and heartfelt wedding moments you'll treasure forever — check availability today.",
+    "Looking for the best wedding photographers in Chennai? TM Studios delivers candid, cinematic, and premium wedding photography with expert storytelling, stunning portfolios, and customizable packages.",
   path: "/",
   image: "/og-home.jpg",
 });
+
 
 export default function Home() {
   /**
