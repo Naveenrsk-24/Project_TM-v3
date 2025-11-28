@@ -21,9 +21,9 @@ import WhyChooseUs from "@/components/ExtraDesigns/WhyChooseUs";
 export const metadata = pageMeta({
   title: "Wedding Photographers in Chennai | Candid & Cinematic Photography",
   description:
-    "Looking for the best wedding photographers in Chennai? TM Studios delivers candid, cinematic, and premium wedding photography with expert storytelling, stunning portfolios, and customizable packages.",
+    "Hire the best wedding photographers in Chennai for candid and cinematic photography. TM Studios delivers premium storytelling and tailored wedding packages",
   path: "/",
-  image: "/og-home.jpg",
+  image: "/og-image.avif",
 });
 
 export default function Home() {
