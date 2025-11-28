@@ -260,7 +260,7 @@ export function generateStructuredData({ resolution = {}, manual = {}, faqs = []
         ],
 
       telephone: manual.telephone || "+91-7358279252",
-      email: manual.email || "hello@tmstudios.com",
+      email: manual.email || "subalesh@tmstudios.photography",
 
       priceRange: manual.priceRange || "₹35000 - ₹200000",
 
