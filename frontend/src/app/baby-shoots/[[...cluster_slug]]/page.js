@@ -64,8 +64,8 @@ export default function BabyShootsClusterPage({ params }) {
         name: "TM Studios Photography",
         description:
           "Premium newborn, infant and toddler photography across Tamil Nadu.",
-        telephone: "+91-9876543210",
-        email: "contact@tmstudios.com",
+        telephone: "+91-7358279252",
+        email: "subalesh@tmstudios.photography",
         address: {
           "@type": "PostalAddress",
           streetAddress: "123 Photography Lane",
