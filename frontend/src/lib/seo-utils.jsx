@@ -113,7 +113,7 @@ export function generateMetadataDynamic(resolution = {}) {
   }
 
   const canonicalUrl = canonical(path);
-  const ogImage = `/images/${service.slug}/og-image.jpg`;
+  const ogImage = `/${service.slug}/og-image.avif`;
 
   return {
     title,
