@@ -19,28 +19,24 @@ const geistMono = Geist_Mono({
 -------------------------------------------------- */
 export const metadata = {
   title: {
-    default: "TM Studios - Professional Photography in Chennai",
+    default: "TM Studios Photography",
     template: "%s - TM Studios",
   },
+
   description:
-    "TM Studios — Chennai’s leading professional photographers for weddings, baby shoots, maternity, and more. Capture timeless memories beautifully.",
+    "TM Studios offers professional photography services including weddings, maternity, and baby shoots with cinematic storytelling and premium quality.",
 
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || "https://tmstudios.photography"
   ),
 
-  alternates: {
-    canonical: "/",
-  },
-
   openGraph: {
     type: "website",
     siteName: "TM Studios",
     locale: "en-IN",
-    url: "/",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image.avif",
         width: 1200,
         height: 630,
         alt: "TM Studios Photography",
@@ -50,7 +46,7 @@ export const metadata = {
 
   twitter: {
     card: "summary_large_image",
-    images: ["/og-image.jpg"],
+    images: ["/og-image.avif"],
   },
 
   robots: {

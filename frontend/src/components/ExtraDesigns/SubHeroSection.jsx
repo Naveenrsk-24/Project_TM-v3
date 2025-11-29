@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react';
-import { Camera, Heart, Sparkles, ArrowRight } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { Camera, Heart, Sparkles, ArrowRight } from "lucide-react";
 
 export default function SubHeroSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -20,7 +20,6 @@ export default function SubHeroSection() {
 
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-rose-50 via-white to-amber-50 overflow-hidden">
-      
       {/* Animated Background Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-rose-200/20 rounded-full blur-3xl animate-float"></div>
@@ -30,11 +29,12 @@ export default function SubHeroSection() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          
           {/* Image Section */}
           <div
             className={`relative transition-all duration-1000 transform ${
-              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
+              isVisible
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 -translate-x-20"
             }`}
             onMouseMove={handleMouseMove}
           >
@@ -56,8 +56,10 @@ export default function SubHeroSection() {
             <div
               className="relative group"
               style={{
-                transform: `perspective(1000px) rotateY(${(mousePosition.x - 0.5) * 5}deg) rotateX(${(mousePosition.y - 0.5) * -5}deg)`,
-                transition: 'transform 0.2s ease-out'
+                transform: `perspective(1000px) rotateY(${
+                  (mousePosition.x - 0.5) * 5
+                }deg) rotateX(${(mousePosition.y - 0.5) * -5}deg)`,
+                transition: "transform 0.2s ease-out",
               }}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-rose-400/20 to-amber-400/20 rounded-3xl sm:rounded-[2.5rem] blur-xl group-hover:blur-2xl transition-all duration-500"></div>
@@ -87,15 +89,16 @@ export default function SubHeroSection() {
           {/* CONTENT SECTION */}
           <div
             className={`transition-all duration-1000 delay-300 transform ${
-              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'
+              isVisible
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 translate-x-20"
             }`}
           >
-
             {/* Title Label */}
             <div className="inline-flex items-center gap-2 mb-6">
               <div className="w-12 h-px bg-gradient-to-r from-rose-400 to-transparent"></div>
               <span className="text-sm sm:text-base font-serif text-gray-600 tracking-wide">
-                Wedding Photography – TM Studios
+                Wedding Photography by TM Studios - Chennai
               </span>
             </div>
 
@@ -105,7 +108,7 @@ export default function SubHeroSection() {
                 <div className="absolute inset-0 bg-gradient-to-r from-white via-rose-50 to-white rounded-full blur-sm animate-pulse-gentle"></div>
 
                 <h2 className="relative px-8 text-[1.3rem] sm:text-4xl lg:text-[2.20rem] font-serif font-semibold text-gray-900 border border-gray-100">
-                  A Wedding Photography Team That Feels Like{' '}
+                  A Wedding Photography Team That Feels Like{" "}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-rose-500">
                     Family!
                   </span>
@@ -116,25 +119,40 @@ export default function SubHeroSection() {
             {/* Body Copy */}
             <div className="space-y-3 mb-8">
               <p className="text-base sm:text-lg text-gray-700 leading-relaxed font-serif">
-                At TM Studios Photography, we believe every wedding is a story waiting to be told.
-                Based in Chennai and serving nearby locations, our team brings warmth, creativity,
-                and professionalism to every event — ensuring you feel comfortable, confident,
-                and beautifully captured.
+                At TM Studios, we believe every wedding deserves to be
+                remembered as a heartfelt story. Based in Chennai and available
+                for weddings across Chennai,Kanchipuram & Thiruvallur our team
+                blends emotion, creativity, and professionalism to capture your
+                day in the most natural and meaningful way.
               </p>
 
               <p className="text-base sm:text-lg text-gray-700 leading-relaxed font-serif">
-                Whether it’s the joy, the laughter, the rituals, or the emotional moments — 
-                we document everything with heart.
+                From joyful candid moments to timeless rituals and intimate
+                expressions — we document every detail with warmth and
+                authenticity, so you can relive your wedding story for years to
+                come.
               </p>
             </div>
 
             {/* Features List */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 font-serif">
               {[
-                { text: 'Cinematic Wedding Photography', desc: 'Dramatic, film-like visuals that make your moments look larger than life.' },
-                { text: 'Candid Wedding Photography', desc: 'Natural smiles, laughter, emotions — captured without posing.' },
-                { text: 'Traditional Wedding Photography', desc: 'Perfectly framed rituals, family moments, and cultural details.' },
-                { text: 'Vibrant & Colorful Photography', desc: 'Bright, lively, energetic — perfect for Indian weddings.' }
+                {
+                  text: "Cinematic Wedding Photography",
+                  desc: "Film-inspired visuals with dramatic lighting and premium color grading.",
+                },
+                {
+                  text: "Candid Wedding Photography",
+                  desc: "Pure, unscripted emotions — captured without posing or interruption.",
+                },
+                {
+                  text: "Traditional Wedding Photography",
+                  desc: "Perfectly framed rituals, family portraits, and cultural ceremonies.",
+                },
+                {
+                  text: "Vibrant & Colorful Photography",
+                  desc: "Bright, lively Indian wedding aesthetics with rich tones and clarity.",
+                },
               ].map((item, index) => (
                 <div
                   key={index}
@@ -142,7 +160,9 @@ export default function SubHeroSection() {
                 >
                   <div className="text-3xl mb-2">{item.icon}</div>
                   <div className="font-semibold text-gray-800">{item.text}</div>
-                  <p className="text-gray-600 text-sm mt-1 leading-relaxed">{item.desc}</p>
+                  <p className="text-gray-600 text-sm mt-1 leading-relaxed">
+                    {item.desc}
+                  </p>
                 </div>
               ))}
             </div>
@@ -162,24 +182,118 @@ export default function SubHeroSection() {
 
       {/* Custom Animations */}
       <style jsx>{`
-        @keyframes float { 0%,100% {transform:translateY(0)} 50% {transform:translateY(-20px)} }
-        @keyframes float-delayed { 0%,100% {transform:translateY(0)} 50% {transform:translateY(-30px)} }
-        @keyframes bounce-slow { 0%,100% {transform:translateY(0)} 50% {transform:translateY(-15px)} }
-        @keyframes bounce-delayed { 0%,100% {transform:translateY(0) rotate(0)} 50% {transform:translateY(-10px) rotate(5deg)} }
-        @keyframes spin-slow { from {transform:rotate(0)} to {transform:rotate(360deg)} }
-        @keyframes ping-slow { 0%,100% {transform:scale(1);opacity:.3} 50% {transform:scale(1.1);opacity:.1} }
-        @keyframes pulse-slow { 0%,100% {opacity:.3;transform:scale(1)} 50% {opacity:.5;transform:scale(1.1)} }
-        @keyframes pulse-gentle { 0%,100% {opacity:1} 50% {opacity:.8} }
-        @keyframes fade-in-up { from {opacity:0;transform:translateY(20px)} to {opacity:1;transform:translateY(0)} }
-        .animate-float {animation:float 6s infinite}
-        .animate-float-delayed {animation:float-delayed 8s infinite}
-        .animate-pulse-slow {animation:pulse-slow 4s infinite}
-        .animate-pulse-gentle {animation:pulse-gentle 2s infinite}
-        .animate-bounce-slow {animation:bounce-slow 3s infinite}
-        .animate-bounce-delayed {animation:bounce-delayed 4s infinite}
-        .animate-spin-slow {animation:spin-slow 20s infinite}
-        .animate-ping-slow {animation:ping-slow 3s infinite}
-        .animate-fade-in-up {animation:fade-in-up .8s ease-out}
+        @keyframes float {
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-20px);
+          }
+        }
+        @keyframes float-delayed {
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-30px);
+          }
+        }
+        @keyframes bounce-slow {
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-15px);
+          }
+        }
+        @keyframes bounce-delayed {
+          0%,
+          100% {
+            transform: translateY(0) rotate(0);
+          }
+          50% {
+            transform: translateY(-10px) rotate(5deg);
+          }
+        }
+        @keyframes spin-slow {
+          from {
+            transform: rotate(0);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+        @keyframes ping-slow {
+          0%,
+          100% {
+            transform: scale(1);
+            opacity: 0.3;
+          }
+          50% {
+            transform: scale(1.1);
+            opacity: 0.1;
+          }
+        }
+        @keyframes pulse-slow {
+          0%,
+          100% {
+            opacity: 0.3;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 0.5;
+            transform: scale(1.1);
+          }
+        }
+        @keyframes pulse-gentle {
+          0%,
+          100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0.8;
+          }
+        }
+        @keyframes fade-in-up {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-float {
+          animation: float 6s infinite;
+        }
+        .animate-float-delayed {
+          animation: float-delayed 8s infinite;
+        }
+        .animate-pulse-slow {
+          animation: pulse-slow 4s infinite;
+        }
+        .animate-pulse-gentle {
+          animation: pulse-gentle 2s infinite;
+        }
+        .animate-bounce-slow {
+          animation: bounce-slow 3s infinite;
+        }
+        .animate-bounce-delayed {
+          animation: bounce-delayed 4s infinite;
+        }
+        .animate-spin-slow {
+          animation: spin-slow 20s infinite;
+        }
+        .animate-ping-slow {
+          animation: ping-slow 3s infinite;
+        }
+        .animate-fade-in-up {
+          animation: fade-in-up 0.8s ease-out;
+        }
       `}</style>
     </section>
   );

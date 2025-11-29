@@ -31,23 +31,6 @@ const portfolioImages = [
   { id: 9, src: USER_IMAGE_URL, alt: "Garden wedding", span: "row-span-2" },
   { id: 10, src: USER_IMAGE_URL, alt: "Couple at balcony", span: "row-span-1" },
   { id: 11, src: USER_IMAGE_URL, alt: "Temple silhouette", span: "row-span-1" },
-  { id: 12, src: USER_IMAGE_URL, alt: "Historic location", span: "row-span-2" },
-  { id: 13, src: USER_IMAGE_URL, alt: "Couple embrace", span: "row-span-1" },
-  {
-    id: 14,
-    src: USER_IMAGE_URL,
-    alt: "Traditional ceremony",
-    span: "row-span-2",
-  },
-  { id: 15, src: USER_IMAGE_URL, alt: "Scenic backdrop", span: "row-span-1" },
-  { id: 16, src: USER_IMAGE_URL, alt: "Beach romance", span: "row-span-2" },
-  {
-    id: 17,
-    src: USER_IMAGE_URL,
-    alt: "Rice field setting",
-    span: "row-span-2",
-  },
-  { id: 18, src: USER_IMAGE_URL, alt: "Hillside couple", span: "row-span-1" },
 ];
 
 const PortfolioGallery = () => {
@@ -72,16 +55,16 @@ const PortfolioGallery = () => {
           <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-6 py-2 rounded-full shadow-sm mb-6">
             <Camera className="w-4 h-4 text-amber-600" />
             <span className="text-sm font-medium text-neutral-700">
-              Our Portfolio
+              Portfolio Highlights
             </span>
           </div>
 
           <h2 className="text-5xl md:text-7xl font-serif text-neutral-800 mb-4 tracking-tight">
-            Selected Works
+            Our Wedding Photography Portfolio
           </h2>
 
           <p className="text-lg text-neutral-600 max-w-2xl mx-auto leading-relaxed">
-            A curated collection of our finest moments captured through the lens
+          Real emotions, vibrant celebrations, and timeless memories captured for couples in Chennai and beyond.
           </p>
         </div>
       </div>

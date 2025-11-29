@@ -18,7 +18,7 @@ export const metadata = {
     url: "/weddings",
     images: [
       {
-        url: "/og/weddings-og.jpg",
+        url: "/og-image.avif",
         width: 1200,
         height: 630,
         alt: "Wedding Photography by TM Studios",
