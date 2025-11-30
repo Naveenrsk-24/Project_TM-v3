@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: {
     default: "TM Studios Photography",
-    template: "%s - TM Studios",
+    // template: "%s - TM Studios",
   },
 
   description:

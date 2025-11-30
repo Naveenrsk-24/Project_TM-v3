@@ -23,7 +23,7 @@ export const metadata = pageMeta({
   description:
     "Hire the best wedding photographers in Chennai for candid and cinematic photography. TM Studios delivers premium storytelling and tailored wedding packages",
   path: "/",
-  image: "/og-image.avif",
+  image: "/og-image.jpg",
 });
 
 export default function Home() {

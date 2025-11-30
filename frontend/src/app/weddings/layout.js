@@ -3,7 +3,7 @@
 // All JSON-LD is injected only inside page.js (correct SEO practice).
 
 export const metadata = {
-  title: "Wedding Photography | Cinematic & Candid Wedding Photographers",
+  title: "Wedding Photography in Chennai | Cinematic & Candid Wedding Photographers",
   description:
     "Award-winning cinematic wedding photography. Full-day coverage, custom albums, and online gallery. Book a consultation today.",
 
@@ -18,7 +18,7 @@ export const metadata = {
     url: "/weddings",
     images: [
       {
-        url: "/og-image.avif",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Wedding Photography by TM Studios",
