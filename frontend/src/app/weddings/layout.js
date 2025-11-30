@@ -3,7 +3,7 @@
 // All JSON-LD is injected only inside page.js (correct SEO practice).
 
 export const metadata = {
-  title: "Wedding Photography in Chennai | Cinematic & Candid Wedding Photographers",
+  title: "Wedding Photography Services | Candid & Cinematic Weddings",
   description:
     "Award-winning cinematic wedding photography. Full-day coverage, custom albums, and online gallery. Book a consultation today.",
 
@@ -12,7 +12,7 @@ export const metadata = {
   },
 
   openGraph: {
-    title: "Wedding Photography — TM Studios",
+    title: "Wedding Photography Services | Candid & Cinematic Weddings",
     description:
       "Award-winning cinematic wedding photography. See portfolio & pricing.",
     url: "/weddings",
@@ -30,7 +30,7 @@ export const metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Wedding Photography — TM Studios",
+    title: "Wedding Photography Services | Candid & Cinematic Weddings",
     description:
       "Award-winning cinematic wedding photography. See portfolio & pricing.",
     images: ["/og/weddings-og.jpg"],
