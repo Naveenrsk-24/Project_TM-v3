@@ -5,7 +5,8 @@ import { Camera, ArrowRight, Grid3x3 } from "lucide-react";
 import Link from "next/link";
 
 // The image URL provided by the user
-const USER_IMAGE_URL = "/Weddings/beautiful-husband-wife-posing-beach.webp";
+// const USER_IMAGE_URL = "/Weddings/beautiful-husband-wife-posing-beach.webp";
+const USER_IMAGE_URL = "/hero_lossless.webp";
 
 // Sample portfolio data - replace with your actual data
 const portfolioImages = [

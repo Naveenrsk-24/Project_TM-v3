@@ -17,6 +17,8 @@ import { DUMMY_BLOGS } from "../data/blog-data";
 
 import { pageMeta } from "@/lib/meta-data";
 import WhyChooseUs from "@/components/ExtraDesigns/WhyChooseUs";
+import HeroDiagonalClose from "@/components/ExtraDesigns/HeroDiagonalClose";
+import FrameSequencePlayer from "@/components/ExtraDesigns/HeroDiagonalClose";
 
 export const metadata = pageMeta({
   title: "Wedding Photographers in Chennai | Candid & Cinematic Photography",
@@ -146,6 +148,8 @@ export default function Home() {
 
       <TestimonialCarousel2 />
       <BlogSection2 blogs={DUMMY_BLOGS} />
+      <HeroDiagonalClose/>
+      {/* <FrameSequencePlayer/> */}
 
       {/* <WhyChooseUs
         tagline="About BizFusionX"

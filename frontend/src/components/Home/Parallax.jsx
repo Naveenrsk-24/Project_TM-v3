@@ -14,7 +14,7 @@ const servicesData = [
       "Personalized wedding albums and films",
     ],
     image:
-      "/Home/Parallax1.avif", 
+      "/hero_lossless.webp", 
     buttonText: "View More",
     href: "/services/wedding-photography",
   },
