@@ -1,5 +1,5 @@
 // app/baby-shoots/[[...cluster_slug]]/page.js
-// Updated version with manual SEO for root cluster + dynamic SEO for sub-clusters
+// Production-ready — fully consistent with Wedding & Maternity clusters
 
 import {
   resolveClusterPage,
@@ -12,6 +12,7 @@ import {
   generateHeadings,
   generateStructuredData,
   generateFAQSchema,
+  uniqueSchemas,
 } from "@/lib/seo-utils";
 
 import { getServiceBySlug } from "@/lib/services-data";
@@ -21,26 +22,29 @@ import ServiceHero from "@/components/Dummy/ServiceHero";
 import FilteredGallery from "@/components/Dummy/Filteredgallery";
 import PricingCard from "@/components/Dummy/PricingCard";
 import ContactForm from "@/components/Dummy/ContactForm";
+import TestimonialCarousel2 from "@/components/ExtraDesigns/TestimonialCarousel2";
+import ClassicFAQSection2 from "@/components/ExtraDesigns/ClassicFAQSection2";
 import Breadcrumbs from "@/components/Breadcrumbs/BreadCrumbs";
 
 // --------------------------------------------------------
-// 1) DYNAMIC METADATA HANDLING (for sub-cluster pages)
+// 1) Dynamic metadata handling for sub-clusters
 // --------------------------------------------------------
 export async function generateMetadata({ params }) {
   const resolution = resolveClusterPage("baby-shoots", params.cluster_slug);
 
-  // Root cluster → manual metadata from layout.js
   if (!params.cluster_slug || params.cluster_slug.length === 0) {
-    return {}; // Let layout.js handle manual SEO
+    return {}; // Root SEO handled by layout.js
   }
 
-  if (resolution.type === PAGE_TYPES.NOT_FOUND) return { title: "Not Found" };
+  if (resolution.type === PAGE_TYPES.NOT_FOUND) {
+    return { title: "Not Found" };
+  }
 
   return generateMetadataDynamic(resolution);
 }
 
 // --------------------------------------------------------
-// 2) PAGE COMPONENT HANDLER
+// 2) PAGE HANDLER (Root = manual, Sub-clusters = dynamic)
 // --------------------------------------------------------
 export default function BabyShootsClusterPage({ params }) {
   const resolution = resolveClusterPage("baby-shoots", params.cluster_slug);
@@ -48,19 +52,21 @@ export default function BabyShootsClusterPage({ params }) {
 
   if (resolution.type === PAGE_TYPES.NOT_FOUND) return notFound();
 
-  const isRootCluster = !params.cluster_slug || params.cluster_slug.length === 0;
+  const isRootCluster =
+    !params.cluster_slug || params.cluster_slug.length === 0;
 
   // --------------------------------------------------------
-  // ROOT CLUSTER PAGE (Manual SEO)
+  // ROOT CLUSTER PAGE — Manual SEO (wedding-level)
   // --------------------------------------------------------
   if (isRootCluster) {
     const h1 = "Baby Photoshoot";
     const h2 =
       "Newborn, Infant & Toddler Photography – Safe Posing, Themed Sets & Premium Props";
 
-    const structuredData = generateStructuredData(
-      { service },
-      {
+    // Full structured data block — matches wedding structure
+    const structuredData = generateStructuredData({
+      resolution: { type: PAGE_TYPES.PILLAR, service },
+      manual: {
         name: "TM Studios Photography",
         description:
           "Premium newborn, infant and toddler photography across Tamil Nadu.",
@@ -74,38 +80,43 @@ export default function BabyShootsClusterPage({ params }) {
           postalCode: "600001",
           addressCountry: "IN",
         },
-      }
-    );
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: "13.0827",
+          longitude: "80.2707",
+        },
+      },
+      faqs: [
+        {
+          question: "Is newborn photography safe?",
+          answer:
+            "Yes, we follow newborn-safe posing techniques and sanitized studio conditions.",
+        },
+        {
+          question: "What is the best age for a newborn shoot?",
+          answer:
+            "The ideal window is 7–20 days from birth for curled-up, sleepy poses.",
+        },
+      ],
+    });
 
-    const faqSchema = generateFAQSchema(service, null, [
-      {
-        question: "Is newborn photography safe?",
-        answer:
-          "Yes, we follow newborn-safe posing techniques and sanitized studio conditions.",
-      },
-      {
-        question: "What is the best age for a newborn shoot?",
-        answer:
-          "The ideal window is 7–20 days from birth for curled-up, sleepy poses.",
-      },
-    ]);
+    const finalSchema = uniqueSchemas(structuredData);
 
     return (
       <>
-        {/* Structured Data */}
+        {/* Single JSON-LD block — production standard */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(finalSchema),
+          }}
         />
 
+        {/* Consistent breadcrumbs */}
         <Breadcrumbs
           breadcrumbs={[
             { label: "Home", href: "/" },
-            { label: "Baby Photoshoots", href: "/baby-shoots" },
+            { label: service.title, href: "/baby-shoots" },
           ]}
         />
 
@@ -113,7 +124,6 @@ export default function BabyShootsClusterPage({ params }) {
           title={h1}
           subtitle={h2}
           icon={service.icon}
-          location={null}
           bg={service.bgImage}
           ctaLabel={service.ctaLabel}
           ctaLink={service.ctaLink}
@@ -122,23 +132,31 @@ export default function BabyShootsClusterPage({ params }) {
         <FilteredGallery service={service} />
 
         <PricingCard service={service} />
+        <TestimonialCarousel2 />
+        <ClassicFAQSection2 />
+
         <ContactForm service={service} />
       </>
     );
   }
 
   // --------------------------------------------------------
-  // SUB-CLUSTER PAGE (Dynamic SEO)
+  // SUB-CLUSTER PAGES — Fully dynamic SEO
   // --------------------------------------------------------
   const { h1, h2 } = generateHeadings(resolution);
   const breadcrumbs = generateBreadcrumbs(resolution);
-  const structuredData = generateStructuredData(resolution);
+
+  const structuredData = generateStructuredData({ resolution });
+  const finalSchema = uniqueSchemas(structuredData);
 
   return (
     <>
+      {/* JSON-LD for dynamic sub-clusters */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(finalSchema),
+        }}
       />
 
       <Breadcrumbs breadcrumbs={breadcrumbs} />
@@ -161,7 +179,11 @@ export default function BabyShootsClusterPage({ params }) {
       />
 
       <PricingCard service={resolution.service} />
-      <ContactForm service={resolution.service} location={resolution.location} />
+
+      <ContactForm
+        service={resolution.service}
+        location={resolution.location}
+      />
     </>
   );
 }

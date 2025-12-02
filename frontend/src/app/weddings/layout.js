@@ -33,7 +33,7 @@ export const metadata = {
     title: "Wedding Photography Services | Candid & Cinematic Weddings",
     description:
       "Award-winning cinematic wedding photography. See portfolio & pricing.",
-    images: ["/og/weddings-og.jpg"],
+    images: ["/og-image.jpg"],
   },
 
   robots: {
