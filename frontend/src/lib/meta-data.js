@@ -12,7 +12,7 @@ export function canonical(path = "") {
 }
 
 // Main metadata generator
-export function pageMeta({ title, description, path, image = "/og-image.avif" }) {
+export function pageMeta({ title, description, path, image = "/og-image.jpg" }) {
   const canonicalUrl = canonical(path);
 
   return {

@@ -17,8 +17,9 @@ import { DUMMY_BLOGS } from "../data/blog-data";
 
 import { pageMeta } from "@/lib/meta-data";
 import WhyChooseUs from "@/components/ExtraDesigns/WhyChooseUs";
-import HeroDiagonalClose from "@/components/ExtraDesigns/HeroDiagonalClose";
-import FrameSequencePlayer from "@/components/ExtraDesigns/HeroDiagonalClose";
+// import HeroDiagonalClose from "@/components/ExtraDesigns/HeroDiagonalClose";
+// import FrameSequencePlayer from "@/components/ExtraDesigns/HeroDiagonalClose";
+import { SITE_URL } from "@/lib/meta-data";
 
 export const metadata = pageMeta({
   title: "Wedding Photographers in Chennai | Candid & Cinematic Photography",
@@ -29,7 +30,6 @@ export const metadata = pageMeta({
 });
 
 export default function Home() {
- 
   /**
    * --------------------------------------------
    * HOME PAGE — FAQ data
@@ -86,10 +86,17 @@ export default function Home() {
       },
 
       sameAs: [
-        "https://www.instagram.com/tmstudios.photography?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+        "https://www.instagram.com/tmstudios.photography",
         "https://www.facebook.com/TMStudiosphotohgraphy",
         "https://www.youtube.com/@Withme-Subalesh",
       ],
+
+      logo: `${SITE_URL}/logo.png`,
+      image: [
+        `${SITE_URL}/og-image.jpg`,
+      ],
+
+      hasMap: "https://www.google.com/maps?cid=YOUR_PLACE_ID",
     },
 
     // homepage has NO service FAQ
@@ -135,7 +142,10 @@ export default function Home() {
 
       <TestimonialCarousel2 />
       <BlogSection2 blogs={DUMMY_BLOGS} />
-      <HeroDiagonalClose/>
+
+
+      {/* ****************************************************** */}
+      {/* <HeroDiagonalClose /> */}
       {/* <FrameSequencePlayer/> */}
 
       {/* <WhyChooseUs

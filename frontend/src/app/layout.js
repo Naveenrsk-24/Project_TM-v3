@@ -36,7 +36,7 @@ export const metadata = {
     locale: "en-IN",
     images: [
       {
-        url: "/og-image.avif",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "TM Studios Photography",
@@ -46,7 +46,7 @@ export const metadata = {
 
   twitter: {
     card: "summary_large_image",
-    images: ["/og-image.avif"],
+    images: ["/og-image.jpg"],
   },
 
   robots: {
