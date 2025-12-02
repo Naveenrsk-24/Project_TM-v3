@@ -29,20 +29,7 @@ export const metadata = pageMeta({
 });
 
 export default function Home() {
-  const stats = [
-    { number: "10+", label: "Years of Expertise", icon: "medal" },
-    { number: "500+", label: "Satisfied Clients", icon: "thumbs-up" },
-    { number: "97+", label: "Success Rate", icon: "chart" },
-    { number: "40+", label: "Industry Experts", icon: "briefcase" },
-  ];
-
-  const features = [
-    "Data-Driven Decision Making",
-    "Tailored Business Solutions",
-    "Global Consulting Services",
-    "Client-Centric Approach",
-  ];
-
+ 
   /**
    * --------------------------------------------
    * HOME PAGE — FAQ data
@@ -85,9 +72,9 @@ export default function Home() {
       name: "TM Studios Photography",
       description:
         "Award-winning wedding, maternity, and baby photography serving Chennai & Tamil Nadu.",
-      telephone: "+91-9876543210",
-      email: "contact@tmstudios.com",
-      priceRange: "₹50,000 - ₹2,00,000", // optional (good for Local SEO)
+      telephone: "+91-7358279252",
+      email: "subalesh@tmstudios.photography",
+      priceRange: "₹35,000 - ₹2,00,000", // optional (good for Local SEO)
 
       address: {
         "@type": "PostalAddress",
@@ -99,9 +86,9 @@ export default function Home() {
       },
 
       sameAs: [
-        "https://www.instagram.com/yourprofile",
-        "https://www.facebook.com/yourprofile",
-        "https://www.youtube.com/@yourchannel",
+        "https://www.instagram.com/tmstudios.photography?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+        "https://www.facebook.com/TMStudiosphotohgraphy",
+        "https://www.youtube.com/@Withme-Subalesh",
       ],
     },
 
