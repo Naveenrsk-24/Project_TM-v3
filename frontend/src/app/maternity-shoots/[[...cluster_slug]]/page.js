@@ -1,5 +1,5 @@
 // app/maternity-shoots/[[...cluster_slug]]/page.js
-// Updated version with manual SEO for root cluster + dynamic SEO for sub-clusters
+// Production-Ready — Fully Consistent With Wedding Cluster
 
 import {
   resolveClusterPage,
@@ -12,6 +12,7 @@ import {
   generateHeadings,
   generateStructuredData,
   generateFAQSchema,
+  uniqueSchemas,
 } from "@/lib/seo-utils";
 
 import { getServiceBySlug } from "@/lib/services-data";
@@ -26,14 +27,14 @@ import ClassicFAQSection2 from "@/components/ExtraDesigns/ClassicFAQSection2";
 import Breadcrumbs from "@/components/Breadcrumbs/BreadCrumbs";
 
 // --------------------------------------------------------
-// 1) DYNAMIC METADATA HANDLING (for sub-cluster pages)
+// 1) DYNAMIC METADATA HANDLING (sub-clusters only)
 // --------------------------------------------------------
 export async function generateMetadata({ params }) {
   const resolution = resolveClusterPage("maternity-shoots", params.cluster_slug);
 
-  // If this is the ROOT CLUSTER (no cluster_slug) → do NOT use dynamic metadata
+  // Root cluster → manual metadata in layout.js
   if (!params.cluster_slug || params.cluster_slug.length === 0) {
-    return {}; // let layout.js handle manual metadata
+    return {};
   }
 
   if (resolution.type === PAGE_TYPES.NOT_FOUND) {
@@ -44,7 +45,7 @@ export async function generateMetadata({ params }) {
 }
 
 // --------------------------------------------------------
-// 2) PAGE COMPONENT HANDLER
+// 2) PAGE HANDLER (Root cluster manual, sub-cluster dynamic)
 // --------------------------------------------------------
 export default function MaternityClusterPage({ params }) {
   const resolution = resolveClusterPage("maternity-shoots", params.cluster_slug);
@@ -52,24 +53,26 @@ export default function MaternityClusterPage({ params }) {
 
   if (resolution.type === PAGE_TYPES.NOT_FOUND) return notFound();
 
-  // Detect root cluster
   const isRootCluster = !params.cluster_slug || params.cluster_slug.length === 0;
 
   // -------------------------------------------
-  // ROOT CLUSTER PAGE (Manual SEO)
+  // ROOT CLUSTER PAGE  —  FULL MANUAL SEO
   // -------------------------------------------
   if (isRootCluster) {
-    const h1 = "Maternity Photoshoot";
-    const h2 = "Elegant Outdoor & Studio Maternity Photography – Premium Gowns, Concepts & Packages";
+    const h1 = "Maternity Photography";
+    const h2 =
+      "Elegant Outdoor & Studio Pregnancy Photography — Premium Gowns, Concepts & Packages";
 
-    // Manual JSON-LD structured data
-    const structuredData = generateStructuredData(
-      { service },
-      {
+    // Build structured data AT ROOT LEVEL (same pattern as weddings)
+    const structuredData = generateStructuredData({
+      resolution: { type: PAGE_TYPES.PILLAR, service },
+      manual: {
         name: "TM Studios Photography",
-        description: "Premium maternity, wedding & baby photography across Tamil Nadu.",
+        description:
+          "Premium maternity, wedding & baby photography across Tamil Nadu.",
         telephone: "+91-7358279252",
         email: "subalesh@tmstudios.photography",
+
         address: {
           "@type": "PostalAddress",
           streetAddress: "123 Photography Lane",
@@ -78,40 +81,52 @@ export default function MaternityClusterPage({ params }) {
           postalCode: "600001",
           addressCountry: "IN",
         },
-      }
-    );
 
-    const faqSchema = generateFAQSchema(service, null, [
-      {
-        question: "When is the best time for a maternity shoot?",
-        answer: "The ideal time is between 28–34 weeks of pregnancy for best results.",
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: "13.0827",
+          longitude: "80.2707",
+        },
       },
-      {
-        question: "Do you provide maternity gowns?",
-        answer: "Yes, we offer a curated collection of premium gowns for indoor and outdoor shoots.",
-      },
-    ]);
+
+      faqs: [
+        {
+          question: "When is the best time for a maternity shoot?",
+          answer:
+            "The ideal time is between 28–34 weeks of pregnancy for best results.",
+        },
+        {
+          question: "Do you provide maternity gowns?",
+          answer:
+            "Yes, we offer a curated collection of premium gowns for indoor and outdoor shoots.",
+        },
+      ],
+    });
+
+    const finalSchema = uniqueSchemas(structuredData);
 
     return (
       <>
-        {/* JSON-LD */}
+        {/* JSON-LD Injection */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(finalSchema),
+          }}
         />
 
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        {/* Breadcrumbs consistent with weddings */}
+        <Breadcrumbs
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Maternity Shoots", href: "/maternity-shoots" },
+          ]}
         />
-
-        <Breadcrumbs breadcrumbs={[{ label: "Home", href: "/" }, { label: "Maternity Shoots", href: "/maternity-shoots" }]} />
 
         <ServiceHero
           title={h1}
           subtitle={h2}
           icon={service.icon}
-          location={null}
           bg={service.bgImage}
           ctaLabel={service.ctaLabel}
           ctaLink={service.ctaLink}
@@ -129,17 +144,22 @@ export default function MaternityClusterPage({ params }) {
   }
 
   // -------------------------------------------
-  // SUB-CLUSTER PAGE (Dynamic SEO)
+  // SUB-CLUSTER PAGES — 100% dynamic (Wedding-level)
   // -------------------------------------------
   const { h1, h2 } = generateHeadings(resolution);
   const breadcrumbs = generateBreadcrumbs(resolution);
-  const structuredData = generateStructuredData(resolution);
+
+  const structuredData = generateStructuredData({ resolution });
+  const finalSchema = uniqueSchemas(structuredData);
 
   return (
     <>
+      {/* JSON-LD */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(finalSchema),
+        }}
       />
 
       <Breadcrumbs breadcrumbs={breadcrumbs} />
@@ -165,7 +185,10 @@ export default function MaternityClusterPage({ params }) {
       <TestimonialCarousel2 />
       <ClassicFAQSection2 />
 
-      <ContactForm service={resolution.service} location={resolution.location} />
+      <ContactForm
+        service={resolution.service}
+        location={resolution.location}
+      />
     </>
   );
 }
