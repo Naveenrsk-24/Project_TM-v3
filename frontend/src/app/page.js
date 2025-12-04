@@ -20,6 +20,7 @@ import WhyChooseUs from "@/components/ExtraDesigns/WhyChooseUs";
 // import HeroDiagonalClose from "@/components/ExtraDesigns/HeroDiagonalClose";
 // import FrameSequencePlayer from "@/components/ExtraDesigns/HeroDiagonalClose";
 import { SITE_URL } from "@/lib/meta-data";
+import WeddingGallerySection from "@/components/ExtraDesigns/WeddingGallerySection";
 
 export const metadata = pageMeta({
   title: "Wedding Photographers in Chennai | Candid & Cinematic Photography",
@@ -131,6 +132,7 @@ export default function Home() {
         }}
       />
 
+      {/* <WeddingGallerySection/> */}
       <HeroSection />
       <SubHeroSection />
       <Parallax />

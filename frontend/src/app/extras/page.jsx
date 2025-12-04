@@ -20,6 +20,7 @@ import { Navbar2 } from "@/components/Navbar/Navbar2";
 
 import { pageMeta } from "@/lib/meta-data";
 import WhyChooseUs from "../../components/ExtraDesigns/WeddingTheme";
+import WeddingGallerySection from "@/components/ExtraDesigns/WeddingGallerySection";
 export const metadata = pageMeta({
 title: "Extras & Add-ons",
 description: "Explore additional photography services and upgrades.",
@@ -43,6 +44,7 @@ export default function Extras() {
       <SubHeroSection/>
       <DraggableCardDemo/>
       <WhyChooseUs />
+      <WeddingGallerySection/>
 
 
       {/* <GalleryDemo/> */}
