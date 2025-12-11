@@ -1,44 +1,37 @@
-// src/app/portfolio2/[category]/[albums]/page.jsx
+// src/app/portfolio/[category]/[albums]/page.jsx
 
 import AlbumGallery from "../../../../components/Portfolio/AlbumGallery";
 
 const USER_IMAGE_URL = "/Weddings/beautiful-husband-wife-posing-beach.jpg";
 
-// export async function generateMetadata({ params }) {
-// const { category, albums } = params;
-// return pageMeta({
-// title: `${albums.replace(/-/g, " ")} Album`,
-// description: `View the ${albums.replace(/-/g, " ")} album in ${category}`,
-// path: `/portfolio/${category}/${albums}`,
-// });
-// }
-
 /**
- * Helper function to simulate fetching album details and images.
- * Renamed parameters internally for clarity, but accepts 'albums' as the slug parameter.
+ * Safe helper to generate album data without causing `.split()` crashes during SSG.
  */
 const getAlbumData = (categorySlug, albumSlug) => {
-    // --- Album Details ---
-    const albumTitle = albumSlug
-        .split('-')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ')
-        .replace('Wedding', ' Wedding');
+    // Apply safe fallbacks to avoid undefined.split() crashes
+    const safeAlbum = albumSlug || "";
+    const safeCategory = categorySlug || "";
 
-    const categoryName = categorySlug
-        .split('-')
+    // --- Album Details ---
+    const albumTitle = safeAlbum
+        .split("-")
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ');
+        .join(" ")
+        .replace("Wedding", " Wedding");
+
+    const categoryName = safeCategory
+        .split("-")
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ");
 
     // --- Album Images ---
     const images = Array.from({ length: 25 }).map((_, index) => {
-        const isLarge = index % 5 === 0; // Make one out of five images large
+        const isLarge = index % 5 === 0; // One large image every 5 items
 
         return {
             id: index + 1,
-            src: USER_IMAGE_URL, // Replace with actual image URL
+            src: USER_IMAGE_URL,
             alt: `${albumTitle} image ${index + 1}`,
-            // Span classes for a dynamic grid layout
             span: isLarge ? "md:col-span-2 md:row-span-2" : "col-span-1",
         };
     });
@@ -49,26 +42,29 @@ const getAlbumData = (categorySlug, albumSlug) => {
         location: "Chennai, India",
         date: "October 20, 2025",
         description: `A breathtaking collection from the vibrant ${albumTitle} ceremony. Every photograph tells a story of love, tradition, and joy. Captured in the beautiful settings of ${categoryName}.`,
-        images: images,
+        images,
     };
 };
 
-// Next.js App Router convention: page component receives params
+// ============================================================
+// PAGE COMPONENT
+// ============================================================
 export default async function AlbumPage({ params }) {
-    // FIX: Destructure 'albums' (plural) to match the folder name [albums]
+    // Must destructure `albums` (plural)
     const { category, albums } = params;
-    
-    // Pass 'albums' (the slug) into the helper function
-    const data = getAlbumData(category, albums); 
+
+    // Pass slugs into safe helper
+    const data = getAlbumData(category, albums);
 
     return <AlbumGallery albumData={data} />;
 }
 
-
-// Dynamic Metadata
+// ============================================================
+// METADATA GENERATION
+// ============================================================
 export async function generateMetadata({ params }) {
-    // FIX: Destructure 'albums' (plural)
     const { category, albums } = params;
+
     const data = getAlbumData(category, albums);
 
     return {
@@ -77,23 +73,27 @@ export async function generateMetadata({ params }) {
     };
 }
 
-// Optional: generate static paths for SSG
+// ============================================================
+// STATIC PARAMS (SSG)
+// ============================================================
 export async function generateStaticParams() {
-    const categories = ['tamil-weddings', 'pre-weddings'];
-    const albumsSlugs = { // Renamed local variable for clarity
-        'tamil-weddings': ['akash-akshaya-wedding', 'deepa-suresh-reception'],
-        'pre-weddings': ['beach-romantic-shoot', 'hillside-engagement-gallery'],
+    const categories = ["tamil-weddings", "pre-weddings"];
+
+    const albumsSlugs = {
+        "tamil-weddings": ["akash-akshaya-wedding", "deepa-suresh-reception"],
+        "pre-weddings": ["beach-romantic-shoot", "hillside-engagement-gallery"],
     };
 
-    let staticParams = [];
+    const staticParams = [];
+
     for (const category of categories) {
         for (const albumSlug of albumsSlugs[category]) {
-            staticParams.push({ 
-                category: category, 
-                // FIX: The key must be 'albums' (plural) to match the folder name
-                albums: albumSlug 
+            staticParams.push({
+                category,
+                albums: albumSlug, // MUST match folder name [albums]
             });
         }
     }
+
     return staticParams;
 }
