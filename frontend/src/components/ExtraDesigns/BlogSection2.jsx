@@ -1,30 +1,19 @@
-// components/BlogSection.jsx
-"use client"; // Swiper and Framer Motion require client-side rendering
+"use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-// Only import the modules you need (already well done)
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
-
-// Import Swiper styles (already well done)
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import BlogCard from "@/components/ExtraDesigns/BlogCard2";
 
-/**
- * Creates a Framer Motion-enhanced Link component for modern Next.js routing.
- */
-const MotionLink = motion(Link); // 👈 Optimization: Wrap Link once for Framer Motion
+const MotionLink = motion(Link);
 
-/**
- * A reusable, responsive section component featuring a carousel of blog cards.
- */
 const BlogSection2 = ({
   blogs,
   viewAllUrl = "/blogs",
@@ -32,40 +21,109 @@ const BlogSection2 = ({
 }) => {
   const swiperRef = useRef(null);
 
+  // === Background interactivity ===
+  const [mouse, setMouse] = useState({ x: 0, y: 0 });
+  const [parallax, setParallax] = useState({ x: 0, y: 0 });
+  const particles = Array.from({ length: 25 });
+
+  useEffect(() => {
+    const move = (e) => {
+      const xf = (e.clientX / window.innerWidth - 0.5) * 50;
+      const yf = (e.clientY / window.innerHeight - 0.5) * 50;
+
+      setMouse({ x: e.clientX, y: e.clientY });
+      setParallax({ x: xf, y: yf });
+    };
+
+    window.addEventListener("mousemove", move);
+    return () => window.removeEventListener("mousemove", move);
+  }, []);
+
   if (!blogs || blogs.length === 0) {
     return (
-      <section className="py-16 text-center text-neutral-600">
+      <section className="py-16 text-center text-neutral-300">
         <h2 className="text-2xl font-semibold">{title}</h2>
-        <p className="mt-4">
-          No articles available right now — new stories are coming soon.
-        </p>
+        <p className="mt-4">No articles available right now — new stories are coming soon.</p>
       </section>
     );
   }
 
-  // Framer Motion properties for interactive buttons (Memoizable, but fine here)
   const buttonMotion = {
-    whileHover: { scale: 1.05, boxShadow: "0 8px 15px rgba(0, 0, 0, 0.1)" },
+    whileHover: { scale: 1.1, boxShadow: "0 10px 20px rgba(0,0,0,0.3)" },
     whileTap: { scale: 0.95 },
-    transition: { type: "spring", stiffness: 300, damping: 20 },
   };
 
-  // Framer Motion variants for the header text fade-in
   const headerVariants = {
     hidden: { opacity: 0, y: 10 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: "easeOut" },
-    },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
   return (
-    <section className="py-16 sm:py-24 bg-gradient-to-br from-neutral-50 via-white to-neutral-100 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Header with Framer Motion Fade-in */}
+    <section className="relative overflow-hidden bg-gradient-to-b from-slate-900 via-purple-900 to-black py-20 sm:py-28">
+
+      {/* ===================================================== */}
+      {/* ✨ FLOATING PARTICLES */}
+      {/* ===================================================== */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        {particles.map((_, i) => (
+          <span
+            key={i}
+            className="absolute w-1 h-1 bg-white/40 rounded-full animate-float"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 5}s`,
+              animationDuration: `${6 + Math.random() * 10}s`,
+            }}
+          ></span>
+        ))}
+      </div>
+
+      {/* ===================================================== */}
+      {/* 🌈 PARALLAX ORBS */}
+      {/* ===================================================== */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div
+          className="absolute w-[28rem] h-[28rem] bg-purple-500/20 blur-3xl rounded-full animate-pulse"
+          style={{
+            top: `calc(14% + ${parallax.y * 0.3}px)`,
+            left: `calc(10% + ${parallax.x * 0.3}px)`,
+          }}
+        ></div>
+
+        <div
+          className="absolute w-[32rem] h-[32rem] bg-pink-500/20 blur-3xl rounded-full animate-pulse"
+          style={{
+            bottom: `calc(12% - ${parallax.y * 0.3}px)`,
+            right: `calc(12% - ${parallax.x * 0.3}px)`,
+            animationDelay: "0.7s",
+          }}
+        ></div>
+      </div>
+
+      {/* ===================================================== */}
+      {/* 🔦 SPOTLIGHT CURSOR EFFECT */}
+      {/* ===================================================== */}
+      <div
+        className="absolute inset-0 pointer-events-none z-0"
+        style={{
+          background: `radial-gradient(
+            320px at ${mouse.x}px ${mouse.y}px,
+            rgba(255,255,255,0.17),
+            transparent 70%
+          )`,
+          transition: "background 0.06s ease-out",
+        }}
+      ></div>
+
+      {/* ===================================================== */}
+      {/* CONTENT */}
+      {/* ===================================================== */}
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+        {/* Header */}
         <motion.h2
-          className="text-4xl font-extrabold tracking-tight text-neutral-800 mb-8 sm:mb-12"
+          className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white mb-12"
           initial="hidden"
           animate="visible"
           variants={headerVariants}
@@ -73,102 +131,80 @@ const BlogSection2 = ({
           {title}
         </motion.h2>
 
-        {/* Blog Cards Carousel */}
+        {/* Swiper Carousel */}
         <div className="relative">
           <Swiper
             onSwiper={(swiper) => (swiperRef.current = swiper)}
             modules={[Autoplay, Navigation, Pagination]}
             spaceBetween={32}
-            loop={true}
-            autoplay={{
-              delay: 5000,
-              disableOnInteraction: false,
-            }}
+            loop
+            autoplay={{ delay: 5000, disableOnInteraction: false }}
             pagination={{
               clickable: true,
-              bulletClass: "swiper-pagination-bullet bg-neutral-400",
-              bulletActiveClass: "swiper-pagination-bullet-active bg-amber-600",
+              bulletClass: "swiper-pagination-bullet bg-white/30",
+              bulletActiveClass: "swiper-pagination-bullet-active bg-pink-500",
             }}
             breakpoints={{
               640: { slidesPerView: 1.5, spaceBetween: 20 },
               768: { slidesPerView: 2.5, spaceBetween: 30 },
               1024: { slidesPerView: 3, spaceBetween: 40 },
             }}
-            className="pb-10"
+            className="pb-12"
           >
-            {/* Optimization: Swiper automatically loads slides 
-                near the view, providing lazy-loading benefit. */}
             {blogs.map((blog) => (
-              <SwiperSlide key={blog.id} className="h-auto">
+              <SwiperSlide key={blog.id}>
                 <BlogCard blog={blog} />
               </SwiperSlide>
             ))}
           </Swiper>
 
-          {/* Custom Navigation Arrows (Desktop/Tablet) with Framer Motion */}
+          {/* Navigation Arrows */}
           <div className="hidden lg:block">
-            {/* Previous Button */}
             <motion.button
               onClick={() => swiperRef.current?.slidePrev()}
-              aria-label="Previous blog post"
-              className="absolute left-0 top-1/2 z-10 -translate-x-full -translate-y-1/2 rounded-full bg-white p-3 shadow-lg transition-colors text-amber-600 border border-neutral-200"
+              className="absolute left-0 top-1/2 -translate-x-full -translate-y-1/2 bg-white/10 backdrop-blur-md border border-white/20 text-pink-400 p-3 rounded-full shadow-xl"
               {...buttonMotion}
             >
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 19l-7-7 7-7"
-                />
+              <svg className="h-6 w-6" viewBox="0 0 24 24">
+                <path d="M15 19l-7-7 7-7" stroke="currentColor" strokeWidth="2" fill="none" />
               </svg>
             </motion.button>
 
-            {/* Next Button */}
             <motion.button
               onClick={() => swiperRef.current?.slideNext()}
-              aria-label="Next blog post"
-              className="absolute right-0 top-1/2 z-10 translate-x-full -translate-y-1/2 rounded-full bg-white p-3 shadow-lg transition-colors text-amber-600 border border-neutral-200"
+              className="absolute right-0 top-1/2 translate-x-full -translate-y-1/2 bg-white/10 backdrop-blur-md border border-white/20 text-pink-400 p-3 rounded-full shadow-xl"
               {...buttonMotion}
             >
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
+              <svg className="h-6 w-6" viewBox="0 0 24 24">
+                <path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="2" fill="none" />
               </svg>
             </motion.button>
           </div>
         </div>
 
-        {/* View Blogs Button with Framer Motion - FIXED LINK USAGE */}
-        <div className="mt-10 flex justify-center">
-          <MotionLink // 👈 Use the custom MotionLink component
+        {/* View All Button */}
+        <div className="mt-14 flex justify-center">
+          <MotionLink
             href={viewAllUrl}
-            className="
-              inline-flex items-center rounded-full border border-transparent bg-gradient-to-r from-pink-600 to-rose-500 px-8 py-3 
-              text-base font-medium text-white shadow-lg transition-all duration-300 ease-in-out
-              hover:from-amber-700 hover:to-amber-600 focus:outline-none focus:ring-4 focus:ring-amber-500/50
-            "
-            aria-label="Go to the main blog archive page"
+            className="px-10 py-4 text-white font-semibold bg-gradient-to-r from-pink-600 to-rose-500 rounded-full shadow-2xl hover:shadow-pink-500/40 transition-all"
             {...buttonMotion}
           >
-            View All Articles &rarr;
+            View All Articles →
           </MotionLink>
         </div>
       </div>
+
+      {/* Animations */}
+      <style jsx>{`
+        @keyframes float {
+          0% { transform: translateY(0); opacity: 0.4; }
+          50% { transform: translateY(-40px); opacity: 0.9; }
+          100% { transform: translateY(-80px); opacity: 0.2; }
+        }
+        .animate-float {
+          animation: float linear infinite;
+        }
+      `}</style>
     </section>
   );
 };
