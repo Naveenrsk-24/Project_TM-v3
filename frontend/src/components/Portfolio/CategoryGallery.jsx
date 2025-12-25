@@ -20,10 +20,10 @@ const CategoryGallery = ({ category, slug, albums = [] }) => {
   }, []);
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-neutral-50 via-white to-neutral-100" aria-labelledby="category-gallery-heading">
+    <section className="min-h-screen bg-gradient-to-b from-slate-900 via-purple-900 to-slate-900" aria-labelledby="category-gallery-heading">
       {/* Hero Section */}
       <div className="relative overflow-hidden pt-24 pb-16 px-4">
-        <div className="absolute inset-0 bg-gradient-to-b from-amber-50/50 to-transparent"></div>
+        <div className="absolute"></div>
 
         <div
           className={`max-w-7xl mx-auto text-center relative z-10 transition-all duration-1000 transform ${
@@ -37,11 +37,11 @@ const CategoryGallery = ({ category, slug, albums = [] }) => {
             </span>
           </div>
 
-          <h1 id="category-gallery-heading" className="text-5xl md:text-7xl font-serif text-neutral-800 mb-4 tracking-tight">
+          <h1 id="category-gallery-heading" className="text-5xl md:text-7xl font-serif text-white mb-4 tracking-tight">
             {category} Gallery
           </h1>
 
-          <p className="text-lg text-neutral-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg text-white max-w-2xl mx-auto leading-relaxed">
             A curated collection of our finest moments captured through the lens in the **{category}** style.
           </p>
         </div>
