@@ -85,13 +85,13 @@ const PortfolioCategoryCards = ({ data = categories, title = 'Photography Collec
 
   return (
     <section 
-      className="min-h-screen bg-gradient-to-br from-neutral-50 via-white to-neutral-100" 
+      className="min-h-screen bg-gradient-to-b from-slate-900 via-purple-900 to-slate-900" 
       aria-labelledby="portfolio-heading"
     >
       
       {/* Header Section */}
       <div className="relative pb-16 px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(251,191,36,0.1),transparent_50%)]"></div>
+        <div className="absolute"></div>
         
         <div className={`max-w-7xl mx-auto text-center relative z-10 transition-all duration-1000 transform ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -101,14 +101,14 @@ const PortfolioCategoryCards = ({ data = categories, title = 'Photography Collec
             <span className="text-sm font-semibold text-neutral-700 tracking-wide uppercase">{subtitle}</span>
           </div>
           
-          <h1 id="portfolio-heading" className="text-5xl md:text-7xl font-serif text-neutral-900 mb-6 tracking-tight">
+          <h1 id="portfolio-heading" className="text-5xl md:text-7xl font-serif text-white mb-6 tracking-tight">
             {title.split(' ')[0]}
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-rose-600">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-rose-500">
               {title.split(' ').slice(1).join(' ')}
             </span>
           </h1>
           
-          <p className="text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-white max-w-3xl mx-auto leading-relaxed">
             Explore our specialized photography services tailored to capture your most precious moments.
           </p>
         </div>
