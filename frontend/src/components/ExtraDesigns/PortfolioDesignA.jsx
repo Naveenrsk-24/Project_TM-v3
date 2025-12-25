@@ -4,31 +4,22 @@ import React, { useState, useEffect } from "react";
 import { Camera, ArrowRight, Grid3x3 } from "lucide-react";
 import Link from "next/link";
 
-const USER_IMAGE_URL = "/hero_lossless.webp";
-
-const portfolioImages = [
-  { id: 1, src: USER_IMAGE_URL, alt: "Couple in garden", span: "row-span-2" },
-  { id: 2, src: USER_IMAGE_URL, alt: "Couple at doorway", span: "row-span-1" },
-  { id: 3, src: USER_IMAGE_URL, alt: "Wedding celebration", span: "row-span-2" },
-  { id: 4, src: USER_IMAGE_URL, alt: "Traditional portrait", span: "row-span-1" },
-  { id: 5, src: USER_IMAGE_URL, alt: "Couple at beach", span: "row-span-1" },
-  { id: 6, src: USER_IMAGE_URL, alt: "Elegant bride", span: "row-span-2" },
-  { id: 7, src: USER_IMAGE_URL, alt: "White architecture", span: "row-span-1" },
-  { id: 8, src: USER_IMAGE_URL, alt: "Outdoor ceremony", span: "row-span-2" },
-  { id: 9, src: USER_IMAGE_URL, alt: "Garden wedding", span: "row-span-2" },
-  { id: 10, src: USER_IMAGE_URL, alt: "Couple at balcony", span: "row-span-1" },
-  { id: 11, src: USER_IMAGE_URL, alt: "Temple silhouette", span: "row-span-1" },
-];
-
-const PortfolioGallery = () => {
+const PortfolioGallery = ({
+  title = "Our Wedding Photography Portfolio",
+  subtitle = "Portfolio Highlights",
+  description = "Real emotions, vibrant celebrations, and timeless memories captured.",
+  images = [],
+  buttonLabel = "View Full Portfolio",
+  buttonLink = "/portfolio",
+  particleCount = 25,
+}) => {
   const [isVisible, setIsVisible] = useState(false);
   const [hoveredId, setHoveredId] = useState(null);
 
-  // NEW: Mouse-parallax + spotlight system
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [parallax, setParallax] = useState({ x: 0, y: 0 });
 
-  const particles = Array.from({ length: 25 });
+  const particles = Array.from({ length: particleCount });
 
   useEffect(() => {
     setIsVisible(true);
@@ -51,9 +42,7 @@ const PortfolioGallery = () => {
   return (
     <div className="relative min-h-screen bg-gradient-to-b from-slate-900 via-purple-900 to-slate-900 overflow-hidden">
 
-      {/* ===================================================== */}
-      {/* ✨ FLOATING PARTICLES */}
-      {/* ===================================================== */}
+      {/* PARTICLES */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {particles.map((_, i) => (
           <span
@@ -69,9 +58,7 @@ const PortfolioGallery = () => {
         ))}
       </div>
 
-      {/* ===================================================== */}
-      {/* 🌈 MOUSE-PARALLAX GLOWING ORBS */}
-      {/* ===================================================== */}
+      {/* PARALLAX ORBS */}
       <div className="absolute inset-0 pointer-events-none">
         <div
           className="absolute w-96 h-96 bg-purple-500/20 blur-3xl rounded-full animate-pulse"
@@ -91,9 +78,7 @@ const PortfolioGallery = () => {
         ></div>
       </div>
 
-      {/* ===================================================== */}
-      {/* 🔦 SPOTLIGHT FOLLOWING CURSOR */}
-      {/* ===================================================== */}
+      {/* SPOTLIGHT */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -106,9 +91,7 @@ const PortfolioGallery = () => {
         }}
       ></div>
 
-      {/* ===================================================== */}
       {/* HERO SECTION */}
-      {/* ===================================================== */}
       <div className="relative overflow-hidden pt-20 pb-12 px-4">
         <div className="absolute inset-0 bg-gradient-to-b from-violet-800/20 to-transparent"></div>
 
@@ -119,40 +102,38 @@ const PortfolioGallery = () => {
         >
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-6 py-2 rounded-full shadow-sm mb-6 border border-white/10">
             <Camera className="w-4 h-4 text-violet-300" />
-            <span className="text-sm font-medium text-slate-200">Portfolio Highlights</span>
+            <span className="text-sm font-medium text-slate-200">{subtitle}</span>
           </div>
 
           <h2 className="text-5xl md:text-7xl font-serif text-slate-100 mb-4 tracking-tight">
-            Our Wedding Photography Portfolio
+            {title}
           </h2>
 
           <p className="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Real emotions, vibrant celebrations, and timeless memories captured for couples in Chennai and beyond.
+            {description}
           </p>
         </div>
       </div>
 
-      {/* ===================================================== */}
       {/* MASONRY GRID */}
-      {/* ===================================================== */}
       <div className="max-w-7xl mx-auto px-4 pb-20">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[200px] gap-4">
-          {portfolioImages.map((image, index) => (
+          {images.map((image, index) => (
             <div
               key={image.id}
-              className={`group relative overflow-hidden rounded-2xl ${image.span} cursor-pointer transition-all duration-700 transform ${
+              className={`group relative overflow-hidden rounded-2xl ${
+                image.span || "row-span-1"
+              } cursor-pointer transition-all duration-700 transform ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
               }`}
               style={{ transitionDelay: `${index * 50}ms` }}
               onMouseEnter={() => setHoveredId(image.id)}
               onMouseLeave={() => setHoveredId(null)}
             >
-              {/* Image */}
               <div className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-110">
                 <img src={image.src} alt={image.alt} className="w-full h-full object-cover" />
               </div>
 
-              {/* Hover Overlay */}
               <div
                 className={`absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent transition-opacity duration-500 ${
                   hoveredId === image.id ? "opacity-100" : "opacity-0"
@@ -165,22 +146,20 @@ const PortfolioGallery = () => {
                 </div>
               </div>
 
-              {/* Corner Accent */}
               <div className="absolute top-3 right-3 w-8 h-8 border-t-2 border-r-2 border-white/40 opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-75 group-hover:scale-100"></div>
             </div>
           ))}
         </div>
 
-        {/* View Portfolio Button */}
+        {/* BUTTON */}
         <div className="flex justify-center mt-16">
-          <Link href="/portfolio">
+          <Link href={buttonLink}>
             <button className="group relative px-10 py-5 bg-gradient-to-r from-rose-500 to-pink-600 text-white rounded-full font-medium text-lg shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 overflow-hidden">
-
               <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-rose-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
               <span className="relative flex items-center gap-3">
                 <Grid3x3 className="w-5 h-5 transition-transform duration-500 group-hover:rotate-90" />
-                View Full Portfolio
+                {buttonLabel}
                 <ArrowRight className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-2" />
               </span>
 
@@ -190,7 +169,7 @@ const PortfolioGallery = () => {
         </div>
       </div>
 
-      {/* ANIMATIONS */}
+      {/* FLOAT ANIMATION */}
       <style jsx>{`
         @keyframes float {
           0% { transform: translateY(0); opacity: 0.4; }
