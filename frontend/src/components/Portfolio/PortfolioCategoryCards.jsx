@@ -23,43 +23,43 @@ const USER_IMAGE_URL = '/Weddings/beautiful-husband-wife-posing-beach.jpg';
 /** @type {Category[]} */
 const categories = [
   {
-    id: 'portraits',
-    title: 'Portraits',
-    description: 'Timeless individual & couple portraits',
-    image: USER_IMAGE_URL,
-    count: '50+ Sessions',
-    // Modified to be a lighter gradient for better 'wash' effect over dark image/overlay
-    color: 'from-rose-500/80 to-pink-600/80', 
-    ariaLabel: 'View the Portraits photography gallery',
+    id: 'weddings',
+    title: 'Weddings',
+    description: 'Complete wedding day coverage capturing rituals, emotions, and real moments',
+    image: '/Weddings/Jalaludeen-Shain/Jalaludeen-Shain-101.jpg',
+    count: '10+ Weddings',
+    color: 'from-rose-500/80 to-pink-600/80',
+    ariaLabel: 'View the Weddings photography gallery',
   },
   {
     id: 'pre-weddings',
     title: 'Pre Weddings',
-    description: 'Romantic pre-wedding stories',
-    image: USER_IMAGE_URL,
-    count: '120+ Couples',
+    description: 'Romantic pre-wedding shoots telling your story before the big day',
+    image: "/Weddings/Arul-Vijayalakshmi/Arul-Vijayalakshmi-108.jpg",
+    count: '15+ Couples',
     color: 'from-amber-500/80 to-orange-600/80',
-    ariaLabel: 'View the Pre Weddings photography gallery',
+    ariaLabel: 'View the Pre-Weddings photography gallery',
   },
   {
-    id: 'tamil-weddings',
-    title: 'Tamil Weddings',
-    description: 'Traditional Tamil ceremonies',
+    id: 'maternity-shoots',
+    title: 'Maternity Shoots',
+    description: 'Elegant maternity portraits celebrating motherhood and new beginnings',
     image: USER_IMAGE_URL,
-    count: '80+ Weddings',
+    count: '10+ Sessions',
     color: 'from-emerald-500/80 to-teal-600/80',
-    ariaLabel: 'View the Tamil Weddings photography gallery',
+    ariaLabel: 'View the Maternity photography gallery',
   },
   {
-    id: 'telugu-weddings',
-    title: 'Telugu Weddings',
-    description: 'Vibrant Telugu celebrations',
+    id: 'baby-shoots',
+    title: 'Baby Shoots',
+    description: 'Newborn and baby photos capturing early milestones and expressions',
     image: USER_IMAGE_URL,
-    count: '65+ Weddings',
+    count: '50+ Shoots',
     color: 'from-blue-500/80 to-indigo-600/80',
-    ariaLabel: 'View the Telugu Weddings photography gallery',
+    ariaLabel: 'View the Baby photography gallery',
   }
 ];
+
 
 /**
  * Renders a grid of portfolio category cards with interactive hover effects.
