@@ -26,7 +26,7 @@ const categories = [
     id: 'weddings',
     title: 'Weddings',
     description: 'Complete wedding day coverage capturing rituals, emotions, and real moments',
-    image: '/Weddings/Jalaludeen-Shain/Jalaludeen-Shain-101.jpg',
+    image: '/Weddings/Arul-Vijayalakshmi/Arul-Vijayalakshmi-109.jpg',
     count: '10+ Weddings',
     color: 'from-rose-500/80 to-pink-600/80',
     ariaLabel: 'View the Weddings photography gallery',
