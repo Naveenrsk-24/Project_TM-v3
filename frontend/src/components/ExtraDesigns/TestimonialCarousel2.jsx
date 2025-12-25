@@ -100,7 +100,7 @@ const TestimonialCarousel2 = () => {
   const particles = Array.from({ length: 25 });
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-20 px-4 overflow-hidden">
+    <div className="relative min-h-screen bg-gradient-to-b from-slate-900 via-purple-900 to-slate-900 py-20 px-4 overflow-hidden">
 
       {/* ============================= */}
       {/* ✨ FLOATING PARTICLES */}
