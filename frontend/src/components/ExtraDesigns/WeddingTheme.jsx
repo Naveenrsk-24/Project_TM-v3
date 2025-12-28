@@ -6,7 +6,7 @@ const WhyChooseUs = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    setIsVisible(true);``
+    setIsVisible(true);
   }, []);
 
   return (
