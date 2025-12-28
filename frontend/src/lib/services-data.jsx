@@ -2,7 +2,7 @@ export const SERVICES = {
   weddings: {
     id: "weddings",
     title: "Wedding Photography",
-    bgImage: "/Weddings/beautiful-husband-wife-posing-beach.jpg",
+    bgImage: '/Weddings/Jalaludeen-Shain/Jalaludeen-Shain-101.jpg',
     ctaLabel: "Book Your Shoot",
     ctaLink: "/contactus",
     slug: "weddings",

@@ -53,29 +53,32 @@ export default function WeddingsClusterPage({ params }) {
 
   if (resolution.type === PAGE_TYPES.NOT_FOUND) return notFound();
 
-  const isRootCluster = !params.cluster_slug || params.cluster_slug.length === 0;
+  const isRootCluster =
+    !params.cluster_slug || params.cluster_slug.length === 0;
 
   // -------------------------------------------
   // ROOT CLUSTER PAGE (manual + enhanced schema)
   // -------------------------------------------
   if (isRootCluster) {
     const h1 = "Wedding Photography";
-    const h2 = "Cinematic & Candid Wedding Photography – Premium Packages, Portfolio & Pricing";
+    const h2 =
+      "Cinematic & Candid Wedding Photography – Premium Packages, Portfolio & Pricing";
 
     // Build Schema with FULL manual organization block
     const structuredData = generateStructuredData({
       resolution: { type: PAGE_TYPES.PILLAR, service },
       manual: {
         name: "TM Studios Photography",
-        description: "Premium wedding, maternity & baby photography across Tamil Nadu.",
+        description:
+          "Premium wedding, maternity & baby photography across Tamil Nadu.",
         telephone: "+91-7358279252",
         email: "subalesh@tmstudios.photography",
         address: {
           "@type": "PostalAddress",
-          streetAddress: "123 Photography Lane",
+          streetAddress: "21, Manimegalai 1st St, Pallikaranai",
           addressLocality: "Chennai",
           addressRegion: "Tamil Nadu",
-          postalCode: "600001",
+          postalCode: "600100",
           addressCountry: "IN",
         },
         geo: {
@@ -87,7 +90,8 @@ export default function WeddingsClusterPage({ params }) {
       faqs: [
         {
           question: "Do you travel for destination weddings?",
-          answer: "Yes! We shoot weddings across India and globally. Travel & stay applicable.",
+          answer:
+            "Yes! We shoot weddings across India and globally. Travel & stay applicable.",
         },
         {
           question: "How many edited photos will I receive?",
