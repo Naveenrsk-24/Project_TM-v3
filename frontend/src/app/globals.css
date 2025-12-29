@@ -27,10 +27,7 @@ body {
 }
 
 /* Hide parallax ONLY on iPhones */
-@supports (-webkit-touch-callout: none) {
-  @media (max-width: 768px) {
-    .slide {
-      display: none !important;
-    }
-  }
+.is-iphone .slide {
+  display: none !important;
 }
+

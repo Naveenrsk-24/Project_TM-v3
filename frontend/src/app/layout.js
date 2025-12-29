@@ -2,6 +2,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import LayoutClientWrapper from "@/components/LayoutClientWrapper";
+import IPhoneDetector from "@/components/IPhoneDetector";
 
 // Font setup
 const geistSans = Geist({
@@ -59,9 +60,12 @@ export const metadata = {
 const LCP_IMAGE_URL =
   "/_next/image?url=%2FWeddings%2Fgroom-putting-ring-bride-s-finger.webp&w=1080&q=85";
 
+  
+
 /* --------------------------------------------------
    ROOT LAYOUT WRAPPER
 -------------------------------------------------- */
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en-IN" className="dark">
@@ -75,10 +79,13 @@ export default function RootLayout({ children }) {
         />
       </head>
 
+      
+
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning={true}
       >
+        <IPhoneDetector />
         <LayoutClientWrapper>{children}</LayoutClientWrapper>
       </body>
     </html>
