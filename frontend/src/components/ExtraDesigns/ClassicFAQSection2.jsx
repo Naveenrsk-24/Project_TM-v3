@@ -1,95 +1,90 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { Plus, Minus, HelpCircle } from "lucide-react";
 
 export default function ClassicFAQSection2({ faqs = [] }) {
   const [activeIndex, setActiveIndex] = useState(null);
 
-  // Background animation states
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [parallax, setParallax] = useState({ x: 0, y: 0 });
-  const particles = Array.from({ length: 25 });
+  // GPU Parallax refs (instead of React state)
+  const orbRef1 = useRef(null);
+  const orbRef2 = useRef(null);
+  const parallax = useRef({ x: 0, y: 0 });
+  let raf = null;
 
   useEffect(() => {
-    const move = (e) => {
-      const xf = (e.clientX / window.innerWidth - 0.5) * 40;
-      const yf = (e.clientY / window.innerHeight - 0.5) * 40;
+    const handleMove = (e) => {
+      parallax.current.x = (e.clientX / window.innerWidth - 0.5) * 40;
+      parallax.current.y = (e.clientY / window.innerHeight - 0.5) * 40;
 
-      setMousePos({ x: e.clientX, y: e.clientY });
-      setParallax({ x: xf, y: yf });
+      if (!raf) {
+        raf = requestAnimationFrame(() => {
+          if (orbRef1.current) {
+            orbRef1.current.style.transform = `translate3d(${parallax.current.x * 0.3}px, ${parallax.current.y * 0.3}px, 0)`;
+          }
+          if (orbRef2.current) {
+            orbRef2.current.style.transform = `translate3d(${parallax.current.x * -0.3}px, ${parallax.current.y * -0.3}px, 0)`;
+          }
+          raf = null;
+        });
+      }
     };
 
-    window.addEventListener("mousemove", move);
-    return () => window.removeEventListener("mousemove", move);
+    window.addEventListener("mousemove", handleMove);
+    return () => window.removeEventListener("mousemove", handleMove);
   }, []);
 
   if (!faqs || faqs.length === 0) return null;
 
+  /** Memoized particles (performance fix) */
+  const particles = useMemo(
+    () =>
+      Array.from({ length: 25 }).map(() => ({
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        delay: Math.random() * 5,
+        duration: 6 + Math.random() * 10,
+      })),
+    []
+  );
+
   return (
     <div className="relative overflow-hidden bg-gradient-to-b from-slate-900 via-purple-900 to-slate-900 py-20 px-4 sm:px-6 lg:px-8">
 
-      {/* ===================================================== */}
-      {/* ✨ FLOATING PARTICLES */}
-      {/* ===================================================== */}
+      {/* FLOAT PARTICLES */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        {particles.map((_, i) => (
+        {particles.map((p, i) => (
           <span
             key={i}
             className="absolute w-1 h-1 bg-white/30 rounded-full animate-float"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${6 + Math.random() * 10}s`,
+              left: `${p.left}%`,
+              top: `${p.top}%`,
+              animationDelay: `${p.delay}s`,
+              animationDuration: `${p.duration}s`,
             }}
           />
         ))}
       </div>
 
-      {/* ===================================================== */}
-      {/* 🌈 PARALLAX GLOW ORBS */}
-      {/* ===================================================== */}
+      {/* PARALLAX ORBS (GPU only) */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div
+          ref={orbRef1}
           className="absolute w-96 h-96 bg-purple-500/20 blur-3xl rounded-full animate-pulse"
-          style={{
-            top: `calc(10% + ${parallax.y * 0.3}px)`,
-            left: `calc(12% + ${parallax.x * 0.3}px)`,
-          }}
-        ></div>
-
+          style={{ top: "10%", left: "12%" }}
+        />
         <div
+          ref={orbRef2}
           className="absolute w-[32rem] h-[32rem] bg-pink-500/20 blur-3xl rounded-full animate-pulse"
-          style={{
-            bottom: `calc(12% - ${parallax.y * 0.3}px)`,
-            right: `calc(12% - ${parallax.x * 0.3}px)`,
-            animationDelay: "1s",
-          }}
-        ></div>
+          style={{ bottom: "12%", right: "12%", animationDelay: "1s" }}
+        />
       </div>
 
-      {/* ===================================================== */}
-      {/* 🔦 SPOTLIGHT FOLLOWING CURSOR */}
-      {/* ===================================================== */}
-      <div
-        className="absolute inset-0 pointer-events-none z-0"
-        style={{
-          background: `radial-gradient(
-            300px at ${mousePos.x}px ${mousePos.y}px,
-            rgba(255,255,255,0.18),
-            transparent 70%
-          )`,
-          transition: "background 0.08s ease-out",
-        }}
-      ></div>
-
-      {/* ===================================================== */}
       {/* FAQ CONTENT */}
-      {/* ===================================================== */}
       <div className="relative z-10 max-w-4xl mx-auto">
 
-        {/* Header */}
+        {/* HEADER */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-pink-600 to-rose-500 mb-6 shadow-lg shadow-pink-500/30">
             <HelpCircle className="w-8 h-8 text-white" />
@@ -104,7 +99,7 @@ export default function ClassicFAQSection2({ faqs = [] }) {
           </p>
         </div>
 
-        {/* Items */}
+        {/* FAQ LIST */}
         <div className="space-y-4">
           {faqs.map((faq, index) => {
             const Icon = faq.icon || HelpCircle;
@@ -119,12 +114,11 @@ export default function ClassicFAQSection2({ faqs = [] }) {
                     : "border-white/10 bg-white/5 hover:bg-white/10"
                 }`}
               >
-                {/* Question */}
+                {/* QUESTION ROW */}
                 <button
                   className="w-full p-6 flex items-start gap-4 text-left"
                   onClick={() => setActiveIndex(isActive ? null : index)}
                 >
-                  {/* Icon */}
                   <div
                     className={`w-12 h-12 rounded-lg flex items-center justify-center transition-all ${
                       isActive
@@ -160,7 +154,7 @@ export default function ClassicFAQSection2({ faqs = [] }) {
                   </div>
                 </button>
 
-                {/* Answer */}
+                {/* ANSWER */}
                 <div
                   className={`overflow-hidden transition-all duration-300 ${
                     isActive ? "max-h-96" : "max-h-0"
@@ -176,10 +170,9 @@ export default function ClassicFAQSection2({ faqs = [] }) {
             );
           })}
         </div>
-
       </div>
 
-      {/* Background Animations */}
+      {/* ANIMATIONS */}
       <style jsx>{`
         @keyframes float {
           0% { transform: translateY(0); opacity: 0.4; }

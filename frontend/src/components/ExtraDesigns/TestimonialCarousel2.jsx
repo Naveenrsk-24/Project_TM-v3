@@ -1,5 +1,6 @@
 "use client";
-import React, { useState, useEffect } from "react";
+
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Star, Quote, ArrowLeft, ArrowRight } from "lucide-react";
 
 const TestimonialCarousel2 = () => {
@@ -7,10 +8,9 @@ const TestimonialCarousel2 = () => {
   const [isAutoPlay, setIsAutoPlay] = useState(true);
   const [direction, setDirection] = useState("right");
 
-  // NEW: Mouse & parallax states
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [parallax, setParallax] = useState({ x: 0, y: 0 });
-
+  /** ======================================================
+   * TESTIMONIAL DATA (UNCHANGED)
+   ======================================================= */
   const testimonials = [
     {
       id: 1,
@@ -54,7 +54,9 @@ const TestimonialCarousel2 = () => {
     },
   ];
 
-  // Autoplay
+  /** ======================================================
+   * AUTOPLAY
+   ======================================================= */
   useEffect(() => {
     if (!isAutoPlay) return;
 
@@ -66,103 +68,93 @@ const TestimonialCarousel2 = () => {
     return () => clearInterval(timer);
   }, [isAutoPlay, testimonials.length]);
 
-  // Manual Prev / Next
-  const handlePrev = () => {
-    setDirection("left");
-    setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-    setIsAutoPlay(false);
-  };
+  /** ======================================================
+   * PARALLAX — GPU only, NO React re-renders
+   ======================================================= */
+  const orbRef1 = useRef(null);
+  const orbRef2 = useRef(null);
+  const parallax = useRef({ x: 0, y: 0 });
+  let raf = null;
 
-  const handleNext = () => {
-    setDirection("right");
-    setActiveIndex((prev) => (prev + 1) % testimonials.length);
-    setIsAutoPlay(false);
-  };
-
-  const currentTestimonial = testimonials[activeIndex];
-
-  // ================================
-  // 🌟 NEW: Mouse Movement Parallax
-  // ================================
   useEffect(() => {
     const handleMove = (e) => {
-      const xFactor = (e.clientX / window.innerWidth - 0.5) * 40;
-      const yFactor = (e.clientY / window.innerHeight - 0.5) * 40;
+      parallax.current.x = (e.clientX / window.innerWidth - 0.5) * 40;
+      parallax.current.y = (e.clientY / window.innerHeight - 0.5) * 40;
 
-      setMousePos({ x: e.clientX, y: e.clientY });
-      setParallax({ x: xFactor, y: yFactor });
+      if (!raf) {
+        raf = requestAnimationFrame(() => {
+          if (orbRef1.current)
+            orbRef1.current.style.transform = `translate3d(${parallax.current.x * 0.3}px, ${parallax.current.y * 0.3}px, 0)`;
+
+          if (orbRef2.current)
+            orbRef2.current.style.transform = `translate3d(${parallax.current.x * -0.3}px, ${parallax.current.y * -0.3}px, 0)`;
+
+          raf = null;
+        });
+      }
     };
 
     window.addEventListener("mousemove", handleMove);
     return () => window.removeEventListener("mousemove", handleMove);
   }, []);
 
-  const particles = Array.from({ length: 25 });
+  /** ======================================================
+   * MEMOIZED PARTICLES 
+   ======================================================= */
+  const particles = useMemo(
+    () =>
+      Array.from({ length: 25 }).map(() => ({
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        delay: Math.random() * 5,
+        duration: 5 + Math.random() * 10,
+      })),
+    []
+  );
+
+  const currentTestimonial = testimonials[activeIndex];
+
+  /** ======================================================
+   * FINAL RENDER
+   ======================================================= */
 
   return (
     <div className="relative min-h-screen bg-gradient-to-b from-slate-900 via-purple-900 to-slate-900 py-20 px-4 overflow-hidden">
 
-      {/* ============================= */}
-      {/* ✨ FLOATING PARTICLES */}
-      {/* ============================= */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {particles.map((_, i) => (
+      {/* PARTICLES */}
+      <div className="absolute inset-0 pointer-events-none">
+        {particles.map((p, i) => (
           <span
             key={i}
             className="absolute w-1 h-1 bg-white/40 rounded-full animate-float"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${5 + Math.random() * 10}s`,
+              left: `${p.left}%`,
+              top: `${p.top}%`,
+              animationDelay: `${p.delay}s`,
+              animationDuration: `${p.duration}s`,
             }}
-          ></span>
+          />
         ))}
       </div>
 
-      {/* ============================= */}
-      {/* 🌈 PARALLAX ORBS */}
-      {/* ============================= */}
+      {/* ORBS — GPU TRANSFORMED */}
       <div className="absolute inset-0 pointer-events-none">
         <div
+          ref={orbRef1}
           className="absolute w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse"
-          style={{
-            top: `calc(20% + ${parallax.y * 0.3}px)`,
-            left: `calc(12% + ${parallax.x * 0.3}px)`,
-          }}
-        ></div>
-
+          style={{ top: "20%", left: "12%" }}
+        />
         <div
+          ref={orbRef2}
           className="absolute w-[28rem] h-[28rem] bg-pink-500/20 rounded-full blur-3xl animate-pulse"
-          style={{
-            bottom: `calc(12% - ${parallax.y * 0.3}px)`,
-            right: `calc(10% - ${parallax.x * 0.3}px)`,
-            animationDelay: "1s",
-          }}
-        ></div>
+          style={{ bottom: "12%", right: "10%", animationDelay: "1s" }}
+        />
       </div>
 
-      {/* ============================= */}
-      {/* 🔦 SPOTLIGHT FOLLOWING CURSOR */}
-      {/* ============================= */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: `radial-gradient(
-            300px at ${mousePos.x}px ${mousePos.y}px,
-            rgba(255,255,255,0.18),
-            transparent 70%
-          )`,
-          transition: "background 0.08s ease-out",
-        }}
-      ></div>
-
-      {/* ============================= */}
       {/* MAIN CONTENT */}
-      {/* ============================= */}
       <div className="max-w-6xl mx-auto relative z-10">
 
-        {/* Header */}
+        {/* HEADER */}
         <div className="text-center mb-16">
           <div className="inline-block mb-4 px-4 py-2 bg-gradient-to-r from-rose-500 to-pink-600 rounded-full">
             <span className="text-white text-sm font-semibold tracking-wider">
@@ -179,7 +171,7 @@ const TestimonialCarousel2 = () => {
           </p>
         </div>
 
-        {/* Testimonial Card */}
+        {/* CARD */}
         <div className="relative">
           <div className="bg-white/95 rounded-3xl shadow-2xl overflow-hidden backdrop-blur-xl">
             <div className="grid md:grid-cols-5">
@@ -187,6 +179,7 @@ const TestimonialCarousel2 = () => {
               {/* IMAGE */}
               <div className="md:col-span-2 relative h-64 md:h-full">
                 <div
+                  key={currentTestimonial.id}
                   className={`absolute inset-0 transition-all duration-700 ${
                     direction === "right"
                       ? "animate-[slideInRight_0.7s_ease-out]"
@@ -203,16 +196,17 @@ const TestimonialCarousel2 = () => {
                 </div>
               </div>
 
-              {/* CONTENT */}
+              {/* TEXT CONTENT */}
               <div className="md:col-span-3 p-8 md:p-12 flex flex-col justify-center">
                 <div
+                  key={currentTestimonial.id + "-text"}
                   className={`transition-all duration-700 ${
                     direction === "right"
                       ? "animate-[fadeInUp_0.7s_ease-out]"
                       : "animate-[fadeInDown_0.7s_ease-out]"
                   }`}
                 >
-                  {/* Stars */}
+                  {/* STARS */}
                   <div className="flex gap-1 mb-4">
                     {[...Array(currentTestimonial.rating)].map((_, i) => (
                       <Star
@@ -239,7 +233,7 @@ const TestimonialCarousel2 = () => {
                     </span>
                   </div>
 
-                  {/* Dots */}
+                  {/* DOTS */}
                   <div className="flex gap-2 mt-6">
                     {testimonials.map((_, index) => (
                       <button
@@ -254,31 +248,40 @@ const TestimonialCarousel2 = () => {
                             ? "w-8 bg-gradient-to-r from-rose-500 to-pink-600"
                             : "w-2 bg-neutral-300 hover:bg-neutral-400"
                         }`}
-                      ></button>
+                      />
                     ))}
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
 
           {/* ARROWS */}
           <button
-            onClick={handlePrev}
+            onClick={() => {
+              setDirection("left");
+              setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+              setIsAutoPlay(false);
+            }}
             className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gradient-to-r hover:from-pink-600 hover:to-rose-500 hover:text-white transition-all"
           >
             <ArrowLeft className="w-5 h-5" />
           </button>
 
           <button
-            onClick={handleNext}
+            onClick={() => {
+              setDirection("right");
+              setActiveIndex((prev) => (prev + 1) % testimonials.length);
+              setIsAutoPlay(false);
+            }}
             className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gradient-to-r hover:from-pink-600 hover:to-rose-500 hover:text-white transition-all"
           >
             <ArrowRight className="w-5 h-5" />
           </button>
         </div>
 
-        {/* Thumbnails */}
+        {/* THUMBNAILS */}
         <div className="flex justify-center gap-4 mt-12">
           {testimonials.map((t, index) => (
             <button
@@ -288,7 +291,9 @@ const TestimonialCarousel2 = () => {
                 setActiveIndex(index);
                 setIsAutoPlay(false);
               }}
-              className={`transition-all ${activeIndex === index ? "scale-110" : "scale-90 opacity-60"}`}
+              className={`transition-all ${
+                activeIndex === index ? "scale-110" : "scale-90 opacity-60"
+              }`}
             >
               <div className="w-20 h-20 rounded-full overflow-hidden ring-4 ring-white">
                 <img src={t.image} className="w-full h-full object-cover" />
@@ -298,7 +303,7 @@ const TestimonialCarousel2 = () => {
         </div>
       </div>
 
-      {/* Animations */}
+      {/* ANIMATIONS */}
       <style jsx>{`
         @keyframes slideInRight {
           from { transform: translateX(100%); opacity: 0; }

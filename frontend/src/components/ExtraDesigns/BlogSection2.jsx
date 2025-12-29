@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState, useMemo } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -21,23 +21,53 @@ const BlogSection2 = ({
 }) => {
   const swiperRef = useRef(null);
 
-  // === Background interactivity ===
-  const [mouse, setMouse] = useState({ x: 0, y: 0 });
-  const [parallax, setParallax] = useState({ x: 0, y: 0 });
-  const particles = Array.from({ length: 25 });
+  /** ---------------------------------------------------------
+   * PERFORMANCE FIXES:
+   * - No spotlight
+   * - GPU-only parallax
+   * - Memoized particles
+   ----------------------------------------------------------*/
+
+  const orbRef1 = useRef(null);
+  const orbRef2 = useRef(null);
+  const parallax = useRef({ x: 0, y: 0 });
+  let raf = null;
 
   useEffect(() => {
-    const move = (e) => {
-      const xf = (e.clientX / window.innerWidth - 0.5) * 50;
-      const yf = (e.clientY / window.innerHeight - 0.5) * 50;
+    const handleMove = (e) => {
+      parallax.current.x = (e.clientX / window.innerWidth - 0.5) * 50;
+      parallax.current.y = (e.clientY / window.innerHeight - 0.5) * 50;
 
-      setMouse({ x: e.clientX, y: e.clientY });
-      setParallax({ x: xf, y: yf });
+      if (!raf) {
+        raf = requestAnimationFrame(() => {
+          if (orbRef1.current)
+            orbRef1.current.style.transform = `translate3d(${parallax.current.x * 0.3}px, ${parallax.current.y * 0.3}px, 0)`;
+
+          if (orbRef2.current)
+            orbRef2.current.style.transform = `translate3d(${parallax.current.x * -0.3}px, ${parallax.current.y * -0.3}px, 0)`;
+
+          raf = null;
+        });
+      }
     };
 
-    window.addEventListener("mousemove", move);
-    return () => window.removeEventListener("mousemove", move);
+    window.addEventListener("mousemove", handleMove);
+    return () => window.removeEventListener("mousemove", handleMove);
   }, []);
+
+  /** ---------------------------------------------------------
+   * MEMOIZED PARTICLES
+   ----------------------------------------------------------*/
+  const particles = useMemo(
+    () =>
+      Array.from({ length: 25 }).map(() => ({
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        delay: Math.random() * 5,
+        duration: 6 + Math.random() * 10,
+      })),
+    []
+  );
 
   if (!blogs || blogs.length === 0) {
     return (
@@ -61,64 +91,37 @@ const BlogSection2 = ({
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-slate-900 via-purple-900 to-black py-20 sm:py-28">
 
-      {/* ===================================================== */}
-      {/* ✨ FLOATING PARTICLES */}
-      {/* ===================================================== */}
+      {/* PARTICLES (Memoized) */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        {particles.map((_, i) => (
+        {particles.map((p, i) => (
           <span
             key={i}
             className="absolute w-1 h-1 bg-white/40 rounded-full animate-float"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${6 + Math.random() * 10}s`,
+              left: `${p.left}%`,
+              top: `${p.top}%`,
+              animationDelay: `${p.delay}s`,
+              animationDuration: `${p.duration}s`,
             }}
-          ></span>
+          />
         ))}
       </div>
 
-      {/* ===================================================== */}
-      {/* 🌈 PARALLAX ORBS */}
-      {/* ===================================================== */}
+      {/* GPU-Optimized Parallax Orbs */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div
+          ref={orbRef1}
           className="absolute w-[28rem] h-[28rem] bg-purple-500/20 blur-3xl rounded-full animate-pulse"
-          style={{
-            top: `calc(14% + ${parallax.y * 0.3}px)`,
-            left: `calc(10% + ${parallax.x * 0.3}px)`,
-          }}
-        ></div>
-
+          style={{ top: "14%", left: "10%" }}
+        />
         <div
+          ref={orbRef2}
           className="absolute w-[32rem] h-[32rem] bg-pink-500/20 blur-3xl rounded-full animate-pulse"
-          style={{
-            bottom: `calc(12% - ${parallax.y * 0.3}px)`,
-            right: `calc(12% - ${parallax.x * 0.3}px)`,
-            animationDelay: "0.7s",
-          }}
-        ></div>
+          style={{ bottom: "12%", right: "12%", animationDelay: "0.7s" }}
+        />
       </div>
 
-      {/* ===================================================== */}
-      {/* 🔦 SPOTLIGHT CURSOR EFFECT */}
-      {/* ===================================================== */}
-      <div
-        className="absolute inset-0 pointer-events-none z-0"
-        style={{
-          background: `radial-gradient(
-            320px at ${mouse.x}px ${mouse.y}px,
-            rgba(255,255,255,0.17),
-            transparent 70%
-          )`,
-          transition: "background 0.06s ease-out",
-        }}
-      ></div>
-
-      {/* ===================================================== */}
       {/* CONTENT */}
-      {/* ===================================================== */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
@@ -131,7 +134,7 @@ const BlogSection2 = ({
           {title}
         </motion.h2>
 
-        {/* Swiper Carousel */}
+        {/* Swiper */}
         <div className="relative">
           <Swiper
             onSwiper={(swiper) => (swiperRef.current = swiper)}
@@ -158,7 +161,7 @@ const BlogSection2 = ({
             ))}
           </Swiper>
 
-          {/* Navigation Arrows */}
+          {/* Desktop Nav Arrows */}
           <div className="hidden lg:block">
             <motion.button
               onClick={() => swiperRef.current?.slidePrev()}
@@ -194,7 +197,7 @@ const BlogSection2 = ({
         </div>
       </div>
 
-      {/* Animations */}
+      {/* Float Animation */}
       <style jsx>{`
         @keyframes float {
           0% { transform: translateY(0); opacity: 0.4; }
