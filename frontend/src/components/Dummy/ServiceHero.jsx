@@ -23,7 +23,8 @@ export default function ServiceHero({
   return (
     <section
       ref={ref}
-      className="relative flex items-center justify-center overflow-hidden min-h-[70vh] text-white rounded-4xl m-4"
+      // className="relative flex items-center justify-center overflow-hidden min-h-[70vh] text-white rounded-4xl m-4"
+      className="relative flex items-center justify-center overflow-hidden min-h-[90vh] text-white rounded-4xl m-4"
       aria-label={`${title} hero section`}
     >
       {/* Background image with parallax */}
@@ -31,7 +32,7 @@ export default function ServiceHero({
         style={{
           backgroundImage: `url(${bg || "/default-hero.jpg"})`,
           backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundPosition: "bottom",
           y,
         }}
         className="absolute inset-0 will-change-transform"
