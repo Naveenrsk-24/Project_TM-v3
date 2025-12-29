@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import LayoutClientWrapper from "@/components/LayoutClientWrapper";
 import IPhoneDetector from "@/components/IPhoneDetector";
+import { albegos } from "./fonts/albegos";
+import { mondayjuly } from "./fonts/monday-july";
 
 // Font setup
 const geistSans = Geist({
@@ -68,7 +70,7 @@ const LCP_IMAGE_URL =
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en-IN" className="dark">
+    <html lang="en-IN" className={`dark ${albegos.variable} ${mondayjuly.variable}`}>
       <head>
         {/* Performance & verification */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />

@@ -23,12 +23,12 @@ function HeroSection() {
       <div className="absolute inset-0 bg-black/50 -z-10" aria-hidden="true" />
 
       <div className="relative z-10 text-white text-center md:text-left max-w-xl space-y-4">
-        <h1 className="text-3xl sm:text-4xl md:text-[2.35rem] font-serif font-bold leading-tight">
+        <h2 className="text-3xl sm:text-4xl md:text-[2.35rem] font-bold leading-tight">
           Wedding Photographers <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-rose-500">
             in Chennai
           </span>
-        </h1>
+        </h2>
 
         <p className="text-base sm:text-lg md:text-[18px] text-white font-serif">
           TM Studios specializes in candid and cinematic wedding photography

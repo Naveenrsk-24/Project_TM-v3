@@ -26,6 +26,13 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+h1 {
+  font-family: var(--font-albegos);
+}
+h2 {
+  font-family: var(--font-monday-july);
+}
+
 /* Hide parallax ONLY on iPhones */
 .is-iphone .slide {
   display: none !important;
