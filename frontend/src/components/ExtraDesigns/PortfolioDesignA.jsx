@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { Camera, ArrowRight, Grid3x3 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
-const PortfolioGallery = ({
+export default function PortfolioGallery({
   title = "Our Wedding Photography Portfolio",
   subtitle = "Portfolio Highlights",
   description = "Real emotions, vibrant celebrations, and timeless memories captured.",
@@ -12,27 +13,48 @@ const PortfolioGallery = ({
   buttonLabel = "View Full Portfolio",
   buttonLink = "/portfolio",
   particleCount = 25,
-}) => {
-  const [isVisible, setIsVisible] = useState(false);
+}) {
+  const [isMounted, setIsMounted] = useState(false);
   const [hoveredId, setHoveredId] = useState(null);
 
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [parallax, setParallax] = useState({ x: 0, y: 0 });
+  /** -------------------------------------------------
+   * MEMOIZED PARTICLES (Eliminates random re-renders)
+   -------------------------------------------------- */
+  const particles = useMemo(
+    () =>
+      Array.from({ length: particleCount }).map(() => ({
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        delay: Math.random() * 5,
+        duration: 6 + Math.random() * 8,
+      })),
+    [particleCount]
+  );
 
-  const particles = Array.from({ length: particleCount });
-
+  /** -------------------------------------------------
+   * MOUNT ANIMATION
+   -------------------------------------------------- */
   useEffect(() => {
-    setIsVisible(true);
+    setIsMounted(true);
   }, []);
 
-  // Mouse tracking
-  useEffect(() => {
-    const handleMove = (e) => {
-      const xf = (e.clientX / window.innerWidth - 0.5) * 40;
-      const yf = (e.clientY / window.innerHeight - 0.5) * 40;
+  /** -------------------------------------------------
+   * GPU-ACCELERATED PARALLAX USING rAF
+   -------------------------------------------------- */
+  const [parallax, setParallax] = useState({ x: 0, y: 0 });
 
-      setMousePos({ x: e.clientX, y: e.clientY });
-      setParallax({ x: xf, y: yf });
+  useEffect(() => {
+    let frame = null;
+
+    const handleMove = (e) => {
+      if (!frame) {
+        frame = requestAnimationFrame(() => {
+          const xf = (e.clientX / window.innerWidth - 0.5) * 40;
+          const yf = (e.clientY / window.innerHeight - 0.5) * 40;
+          setParallax({ x: xf, y: yf });
+          frame = null;
+        });
+      }
     };
 
     window.addEventListener("mousemove", handleMove);
@@ -44,17 +66,17 @@ const PortfolioGallery = ({
 
       {/* PARTICLES */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {particles.map((_, i) => (
+        {particles.map((p, i) => (
           <span
             key={i}
             className="absolute w-1 h-1 bg-white/40 rounded-full animate-float"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${6 + Math.random() * 8}s`,
+              left: `${p.left}%`,
+              top: `${p.top}%`,
+              animationDelay: `${p.delay}s`,
+              animationDuration: `${p.duration}s`,
             }}
-          ></span>
+          />
         ))}
       </div>
 
@@ -63,90 +85,84 @@ const PortfolioGallery = ({
         <div
           className="absolute w-96 h-96 bg-purple-500/20 blur-3xl rounded-full animate-pulse"
           style={{
-            top: `calc(15% + ${parallax.y * 0.3}px)`,
-            left: `calc(10% + ${parallax.x * 0.3}px)`,
+            transform: `translate3d(${parallax.x * 0.3}px, ${parallax.y * 0.3}px, 0)`,
+            top: "15%",
+            left: "10%",
           }}
-        ></div>
+        />
 
         <div
           className="absolute w-[30rem] h-[30rem] bg-pink-500/20 blur-3xl rounded-full animate-pulse"
           style={{
-            bottom: `calc(15% - ${parallax.y * 0.3}px)`,
-            right: `calc(10% - ${parallax.x * 0.3}px)`,
-            animationDelay: "0.8s",
+            transform: `translate3d(${parallax.x * -0.3}px, ${parallax.y * -0.3}px, 0)`,
+            bottom: "15%",
+            right: "10%",
           }}
-        ></div>
+        />
       </div>
 
-      {/* SPOTLIGHT */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: `radial-gradient(
-            300px at ${mousePos.x}px ${mousePos.y}px,
-            rgba(255,255,255,0.17),
-            transparent 70%
-          )`,
-          transition: "background 0.08s ease-out",
-        }}
-      ></div>
-
       {/* HERO SECTION */}
-      <div className="relative overflow-hidden pt-20 pb-12 px-4">
-        <div className="absolute inset-0 bg-gradient-to-b from-violet-800/20 to-transparent"></div>
-
+      <div className="relative pt-20 pb-12 px-4">
         <div
-          className={`max-w-7xl mx-auto text-center relative z-10 transition-all duration-1000 transform ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+          className="max-w-7xl mx-auto text-center relative z-10 transition-all duration-1000"
+          style={{
+            opacity: isMounted ? 1 : 0,
+            transform: isMounted ? "translateY(0)" : "translateY(20px)",
+          }}
         >
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-6 py-2 rounded-full shadow-sm mb-6 border border-white/10">
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-6 py-2 rounded-full mb-6 border border-white/10">
             <Camera className="w-4 h-4 text-violet-300" />
-            <span className="text-sm font-medium text-slate-200">{subtitle}</span>
+            <span className="text-sm text-slate-200">{subtitle}</span>
           </div>
 
-          <h2 className="text-5xl md:text-7xl font-serif text-slate-100 mb-4 tracking-tight">
+          <h2 className="text-5xl md:text-7xl font-serif text-slate-100 mb-4">
             {title}
           </h2>
 
-          <p className="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg text-slate-300 max-w-2xl mx-auto">
             {description}
           </p>
         </div>
       </div>
 
-      {/* MASONRY GRID */}
+      {/* GALLERY GRID */}
       <div className="max-w-7xl mx-auto px-4 pb-20">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[200px] gap-4">
-          {images.map((image, index) => (
+
+          {images.map((image, i) => (
             <div
               key={image.id}
-              className={`group relative overflow-hidden rounded-2xl ${
+              className={`group relative overflow-hidden rounded-2xl cursor-pointer transition-all duration-700 ${
                 image.span || "row-span-1"
-              } cursor-pointer transition-all duration-700 transform ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
               }`}
-              style={{ transitionDelay: `${index * 50}ms` }}
+              style={{
+                opacity: isMounted ? 1 : 0,
+                transform: isMounted ? "translateY(0)" : "translateY(30px)",
+                transitionDelay: `${i * 50}ms`,
+              }}
               onMouseEnter={() => setHoveredId(image.id)}
               onMouseLeave={() => setHoveredId(null)}
             >
-              <div className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-110">
-                <img src={image.src} alt={image.alt} className="w-full h-full object-cover" />
-              </div>
+              {/* NEXT IMAGE */}
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                sizes="(max-width:768px) 50vw, (max-width:1200px) 33vw, 25vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                priority={i < 4}
+              />
 
+              {/* OVERLAY */}
               <div
                 className={`absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent transition-opacity duration-500 ${
                   hoveredId === image.id ? "opacity-100" : "opacity-0"
                 }`}
               >
-                <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                  <p className="text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                    {image.alt}
-                  </p>
+                <div className="absolute bottom-0 p-4">
+                  <p className="text-white text-sm">{image.alt}</p>
                 </div>
               </div>
-
-              <div className="absolute top-3 right-3 w-8 h-8 border-t-2 border-r-2 border-white/40 opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-75 group-hover:scale-100"></div>
             </div>
           ))}
         </div>
@@ -154,16 +170,12 @@ const PortfolioGallery = ({
         {/* BUTTON */}
         <div className="flex justify-center mt-16">
           <Link href={buttonLink}>
-            <button className="group relative px-10 py-5 bg-gradient-to-r from-rose-500 to-pink-600 text-white rounded-full font-medium text-lg shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-rose-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
+            <button className="group relative px-10 py-5 bg-gradient-to-r from-rose-500 to-pink-600 text-white rounded-full text-lg shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
               <span className="relative flex items-center gap-3">
                 <Grid3x3 className="w-5 h-5 transition-transform duration-500 group-hover:rotate-90" />
                 {buttonLabel}
                 <ArrowRight className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-2" />
               </span>
-
-              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12"></div>
             </button>
           </Link>
         </div>
@@ -182,6 +194,4 @@ const PortfolioGallery = ({
       `}</style>
     </div>
   );
-};
-
-export default PortfolioGallery;
+}
