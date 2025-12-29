@@ -25,7 +25,7 @@ import ContactForm from "@/components/Dummy/ContactForm";
 import TestimonialCarousel2 from "@/components/ExtraDesigns/TestimonialCarousel2";
 import ClassicFAQSection2 from "@/components/ExtraDesigns/ClassicFAQSection2";
 import Breadcrumbs from "@/components/Breadcrumbs/BreadCrumbs";
-import WeddingGallerySection2 from "@/components/ExtraDesigns/WeddingGallerySection-2";
+import GalleryContent from "@/components/ExtraDesigns/GalleryContent";
 
 // --------------------------------------------------------
 // 1) DYNAMIC METADATA HANDLING (for sub-cluster pages)
@@ -130,7 +130,7 @@ export default function WeddingsClusterPage({ params }) {
         <FilteredGallery service={service} />
 
         {/* <PricingCard service={service} /> */}
-        <WeddingGallerySection2/>
+        <GalleryContent/>
         <TestimonialCarousel2 />
         <ClassicFAQSection2 />
         <ContactForm service={service} />

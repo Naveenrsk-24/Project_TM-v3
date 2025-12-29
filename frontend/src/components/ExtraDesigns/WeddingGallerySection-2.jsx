@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-export default function WeddingGallerySectionDefined() {
+export default function WeddingGallerySection2() {
   return (
     <section className="relative bg-gradient-to-b from-black via-purple-950 to-black py-36 px-6 lg:px-24 overflow-hidden">
 
