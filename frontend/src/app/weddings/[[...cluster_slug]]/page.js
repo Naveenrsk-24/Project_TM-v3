@@ -63,7 +63,7 @@ export default function WeddingsClusterPage({ params }) {
   if (isRootCluster) {
     const h1 = "Wedding Photography";
     const h2 =
-      "Cinematic & Candid Wedding Photography – Premium Packages, Portfolio & Pricing";
+      "Premium wedding photography portfolio in chennai";
 
     // Build Schema with FULL manual organization block
     const structuredData = generateStructuredData({

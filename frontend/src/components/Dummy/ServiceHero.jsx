@@ -23,7 +23,6 @@ export default function ServiceHero({
   return (
     <section
       ref={ref}
-      // className="relative flex items-center justify-center overflow-hidden min-h-[70vh] text-white rounded-4xl m-4"
       className="relative flex items-center justify-center overflow-hidden min-h-[90vh] text-white rounded-4xl m-4"
       aria-label={`${title} hero section`}
     >
@@ -48,34 +47,34 @@ export default function ServiceHero({
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
         className="relative z-10 max-w-3xl mx-auto text-center px-6"
-      >
 
-        <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold leading-tight mb-4 tracking-tight drop-shadow-xl">
+        // **************** Dont't Remove the dynamic title *****************
+      >
+        {/* <h1 className="font-albegos text-4xl sm:text-6xl md:text-7xl leading-tight mb-4 tracking-tight drop-shadow-xl">
           {title}
-        </h1>
+        </h1> */}
 
         {subtitle && (
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-6 max-w-2xl mx-auto"
+            className="text-lg sm:text-xl md:text-1xl text-gray-200 text-center text-nowrap mb-[6rem] max-w-2xl mx-auto font-albegos"
           >
             {subtitle}
           </motion.p>
         )}
 
-        {location && (
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="flex items-center justify-center gap-2 text-gray-300 italic mb-8"
-          >
-            <FaMapMarkerAlt className="text-gray-400" />
-            <span>Serving clients in {location}</span>
-          </motion.p>
-        )}
+
+        <h1 className="leading-tight drop-shadow-xl relative flex flex-col items-center mb-[5rem]">
+          <span className="font-monday text-[13rem] tracking-tight leading-none">
+            Stories
+          </span>
+
+          <span className="font-albegos text-[2.2rem] tracking-wide mt-[-2.5rem] relative left-5">
+            By Tm Studios
+          </span>
+        </h1>
 
         <motion.a
           href={ctaLink}
