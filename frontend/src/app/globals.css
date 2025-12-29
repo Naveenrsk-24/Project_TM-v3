@@ -26,43 +26,11 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-
-/* Parllax CSS */ 
-
-/* ---------------------------------------
-   Base slide styling (desktop first)
---------------------------------------- */
-.slide {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  position: relative;
-  isolation: isolate; /* keeps pseudo layers contained */
-}
-
-/* ---------------------------------------
-   iOS Safari & touch fallback
-   (background-attachment: fixed is disabled on iOS)
---------------------------------------- */
+/* Hide parallax ONLY on iPhones */
 @supports (-webkit-touch-callout: none) {
-
-  .slide {
-    background-attachment: scroll;
-  }
-
-  .slide::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    background-image: inherit;
-    background-size: cover;
-    background-position: center;
-
-    /* depth illusion */
-    transform: scale(1.08);
-    will-change: transform;
-
-    z-index: -1;
+  @media (max-width: 768px) {
+    .slide {
+      display: none !important;
+    }
   }
 }

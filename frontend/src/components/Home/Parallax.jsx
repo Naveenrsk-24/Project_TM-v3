@@ -15,7 +15,7 @@ const Parallax = () => {
         <div
           key={service.id}
           id={service.id}
-          className="slide relative flex flex-col sm:flex-row min-h-screen p-4 sm:p-8 md:p-16 bg-cover"
+          className="relative flex flex-col sm:flex-row min-h-screen p-4 sm:p-8 md:p-16 bg-cover"
           style={{
             backgroundImage: `url(${service.image})`,
             backgroundAttachment: "fixed",
