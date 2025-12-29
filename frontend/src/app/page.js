@@ -14,13 +14,11 @@ import ClassicFAQSection2 from "@/components/ExtraDesigns/ClassicFAQSection2";
 import TestimonialCarousel2 from "@/components/ExtraDesigns/TestimonialCarousel2";
 import BlogSection2 from "@/components/ExtraDesigns/BlogSection2";
 import { DUMMY_BLOGS } from "../data/blog-data";
+import { galleryImages } from "@/data/Home/GalleryImages";
 
 import { pageMeta } from "@/lib/meta-data";
-import WhyChooseUs from "@/components/ExtraDesigns/WhyChooseUs";
-// import HeroDiagonalClose from "@/components/ExtraDesigns/HeroDiagonalClose";
-// import FrameSequencePlayer from "@/components/ExtraDesigns/HeroDiagonalClose";
 import { SITE_URL } from "@/lib/meta-data";
-import WeddingGallerySection from "@/components/ExtraDesigns/WeddingGallerySection";
+
 
 export const metadata = pageMeta({
   title: "Wedding Photographers in Chennai | Candid & Cinematic Photography",
@@ -122,25 +120,6 @@ export default function Home() {
     homepageFAQSchema,
   ]);
 
-
-  // ***************************************************************88
-
-  const galleryImages = [
-  { id: 1, src: '/Weddings/Rajasekar-Nithya/Rajasekar-Nithya-101.jpg', alt: "Couple in garden", span: "row-span-2" },
-  { id: 2, src: '/Weddings/Rajasekar-Nithya/Rajasekar-Nithya-103.jpg', alt: "Couple at doorway", span: "row-span-1" },
-  { id: 3, src: '/Weddings/Jalaludeen-Shain/Jalaludeen-Shain-102.jpg', alt: "Wedding celebration", span: "row-span-2" },
-  { id: 4, src: '/Weddings/Jalaludeen-Shain/Jalaludeen-Shain-101.jpg', alt: "Traditional portrait", span: "row-span-1" },
-  { id: 5, src: '/Weddings/Rajasekar-Nithya/Rajasekar-Nithya-104.jpg', alt: "Couple at beach", span: "row-span-1" },
-  { id: 6, src: '/Weddings/Jalaludeen-Shain/Jalaludeen-Shain-103.jpg', alt: "Elegant bride", span: "row-span-2" },
-  { id: 7, src: '/Weddings/Arul-Vijayalakshmi/Arul-Vijayalakshmi-101.jpg', alt: "White architecture", span: "row-span-1" },
-  { id: 8, src: '/Weddings/Arul-Vijayalakshmi/Arul-Vijayalakshmi-105.jpg', alt: "Outdoor ceremony", span: "row-span-2" },
-  { id: 9, src: '/Weddings/Arul-Vijayalakshmi/Arul-Vijayalakshmi-106.jpg', alt: "Garden wedding", span: "row-span-2" },
-  { id: 10, src: '/Weddings/Arul-Vijayalakshmi/Arul-Vijayalakshmi-103.jpg', alt: "Couple at balcony", span: "row-span-1" },
-  { id: 11, src: '/Weddings/Arul-Vijayalakshmi/Arul-Vijayalakshmi-108.jpg', alt: "Temple silhouette", span: "row-span-1" },
-];
-
-//    /Weddings/Rajasekar-Nithya/Rajasekar-Nithya-101.jpg
-
   return (
     <>
       {/* Inject JSON-LD (Homepage) */}
@@ -164,30 +143,6 @@ export default function Home() {
       <TestimonialCarousel2 />
       <BlogSection2 blogs={DUMMY_BLOGS} />
 
-
-      {/* ****************************************************** */}
-      {/* <HeroDiagonalClose /> */}
-      {/* <FrameSequencePlayer/> */}
-
-      {/* <WhyChooseUs
-        tagline="About BizFusionX"
-        heading={
-          <>
-            Empowering Businesses <br className="hidden sm:block" /> with Proven
-            Strategies
-          </>
-        }
-        body="With over a decade of experience, we specialize in business growth, strategic planning, and financial consulting. Our expert team helps companies achieve their goals with data-driven strategies and industry-leading insights."
-        stats={stats}
-        features={features}
-        carouselItems={[
-          { type: "image", src: "/Weddings/beautiful-husband-wife-posing-beach.jpg", alt: "Description" },
-          { type: "video", src: "/Weddings/beautiful-husband-wife-posing-beach.jpg", alt: "Video description" },
-          { type: "image", src: "/Weddings/beautiful-husband-wife-posing-beach.jpg", alt: "Description" },
-        ]}
-        contactNumber="+91 0605 5050"
-        autoPlayInterval={5000}
-      /> */}
     </>
   );
 }
