@@ -282,7 +282,7 @@ function AlbumCard({ album, index }) {
               className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
             />
 
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-purple-900/30 to-transparent" />
+            {/* <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-purple-900/30 to-transparent" /> */}
 
             <div className="absolute top-4 left-4 z-20">
               <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900/80 backdrop-blur-md border border-purple-500/40">

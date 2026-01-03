@@ -39,7 +39,7 @@ export default function ServiceHero({
       ></motion.div>
 
       {/* Subtle overlay gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-transparent"></div>
+      {/* <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-transparent"></div> */}
 
       {/* Content */}
       <motion.div

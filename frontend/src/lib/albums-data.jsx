@@ -8,7 +8,7 @@ export const ALBUMS = {
       locationSlug: "chennai",
       localitySlug: "ecr",
       nicheSlug: "Weddings",
-      coverImage: "/Weddings/sai-narasimhan-putr-kusumavardhini/Sai-narasimhan-Putri-kusumavardhini.avif",
+      coverImage: "/Weddings/Sai-narasimhan-putr-kusumavardhini/Sai-narasimhan-Putri-kusumavardhini.avif",
       albumUrl: "/portfolio/tamil-weddings/akash-akshaya-wedding",
     },
     {
