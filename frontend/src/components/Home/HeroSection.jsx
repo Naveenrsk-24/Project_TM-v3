@@ -20,7 +20,7 @@ function HeroSection() {
         {
           x: 0,
           opacity: 1,
-          duration: 1.3,
+          duration: 3,
           ease: "power3.out",
           scrollTrigger: {
             trigger: textRef.current,
