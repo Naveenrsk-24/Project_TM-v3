@@ -31,8 +31,10 @@ const categories = [
     color: 'from-rose-500/80 to-pink-600/80',
     ariaLabel: 'View the Weddings photography gallery',
   },
+
+  // ********** Redirected the Pre-Wedding Category to Weddings temporarily ************
   {
-    id: 'pre-weddings',
+    id: 'weddings',
     title: 'Pre Weddings',
     description: 'Romantic pre-wedding shoots telling your story before the big day',
     image: "/Weddings/Arul-Vijayalakshmi/Arul-Vijayalakshmi-108.jpg",
@@ -80,8 +82,11 @@ const PortfolioCategoryCards = ({ data = categories, title = 'Photography Collec
 
   // Handler for navigation
   const navigateToCategory = (id) => {
-    router.push(`/portfolio/${id}`);
+    router.push(`/${id}`);
   };
+  // const navigateToCategory = (id) => {
+  //   router.push(`/portfolio/${id}`);
+  // };
 
   return (
     <section 
@@ -151,12 +156,12 @@ const PortfolioCategoryCards = ({ data = categories, title = 'Photography Collec
               <div className="absolute inset-0 bg-black/35 transition-all duration-500 group-hover:bg-black/70"></div>
 
               {/* Gradient Overlay 2: Dynamic Color Wash on Hover (The requested feature) */}
-              <div 
+              {/* <div 
                 aria-hidden="true" 
                 className={`absolute inset-0 bg-gradient-to-t ${category.color} transition-opacity duration-500 ease-in-out pointer-events-none ${
                   hoveredCategory === category.id ? 'opacity-50' : 'opacity-0'
                 }`}
-              ></div>
+              ></div> */}
 
 
               {/* Decorative Elements */}

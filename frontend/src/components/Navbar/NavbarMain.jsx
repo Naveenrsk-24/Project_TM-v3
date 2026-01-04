@@ -132,7 +132,7 @@ const NavBarMain = () => {
 
                 {/* YouTube */}
                 <Link
-                  href="https://www.youtube.com/tmstudios.photography"
+                  href="https://www.youtube.com/@tmstudiosphotography"
                   target="_blank"
                   aria-label="YouTube"
                 >

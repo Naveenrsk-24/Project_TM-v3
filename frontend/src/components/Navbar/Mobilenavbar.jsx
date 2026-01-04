@@ -56,7 +56,7 @@ const Mobilenavbar = ({ toggleNavbar }) => {
           
           {/* Instagram */}
           <a 
-            href="https://www.instagram.com/yourprofile"
+            href="https://www.instagram.com/tmstudios.photography"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
@@ -73,7 +73,7 @@ const Mobilenavbar = ({ toggleNavbar }) => {
 
           {/* YouTube */}
           <a 
-            href="https://www.youtube.com/yourchannel"
+            href="https://www.youtube.com/@tmstudiosphotography"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="YouTube"

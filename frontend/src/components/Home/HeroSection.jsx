@@ -42,7 +42,7 @@ function HeroSection() {
       <div className="absolute inset-0 -z-10">
         <div
           className="w-full h-full bg-cover bg-center"
-          style={{ backgroundImage: "url('/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-Banner.avif')" }}
+          style={{ backgroundImage: "url('/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-Banner2.avif')" }}
         />
         <div className="absolute inset-0 bg-black/50" />
       </div>
