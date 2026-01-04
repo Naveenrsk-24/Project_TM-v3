@@ -135,10 +135,10 @@ export default function MaternityClusterPage({ params }) {
         <FilteredGallery service={service} />
 
         <PricingCard service={service} />
-        <TestimonialCarousel2 />
+        {/* <TestimonialCarousel2 /> */}
         <ClassicFAQSection2 />
 
-        <ContactForm service={service} />
+        {/* <ContactForm service={service} /> */}
       </>
     );
   }
