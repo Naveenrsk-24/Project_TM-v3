@@ -151,7 +151,7 @@ export default function SubHeroSection() {
 
                 <div className="relative overflow-hidden rounded-3xl shadow-2xl">
                   <img
-                    src="/Weddings/Jalaludeen-Shain/Jalaludeen-Shain-103.jpg"
+                    src="/Weddings/Manoj&Charu/Manoj-Charu-Banner.avif"
                     alt="Beautiful Indian wedding ceremony"
                     className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
                   />
