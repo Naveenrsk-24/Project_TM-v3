@@ -36,16 +36,16 @@ function HeroSection() {
   return (
     <section
       className="relative w-full min-h-screen flex flex-col 
-                 items-center text-center
-                 md:items-end md:text-right 
-                 md:justify-center
-                 overflow-hidden px-4 sm:px-8 md:px-16 py-24"
+                justify-start md:justify-center   /* top on mobile, center on desktop */
+                items-center text-center
+                md:items-end md:text-right
+                overflow-hidden px-4 sm:px-8 md:px-16 py-24"
       aria-label="Wedding photography hero section"
     >
       {/* Background Image */}
       <div className="absolute inset-0 -z-10">
         <div
-          className="w-full h-full bg-cover bg-center" // centered image
+          className="w-full h-full bg-cover bg-[center_left_40%] md:bg-center"
           style={{
             backgroundImage:
               "url('/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-Banner2.avif')",
@@ -53,17 +53,18 @@ function HeroSection() {
         />
       </div>
 
-      {/* Overlay */}
-      <div className="absolute inset-0 -z-[5] bg-gradient-to-l from-black/60 via-black/10 to-transparent" />
+      {/* Desktop Overlay (Right → Left) */}
+      <div className="absolute inset-0 -z-[5] hidden md:block bg-gradient-to-l from-black/60 via-black/10 to-transparent" />
 
-      {/* Text */}
+      {/* Mobile Overlay (Top → Bottom) */}
+      <div className="absolute inset-0 -z-[5] md:hidden bg-gradient-to-b from-black/60 via-black/20 to-transparent" />
+
+      {/* Text Content */}
       <div
         ref={textRef}
-        className="
-          relative z-10 text-white max-w-2xl space-y-4
-          ml-0 md:ml-auto     /* center on mobile, push to right on md+ */
-           sm:top-0
-        "
+        className="relative z-10 text-white max-w-2xl space-y-4
+                   -mt-10 sm:-mt-16 md:mt-0   /* lift text up on mobile */
+                   ml-0 md:ml-auto"
       >
         <h1 className="text-3xl sm:text-4xl md:text-[2.35rem] leading-tight font-albegos">
           Wedding Photographers <br />
@@ -73,11 +74,9 @@ function HeroSection() {
         </h1>
 
         <p
-          className=" text-base sm:text-lg md:text-[18px] text-white/90 font-serif max-w-[25rem]    /* narrower text on mobile */
-          sm:max-w-[25rem] /* slight increase on small screens */
-          md:max-w-none    /* full width from md+ */
-          mx-auto md:mx-0
-  "
+          className="text-base sm:text-lg md:text-[18px] text-white/90 font-serif
+                     max-w-[22rem] sm:max-w-[25rem] md:max-w-none
+                     mx-auto md:mx-0"
         >
           TM Studios specializes in candid and cinematic wedding photography
           that captures every emotion with authenticity. Our team blends
