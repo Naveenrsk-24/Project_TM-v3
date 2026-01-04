@@ -38,8 +38,6 @@ export default function ServiceHero({
         aria-hidden="true"
       ></motion.div>
 
-      {/* Subtle overlay gradient */}
-      {/* <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-transparent"></div> */}
 
       {/* Content */}
       <motion.div
