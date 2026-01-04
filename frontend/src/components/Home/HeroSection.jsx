@@ -35,13 +35,17 @@ function HeroSection() {
 
   return (
     <section
-      className="relative w-full min-h-screen flex flex-col md:items-end md:justify-center overflow-hidden px-4 sm:px-8 md:px-16 py-24"
+      className="relative w-full min-h-screen flex flex-col 
+                 items-center text-center
+                 md:items-end md:text-right 
+                 md:justify-center
+                 overflow-hidden px-4 sm:px-8 md:px-16 py-24"
       aria-label="Wedding photography hero section"
     >
       {/* Background Image */}
       <div className="absolute inset-0 -z-10">
         <div
-          className="w-full h-full bg-cover bg-center"
+          className="w-full h-full bg-cover bg-center" // centered image
           style={{
             backgroundImage:
               "url('/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-Banner2.avif')",
@@ -49,13 +53,17 @@ function HeroSection() {
         />
       </div>
 
-      {/* NEW: Overlay for text visibility */}
+      {/* Overlay */}
       <div className="absolute inset-0 -z-[5] bg-gradient-to-l from-black/60 via-black/10 to-transparent" />
 
-      {/* Text Content (Right aligned) */}
+      {/* Text */}
       <div
         ref={textRef}
-        className="relative z-10 text-white text-right max-w-2xl ml-auto space-y-4"
+        className="
+          relative z-10 text-white max-w-2xl space-y-4
+          ml-0 md:ml-auto     /* center on mobile, push to right on md+ */
+           sm:top-0
+        "
       >
         <h1 className="text-3xl sm:text-4xl md:text-[2.35rem] leading-tight font-albegos">
           Wedding Photographers <br />
@@ -64,7 +72,13 @@ function HeroSection() {
           </span>
         </h1>
 
-        <p className="text-base sm:text-lg md:text-[18px] text-white/90 font-serif w-120">
+        <p
+          className=" text-base sm:text-lg md:text-[18px] text-white/90 font-serif max-w-[25rem]    /* narrower text on mobile */
+          sm:max-w-[25rem] /* slight increase on small screens */
+          md:max-w-none    /* full width from md+ */
+          mx-auto md:mx-0
+  "
+        >
           TM Studios specializes in candid and cinematic wedding photography
           that captures every emotion with authenticity. Our team blends
           artistry with storytelling to create timeless images — trusted by
