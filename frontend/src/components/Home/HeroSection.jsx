@@ -8,7 +8,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Performance optimized: minimized reflow, compressed styles, GSAP context cleanup
 function HeroSection() {
   const textRef = useRef(null);
 
@@ -16,7 +15,7 @@ function HeroSection() {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         textRef.current,
-        { x: -120, opacity: 0 },
+        { x: 120, opacity: 0 },
         {
           x: 0,
           opacity: 1,
@@ -36,30 +35,36 @@ function HeroSection() {
 
   return (
     <section
-      className="relative w-full min-h-screen flex flex-col md:items-start md:justify-center overflow-hidden px-4 sm:px-8 md:px-16 py-24"
+      className="relative w-full min-h-screen flex flex-col md:items-end md:justify-center overflow-hidden px-4 sm:px-8 md:px-16 py-24"
       aria-label="Wedding photography hero section"
     >
+      {/* Background Image */}
       <div className="absolute inset-0 -z-10">
         <div
           className="w-full h-full bg-cover bg-center"
-          style={{ backgroundImage: "url('/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-Banner2.avif')" }}
+          style={{
+            backgroundImage:
+              "url('/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-Banner2.avif')",
+          }}
         />
-        <div className="absolute inset-0 bg-black/50" />
       </div>
 
-      {/* Text Content */}
+      {/* NEW: Overlay for text visibility */}
+      <div className="absolute inset-0 -z-[5] bg-gradient-to-l from-black/60 via-black/10 to-transparent" />
+
+      {/* Text Content (Right aligned) */}
       <div
         ref={textRef}
-        className="relative z-10 text-white md:text-left text-center max-w-2xl space-y-4"
+        className="relative z-10 text-white text-right max-w-2xl ml-auto space-y-4"
       >
-        <h1 className="text-3xl sm:text-4xl md:text-[2.35rem] leading-tight font-monday">
+        <h1 className="text-3xl sm:text-4xl md:text-[2.35rem] leading-tight font-albegos">
           Wedding Photographers <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-rose-500 font-albegos">
             in Chennai
           </span>
         </h1>
 
-        <p className="text-base sm:text-lg md:text-[18px] text-white/90 font-serif">
+        <p className="text-base sm:text-lg md:text-[18px] text-white/90 font-serif w-120">
           TM Studios specializes in candid and cinematic wedding photography
           that captures every emotion with authenticity. Our team blends
           artistry with storytelling to create timeless images — trusted by
@@ -67,9 +72,7 @@ function HeroSection() {
         </p>
 
         <Link href="/booking" aria-label="Book a wedding photography session">
-          <button
-            className="mt-4 px-6 py-3 bg-gradient-to-r from-pink-600 to-rose-500 hover:opacity-90 text-white font-semibold font-serif rounded-full transition-transform hover:scale-105 duration-200 min-w-[44px] min-h-[44px] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-pink-300 focus-visible:ring-offset-2 cursor-pointer"
-          >
+          <button className="mt-4 px-6 py-3 bg-gradient-to-r from-pink-600 to-rose-500 hover:opacity-90 text-white font-semibold font-serif rounded-full transition-transform hover:scale-105 duration-200 min-w-[44px] min-h-[44px] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-pink-300 focus-visible:ring-offset-2 cursor-pointer">
             Let’s Capture Your Story
           </button>
         </Link>
