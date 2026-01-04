@@ -5,6 +5,10 @@ import Link from "next/link";
 import LogoImage from "../../../public/Logo/TMlogo.png";
 import Mobilenavbar from "../Navbar/Mobilenavbar";
 
+// Import your uploaded icons
+import InstagramIcon from "../../../public/Icons/instagram.png";
+import YoutubeIcon from "../../../public/Icons/youtube.png";
+
 const NavBarMain = () => {
   const [mobileNavbarVisible, setMobileNavbarVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
@@ -62,23 +66,56 @@ const NavBarMain = () => {
                 ))}
               </ul>
 
-              {/* Contact Us Button */}
-             <Link
-                  href="/booking"
-                  aria-label="Book a wedding photography session"
+              {/* Social Icons + Contact Button */}
+              <div className="hidden lg:flex items-center space-x-5">
+
+                {/* Instagram */}
+                <Link
+                  href="https://www.instagram.com/yourprofile"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="hover:opacity-80 transition duration-200"
                 >
+                  <Image 
+                    src={InstagramIcon} 
+                    alt="Instagram Icon" 
+                    width={26} 
+                    height={26} 
+                    className="rounded-md"
+                  />
+                </Link>
+
+                {/* YouTube */}
+                <Link
+                  href="https://www.youtube.com/yourchannel"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="YouTube"
+                  className="hover:opacity-80 transition duration-200"
+                >
+                  <Image 
+                    src={YoutubeIcon} 
+                    alt="YouTube Icon" 
+                    width={30} 
+                    height={30}
+                  />
+                </Link>
+
+                {/* Contact Us Button */}
+                <Link href="/booking" aria-label="Book a wedding photography session">
                   <button
-                    className={`relative px-4 py-3 bg-gradient-to-r cursor-pointer from-pink-600 to-rose-500 inline-block text-white hover:text-black border-2 rounded-full font-semibold text-sm overflow-hidden transition-transform duration-200 ease-in-out transform ${
-                      isHovered
-                        ? "scale-105 border-transparent text-black"
-                        : "border-transparent"
+                    className={`relative px-4 py-3 bg-gradient-to-r cursor-pointer from-pink-600 to-rose-500 
+                    inline-block text-white hover:text-black border-2 rounded-full font-semibold text-sm 
+                    overflow-hidden transition-transform duration-200 ease-in-out transform ${
+                      isHovered ? "scale-105 border-transparent text-black" : "border-transparent"
                     }`}
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
                     style={{ zIndex: 0 }}
                   >
                     <span
-                      className={`absolute inset-0 bg-white rounded-full transition-transform duration-200 ease-out transform ${
+                      className={`absolute inset-0 bg-white rounded-full transition-transform duration-200 ease-out ${
                         isHovered ? "translate-y-0" : "translate-y-full"
                       }`}
                       style={{ transformOrigin: "bottom", zIndex: -1 }}
@@ -86,6 +123,8 @@ const NavBarMain = () => {
                     Contact Us
                   </button>
                 </Link>
+              </div>
+
             </nav>
           </div>
         </header>
