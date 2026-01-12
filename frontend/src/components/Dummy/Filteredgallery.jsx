@@ -1,5 +1,6 @@
 "use client";
 import { useState, useMemo } from "react";
+import { Filter } from "lucide-react";
 import Image from "next/image";
 import { ALBUMS } from "@/lib/albums-data";
 import { SERVICES } from "@/lib/services-data";
@@ -145,13 +146,13 @@ export default function FilteredGallery({ service, location, niche, locality }) 
 function FiltersPanel({ activeFilter, setActiveFilter, filterOptions, allAlbums }) {
   return (
     <div className="relative p-6 rounded-3xl bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl border border-purple-500/20 shadow-2xl">
+
+      <div className="flex items-center gap-2 text-sm font-bold text-purple-300/60 uppercase tracking-wider mb-4 px-4">
+        <Filter className="w-6 h-6 text-purple-300/70" />
+        <span>Filter by Category</span>
+      </div>
+
       <div className="relative space-y-3">
-
-        <div className="text-sm font-bold text-purple-300/60 uppercase tracking-wider mb-4 px-4">
-          Filter by Category
-        </div>
-
-        {/* ALL BUTTON */}
         <FilterButton
           label="All Albums"
           count={allAlbums.length}
@@ -159,7 +160,6 @@ function FiltersPanel({ activeFilter, setActiveFilter, filterOptions, allAlbums 
           onClick={() => setActiveFilter("all")}
         />
 
-        {/* CATEGORY BUTTONS */}
         {filterOptions.map(option => (
           <FilterButton
             key={option.slug}
@@ -173,7 +173,6 @@ function FiltersPanel({ activeFilter, setActiveFilter, filterOptions, allAlbums 
     </div>
   );
 }
-
 function FilterButton({ label, count, active, onClick }) {
   return (
     <button
