@@ -40,9 +40,78 @@ body {
   font-family: var(--font-sans), system-ui, sans-serif;
 }
 
+/* *********************************************************** */
 
 /* Hide parallax ONLY on iPhones */
 .is-iphone .slide {
   display: none !important;
 }
 
+/* ************************************************************ */
+
+/* === KeywordRichAbout Component Animations === */
+
+@keyframes aboutBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes aboutFloat {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateY(-20px) translateX(10px);
+    opacity: 0.5;
+  }
+}
+
+.animate-about-blink {
+  animation: aboutBlink 1s infinite;
+}
+
+.animate-about-float {
+  animation: aboutFloat 8s ease-in-out infinite;
+}
+
+
+/* ************************************************************** */
+
+.carousel-center {
+  transform: translateX(0%) scale(1.15) translateZ(0) rotateY(0deg);
+  z-index: 50;
+  opacity: 1;
+}
+
+.carousel-right {
+  transform: translateX(65%) scale(0.85) translateZ(-140px) rotateY(-22deg);
+  z-index: 30;
+  opacity: 0.7;
+}
+
+.carousel-left {
+  transform: translateX(-65%) scale(0.85) translateZ(-140px) rotateY(22deg);
+  z-index: 30;
+  opacity: 0.7;
+}
+
+.carousel-right-far {
+  transform: translateX(100%) scale(0.6) translateZ(-260px) rotateY(-40deg);
+  z-index: 10;
+  opacity: 0.4;
+}
+
+.carousel-left-far {
+  transform: translateX(-100%) scale(0.6) translateZ(-260px) rotateY(40deg);
+  z-index: 10;
+  opacity: 0.4;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out;
+}

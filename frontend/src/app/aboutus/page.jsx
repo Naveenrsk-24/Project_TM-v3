@@ -1,4 +1,6 @@
 import { ExpertsSection } from "@/components/About/ExpertSection";
+import KeywordRichAbout from "@/components/ExtraDesigns/KeywordRichAbout";
+import ThreeDCarousel from "@/components/ExtraDesigns/ThreeDCarousel";
 import { pageMeta } from "@/lib/meta-data";
 
 
@@ -12,7 +14,9 @@ image: "/og-about.jpg",
 export default function Aboutus() {
   return (
    <>
-    <ExpertsSection/>
+    <KeywordRichAbout/>
+    <ThreeDCarousel/>
+    {/* <ExpertsSection/> */}
    </>
 
   );
