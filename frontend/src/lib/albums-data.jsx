@@ -53,28 +53,11 @@ export const ALBUMS = {
 
       coverImage: "/Weddings/Wedding-Thumbnails/Arulraj-Vijayalakshmi-W.avif",
 
-      images: [
-        "/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-W-1.avif",
-        "/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-W-2.avif",
-        "/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-W-3.avif",
-        "/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-W-4.avif",
-        "/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-W-5.avif",
-        "/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-W-6.avif",
-        "/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-W-7.avif",
-        "/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-W-8.avif",
-        "/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-W-9.avif",
-        "/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-W-10.avif",
-        "/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-W-11.avif",
-        "/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-W-12.avif",
-        "/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-W-13.avif",
-        "/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-W-14.avif",
-        "/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-W-15.avif",
-        "/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-W-16.avif",
-        "/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-W-17.avif",
-        "/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-W-18.avif",
-        "/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-W-19.avif",
-        "/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-W-20.avif",
-      ],
+      images: Array.from(
+        { length: 20 },
+        (_, i) =>
+          `/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-W-${i + 1}.avif`
+      ),
 
       albumUrl: "/portfolio/tamil-weddings/aarav-meera-itc",
     },
@@ -87,63 +70,15 @@ export const ALBUMS = {
       locationSlug: "coimbatore",
       localitySlug: "guindy",
       nicheSlug: "wedding",
-
       coverImage: "/Weddings/Wedding-Thumbnails/Jalal-ShainFathima-R.avif",
-      images: [
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-1.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-2.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-3.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-4.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-5.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-6.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-7.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-8.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-9.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-10.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-11.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-12.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-13.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-14.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-15.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-16.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-17.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-18.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-19.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-20.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-21.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-22.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-23.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-24.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-25.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-26.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-27.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-28.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-29.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-30.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-31.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-32.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-33.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-34.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-35.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-36.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-37.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-38.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-39.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-40.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-41.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-42.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-43.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-44.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-45.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-46.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-47.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-48.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-49.avif",
-        "/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-50.avif",
-      ],
 
-      albumUrl: "/portfolio/tamil-weddings/jalaludeen-shain",
+       images: Array.from(
+        { length: 50 },
+        (_, i) =>
+          `/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-${i + 1}.avif`
+      ),
     },
+
     {
       id: "rajasekar-nithyashree-w",
       coupleName: "Rajasekar & Nithyashree",
@@ -155,14 +90,14 @@ export const ALBUMS = {
 
       coverImage: "/Weddings/Wedding-Thumbnails/Rajasekar-Nithyashree-W.avif",
 
-      images: [
-        "/Weddings/Jalaludeen-Shain/1.avif",
-        "/Weddings/Jalaludeen-Shain/2.avif",
-        "/Weddings/Jalaludeen-Shain/3.avif",
-      ],
+      images: Array.from(
+        { length: 40 },
+        (_, i) =>
+          `/Weddings/Rajasekar-Nithya/Rajasekar-Nithyashree-W-${i + 1}.avif`
+      ),
 
-      albumUrl: "/portfolio/tamil-weddings/jalaludeen-shain",
     },
+
     {
       id: "pariventhan-revathy-w",
       coupleName: "Pariventhan & Revathy",
@@ -174,13 +109,11 @@ export const ALBUMS = {
 
       coverImage: "/Weddings/Wedding-Thumbnails/Pariventhan-Revathy-WR.avif",
 
-      images: [
-        "/Weddings/Jalaludeen-Shain/1.avif",
-        "/Weddings/Jalaludeen-Shain/2.avif",
-        "/Weddings/Jalaludeen-Shain/3.avif",
-      ],
-
-      albumUrl: "/portfolio/tamil-weddings/jalaludeen-shain",
+      images: Array.from(
+        { length: 14 },
+        (_, i) =>
+          `/Weddings/Pariventhan-Revathy/Pariventhan-Revathy-WR-${i + 1}.avif`
+      ),
     },
     {
       id: "arul-vijayalakshmi-r",
@@ -193,15 +126,12 @@ export const ALBUMS = {
 
       coverImage: "/Weddings/Reception-Thumbnails/Arulraj-Vijayalakshmi-R.avif",
 
-      images: [
-        "/Weddings/Arul-Vijayalakshmi/Arul-Vijayalakshmi-101.jpg",
-        "/Weddings/Arul-Vijayalakshmi/Arul-Vijayalakshmi-102.jpg",
-        "/Weddings/Arul-Vijayalakshmi/Arul-Vijayalakshmi-103.jpg",
-        "/Weddings/Arul-Vijayalakshmi/Arul-Vijayalakshmi-104.jpg",
-        "/Weddings/Arul-Vijayalakshmi/Arul-Vijayalakshmi-105.jpg",
-      ],
+       images: Array.from(
+        { length: 26 },
+        (_, i) =>
+          `/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-R-${i + 1}.avif`
+      ),
 
-      albumUrl: "/portfolio/tamil-weddings/aarav-meera-itc",
     },
     {
       id: "rajasekar-nithyashree-r",
@@ -214,13 +144,13 @@ export const ALBUMS = {
 
       coverImage: "/Weddings/Reception-Thumbnails/Rajasekar-Nithyashree-R.avif",
 
-      images: [
-        "/Weddings/Jalaludeen-Shain/1.avif",
-        "/Weddings/Jalaludeen-Shain/2.avif",
-        "/Weddings/Jalaludeen-Shain/3.avif",
-      ],
+       
+      images: Array.from(
+        { length: 30 },
+        (_, i) =>
+          `/Weddings/Rajasekar-Nithya/Rajasekar-Nithyashree-R-${i + 1}.avif`
+      ),
 
-      albumUrl: "/portfolio/tamil-weddings/jalaludeen-shain",
     },
     {
       id: "manikandan-maheshwari-pw",
@@ -234,15 +164,12 @@ export const ALBUMS = {
       coverImage:
         "/Weddings/Prewedding-Thumbnails/Manikandan-Maheshwari-PW.avif",
 
-      images: [
-        "/Weddings/Arul-Vijayalakshmi/Arul-Vijayalakshmi-101.jpg",
-        "/Weddings/Arul-Vijayalakshmi/Arul-Vijayalakshmi-102.jpg",
-        "/Weddings/Arul-Vijayalakshmi/Arul-Vijayalakshmi-103.jpg",
-        "/Weddings/Arul-Vijayalakshmi/Arul-Vijayalakshmi-104.jpg",
-        "/Weddings/Arul-Vijayalakshmi/Arul-Vijayalakshmi-105.jpg",
-      ],
+     images: Array.from(
+        { length: 8 },
+        (_, i) =>
+          `/Weddings/Manikandan-Maheshwari/Manikandan-Maheshwari-PW-${i + 1}.avif`
+      ),
 
-      albumUrl: "/portfolio/tamil-weddings/aarav-meera-itc",
     },
     {
       id: "arul-vijayalakshmi-pw",
@@ -256,15 +183,11 @@ export const ALBUMS = {
       coverImage:
         "/Weddings/Prewedding-Thumbnails/Arulraj-Vijayalakshmi-PW.avif",
 
-      images: [
-        "/Weddings/Arul-Vijayalakshmi/Arul-Vijayalakshmi-101.jpg",
-        "/Weddings/Arul-Vijayalakshmi/Arul-Vijayalakshmi-102.jpg",
-        "/Weddings/Arul-Vijayalakshmi/Arul-Vijayalakshmi-103.jpg",
-        "/Weddings/Arul-Vijayalakshmi/Arul-Vijayalakshmi-104.jpg",
-        "/Weddings/Arul-Vijayalakshmi/Arul-Vijayalakshmi-105.jpg",
-      ],
-
-      albumUrl: "/portfolio/tamil-weddings/aarav-meera-itc",
+       images: Array.from(
+        { length: 15 },
+        (_, i) =>
+          `/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-PW-${i + 1}.avif`
+      ),
     },
   ],
 
