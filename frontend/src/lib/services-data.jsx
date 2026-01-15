@@ -2,7 +2,7 @@ export const SERVICES = {
   weddings: {
     id: "weddings",
     title: "Wedding Photography",
-    bgImage: '/Weddings/WeddingBanner.avif',
+    bgImage: '/Weddings/WeddingBanner2.avif',
     ctaLabel: "Book Your Shoot",
     ctaLink: "/contactus",
     slug: "weddings",
