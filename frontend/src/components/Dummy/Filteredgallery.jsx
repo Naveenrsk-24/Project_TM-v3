@@ -2,6 +2,7 @@
 import { useState, useMemo } from "react";
 import { Filter } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link"; // ✅ REQUIRED FOR DYNAMIC ROUTING
 import { ALBUMS } from "@/lib/albums-data";
 import { SERVICES } from "@/lib/services-data";
 
@@ -11,16 +12,18 @@ export default function FilteredGallery({ service, location, niche, locality }) 
   const allAlbums = ALBUMS[serviceSlug] || [];
 
   const filterOptions = useMemo(() => {
-    const uniqueNiches = [...new Set(allAlbums.map(a => a.nicheSlug))];
+    const uniqueNiches = [...new Set(allAlbums.map((a) => a.nicheSlug))];
     const serviceData = SERVICES[serviceSlug];
 
-    return uniqueNiches.map(nicheSlug => {
-      const nch = serviceData?.niches?.find(n => n.slug === nicheSlug);
+    return uniqueNiches.map((nicheSlug) => {
+      const nch = serviceData?.niches?.find((n) => n.slug === nicheSlug);
       return {
         slug: nicheSlug,
         title:
           nch?.title ||
-          nicheSlug.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase()),
+          nicheSlug.replace(/-/g, " ").replace(/\b\w/g, (l) =>
+            l.toUpperCase()
+          ),
       };
     });
   }, [allAlbums, serviceSlug]);
@@ -31,15 +34,15 @@ export default function FilteredGallery({ service, location, niche, locality }) 
     let filtered = [...allAlbums];
 
     if (activeFilter !== "all") {
-      filtered = filtered.filter(a => a.nicheSlug === activeFilter);
+      filtered = filtered.filter((a) => a.nicheSlug === activeFilter);
     }
 
     if (location && !niche) {
-      filtered = filtered.filter(a => a.locationSlug === location.slug);
+      filtered = filtered.filter((a) => a.locationSlug === location.slug);
     }
 
     if (locality) {
-      filtered = filtered.filter(a => a.localitySlug === locality.slug);
+      filtered = filtered.filter((a) => a.localitySlug === locality.slug);
     }
 
     return filtered;
@@ -48,7 +51,7 @@ export default function FilteredGallery({ service, location, niche, locality }) 
   return (
     <section className="relative min-h-screen bg-gradient-to-b from-slate-900 via-purple-900 to-slate-900 py-20 px-4 overflow-hidden">
 
-      {/* STATIC PARTICLES (no JS) */}
+      {/* STATIC PARTICLES */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {[...Array(30)].map((_, i) => (
           <span
@@ -75,7 +78,7 @@ export default function FilteredGallery({ service, location, niche, locality }) 
         }
       `}</style>
 
-      {/* STATIC BLUR SHAPES (no parallax) */}
+      {/* STATIC BLUR SHAPES */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute w-80 h-80 bg-purple-500/20 rounded-full blur-xl top-[20%] left-[12%]" />
         <div className="absolute w-[26rem] h-[26rem] bg-pink-500/20 rounded-full blur-xl bottom-[12%] right-[10%]" />
@@ -142,11 +145,10 @@ export default function FilteredGallery({ service, location, niche, locality }) 
   );
 }
 
-/* ---- FILTER PANEL (unchanged design, optimized logic) ---- */
+/* ---- FILTER PANEL ---- */
 function FiltersPanel({ activeFilter, setActiveFilter, filterOptions, allAlbums }) {
   return (
     <div className="relative p-6 rounded-3xl bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl border border-purple-500/20 shadow-2xl">
-
       <div className="flex items-center gap-2 text-sm font-bold text-purple-300/60 uppercase tracking-wider mb-4 px-4">
         <Filter className="w-6 h-6 text-purple-300/70" />
         <span>Filter by Category</span>
@@ -160,11 +162,11 @@ function FiltersPanel({ activeFilter, setActiveFilter, filterOptions, allAlbums 
           onClick={() => setActiveFilter("all")}
         />
 
-        {filterOptions.map(option => (
+        {filterOptions.map((option) => (
           <FilterButton
             key={option.slug}
             label={option.title}
-            count={allAlbums.filter(a => a.nicheSlug === option.slug).length}
+            count={allAlbums.filter((a) => a.nicheSlug === option.slug).length}
             active={activeFilter === option.slug}
             onClick={() => setActiveFilter(option.slug)}
           />
@@ -173,6 +175,7 @@ function FiltersPanel({ activeFilter, setActiveFilter, filterOptions, allAlbums 
     </div>
   );
 }
+
 function FilterButton({ label, count, active, onClick }) {
   return (
     <button
@@ -185,9 +188,11 @@ function FilterButton({ label, count, active, onClick }) {
     >
       <span className="relative flex items-center justify-between">
         <span>{label}</span>
-        <span className={`min-w-[36px] h-[28px] flex items-center justify-center px-3 text-sm font-black rounded-xl ${
-          active ? "bg-white/25 text-white" : "bg-purple-900/40 text-purple-300"
-        }`}>
+        <span
+          className={`min-w-[36px] h-[28px] flex items-center justify-center px-3 text-sm font-black rounded-xl ${
+            active ? "bg-white/25 text-white" : "bg-purple-900/40 text-purple-300"
+          }`}
+        >
           {count}
         </span>
       </span>
@@ -195,7 +200,7 @@ function FilterButton({ label, count, active, onClick }) {
   );
 }
 
-/* ---- ALBUM CARD ---- */
+/* ---- UPDATED ALBUM CARD ---- */
 function AlbumCard({ album, index }) {
   return (
     <div
@@ -215,9 +220,12 @@ function AlbumCard({ album, index }) {
         }
       `}</style>
 
-      <a href={album.albumUrl} className="block relative transition-all duration-500 group-hover:-translate-y-3">
+      {/* 🔥 Dynamic Album Navigation FIXED */}
+      <Link
+        href={`/weddings/${album.id}`}
+        className="block relative transition-all duration-500 group-hover:-translate-y-3"
+      >
         <div className="relative p-5 bg-slate-800/40 backdrop-blur-xl rounded-3xl shadow-2xl border border-purple-500/30 group-hover:border-pink-500/60 group-hover:shadow-purple-500/30 transition-all duration-500">
-
           <div className="relative h-[450px] overflow-hidden rounded-2xl">
             <Image
               src={album.coverImage}
@@ -246,9 +254,8 @@ function AlbumCard({ album, index }) {
               View Album
             </div>
           </div>
-
         </div>
-      </a>
+      </Link>
     </div>
   );
 }
