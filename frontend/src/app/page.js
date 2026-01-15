@@ -41,19 +41,19 @@ export default function Home() {
         "Our wedding photography packages start at ₹35,000 and vary based on coverage, events, and the deliverables you choose. We'll help you pick a plan that fits your day perfectly.",
     },
     {
-      question: "Do you offer candid and traditional photography?",
+      question: "How early should we book TM Studios for our wedding",
       answer:
-        "Yes, we cover both candid and traditional styles. This ensures you get natural emotional moments along with well-framed family and ritual photos.",
+        "We recommend booking as early as possible, especially for peak wedding seasons. Most couples reach out to us several months in advance to ensure availability and smooth planning.",
     },
     {
-      question: "How early should we book for our wedding?",
+      question: "Do you cover destination and outstation weddings",
       answer:
-        "We recommend booking 2–4 months in advance, especially during peak seasons. This helps us reserve your dates and plan your sessions smoothly.",
+        "Yes, we travel across cities and destinations for weddings. Whether it is within Tamil Nadu or elsewhere in Overseas, our team is experienced in planning and documenting weddings in different locations and cultures.",
     },
     {
-      question: "Do you travel for weddings outside Chennai?",
+      question: "When can we expect to receive our wedding photos and albums",
       answer:
-        "Absolutely. We cover weddings across Chennai, Kanchipuram & Thiruvallur. We're also available for destination weddings as well. Travel details can be discussed during your consultation.",
+        "We follow a careful editing and curation process to maintain quality. Wedding photographs are usually delivered within the discussed timeline, with regular updates shared so you always know what to expect",
     },
   ];
 
@@ -141,7 +141,7 @@ export default function Home() {
       <ClassicFAQSection2 faqs={faqList} />
 
       <TestimonialCarousel2 />
-      <BlogSection2 blogs={DUMMY_BLOGS} />
+      {/* <BlogSection2 blogs={DUMMY_BLOGS} /> */}
 
     </>
   );

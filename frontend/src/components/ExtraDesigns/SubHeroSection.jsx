@@ -132,7 +132,7 @@ export default function SubHeroSection() {
 
               <div className="absolute top-10 right-10 animate-bounce-slow">
                 <div className="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center">
-                  <Heart className="w-6 h-6 text-rose-500 fill-rose-500" />
+                  {/* <Heart className="w-6 h-6 text-rose-500 fill-rose-500" /> */}
                 </div>
               </div>
 
@@ -191,11 +191,11 @@ export default function SubHeroSection() {
             </h2>
 
             <p className="text-lg text-white/90 font-serif mb-4">
-              At TM Studios, we believe every wedding deserves to be remembered as a heartfelt story.
+             At TM Studios, we believe every wedding deserves to be remembered exactly the way it felt. More than photographers, we become a part of your celebration, blending naturally with your family, traditions, and emotions. 
             </p>
 
             <p className="text-lg text-white/90 font-serif mb-8">
-              From candid joy to meaningful rituals — we document every moment authentically.
+             From heartfelt rituals to candid joy, we document your wedding story with honesty, warmth, and timeless elegance.
             </p>
 
             {/* Features (unchanged text) */}
@@ -203,19 +203,19 @@ export default function SubHeroSection() {
               {[
                 {
                   text: "Cinematic Wedding Photography",
-                  desc: "Film-inspired visuals with dramatic lighting and premium color grading.",
+                  desc: "Film inspired storytelling that brings your wedding moments to life with rich tones, thoughtful lighting, and carefully crafted composition.",
                 },
                 {
                   text: "Candid Wedding Photography",
-                  desc: "Pure, unscripted emotions — captured without posing or interruption.",
+                  desc: "Pure, unscripted emotions captured naturally, without posing or interruption.",
                 },
                 {
                   text: "Traditional Wedding Photography",
-                  desc: "Perfectly framed rituals, family portraits, and cultural ceremonies.",
+                  desc: "Every ritual and ceremony is documented with respect, clarity, and cultural understanding.",
                 },
                 {
                   text: "Vibrant & Colorful Photography",
-                  desc: "Bright, lively Indian wedding aesthetics with rich tones and clarity.",
+                  desc: "Bright, lively visuals that celebrate the colors and energy of Indian weddings.",
                 },
               ].map((item, index) => (
                 <div

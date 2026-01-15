@@ -14,44 +14,35 @@ const TestimonialCarousel2 = () => {
   const testimonials = [
     {
       id: 1,
-      name: "Priya & Arjun",
-      role: "Wedding Couple",
-      image: "/Home/Testimonial1.avif",
+      name: "Alisa Raichel",
+      role: "Seemandham",
+      image: "/Testimonials/Alisha.avif",
       rating: 5,
-      text: "Absolutely phenomenal! They captured every emotion beautifully. Our album feels timeless, and the candid moments are something we’ll treasure forever.",
-      event: "Traditional Wedding, Chennai",
-      date: "December 2024",
+      text: "We had our important events in our life like meternity, seemantham and baby photoshoot with TM STUDIOS. It was a awesome experience and great work from them. Grateful to them.",
+      event: "Maternity Shoot, Chennai",
+      date: "February 5th, 2023",
     },
     {
       id: 2,
-      name: "Aishwarya & Karthik",
-      role: "Pre-Wedding Shoot",
-      image: "/Home/Testimonial2.avif",
+      name: "Hemalatha Sethuram",
+      role: "Maternity-shoot",
+      image: "/Testimonials/Hemalatha-S-1.avif",
       rating: 5,
-      text: "Their creativity and warmth made our shoot so easy. Every frame tells a story, and the final results were beyond what we imagined.",
+      text: "Subalesh has a great talent n personally we booked two events with him. His work s a magic n astonishes us. He has a great patience to deal his clients n very comfortable to work with. Rates are nominal too. My few friends booked events on seeing his work. Very happy to help him grow more. All d best subalesh n team !!",
       event: "Beach Pre-Wedding, Mahabalipuram",
-      date: "October 2024",
+      date: "July 22nd, 2023",
     },
     {
       id: 3,
-      name: "Divya & Rajesh",
-      role: "Destination Wedding",
-      image: "/Home/Testimonial3.avif",
+      name: "Charu Meena",
+      role: "Wedding",
+      image: "/Testimonials/Manoj-Charu.avif",
       rating: 5,
-      text: "From the first call to the final delivery, everything was perfect. They understood our vision and brought it to life with incredible attention to detail.",
-      event: "Resort Wedding, Goa",
-      date: "January 2025",
+      text: "Choosing TM Studios was one of the best decisions we made for our wedding.",
+      event: "Traditional Wedding Wedding, Goa",
+      date: "April 23rd, 2023",
     },
-    {
-      id: 4,
-      name: "Ananya & Vikram",
-      role: "Engagement Ceremony",
-      image: "/Home/Testimonial1.avif",
-      rating: 5,
-      text: "Such a talented and professional team. They captured the essence of our celebration beautifully. We couldn’t be happier with the photos.",
-      event: "Garden Engagement, Bangalore",
-      date: "September 2024",
-    },
+   
   ];
 
   /** ======================================================
@@ -177,7 +168,8 @@ const TestimonialCarousel2 = () => {
             <div className="grid md:grid-cols-5">
 
               {/* IMAGE */}
-              <div className="md:col-span-2 relative h-64 md:h-full">
+              <div className="md:col-span-2 relative h-64 md:h-full flex items-center justify-center">
+
                 <div
                   key={currentTestimonial.id}
                   className={`absolute inset-0 transition-all duration-700 ${

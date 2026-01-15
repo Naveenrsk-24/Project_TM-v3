@@ -1,27 +1,27 @@
 export const seoQuotes = [
   {
-    quote: "We believe every wedding deserves to be remembered through heartfelt moments that live on forever.",
-    author: "TM Studios Photography",
-    source: "Our Philosophy",
+    quote: "At TM Studios, quality is not an option. It is a promise we make to every couple.",
+    author: "Subalesh Harikrishnan",
+    source: "TM Studios Photography",
   },
   {
-    quote: "Every frame we create captures the joy, color, and warmth of your celebration in Chennai.",
+    quote: "Trends change, styles evolve, but emotions remain constant. That is what we focus on capturing.",
     author: "Creative Director",
     source: "TM Studios Photography",
   },
   {
-    quote: "The most beautiful candid moments happen naturally—and we’re there to preserve them with care.",
+    quote: "Our job is simple. To observe quietly, feel deeply, and preserve emotions honestly.",
     author: "Aishwarya & Karthik",
-    source: "Client Review",
+    source: "TM Studios Photography",
   },
   {
-    quote: "Our cinematic style brings your love story to life with emotion, artistry, and a touch of magic.",
+    quote: "As a team, we do not chase trends. We create images that remain meaningful for years.",
     author: "Lead Photographer",
-    source: "Team Insight",
+    source: "TM Studios Photography",
   },
   {
-    quote: "From quiet smiles to grand rituals, we capture every part of your wedding with honesty and heart.",
+    quote: "For us, photography is not about clicking pictures. It is about preserving memories that feel alive.",
     author: "TM Studios Photography",
-    source: "Our Wedding Work",
+    source: "TM Studios Photography",
   }
 ];
