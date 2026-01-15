@@ -44,7 +44,8 @@ export const SERVICES = {
   "baby-shoots": {
     id: "baby-shoots",
     title: "Baby Photography",
-    bgImage: "/Weddings/groom-putting-ring-bride-s-finger.jpg",
+    bgImage: "/BabyShoots/BabyshootBannerMobile.avif",
+    mobileBg: "/BabyShoots/BabyshootBannerMobile.avif", // 👈 Added mobile background
     ctaLabel: "Book Your Shoot",
     ctaLink: "/contactus",
     slug: "baby-shoots",
