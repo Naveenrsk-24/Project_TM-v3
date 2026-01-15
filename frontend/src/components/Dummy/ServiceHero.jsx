@@ -10,6 +10,7 @@ export default function ServiceHero({
   icon,
   location,
   bg,
+  mobileBg,
   ctaLabel = "Book Now",
   ctaLink = "/contactus",
 }) {
@@ -26,7 +27,19 @@ export default function ServiceHero({
       className="relative flex items-center justify-center overflow-hidden min-h-[90vh] text-white rounded-4xl m-4"
       aria-label={`${title} hero section`}
     >
-      {/* Background image with parallax */}
+      {/* --- MOBILE BACKGROUND --- */}
+      <motion.div
+        style={{
+          backgroundImage: `url(${mobileBg || bg || "/default-hero.jpg"})`,
+          backgroundSize: "cover",
+          backgroundPosition: "bottom",
+          y,
+        }}
+        className="absolute inset-0 will-change-transform md:hidden"
+        aria-hidden="true"
+      ></motion.div>
+
+      {/* --- DESKTOP BACKGROUND --- */}
       <motion.div
         style={{
           backgroundImage: `url(${bg || "/default-hero.jpg"})`,
@@ -34,10 +47,9 @@ export default function ServiceHero({
           backgroundPosition: "bottom",
           y,
         }}
-        className="absolute inset-0 will-change-transform"
+        className="absolute inset-0 will-change-transform hidden md:block"
         aria-hidden="true"
       ></motion.div>
-
 
       {/* Content */}
       <motion.div
@@ -45,35 +57,75 @@ export default function ServiceHero({
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
         className="relative z-10 max-w-3xl mx-auto text-center px-6"
-
-        // **************** Dont't Remove the dynamic title *****************
       >
-        {/* <h1 className="font-albegos text-4xl sm:text-6xl md:text-7xl leading-tight mb-4 tracking-tight drop-shadow-xl">
-          {title}
-        </h1> */}
-
+        {/* Subtitle */}
         {subtitle && (
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-lg sm:text-xl md:text-1xl text-gray-200 text-center text-nowrap mb-[6rem] max-w-2xl mx-auto font-albegos"
+            className="
+      text-base 
+      sm:text-lg 
+      md:text-xl 
+      text-gray-200 
+      text-center 
+      mb-10 
+      max-w-xl 
+      mx-auto 
+      font-albegos
+      px-4
+    "
           >
             {subtitle}
           </motion.p>
         )}
 
-
-        <h1 className="leading-tight drop-shadow-xl relative flex flex-col items-center mb-[5rem]">
-          <span className="font-monday text-[13rem] tracking-tight leading-none">
+        {/* Stories Title */}
+        <h1 className="leading-tight drop-shadow-xl relative flex flex-col items-center mb-16">
+          {/* MAIN TITLE */}
+          <span
+            className="
+      font-monday 
+      leading-none 
+      tracking-tight
+      
+      text-[4rem]     /* mobile */
+      sm:text-[7rem]  /* small tablets */
+      md:text-[10rem] /* tablets */
+      lg:text-[13rem] /* desktop */
+    "
+          >
             Stories
           </span>
 
-          <span className="font-albegos text-[2.2rem] tracking-wide mt-[-2.5rem] relative left-5">
+          {/* SUBTITLE */}
+          <span
+            className="
+      font-albegos 
+      tracking-wide 
+      mt-[-1.2rem]
+      sm:mt-[-1.8rem]
+      md:mt-[-2.2rem]
+      lg:mt-[-2.5rem]
+
+      text-[1.2rem]   /* mobile */
+      sm:text-[1.6rem]
+      md:text-[2rem]
+      lg:text-[2.2rem]
+
+      relative 
+      left-2 
+      sm:left-3 
+      md:left-4 
+      lg:left-5
+    "
+          >
             By Tm Studios
           </span>
         </h1>
 
+        {/* CTA Button */}
         <motion.a
           href={ctaLink}
           whileHover={{

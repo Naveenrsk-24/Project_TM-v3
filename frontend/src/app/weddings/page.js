@@ -36,7 +36,8 @@ export default function WeddingsPage() {
         title={h1}
         subtitle={h2}
         icon={service.icon}
-        bg={service.bgImage}
+        bg={service.bgImage} // Desktop background
+        mobileBg={service.mobileBg} // Mobile background (NEW)
         ctaLabel={service.ctaLabel}
         ctaLink={service.ctaLink}
       />

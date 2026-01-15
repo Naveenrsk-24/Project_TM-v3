@@ -1,43 +1,45 @@
 export const SERVICES = {
-  weddings: {
-    id: "weddings",
-    title: "Wedding Photography",
-    bgImage: '/Weddings/WeddingBanner2.avif',
-    ctaLabel: "Book Your Shoot",
-    ctaLink: "/contactus",
-    slug: "weddings",
-    description:
-      "Capture your special day with stunning wedding photography that tells your unique love story.",
-    icon: "💍",
-    basePrice: "₹50,000",
-    features: [
-      "Full Day Coverage",
-      "Pre-wedding Shoot",
-      "Edited Photos",
-      "Online Gallery",
-    ],
-    niches: [
-      {
-        slug: "traditional",
-        title: "Traditional & Religious Weddings",
-        description:
-          "Hindu, Muslim, Christian and community weddings with all rituals.",
-      },
-      {
-        slug: "candid",
-        title: "Candid & Portrait Weddings",
-        description:
-          "Documentary-style, natural, portrait and emotional wedding photography.",
-      },
-      {
-        slug: "destination",
-        title: "Destination & Outdoor Weddings",
-        description:
-          "Beach, heritage, outdoor or destination weddings — local or travel-based.",
-      },
-    ],
-    popular: true,
-  },
+ weddings: {
+  id: "weddings",
+  title: "Wedding Photography",
+  bgImage: "/Weddings/WeddingBanner2.avif",
+  mobileBg: "/Weddings/WeddingBannerMobile.avif", // 👈 Added mobile background
+  ctaLabel: "Book Your Shoot",
+  ctaLink: "/contactus",
+  slug: "weddings",
+  description:
+    "Capture your special day with stunning wedding photography that tells your unique love story.",
+  icon: "💍",
+  basePrice: "₹50,000",
+  features: [
+    "Full Day Coverage",
+    "Pre-wedding Shoot",
+    "Edited Photos",
+    "Online Gallery",
+  ],
+  niches: [
+    {
+      slug: "traditional",
+      title: "Traditional & Religious Weddings",
+      description:
+        "Hindu, Muslim, Christian and community weddings with all rituals.",
+    },
+    {
+      slug: "candid",
+      title: "Candid & Portrait Weddings",
+      description:
+        "Documentary-style, natural, portrait and emotional wedding photography.",
+    },
+    {
+      slug: "destination",
+      title: "Destination & Outdoor Weddings",
+      description:
+        "Beach, heritage, outdoor or destination weddings — local or travel-based.",
+    },
+  ],
+  popular: true,
+},
+
 
   "baby-shoots": {
     id: "baby-shoots",
