@@ -15,7 +15,6 @@ const NavBarMain = () => {
 
   const ticking = useRef(false);
 
-  // ✨ Memoized menu items to avoid re-creation on every render
   const menuItems = useMemo(
     () => [
       { name: "Weddings", href: "/weddings" },
@@ -27,7 +26,7 @@ const NavBarMain = () => {
     []
   );
 
-  // ⚡ Ultra-efficient scroll listener using requestAnimationFrame
+  // Smooth scroll listener
   useEffect(() => {
     const onScroll = () => {
       if (!ticking.current) {
@@ -97,15 +96,21 @@ const NavBarMain = () => {
                 </button>
               </div>
 
-              {/* Desktop Menu */}
+              {/* Desktop Menu — DARK MODE TEXT UPDATE ONLY */}
               <ul className="hidden lg:flex lg:items-center lg:space-x-12">
                 {menuItems.map((item) => (
                   <li key={item.name}>
                     <Link
                       href={item.href}
-                      className="relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full
-                               after:origin-bottom-right after:scale-x-0 after:bg-pink-600 after:transition-transform
-                               after:duration-300 hover:after:scale-x-100"
+                      className="
+                        relative
+                        text-black dark:text-black
+                        after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full
+                        after:origin-bottom-right after:scale-x-0
+                        after:bg-pink-600 dark:after:bg-pink-400
+                        after:transition-transform after:duration-300
+                        hover:after:scale-x-100
+                      "
                     >
                       {item.name}
                     </Link>

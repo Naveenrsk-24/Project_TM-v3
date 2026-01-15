@@ -32,7 +32,7 @@ const TESTIMONIALS = [
     rating: 5,
     text:
       "Subalesh has great talent. We personally booked two events with him. His work is pure magic and astonishes us. He has great patience and is very comfortable to work with.",
-    event: "Beach Pre-Wedding, Mahabalipuram",
+    event: "Maternity Shoot, Chennai",
     date: "July 22nd, 2023",
   },
   {
@@ -43,7 +43,7 @@ const TESTIMONIALS = [
     rating: 5,
     text:
       "Choosing TM Studios was one of the best decisions we made for our wedding.",
-    event: "Traditional Wedding, Goa",
+    event: "Traditional Wedding, Chennai",
     date: "April 23rd, 2023",
   },
 ];
@@ -243,7 +243,7 @@ export default function TestimonialCarousel2() {
                     "{current.text}"
                   </p>
 
-                  <h3 className="text-2xl font-bold">{current.name}</h3>
+                  <h3 className="text-2xl font-bold dark:text-black">{current.name}</h3>
                   <p className="text-pink-600 font-medium">{current.role}</p>
 
                   <div className="flex flex-wrap gap-2 mt-2 text-sm">
