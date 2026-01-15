@@ -235,11 +235,11 @@ function AlbumCard({ album, index }) {
             />
 
             <div className="absolute top-4 left-4 z-20">
-              <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900/80 backdrop-blur-md border border-purple-500/40">
+              {/* <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900/80 backdrop-blur-md border border-purple-500/40">
                 <span className="text-sm font-bold text-white">
                   {album.shootLocation.split(",")[0]}
                 </span>
-              </div>
+              </div> */}
             </div>
           </div>
 

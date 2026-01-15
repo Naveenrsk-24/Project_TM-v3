@@ -94,6 +94,7 @@ export default function ServiceHero({
       sm:text-[7rem]  /* small tablets */
       md:text-[10rem] /* tablets */
       lg:text-[13rem] /* desktop */
+      mb-3 /* mobile */
     "
           >
             Stories
