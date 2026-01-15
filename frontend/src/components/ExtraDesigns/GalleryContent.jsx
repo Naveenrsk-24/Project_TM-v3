@@ -9,21 +9,21 @@ export default function GalleryContent() {
       image: "/Weddings/Manoj&Charu/Authentic-love.avif",
       title: "Authentic Love Stories",
       description:
-        "We capture the real moments between the planned ones. Every couple has a unique rhythm, and we blend seamlessly into your day to document genuine emotions.",
+        "Every wedding tells a story that cannot be staged. At TM Studios, we focus on the unscripted moments — the quiet glances, joyful tears, laughter between rituals, and emotions shared with family. As a wedding photography team, we blend into your celebration to document genuine connections without interruption. Our approach ensures your wedding photos feel real, personal, and emotionally timeless",
       imagePosition: "left",
     },
     {
       image: "/Weddings/Rajasekar-Nithya/Rajasekar-Nithyashree-R-12.avif",
       title: "Cinematic Storytelling",
       description:
-        "Inspired by western editorial styles, our photography feels like film stills brought to life. We focus on natural light and candid expressions.",
+        "Inspired by editorial and cinematic photography styles, we transform wedding moments into visual stories that feel like frames from a film. Using natural light, creative composition, and candid expressions, we craft images that flow seamlessly from one moment to the next. From bridal portraits to emotional family moments, our cinematic wedding photography captures depth, mood, and storytelling — preserving your wedding as an unforgettable visual experience.",
       imagePosition: "right",
     },
     {
       image: "/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-W-2.avif",
       title: "Timeless Elegance",
       description:
-        "Your wedding images should feel as beautiful decades from now as they do today. We create photographs that transcend trends.",
+        "Trends may change, but emotions remain forever. Our photography style focuses on elegant tones, balanced colors, and classic compositions that stand the test of time. Years from now, your wedding images will still feel refined, emotional, and beautiful. At TM Studios, we create wedding photographs that age gracefully — allowing you to relive your special day just as vividly as the first time.",
       imagePosition: "left",
     },
     
@@ -31,7 +31,7 @@ export default function GalleryContent() {
       image: "/Weddings/Rajasekar-Nithya/Rajasekar-Nithyashree-W-17.avif",
       title: "Cultural Details & Ritual Moments",
       description:
-        "Our work has been featured in leading wedding publications and recognized by international photography communities.",
+        "Indian weddings are rich in traditions, emotions, and meaningful rituals that deserve special attention. From intricate bridal details and sacred ceremonies to joyful family customs, we carefully document every element that makes your wedding unique. As experienced South Indian wedding photographers, we understand the importance of each ritual and capture them with respect, clarity, and artistic finesse — ensuring no moment, big or small, is ever missed",
       imagePosition: "right",
     },
   ];
