@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
+
 import LogoImage from "../../../public/Logo/TMlogo.png";
 import Mobilenavbar from "../Navbar/Mobilenavbar";
 
@@ -11,36 +12,36 @@ import YoutubeIcon from "../../../public/Icons/youtube.png";
 const NavBarMain = () => {
   const [mobileNavbarVisible, setMobileNavbarVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  const [showNavbar, setShowNavbar] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true);
 
   const ticking = useRef(false);
+  const lastScrollY = useRef(0);
 
   const menuItems = useMemo(
     () => [
       { name: "Weddings", href: "/weddings" },
       { name: "Baby Shoots", href: "/baby-shoots" },
       { name: "Maternity Shoots", href: "/maternity-shoots" },
-      // { name: "Packages", href: "#" },
-      // { name: "Videos", href: "#" },
       { name: "About Us", href: "/aboutus" },
     ],
     []
   );
 
-  // Smooth scroll listener
+  // Scroll direction detection
   useEffect(() => {
     const onScroll = () => {
       if (!ticking.current) {
         window.requestAnimationFrame(() => {
-          const shouldShow = window.scrollY > 20;
+          const currentScroll = window.scrollY;
+          const isScrollingDown = currentScroll > lastScrollY.current;
 
-          setShowNavbar((prev) => {
-            if (prev !== shouldShow) return shouldShow;
-            return prev;
-          });
+          // Hide on scroll down, show on scroll up
+          setShowNavbar(!isScrollingDown);
 
+          lastScrollY.current = currentScroll <= 0 ? 0 : currentScroll;
           ticking.current = false;
         });
+
         ticking.current = true;
       }
     };
@@ -55,22 +56,21 @@ const NavBarMain = () => {
     <div>
       {!mobileNavbarVisible ? (
         <header
-          className={`fixed top-0 left-0 w-full z-50 transition-all duration-500
-          ${
-            showNavbar
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 -translate-y-10 pointer-events-none"
-          }
-        `}
+          className={`
+            fixed top-0 left-0 w-full z-50
+            transition-all duration-500 ease-[cubic-bezier(0.4,0.0,0.2,1)]
+            ${showNavbar ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-6"}
+          `}
         >
-          <div className="w-full bg-white px-4 shadow-sm bg-opacity-95 backdrop-blur-md">
-            <nav className="flex justify-between items-center py-2">
+          <div
+            className="
+              w-full px-4 py-2 bg-white/75 backdrop-blur-none shadow-sm
+              transition-all duration-500
+            "
+          >
+            <nav className="flex justify-between items-center">
               {/* Logo */}
-              <Link
-                href="/"
-                aria-label="Navigate to homepage"
-                className="ml-2.5"
-              >
+              <Link href="/" aria-label="Navigate to homepage" className="ml-2.5">
                 <Image
                   src={LogoImage}
                   alt="Studio Logo"
@@ -84,32 +84,27 @@ const NavBarMain = () => {
               <div className="lg:hidden">
                 <button
                   aria-label="Open mobile menu"
-                  className="navbar-burger flex items-center py-3 px-4 bg-black text-white rounded-3xl"
                   onClick={toggleNavbar}
+                  className="navbar-burger flex items-center py-3 px-4 
+                  bg-black text-white rounded-3xl shadow-sm transition hover:opacity-80"
                 >
-                  <svg
-                    className="h-4 w-4"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
+                  <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                     <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
                   </svg>
                 </button>
               </div>
 
-              {/* Desktop Menu — DARK MODE TEXT UPDATE ONLY */}
+              {/* Desktop Menu */}
               <ul className="hidden lg:flex lg:items-center lg:space-x-12">
                 {menuItems.map((item) => (
                   <li key={item.name}>
                     <Link
                       href={item.href}
                       className="
-                        relative
-                        text-black dark:text-black
+                        relative text-black 
                         after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full
                         after:origin-bottom-right after:scale-x-0
-                        after:bg-pink-600 dark:after:bg-pink-400
-                        after:transition-transform after:duration-300
+                        after:bg-pink-600 after:transition-transform after:duration-300
                         hover:after:scale-x-100
                       "
                     >
@@ -119,9 +114,8 @@ const NavBarMain = () => {
                 ))}
               </ul>
 
-              {/* Social Icons + Contact Button */}
+              {/* Social Icons + Contact */}
               <div className="hidden lg:flex items-center space-x-5">
-                {/* Instagram */}
                 <Link
                   href="https://www.instagram.com/tmstudios.photography"
                   target="_blank"
@@ -132,11 +126,10 @@ const NavBarMain = () => {
                     alt="Instagram Icon"
                     width={26}
                     height={26}
-                    className="rounded-md hover:opacity-80 transition"
+                    className="rounded-md hover:opacity-70 transition"
                   />
                 </Link>
 
-                {/* YouTube */}
                 <Link
                   href="https://www.youtube.com/@tmstudiosphotography"
                   target="_blank"
@@ -147,33 +140,33 @@ const NavBarMain = () => {
                     alt="YouTube Icon"
                     width={30}
                     height={30}
-                    className="hover:opacity-80 transition"
+                    className="hover:opacity-70 transition"
                   />
                 </Link>
 
-                {/* Contact Us Button */}
-                <Link
-                  href="/contactus"
-                  aria-label="Book a wedding photography session"
-                >
+                {/* Contact Button */}
+                <Link href="/contactus" aria-label="Book a photography session">
                   <button
-                    className={`relative px-4 py-3 bg-gradient-to-r cursor-pointer from-pink-600 to-rose-500 
-    inline-block text-white hover:text-black border-2 rounded-full font-semibold text-sm 
-    overflow-hidden transition-transform duration-200 ease-in-out transform ${
-      isHovered
-        ? "scale-105 border-transparent text-black"
-        : "border-transparent"
-    }`}
+                    className={`
+                      relative px-5 py-3 bg-gradient-to-r from-pink-600 to-rose-500 
+                      text-white rounded-full font-semibold text-sm overflow-hidden 
+                      transition-transform duration-200 transform
+                      ${isHovered ? "scale-105" : ""}
+                    `}
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
                   >
                     <span
-                      className={`absolute inset-0 bg-white rounded-full transition-transform duration-200 ease-out transform ${
-                        isHovered ? "translate-y-0" : "translate-y-full"
-                      }`}
-                      style={{ transformOrigin: "bottom", zIndex: -1 }}
-                    ></span>
-                    <span className="relative z-10">Contact Us</span>
+                      className={`
+                        absolute inset-0 bg-white rounded-full 
+                        transition-transform duration-300 ease-out 
+                        ${isHovered ? "translate-y-0" : "translate-y-full"}
+                      `}
+                      style={{ zIndex: -1 }}
+                    />
+                    <span className="relative z-10 text-black group-hover:text-black">
+                      Contact Us
+                    </span>
                   </button>
                 </Link>
               </div>
