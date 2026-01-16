@@ -3,6 +3,11 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import LogoImage from "../../../public/Logo/TMlogo.png";
+// import FacebookLogo from "../../../public/Logo/facebook.svg";
+// import TwitterLogo from "../../../public/Logo/twitter.svg";
+import InstagramLogo from "../../../public/Icons/instagram.png";
+import YoutubeLogo from "../../../public/Icons/youtube.png";
+
 
 export default function Footer() {
   const [isHovered, setIsHovered] = useState(false);
@@ -21,7 +26,8 @@ export default function Footer() {
             />
 
             <p className="text-base leading-relaxed text-gray-600 mt-7">
-             TM Studios is a Chennai-based premium studio capturing Wedding, Baby, and Maternity moments with soulful, cinematic artistry.
+              TM Studios is a Chennai-based premium studio capturing Wedding,
+              Baby, and Maternity moments with soulful, cinematic artistry.
             </p>
 
             <ul className="flex items-center space-x-3 mt-9">
@@ -29,50 +35,74 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Company Links */}
-          <div>
-            <p className="text-sm font-semibold tracking-widest text-gray-400 uppercase">
-              Company
-            </p>
-            <ul className="mt-6 space-y-4">
-              <li>
-                <a
-                  href="/aboutus"
-                  className="relative after:absolute after:bottom-0  after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0
-      after:bg-pink-600 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100 dark:text-black"
-                >
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/portfolio"
-                  className="relative after:absolute after:bottom-0  after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0
-      after:bg-pink-600 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100 dark:text-black"
-                >
-                  Portfolio
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/blogs"
-                  className="relative after:absolute after:bottom-0  after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0
-      after:bg-pink-600 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100 dark:text-black"
-                >
-                  Blogs
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="relative after:absolute after:bottom-0  after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0
-      after:bg-pink-600 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100 dark:text-black"
-                >
-                  Careers
-                </a>
-              </li>
-            </ul>
-          </div>
+         <div>
+  <p className="text-sm font-semibold tracking-widest text-gray-400 uppercase">
+    Socials
+  </p>
+
+  <ul className="mt-6 space-y-4">
+
+    {/* Facebook */}
+    {/* <li>
+      <a
+        href="https://facebook.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-2 relative after:absolute after:bottom-0  
+        after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0
+        after:bg-pink-600 after:transition-transform after:duration-300 
+        hover:after:origin-bottom-left hover:after:scale-x-100 dark:text-black"
+      >
+        <Image src={FacebookLogo} alt="Facebook" className="h-4 w-4" />
+        Facebook
+      </a>
+    </li> */}
+
+    {/* Twitter */}
+    {/* <li>
+      <a
+        href="https://twitter.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-2 relative after:absolute after:bottom-0  
+        after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0
+        after:bg-pink-600 after:transition-transform after:duration-300 
+        hover:after:origin-bottom-left hover:after:scale-x-100 dark:text-black"
+      >
+        <Image src={TwitterLogo} alt="Twitter" className="h-4 w-4" />
+        Twitter
+      </a>
+    </li> */}
+
+    {/* Instagram */}
+    <li>
+      <a
+        href="https://www.instagram.com/tmstudios.photography"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-2 relative"
+      >
+        <Image src={InstagramLogo} alt="Instagram" className="h-5 w-5" />
+        Instagram
+      </a>
+    </li>
+
+    {/* Youtube*/}
+    <li>
+      <a
+        href="https://www.youtube.com/@tmstudiosphotography"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-2 relative"
+      >
+        <Image src={YoutubeLogo} alt="Youtube" className="h-5 w-5" />
+        Youtube
+      </a>
+    </li>
+
+  </ul>
+</div>
+
 
           {/* Quick Links */}
           <div>
@@ -80,7 +110,6 @@ export default function Footer() {
               Quick Links
             </p>
             <ul className="mt-6 space-y-4">
-
               {/* NEW LINKS ADDED AT THE TOP */}
               <li>
                 <Link
@@ -106,7 +135,6 @@ export default function Footer() {
                   Maternity Shoots
                 </Link>
               </li>
-
             </ul>
           </div>
 

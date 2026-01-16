@@ -15,6 +15,8 @@ import TestimonialCarousel2 from "@/components/ExtraDesigns/TestimonialCarousel2
 import BlogSection2 from "@/components/ExtraDesigns/BlogSection2";
 import { DUMMY_BLOGS } from "../data/blog-data";
 import { galleryImages } from "@/data/Home/GalleryImages";
+import WhatsAppButton from "@/components/Home/WhatsAppButton";
+
 
 import { pageMeta } from "@/lib/meta-data";
 import { SITE_URL } from "@/lib/meta-data";
@@ -141,6 +143,7 @@ export default function Home() {
       <ClassicFAQSection2 faqs={faqList} />
 
       <TestimonialCarousel2 />
+      <WhatsAppButton />
       {/* <BlogSection2 blogs={DUMMY_BLOGS} /> */}
 
     </>
