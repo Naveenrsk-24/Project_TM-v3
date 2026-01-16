@@ -15,7 +15,7 @@ export async function POST(req) {
     }
 
     /* ----------------------------------------------------
-       1️⃣ ADMIN EMAIL (TM Studios)
+       1️⃣ ADMIN EMAIL (RESPONSIVE)
     ---------------------------------------------------- */
     await resend.emails.send({
       from: "TM Studios Photography <subalesh@tmstudios.photography>",
@@ -23,40 +23,52 @@ export async function POST(req) {
       reply_to: "subalesh@tmstudios.photography",
       subject: "New Enquiry Received",
       html: `
-      <div style="font-family: Arial, sans-serif; background:#f7f7f7; padding:40px;">
-        <div style="max-width:600px;margin:auto;background:#ffffff;border-radius:16px;overflow:hidden;
-          box-shadow:0 8px 20px rgba(0,0,0,0.08);">
+      <table width="100%" cellpadding="0" cellspacing="0" style="background:#f7f7f7;padding:24px;">
+        <tr>
+          <td align="center">
+            <table width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;background:#ffffff;
+              border-radius:16px;overflow:hidden;font-family:Arial,sans-serif;
+              box-shadow:0 8px 20px rgba(0,0,0,0.08);">
 
-          <div style="background:linear-gradient(90deg,#db2777,#e11d48);padding:28px 40px;text-align:center;">
-            <h1 style="color:#fff;margin:0;font-size:26px;">TM Studios</h1>
-            <p style="color:#ffe4ec;margin-top:6px;">
-              Weddings · Maternity · Baby Shoots
-            </p>
-          </div>
+              <tr>
+                <td style="background:linear-gradient(90deg,#db2777,#e11d48);padding:28px;text-align:center;">
+                  <h1 style="margin:0;color:#ffffff;font-size:26px;">TM Studios</h1>
+                  <p style="margin-top:6px;color:#ffe4ec;font-size:14px;">
+                    Capturing Timeless Moments ✦ Weddings · Maternitys · Baby Shoots
+                  </p>
+                </td>
+              </tr>
 
-          <div style="padding:40px;">
-            <h2 style="margin-bottom:20px;">New Enquiry</h2>
+              <tr>
+                <td style="padding:32px;">
+                  <h2 style="margin:0 0 20px;font-size:20px;color:#333;">New Enquiry</h2>
 
-            <table style="width:100%;line-height:1.8;">
-              <tr><td><strong>Name</strong></td><td>${data.name}</td></tr>
-              <tr><td><strong>Email</strong></td><td>${data.email}</td></tr>
-              <tr><td><strong>Phone</strong></td><td>${data.phone}</td></tr>
-              <tr><td><strong>City</strong></td><td>${data.city}</td></tr>
-              <tr><td><strong>Event</strong></td><td>${data.selectevent}</td></tr>
-              <tr><td><strong>Date</strong></td><td>${data.date || "Not Provided"}</td></tr>
+                  <table width="100%" cellpadding="6" cellspacing="0" style="font-size:15px;color:#444;">
+                    <tr><td><strong>Name</strong></td><td>${data.name}</td></tr>
+                    <tr><td><strong>Email</strong></td><td>${data.email}</td></tr>
+                    <tr><td><strong>Phone</strong></td><td>${data.phone}</td></tr>
+                    <tr><td><strong>City</strong></td><td>${data.city}</td></tr>
+                    <tr><td><strong>Event</strong></td><td>${data.selectevent}</td></tr>
+                    <tr><td><strong>Date</strong></td><td>${data.date || "Not Provided"}</td></tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr>
+                <td style="background:#fafafa;padding:18px;text-align:center;color:#888;font-size:13px;">
+                  © TM Studios · www.tmstudios.photography
+                </td>
+              </tr>
+
             </table>
-          </div>
-
-          <div style="background:#fafafa;padding:20px;text-align:center;color:#888;">
-            © TM Studios · www.tmstudios.photography
-          </div>
-        </div>
-      </div>
+          </td>
+        </tr>
+      </table>
       `,
     });
 
     /* ----------------------------------------------------
-       2️⃣ AUTO-REPLY EMAIL (CLIENT)
+       2️⃣ AUTO-REPLY EMAIL (RESPONSIVE)
     ---------------------------------------------------- */
     await resend.emails.send({
       from: "TM Studios Photography <hello@tmstudios.photography>",
@@ -64,44 +76,58 @@ export async function POST(req) {
       reply_to: "subalesh@tmstudios.photography",
       subject: "Thank you for contacting TM Studios",
       html: `
-      <div style="font-family:Arial,sans-serif;background:#f7f7f7;padding:40px;">
-        <div style="max-width:600px;margin:auto;background:#ffffff;border-radius:16px;
-          box-shadow:0 8px 20px rgba(0,0,0,0.08);overflow:hidden;">
+      <table width="100%" cellpadding="0" cellspacing="0" style="background:#f7f7f7;padding:24px;">
+        <tr>
+          <td align="center">
+            <table width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;background:#ffffff;
+              border-radius:16px;overflow:hidden;font-family:Arial,sans-serif;
+              box-shadow:0 8px 20px rgba(0,0,0,0.08);">
 
-          <div style="background:linear-gradient(90deg,#db2777,#e11d48);padding:28px;text-align:center;">
-            <h1 style="color:#fff;margin:0;">TM Studios Photography</h1>
-          </div>
+              <tr>
+                <td style="background:linear-gradient(90deg,#db2777,#e11d48);padding:28px;text-align:center;">
+                  <h1 style="margin:0;color:#ffffff;font-size:24px;">
+                    TM Studios Photography
+                  </h1>
+                </td>
+              </tr>
 
-          <div style="padding:40px;">
-            <p style="font-size:16px;color:#444;">
-              Hi <strong>${data.name}</strong>,
-            </p>
+              <tr>
+                <td style="padding:32px;color:#555;font-size:16px;line-height:1.6;">
+                  <p style="margin-top:0;">
+                    Hi <strong>${data.name}</strong>,
+                  </p>
 
-            <p style="font-size:16px;color:#555;line-height:1.6;">
-              Thank you for reaching out to <strong>TM Studios</strong>.
-              We’ve received your enquiry and will contact you shortly to
-              discuss your <strong>${data.selectevent}</strong>.
-            </p>
+                  <p>
+                    Thank you for reaching out to <strong>TM Studios</strong>.
+                    We’ve received your enquiry and will get in touch shortly
+                    to discuss about your <strong>${data.selectevent} event</strong>.
+                  </p>
 
-            <p style="margin-top:24px;font-size:16px;color:#555;">
-              Looking forward to capturing your special moments ✨
-            </p>
+                  <p style="margin-top:24px;">
+                    Looking forward to capturing your special moments ✨
+                  </p>
 
-            <p style="margin-top:30px;">
-              — TM Studios Team
-            </p>
-          </div>
+                  <p style="margin-top:28px;">
+                    — TM Studios Team
+                  </p>
+                </td>
+              </tr>
 
-          <div style="background:#fafafa;padding:20px;text-align:center;color:#888;">
-            © TM Studios Photography
-          </div>
-        </div>
-      </div>
+              <tr>
+                <td style="background:#fafafa;padding:18px;text-align:center;color:#888;font-size:13px;">
+                  © TM Studios Photography
+                </td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+      </table>
       `,
     });
 
     /* ----------------------------------------------------
-       3️⃣ SAVE TO GOOGLE SHEETS
+       3️⃣ SAVE TO GOOGLE SHEETS (UNCHANGED)
     ---------------------------------------------------- */
     await fetch(GOOGLE_SHEETS_WEBHOOK, {
       method: "POST",
