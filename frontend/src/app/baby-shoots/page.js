@@ -9,13 +9,9 @@ import GalleryContent from "@/components/ExtraDesigns/GalleryContent";
 import TestimonialCarousel2 from "@/components/ExtraDesigns/TestimonialCarousel2";
 import ClassicFAQSection2 from "@/components/ExtraDesigns/ClassicFAQSection2";
 import ContactForm from "@/components/Dummy/ContactForm";
+import PricingCard from "@/components/Dummy/PricingCard";
 
-// Simple static SEO (optional)
-export const metadata = {
-  title: "Wedding Photography | TM Studios",
-  description:
-    "Premium and timeless wedding photography in Chennai. Explore our portfolio, packages, and real wedding stories.",
-};
+
 
 export default function BabyshootPage() {
   const service = getServiceBySlug("baby-shoots");
@@ -43,12 +39,7 @@ export default function BabyshootPage() {
       />
 
       <FilteredGallery service={service} />
-
-      <GalleryContent />
-      <TestimonialCarousel2 />
-      {/* <ClassicFAQSection2 /> */}
-
-      <ContactForm service={service} />
+       <PricingCard service={service} />
     </>
   );
 }

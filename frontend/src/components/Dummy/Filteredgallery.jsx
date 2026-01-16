@@ -9,7 +9,11 @@ import { SERVICES } from "@/lib/services-data";
 export default function FilteredGallery({ service, location, niche, locality }) {
   const serviceSlug = service?.slug;
 
-  const allAlbums = ALBUMS[serviceSlug] || [];
+ const allAlbums = (ALBUMS[serviceSlug] || []).map(album => ({
+  ...album,
+  serviceSlug,
+}));
+
 
   const filterOptions = useMemo(() => {
     const uniqueNiches = [...new Set(allAlbums.map((a) => a.nicheSlug))];
@@ -221,8 +225,7 @@ function AlbumCard({ album, index }) {
       `}</style>
 
       {/* 🔥 Dynamic Album Navigation FIXED */}
-      <Link
-        href={`/weddings/${album.id}`}
+      <Link href={`/${album.serviceSlug}/${album.id}`}
         className="block relative transition-all duration-500 group-hover:-translate-y-3"
       >
         <div className="relative p-5 bg-slate-800/40 backdrop-blur-xl rounded-3xl shadow-2xl border border-purple-500/30 group-hover:border-pink-500/60 group-hover:shadow-purple-500/30 transition-all duration-500">
