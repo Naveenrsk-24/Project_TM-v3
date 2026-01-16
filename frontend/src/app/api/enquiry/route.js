@@ -19,7 +19,7 @@ export async function POST(req) {
     ---------------------------------------------------- */
     await resend.emails.send({
       from: "TM Studios Photography <subalesh@tmstudios.photography>",
-      to: "naveenrsk.dev@gmail.com",
+      to: "subalesh@tmstudios.photography",
       reply_to: "subalesh@tmstudios.photography",
       subject: "New Enquiry Received",
       html: `
@@ -71,7 +71,7 @@ export async function POST(req) {
        2️⃣ AUTO-REPLY EMAIL (RESPONSIVE)
     ---------------------------------------------------- */
     await resend.emails.send({
-      from: "TM Studios Photography <hello@tmstudios.photography>",
+      from: "TM Studios Photography <subalesh@tmstudios.photography>",
       to: data.email,
       reply_to: "subalesh@tmstudios.photography",
       subject: "Thank you for contacting TM Studios",
