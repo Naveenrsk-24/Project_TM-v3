@@ -84,7 +84,7 @@ function HeroSection() {
           couples across Chennai for premium wedding photography.
         </p>
 
-        <Link href="/booking" aria-label="Book a wedding photography session">
+        <Link href="/contactus" aria-label="Book a wedding photography session">
           <button className="mt-4 px-6 py-3 bg-gradient-to-r from-pink-600 to-rose-500 hover:opacity-90 text-white font-semibold font-serif rounded-full transition-transform hover:scale-105 duration-200 min-w-[44px] min-h-[44px] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-pink-300 focus-visible:ring-offset-2 cursor-pointer">
             Let’s Capture Your Story
           </button>

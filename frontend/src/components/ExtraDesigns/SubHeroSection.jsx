@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useMemo, useRef } from "react";
 import { Camera, Heart, Sparkles, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function SubHeroSection() {
   const [isMounted, setIsMounted] = useState(false);
@@ -229,10 +230,12 @@ export default function SubHeroSection() {
             </div>
 
             {/* CTA Button */}
+             <Link href="/weddings" aria-label="Wedding Gallery">
             <button className="group inline-flex items-center gap-3 px-10 py-4 bg-gradient-to-r from-rose-500 to-pink-600 text-white font-semibold text-lg rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
               <span>Explore Wedding Albums</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
             </button>
+            </Link>
           </div>
         </div>
       </div>
