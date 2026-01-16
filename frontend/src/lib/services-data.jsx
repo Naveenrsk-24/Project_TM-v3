@@ -52,12 +52,12 @@ export const SERVICES = {
     description:
       "Precious moments with your newborn and growing baby captured beautifully.",
     icon: "👶",
-    basePrice: "₹8,000",
+    basePrice: "₹9,000",
     features: [
-      "Studio Setup",
+      "Theme Setups",
       "Props Included",
       "50+ Edited Photos",
-      "Same Day Turnaround",
+      "Indoor Studio With Air Conditioning",
     ],
     niches: [
       {
@@ -82,19 +82,20 @@ export const SERVICES = {
   "maternity-shoots": {
     id: "maternity-shoots",
     title: "Maternity Photography",
-    bgImage: "/Weddings/groom-putting-ring-bride-s-finger.jpg",
+    bgImage: "/Maternity/MaternityBanner.avif",
+    mobileBg: "/Maternity/MaternityBannerMobile.avif",
     ctaLabel: "Book Your Shoot",
     ctaLink: "/contactus",
     slug: "maternity-shoots",
     description:
       "Celebrate the journey to motherhood with elegant maternity portraits.",
     icon: "🤰",
-    basePrice: "₹12,000",
+    basePrice: "₹10,000",
     features: [
-      "Outdoor & Studio",
+      "Indoor Studio With Air Conditioning",
       "Maternity Gowns",
       "40+ Photos",
-      "Partner Included",
+      "Aesthetic Photos",
     ],
     niches: [
       {

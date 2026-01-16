@@ -72,7 +72,7 @@ export const ALBUMS = {
       nicheSlug: "wedding",
       coverImage: "/Weddings/Wedding-Thumbnails/Jalal-ShainFathima-R.avif",
 
-       images: Array.from(
+      images: Array.from(
         { length: 50 },
         (_, i) =>
           `/Weddings/Jalaludeen-Shain/Jalal-ShainFathima-R-${i + 1}.avif`
@@ -95,7 +95,6 @@ export const ALBUMS = {
         (_, i) =>
           `/Weddings/Rajasekar-Nithya/Rajasekar-Nithyashree-W-${i + 1}.avif`
       ),
-
     },
 
     {
@@ -126,12 +125,11 @@ export const ALBUMS = {
 
       coverImage: "/Weddings/Reception-Thumbnails/Arulraj-Vijayalakshmi-R.avif",
 
-       images: Array.from(
+      images: Array.from(
         { length: 26 },
         (_, i) =>
           `/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-R-${i + 1}.avif`
       ),
-
     },
     {
       id: "rajasekar-nithyashree-r",
@@ -144,13 +142,11 @@ export const ALBUMS = {
 
       coverImage: "/Weddings/Reception-Thumbnails/Rajasekar-Nithyashree-R.avif",
 
-       
       images: Array.from(
         { length: 30 },
         (_, i) =>
           `/Weddings/Rajasekar-Nithya/Rajasekar-Nithyashree-R-${i + 1}.avif`
       ),
-
     },
     {
       id: "manikandan-maheshwari-pw",
@@ -164,12 +160,13 @@ export const ALBUMS = {
       coverImage:
         "/Weddings/Prewedding-Thumbnails/Manikandan-Maheshwari-PW.avif",
 
-     images: Array.from(
+      images: Array.from(
         { length: 8 },
         (_, i) =>
-          `/Weddings/Manikandan-Maheshwari/Manikandan-Maheshwari-PW-${i + 1}.avif`
+          `/Weddings/Manikandan-Maheshwari/Manikandan-Maheshwari-PW-${
+            i + 1
+          }.avif`
       ),
-
     },
     {
       id: "arul-vijayalakshmi-pw",
@@ -183,7 +180,7 @@ export const ALBUMS = {
       coverImage:
         "/Weddings/Prewedding-Thumbnails/Arulraj-Vijayalakshmi-PW.avif",
 
-       images: Array.from(
+      images: Array.from(
         { length: 15 },
         (_, i) =>
           `/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-PW-${i + 1}.avif`
@@ -194,120 +191,110 @@ export const ALBUMS = {
   // BABY SHOOTS ---------------------------------------------------------
   "baby-shoots": [
     {
-      id: "little-arya-studio",
-      coupleName: "Baby Arya",
+      id: "Mireya-Irene",
+      coupleName: "Mireya Irene",
       shootLocation: "TM Studios, Chennai",
 
-      coverImage: "/BabyShoots/little-arya-studio/cover.webp",
+      coverImage: "/BabyShoots/Babyshoot-Thumbnails/Mireya-Irene-IBS.avif",
 
-      images: [
-        "/BabyShoots/little-arya-studio/1.webp",
-        "/BabyShoots/little-arya-studio/2.webp",
-        "/BabyShoots/little-arya-studio/3.webp",
-      ],
+      images: Array.from(
+        { length: 40 },
+        (_, i) => `/BabyShoots/Mireya-Irene-Ibs/Mireya-Irene-IBS-${i + 1}.avif`
+      ),
 
       serviceSlug: "baby-shoots",
       locationSlug: "chennai",
       localitySlug: "adyar",
-      nicheSlug: "newborn",
+      nicheSlug: "Toddler",
     },
 
     {
-      id: "twins-veer-vir",
-      coupleName: "Baby Veer & Baby Vir",
-      shootLocation: "Client Home, Velachery",
+      id: "sreyashi",
+      coupleName: "Sreyashi",
+      shootLocation: "TM Studios, Chennai",
+      coverImage: "/BabyShoots/Babyshoot-Thumbnails/Sreyashi-IBS.avif",
 
-      coverImage: "/BabyShoots/twins-veer-vir/cover.webp",
-
-      images: [
-        "/BabyShoots/twins-veer-vir/1.webp",
-        "/BabyShoots/twins-veer-vir/2.webp",
-        "/BabyShoots/twins-veer-vir/3.webp",
-      ],
-
+      images: Array.from(
+        { length: 10 },
+        (_, i) => `/BabyShoots/Sreyashi-Ibs/Sreyashi-IBS-${i + 1}.avif`
+      ),
       serviceSlug: "baby-shoots",
       locationSlug: "chennai",
       localitySlug: "velachery",
-      nicheSlug: "twins",
+      nicheSlug: "Toddler",
     },
 
     {
-      id: "baby-rithika-outdoor",
-      coupleName: "Baby Rithika",
-      shootLocation: "Nageswara Rao Park, Mylapore",
+      id: "yaahini",
+      coupleName: "Yaahini",
+      shootLocation: "TM Studios, Chennai",
+      coverImage: "/BabyShoots/Babyshoot-Thumbnails/Yaahini-IBS.avif",
 
-      coverImage: "/BabyShoots/baby-rithika-outdoor/cover.webp",
-
-      images: [
-        "/BabyShoots/baby-rithika-outdoor/1.webp",
-        "/BabyShoots/baby-rithika-outdoor/2.webp",
-        "/BabyShoots/baby-rithika-outdoor/3.webp",
-      ],
-
+      images: Array.from(
+        { length: 15 },
+        (_, i) => `/BabyShoots/Yaahini-Ibs/Yaahini-IBS-${i + 1}.avif`
+      ),
       serviceSlug: "baby-shoots",
       locationSlug: "chennai",
       localitySlug: "mylapore",
-      nicheSlug: "outdoor",
+      nicheSlug: "Toddler",
     },
   ],
 
   // MATERNITY SHOOTS ---------------------------------------------------
   "maternity-shoots": [
     {
-      id: "krishna-sudha-beach",
-      coupleName: "Krishna & Sudha",
-      shootLocation: "ECR Beach, Chennai",
+      id: "charu-meena",
+      coupleName: "Charu Meena",
+      shootLocation: "TM Studios, Chennai",
 
-      coverImage: "/Maternity/krishna-sudha-beach/cover.webp",
+      coverImage: "/Maternity/Maternity-Thumbnails/Charu-Meena-S.avif",
 
-      images: [
-        "/Maternity/krishna-sudha-beach/1.webp",
-        "/Maternity/krishna-sudha-beach/2.webp",
-        "/Maternity/krishna-sudha-beach/3.webp",
-      ],
+      images: Array.from(
+        { length: 42 },
+        (_, i) => `/Maternity/Charu-Meena/Charu-Meena-S-${i + 1}.avif`
+      ),
 
       serviceSlug: "maternity-shoots",
       locationSlug: "chennai",
       localitySlug: "ecr",
-      nicheSlug: "beach",
+      nicheSlug: "seemandham",
     },
 
     {
-      id: "manoj-divya-studio",
-      coupleName: "Manoj & Divya",
+      id: "meenakshi-aswinkumar",
+      coupleName: "Meenakshi Aswinkumar",
       shootLocation: "TM Studios, Chennai",
 
-      coverImage: "/Maternity/manoj-divya-studio/cover.webp",
+      coverImage: "/Maternity/Maternity-Thumbnails/Meenakshi-Aswinkumar-S.avif",
 
-      images: [
-        "/Maternity/manoj-divya-studio/1.webp",
-        "/Maternity/manoj-divya-studio/2.webp",
-        "/Maternity/manoj-divya-studio/3.webp",
-      ],
+      images: Array.from(
+        { length: 30 },
+        (_, i) => `/Maternity/Meenakshi-Aswinkumar/Meenakshi-Aswinkumar-S-${i + 1}.avif`
+      ),
+
 
       serviceSlug: "maternity-shoots",
       locationSlug: "chennai",
       localitySlug: "tnagar",
-      nicheSlug: "studio",
+      nicheSlug: "seemandham",
     },
 
     {
-      id: "arun-shalini-garden",
-      coupleName: "Arun & Shalini",
-      shootLocation: "Semmozhi Poonga, Chennai",
+      id: "hemalatha",
+      coupleName: "Hemalatha",
+      shootLocation: "TM Studios, Chennai",
+     coverImage: "/Maternity/Maternity-Thumbnails/Hemalatha-S.avif",
 
-      coverImage: "/Maternity/arun-shalini-garden/cover.webp",
-
-      images: [
-        "/Maternity/arun-shalini-garden/1.webp",
-        "/Maternity/arun-shalini-garden/2.webp",
-        "/Maternity/arun-shalini-garden/3.webp",
-      ],
+      images: Array.from(
+        { length: 8 },
+        (_, i) => `/Maternity/Hemalatha/Hemalatha-S-${i + 1}.avif`
+      ),
 
       serviceSlug: "maternity-shoots",
       locationSlug: "chennai",
       localitySlug: "cathedral-road",
-      nicheSlug: "outdoor-garden",
+      nicheSlug: "outdoor maternity",
     },
   ],
 };

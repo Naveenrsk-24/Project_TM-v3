@@ -20,7 +20,8 @@ const NavBarMain = () => {
       { name: "Weddings", href: "/weddings" },
       { name: "Baby Shoots", href: "/baby-shoots" },
       { name: "Maternity Shoots", href: "/maternity-shoots" },
-      { name: "Portfolio", href: "/portfolio" },
+      // { name: "Packages", href: "#" },
+      // { name: "Videos", href: "#" },
       { name: "About Us", href: "/aboutus" },
     ],
     []

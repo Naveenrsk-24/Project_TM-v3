@@ -17,34 +17,33 @@ BackgroundGlows.displayName = "BackgroundGlows";
 /* ---------- Memoized Header Block ---------- */
 const SectionHeader = memo(() => (
   <div className="relative max-w-4xl">
-    <div className="inline-flex items-center gap-3 mb-8">
+    {/* <div className="inline-flex items-center gap-3 mb-8">
       <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-2xl shadow-lg shadow-purple-500/30">
         💍
       </div>
       <span className="text-purple-300 text-sm font-semibold tracking-[0.3em] uppercase">
         Wedding Photography
       </span>
-    </div>
+    </div> */}
 
     <h2 className="text-6xl lg:text-8xl font-black text-white leading-[0.95] mb-8">
-      Turning Love
+      “Criticism came
       <br />
-      Stories{" "}
+      integrity remains”{" "}
       <span className="relative inline-block">
-        <span className="relative z-10 bg-gradient-to-r from-purple-300 via-pink-300 to-purple-300 bg-clip-text text-transparent">
-          Into Timeless
-        </span>
+          {/* <span className="relative z-10 bg-gradient-to-r from-purple-300 via-pink-300 to-purple-300 bg-clip-text text-transparent">
+            Into Timeless
+          </span> */}
         <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-2xl will-change-transform" />
       </span>
       <br />
-      Memories
+      <span className=" text-[20px] font-albegos ml-20 md:ml-70 md:text-[1.9rem]"> - Subalesh Harikrishnan</span>
     </h2>
 
     <div className="flex items-start gap-6">
       <div className="hidden lg:block w-1 h-24 bg-gradient-to-b from-purple-500 to-pink-500 rounded-full mt-2" />
-      <p className="text-xl text-purple-100/90 leading-relaxed max-w-2xl">
-        We document weddings as they unfold — honest emotions, quiet glances,
-        and moments that live far beyond the day itself.
+      <p className="text-[20px] text-purple-100/90 leading-relaxed max-w-2xl font-albegos md:text-[2rem]">
+      Founder & CEO <br />Lead Cinematographer
       </p>
     </div>
   </div>
@@ -61,7 +60,7 @@ const RightSideImage = memo(() => (
 
     <div className="relative overflow-hidden w-[320px] h-[420px] lg:w-[580px] lg:h-[600px] m-5 rounded-3xl shadow-2xl shadow-purple-500/20 ring-1 ring-purple-400/20">
       <Image
-        src="/Weddings/Jalaludeen-Shain/Jalaludeen-Shain-104.avif"
+        src="/Team/Subalesh.avif"
         alt="Wedding Photography Showcase"
         fill
         loading="lazy"

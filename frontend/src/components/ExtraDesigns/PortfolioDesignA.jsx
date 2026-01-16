@@ -11,7 +11,7 @@ export default function PortfolioGallery({
   description = "Real emotions, vibrant celebrations, and timeless memories captured.",
   images = [],
   buttonLabel = "View Full Portfolio",
-  buttonLink = "/portfolio",
+  buttonLink = "/weddings",
   particleCount = 25,
 }) {
   const [isMounted, setIsMounted] = useState(false);

@@ -45,7 +45,8 @@ const Mobilenavbar = ({ toggleNavbar }) => {
             <NavItem href="/weddings" label="Weddings" />
             <NavItem href="/baby-shoots" label="Baby Shoots" />
             <NavItem href="/maternity-shoots" label="Maternity Shoots" />
-            <NavItem href="/portfolio" label="Portfolio" />
+            {/* <NavItem href="#" label="Packages" /> */}
+            {/* <NavItem href="#" label="Videos" /> */}
             <NavItem href="/aboutus" label="About us" />
             <NavItem href="/contactus" label="Contact Us" />
           </ul>

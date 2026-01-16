@@ -12,41 +12,65 @@ const ThreeDCarousel = () => {
     () => [
       {
         id: 1,
-        url: "https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=80",
-        title: "Rahul Kumar",
-        description: "Lead Wedding Photographer • 10+ Years Experience",
+        url: "/Team/Nandhini-Harikrishnan.avif",
+        title: "Nandhini Harikrishnan",
+        description: "Investor",
         event: "Lead Photographer",
-        location: "Chennai",
+        // location: "Chennai",
       },
       {
         id: 2,
-        url: "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=1200&q=80",
-        title: "Ananya Sharma",
-        description: "Candid Photography Specialist & Creative Lead",
+        url: "/Team/Haridharani.avif",
+        title: "Haridharani",
+        description: "Audit & Finance Manager",
         event: "Candid Specialist",
         location: "Bangalore",
       },
       {
         id: 3,
-        url: "https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=1200&q=80",
-        title: "Vikram Singh",
-        description: "Head Videographer • Cinematic Wedding Films",
+        url: "/Team/Bakthavachalu.avif",
+        title: "Bakthavachalu",
+        description: "General Manager",
         event: "Cinematographer",
         location: "Hyderabad",
       },
       {
         id: 4,
-        url: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1200&q=80",
-        title: "Sneha Patel",
-        description: "Pre-Wedding Shoot Expert & Concept Designer",
+        url: "/Team/Sneha.avif",
+        title: "Sneha",
+        description: "Markerting Analyst",
         event: "Pre-Wedding Specialist",
         location: "Mumbai",
       },
       {
         id: 5,
-        url: "https://images.unsplash.com/photo-1595434091143-b375ced5fe5c?w=1200&q=80",
-        title: "Arjun Mehta",
-        description: "Assistant Photographer • Drone & Outdoor Specialist",
+        url: "/Team/Susethira.avif",
+        title: "Susethira",
+        description: "Data Analyst",
+        event: "Drone Specialist",
+        location: "Chennai",
+      },
+      {
+        id: 6,
+        url: "/Team/Eashwar.avif",
+        title: "Eashwar",
+        description: "Lead Photographer",
+        event: "Drone Specialist",
+        location: "Chennai",
+      },
+      {
+        id: 7,
+        url: "/Team/Mythili.avif",
+        title: "Mythili",
+        description: "Video Editor & Photographer",
+        event: "Drone Specialist",
+        location: "Chennai",
+      },
+      {
+        id: 8,
+        url: "/Team/Naveen-Kumar.avif",
+        title: "Naveen Kumar",
+        description: "Lead Analyst",
         event: "Drone Specialist",
         location: "Chennai",
       },
@@ -60,7 +84,7 @@ const ThreeDCarousel = () => {
 
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % weddingImages.length);
-    }, 4000);
+    }, 2000);
 
     return () => clearInterval(timer);
   }, [isAutoPlay, isHovered, weddingImages.length]);
@@ -89,7 +113,7 @@ const ThreeDCarousel = () => {
         <div className="absolute top-20 left-20 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
         <div
           className="absolute bottom-20 right-20 w-72 h-72 bg-pink-500/20 rounded-full blur-3xl animate-pulse"
-          style={{ animationDelay: "1s" }}
+          style={{ animationDelay: "3000" }}
         ></div>
       </div>
 
@@ -102,16 +126,16 @@ const ThreeDCarousel = () => {
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-pink-500" />
             </span>
             <span className="text-xs font-black text-white tracking-[0.2em] uppercase">
-              Our Approach
+              Meet Our Team
             </span>
           </div>
 
           <h2 className="text-3xl lg:text-4xl font-black">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-purple-100">
-              Why Choose{" "}
+              People Behind{" "}
             </span>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-pink-300 to-purple-300">
-              Our Wedding Photography
+              The Excellence
             </span>
           </h2>
         </div>
@@ -147,13 +171,13 @@ const ThreeDCarousel = () => {
                 {index === currentIndex && (
                   <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6 animate-fadeInUp">
                     <div className="mb-3 md:mb-4">
-                      <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-white text-xs mb-3">
-                        {image.event} • {image.location}
-                      </span>
-                      <h3 className="text-white text-xl md:text-2xl font-bold mb-1">
+                      {/* <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-white text-xs mb-3">
+                        {image.event} {image.location}
+                      </span> */}
+                      <h3 className="text-white text-xl md:text-2xl mb-1 font-albegos">
                         {image.title}
                       </h3>
-                      <p className="text-white/80 text-sm md:text-base">
+                      <p className="text-white/80 text-sm md:text-base font-albegos">
                         {image.description}
                       </p>
                     </div>

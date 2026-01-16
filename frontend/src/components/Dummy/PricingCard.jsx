@@ -38,7 +38,7 @@ export default function PricingCard({ service }) {
           </h2>
 
           <p className="text-neutral-600 text-sm sm:text-base md:text-lg">
-            Investment starting from
+            Packages starting from
           </p>
           <div className="text-4xl sm:text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-pink-600 to-rose-500 bg-clip-text text-transparent mt-2">
             {service.basePrice}
@@ -107,7 +107,7 @@ export default function PricingCard({ service }) {
                 >
                   <button className="w-full bg-gradient-to-r from-pink-600 to-rose-500 hover:from-pink-700 hover:to-rose-600 text-white font-semibold py-4 sm:py-5 md:py-6 px-6 rounded-2xl shadow-lg hover:shadow-amber-300/50 transform hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group focus:outline-none focus:ring-4 focus:ring-pink-300">
                     <span className="text-base sm:text-lg md:text-xl">
-                      Get Started Today
+                      Book Now
                     </span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                   </button>
@@ -123,7 +123,7 @@ export default function PricingCard({ service }) {
             isVisible ? "opacity-100" : "opacity-0"
           }`}
         >
-          {["Fast Delivery", "Expert Team", "24/7 Support"].map((badge, i) => (
+          {["Fast Delivery", "Expert Team", "Affordable"].map((badge, i) => (
             <div
               key={i}
               className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm text-xs sm:text-sm text-neutral-600 font-medium hover:shadow-md transition-shadow duration-300"

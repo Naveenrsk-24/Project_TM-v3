@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef, useMemo, useCallback } from "react";
-import { Camera, Award, Users, MapPin, Sparkles } from "lucide-react";
+import { Camera, Award, Users, MapPin, Sparkles,Hourglass } from "lucide-react";
 
 const KeywordRichAbout = () => {
   const [typedText, setTypedText] = useState("");
@@ -14,44 +14,41 @@ const KeywordRichAbout = () => {
 
   /* ---------------------------- DATA ---------------------------- */
   const phrases = [
-    "Best Wedding Photographers in Chennai",
-    "Professional Candid Photography Experts",
-    "Award-Winning Wedding Cinematographers",
-    "Trusted Pre-Wedding Photoshoot Specialists",
+    "A Professional Wedding Photography Team Focused on Meaningful Moments!!",
   ];
 
   const stats = [
     {
-      number: "1000+",
-      label: "Weddings Captured",
+      number: "150+",
+      label: "Events Captured",
       icon: Camera,
       image:
-        "https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=80",
-      description: "Epic love stories documented",
+        "/Weddings/Rajasekar-Nithya/Rajasekar-Nithyashree-R-17.avif",
+      description: "Experience You Can Trust!",
     },
     {
-      number: "50K+",
-      label: "Happy Clients",
+      number: "100+",
+      label: "Trusted by families",
       icon: Users,
       image:
-        "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=400&q=80",
-      description: "Satisfied couples worldwide",
+        "/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-R-14.avif",
+      description: "Families Choose Us",
     },
     {
-      number: "15+",
-      label: "Industry Awards",
+      number: "100%",
+      label: "Focused on timeless quality",
+      icon: Hourglass,
+      image:
+        "/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-PW-2.avif",
+      description: "Timeless, Lasting Quality",
+    },
+    {
+      number: "1",
+      label: "Professional Team",
       icon: Award,
       image:
-        "https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=400&q=80",
-      description: "National & international recognition",
-    },
-    {
-      number: "25+",
-      label: "Cities Covered",
-      icon: MapPin,
-      image:
-        "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&q=80",
-      description: "Pan-India coverage",
+        "/Maternity/Hemalatha/Hemalatha-S-5.avif",
+      description: "Skilled.Reliable.Professionlism",
     },
   ];
 
@@ -144,7 +141,7 @@ const KeywordRichAbout = () => {
             rounded-full text-white font-medium md:font-bold 
             text-xs md:text-sm tracking-wide mb-6"
           >
-            PROFESSIONAL PHOTOGRAPHY SERVICES
+           TM Studios Photography
           </span>
 
           <h2 className="text-3xl xs:text-4xl md:text-6xl font-bold mb-4 md:mb-6">
@@ -159,12 +156,15 @@ const KeywordRichAbout = () => {
           </h2>
 
           <p className="text-base md:text-xl text-white/80 max-w-3xl md:max-w-4xl mx-auto leading-relaxed px-2">
+          "We freeze your beautiful moments through our frames and lighting."
+          </p>
+          {/* <p className="text-base md:text-xl text-white/80 max-w-3xl md:max-w-4xl mx-auto leading-relaxed px-2">
             Premier <strong className="text-white">wedding photography studio in Chennai</strong>,
             specializing in <strong className="text-white">candid photography</strong>,
             <strong className="text-white"> traditional wedding shoots</strong>,
             <strong className="text-white"> cinematic videography</strong> and
             <strong className="text-white"> pre-wedding photography</strong>.
-          </p>
+          </p> */}
         </div>
 
         {/* ---------------- STATS ---------------- */}
