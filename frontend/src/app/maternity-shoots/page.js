@@ -15,7 +15,7 @@ export default function MaternityPage() {
   const service = getServiceBySlug("maternity-shoots");
 
   const h1 = "Maternity Photography";
-  const h2 = "Premium Maternity Photography Portfolio in Chennai";
+  const h2 = "Premium Maternity Photography in Chennai";
 
   return (
     <>

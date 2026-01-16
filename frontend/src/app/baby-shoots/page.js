@@ -17,7 +17,7 @@ export default function BabyshootPage() {
   const service = getServiceBySlug("baby-shoots");
 
   const h1 = "Baby Photography";
-  const h2 = "Premium baby Photography Portfolio in Chennai";
+  const h2 = "Premium baby Photography in Chennai";
 
   return (
     <>
