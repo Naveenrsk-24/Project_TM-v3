@@ -80,18 +80,11 @@ export default function Footer() {
               Quick Links
             </p>
             <ul className="mt-6 space-y-4">
+
               {/* NEW LINKS ADDED AT THE TOP */}
               <li>
                 <Link
-                  href="/all-pages"
-                  className="flex text-base text-black transition-all duration-200 hover:text-pink-600"
-                >
-                  All Pages
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/weddings/all-locations"
+                  href="/weddings"
                   className="flex text-base text-black transition-all duration-200 hover:text-pink-600"
                 >
                   Weddings
@@ -99,7 +92,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/baby-shoots/all-locations"
+                  href="/baby-shoots"
                   className="flex text-base text-black transition-all duration-200 hover:text-pink-600"
                 >
                   Baby Shoots
@@ -107,7 +100,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/maternity-shoots/all-locations"
+                  href="/maternity-shoots"
                   className="flex text-base text-black transition-all duration-200 hover:text-pink-600"
                 >
                   Maternity Shoots
