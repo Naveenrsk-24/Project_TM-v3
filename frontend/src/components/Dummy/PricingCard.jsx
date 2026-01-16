@@ -102,7 +102,7 @@ export default function PricingCard({ service }) {
               {/* CTA Button */}
               <div className="mt-8 sm:mt-10">
                 <Link
-                  href="/booking"
+                  href="/contactus"
                   aria-label={`Get started with ${service.title}`}
                 >
                   <button className="w-full bg-gradient-to-r from-pink-600 to-rose-500 hover:from-pink-700 hover:to-rose-600 text-white font-semibold py-4 sm:py-5 md:py-6 px-6 rounded-2xl shadow-lg hover:shadow-amber-300/50 transform hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group focus:outline-none focus:ring-4 focus:ring-pink-300">

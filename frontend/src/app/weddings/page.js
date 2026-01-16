@@ -48,7 +48,7 @@ export default function WeddingsPage() {
       <TestimonialCarousel2 />
       <ClassicFAQSection2 />
 
-      <ContactForm service={service} />
+      {/* <ContactForm service={service} /> */}
     </>
   );
 }

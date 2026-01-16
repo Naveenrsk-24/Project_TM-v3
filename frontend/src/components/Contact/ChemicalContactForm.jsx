@@ -96,7 +96,7 @@ export function ChemicalContactForm({
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
 
-                {input("Bride/Groom Name", "text", "name", formData, handleInputChange, true)}
+                {input("Name", "text", "name", formData, handleInputChange, true)}
                 {input("Email", "email", "email", formData, handleInputChange, true)}
                 {input("Phone", "text", "phone", formData, handleInputChange, true)}
                 {input("City", "text", "city", formData, handleInputChange)}
