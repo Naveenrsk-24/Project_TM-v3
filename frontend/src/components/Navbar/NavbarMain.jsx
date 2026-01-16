@@ -153,7 +153,7 @@ const NavBarMain = () => {
 
                 {/* Contact Us Button */}
                 <Link
-                  href="/booking"
+                  href="/contactus"
                   aria-label="Book a wedding photography session"
                 >
                   <button
