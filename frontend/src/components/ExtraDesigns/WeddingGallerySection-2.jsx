@@ -27,7 +27,7 @@ const SectionHeader = memo(() => (
     </div> */}
 
     <h2 className="text-6xl lg:text-8xl font-black text-white leading-[0.95] mb-8">
-      “Criticism came
+      “Criticism came,
       <br />
       integrity remains”{" "}
       <span className="relative inline-block">
