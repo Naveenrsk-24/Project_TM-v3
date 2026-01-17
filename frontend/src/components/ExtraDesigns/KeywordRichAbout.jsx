@@ -14,7 +14,8 @@ const KeywordRichAbout = () => {
 
   /* ---------------------------- DATA ---------------------------- */
   const phrases = [
-    "A Professional Wedding Photography Team Focused on Meaningful Moments!!",
+    "A Professional Wedding Photography Team",
+    // "A Professional Wedding Photography Team Focused on Meaningful Moments!!",
   ];
 
   const stats = [
