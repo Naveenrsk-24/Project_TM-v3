@@ -12,7 +12,7 @@ const ThreeDCarousel = () => {
     () => [
       {
         id: 1,
-        url: "/Team/Nandhini-Harikrishnan.avif",
+        url: "/Team/Nandhini-HariKrishnan.avif",
         title: "Nandhini Harikrishnan",
         description: "Investor",
         event: "Lead Photographer",
