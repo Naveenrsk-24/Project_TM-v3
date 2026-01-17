@@ -10,7 +10,6 @@ import PhotographyCategories from "@/components/ExtraDesigns/PortfolioCategoryDe
 import CategoryGallery from "@/components/ExtraDesigns/PortfolioCategoryGalleryA";
 import PortfolioGallery from "@/components/ExtraDesigns/PortfolioDesignA";
 import PortfolioGalleryB from "@/components/ExtraDesigns/PortfolioGalleryB";
-import PremiumNavbar from "@/components/ExtraDesigns/PremiumNavbar";
 import SubHeroSection from "@/components/ExtraDesigns/SubHeroSection";
 import ThreeDCarousel from "@/components/ExtraDesigns/ThreeDCarousel";
 import ServiceParallaxGrid, {
