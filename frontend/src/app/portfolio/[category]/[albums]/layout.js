@@ -1,4 +1,4 @@
-import { pageMeta } from "@/lib/meta-data";
+// import { pageMeta } from "@/lib/meta-data";
 
 export async function generateMetadata({ params }) {
   const { category, albums } = params;

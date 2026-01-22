@@ -1,8 +1,4 @@
-import {
-  generateStructuredData,
-  generateFAQSchema,
-  uniqueSchemas,
-} from "@/lib/seo-utils";
+
 
 import HeroSection from "@/components/Home/HeroSection";
 import SubHeroSection from "@/components/ExtraDesigns/SubHeroSection";
@@ -18,17 +14,6 @@ import { galleryImages } from "@/data/Home/GalleryImages";
 import WhatsAppButton from "@/components/Home/WhatsAppButton";
 
 
-import { pageMeta } from "@/lib/meta-data";
-import { SITE_URL } from "@/lib/meta-data";
-
-
-export const metadata = pageMeta({
-  title: "Wedding Photographers in Chennai | Candid & Cinematic Photography",
-  description:
-    "Hire the best wedding photographers in Chennai for candid and cinematic photography. TM Studios delivers premium storytelling and tailored wedding packages",
-  path: "/",
-  image: "/og-image.jpg",
-});
 
 export default function Home() {
   /**
