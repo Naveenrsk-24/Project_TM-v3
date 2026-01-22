@@ -101,11 +101,7 @@ export default function Home() {
     faqList
   );
 
-  // Final combine with duplicate protection
-  const combinedSchema = uniqueSchemas([
-    ...homepageStructuredData,
-    homepageFAQSchema,
-  ]);
+
 
   return (
     <>
