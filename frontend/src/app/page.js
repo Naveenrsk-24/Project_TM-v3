@@ -44,74 +44,13 @@ export default function Home() {
     },
   ];
 
-  /**
-   * --------------------------------------------
-   * HOME PAGE — STRUCTURED DATA
-   * (Organization + FAQ)
-   * --------------------------------------------
-   */
-
-  // Modern API version
-  const homepageStructuredData = generateStructuredData({
-    resolution: { service: null }, // homepage = NOT a service page
-    manual: {
-      name: "TM Studios Photography",
-      description:
-        "Award-winning wedding, maternity, and baby photography serving Chennai & Tamil Nadu.",
-      telephone: "+91-7358279252",
-      email: "subalesh@tmstudios.photography",
-      priceRange: "₹35,000 - ₹2,00,000", // optional (good for Local SEO)
-
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "123 Photography Lane",
-        addressLocality: "Chennai",
-        addressRegion: "Tamil Nadu",
-        postalCode: "600001",
-        addressCountry: "IN",
-      },
-
-      sameAs: [
-        "https://www.instagram.com/tmstudios.photography",
-        "https://www.facebook.com/TMStudiosphotohgraphy",
-        "https://www.youtube.com/@Withme-Subalesh",
-      ],
-
-      logo: `${SITE_URL}/logo.png`,
-      image: [
-        `${SITE_URL}/og-image.jpg`,
-      ],
-
-      hasMap: "https://www.google.com/maps?cid=YOUR_PLACE_ID",
-    },
-
-    // homepage has NO service FAQ
-    faqs: [],
-
-    options: {
-      includeBreadcrumbs: false, // Homepage never requires breadcrumbs
-      includeOrganization: true, // Keep full Org schema here
-    },
-  });
-
-  // Homepage FAQ schema
-  const homepageFAQSchema = generateFAQSchema(
-    { title: "TM Studios" },
-    null,
-    faqList
-  );
+  
+ 
 
 
 
   return (
     <>
-      {/* Inject JSON-LD (Homepage) */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(combinedSchema),
-        }}
-      />
 
       {/* <WeddingGallerySection/> */}
       <HeroSection />
