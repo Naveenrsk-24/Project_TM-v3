@@ -11,7 +11,7 @@ import React from "react";
 const servicesData = [
   { id: 1, image: '/Weddings/Jalaludeen-Shain/Jalaludeen-Shain-101.avif' },
   { id: 2, image: "/Weddings/Manoj&Charu/Manoj-Charu-3.avif" },
-  { id: 3, image: "/Maternity/Hemalatha-1.avif" },
+  { id: 3, image: "/Weddings/Arul-Vijayalakshmi/Arulraj-Vijayalakshmi-Banner.avif" },
   { id: 4, image: "/Weddings/Manikandan-Maheshwari/Manikandan-Maheshwari-1.avif" },
 ];
 

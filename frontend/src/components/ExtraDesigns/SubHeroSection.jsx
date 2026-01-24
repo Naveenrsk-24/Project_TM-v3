@@ -166,7 +166,7 @@ export default function SubHeroSection() {
               {/* SPARKLES BADGE */}
               <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-white rounded-full shadow-xl px-6 py-3 flex items-center gap-3 animate-fade-in-up">
                 <Sparkles className="w-5 h-5 text-amber-500" />
-                <span className="font-semibold text-gray-800 md:text-[1rem] text-[12px]">20+ Weddings Captured</span>
+                <span className="font-semibold text-gray-800 md:text-[1rem] text-[12px]">150+ Weddings Captured</span>
               </div>
             </div>
           </div>
