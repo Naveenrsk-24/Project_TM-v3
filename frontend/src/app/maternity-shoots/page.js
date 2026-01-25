@@ -19,12 +19,12 @@ export default function MaternityPage() {
 
   return (
     <>
-      <Breadcrumbs
+      {/* <Breadcrumbs
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Maternity-Shoots", href: "/maternity-shoots" },
         ]}
-      />
+      /> */}
 
       <ServiceHero
         title={h1}

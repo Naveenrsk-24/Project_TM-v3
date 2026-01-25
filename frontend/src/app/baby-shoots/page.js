@@ -21,12 +21,12 @@ export default function BabyshootPage() {
 
   return (
     <>
-      <Breadcrumbs
+      {/* <Breadcrumbs
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Baby-Shoot", href: "/baby-shoot" },
         ]}
-      />
+      /> */}
 
       <ServiceHero
         title={h1}

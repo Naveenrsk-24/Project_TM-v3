@@ -25,12 +25,12 @@ export default function WeddingsPage() {
 
   return (
     <>
-      <Breadcrumbs
+      {/* <Breadcrumbs
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Weddings", href: "/weddings" },
         ]}
-      />
+      /> */}
 
       <ServiceHero
         title={h1}
