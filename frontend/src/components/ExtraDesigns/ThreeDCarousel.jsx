@@ -75,7 +75,7 @@ const ThreeDCarousel = () => {
         location: "Chennai",
       },
     ],
-    []
+    [],
   );
 
   // ---------------- AUTO PLAY ----------------
@@ -103,7 +103,7 @@ const ThreeDCarousel = () => {
 
       return "carousel-left-far";
     },
-    [currentIndex, weddingImages.length]
+    [currentIndex, weddingImages.length],
   );
 
   return (
@@ -195,29 +195,37 @@ const ThreeDCarousel = () => {
         </div>
 
         {/* CONTROLS */}
-        <div className="flex justify-center items-center gap-6 mt-12">
+        <div
+          className="
+  flex justify-center items-center gap-4 mt-8
+  flex-wrap sm:flex-nowrap
+"
+        >
           <button
             onClick={() =>
               setCurrentIndex(
                 (prev) =>
-                  (prev - 1 + weddingImages.length) % weddingImages.length
+                  (prev - 1 + weddingImages.length) % weddingImages.length,
               )
             }
-            className="p-4 bg-white/10 backdrop-blur-md rounded-full text-white hover:bg-white/20 transition-all duration-300 hover:scale-110"
+            className="
+      p-3 sm:p-4 bg-white/10 backdrop-blur-md rounded-full text-white 
+      hover:bg-white/20 transition-all duration-300 hover:scale-110
+    "
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
 
           {/* Indicators */}
-          <div className="flex gap-2">
+          <div className="flex gap-1 sm:gap-2">
             {weddingImages.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
                 className={`transition-all duration-300 rounded-full ${
                   currentIndex === index
-                    ? "w-12 h-3 bg-gradient-to-r from-pink-500 to-purple-500"
-                    : "w-3 h-3 bg-white/30 hover:bg-white/50"
+                    ? "w-8 sm:w-12 h-2 sm:h-3 bg-gradient-to-r from-pink-500 to-purple-500"
+                    : "w-2 sm:w-3 h-2 sm:h-3 bg-white/30 hover:bg-white/50"
                 }`}
               />
             ))}
@@ -227,19 +235,25 @@ const ThreeDCarousel = () => {
             onClick={() =>
               setCurrentIndex((prev) => (prev + 1) % weddingImages.length)
             }
-            className="p-4 bg-white/10 backdrop-blur-md rounded-full text-white hover:bg-white/20 transition-all duration-300 hover:scale-110"
+            className="
+      p-3 sm:p-4 bg-white/10 backdrop-blur-md rounded-full text-white 
+      hover:bg-white/20 transition-all duration-300 hover:scale-110
+    "
           >
-            <ChevronRight className="w-6 h-6" />
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
 
           <button
             onClick={() => setIsAutoPlay((prev) => !prev)}
-            className="p-4 bg-white/10 backdrop-blur-md rounded-full text-white hover:bg-white/20 transition-all duration-300"
+            className="
+      p-3 sm:p-4 bg-white/10 backdrop-blur-md rounded-full text-white 
+      hover:bg-white/20 transition-all duration-300
+    "
           >
             {isAutoPlay ? (
-              <Pause className="w-6 h-6" />
+              <Pause className="w-5 h-5 sm:w-6 sm:h-6" />
             ) : (
-              <Play className="w-6 h-6" />
+              <Play className="w-5 h-5 sm:w-6 sm:h-6" />
             )}
           </button>
         </div>

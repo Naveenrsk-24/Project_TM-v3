@@ -80,7 +80,7 @@ export default function Footer() {
         href="https://www.instagram.com/tmstudios.photography"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center gap-2 relative"
+        className="flex items-center gap-2 relative dark:text-black"
       >
         <Image src={InstagramLogo} alt="Instagram" className="h-5 w-5" />
         Instagram
@@ -93,7 +93,7 @@ export default function Footer() {
         href="https://www.youtube.com/@tmstudiosphotography"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center gap-2 relative"
+        className="flex items-center gap-2 relative dark:text-black"
       >
         <Image src={YoutubeLogo} alt="Youtube" className="h-5 w-5" />
         Youtube

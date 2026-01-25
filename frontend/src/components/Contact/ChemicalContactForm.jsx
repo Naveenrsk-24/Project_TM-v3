@@ -152,7 +152,7 @@ function input(label, type, name, formData, handleInputChange, required = false)
         value={formData[name]}
         onChange={(e) => handleInputChange(name, e.target.value)}
         required={required}
-        className="w-full h-12 px-4 border border-gray-200 rounded-lg focus:ring-2 focus:ring-pink-600"
+        className="w-full h-12 px-4 border border-gray-200 rounded-lg focus:ring-2 focus:ring-pink-600 text-black"
       />
     </div>
   );
