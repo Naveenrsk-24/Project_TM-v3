@@ -145,7 +145,7 @@ const KeywordRichAbout = () => {
            TM Studios Photography
           </span>
 
-          <h2 className="text-3xl xs:text-4xl md:text-6xl font-bold mb-4 md:mb-6">
+          <h1 className="text-3xl xs:text-4xl md:text-6xl font-bold mb-4 md:mb-6">
             <span className="block text-white mb-2">We Are</span>
 
             <span className="block text-transparent bg-clip-text bg-gradient-to-r 
@@ -154,7 +154,7 @@ const KeywordRichAbout = () => {
               {typedText}
               <span className="animate-about-blink">|</span>
             </span>
-          </h2>
+          </h1>
 
           <p className="text-base md:text-xl text-white/80 max-w-3xl md:max-w-4xl mx-auto leading-relaxed px-2">
           "We freeze your beautiful moments through our frames and lighting."

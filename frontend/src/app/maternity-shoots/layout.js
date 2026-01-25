@@ -4,7 +4,7 @@
 export const metadata = {
   title: "Maternity Photoshoot | Elegant Outdoor & Studio Pregnancy Photography",
   description:
-    "Elegant maternity photoshoots with premium gowns, indoor studio lighting, outdoor concepts, and artistic poses. Book Chennai’s most trusted maternity photography team.",
+    "Elegant maternity photoshoots in Chennai with premium gowns, studio lighting, outdoor concepts, and artistic poses. Book a trusted maternity photography team.",
 
   alternates: {
     canonical: "/maternity-shoots",
@@ -13,7 +13,7 @@ export const metadata = {
   openGraph: {
     title: "Maternity Photoshoot | Elegant Outdoor & Studio Photography",
     description:
-      "Elegant outdoor & studio maternity photography with premium gowns and creative concepts. View portfolio & packages.",
+      "Elegant maternity photoshoots in Chennai with premium gowns, studio lighting, outdoor concepts, and artistic poses. Book a trusted maternity photography team.",
     url: "/maternity-shoots",
     images: [
       {
